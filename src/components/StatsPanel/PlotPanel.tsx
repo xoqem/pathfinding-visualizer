@@ -1,7 +1,7 @@
-import { Box, Stack, Text, VStack } from "@chakra-ui/react";
+import { Box, Button, HStack, Stack, Text, VStack } from "@chakra-ui/react";
 import { startCase } from "lodash";
 import Plotly, { type BoxPlotData } from "plotly.js";
-import { useEffect } from "react";
+import { useCallback, useEffect } from "react";
 import { useAppContext } from "../../context/AppContext";
 import { algorithms } from "../../utils/testRun";
 
@@ -22,7 +22,7 @@ const yAxisLabels: Record<Stat, string> = {
 export default function PlotPanel() {
 	const { testRuns } = useAppContext();
 
-	useEffect(() => {
+	const drawPlots = useCallback(() => {
 		if (!testRuns) return;
 
 		for (const stat of stats) {
@@ -59,8 +59,15 @@ export default function PlotPanel() {
 		}
 	}, [testRuns]);
 
+	useEffect(() => {
+		drawPlots();
+	}, [drawPlots]);
+
 	return (
 		<Stack gap={4} padding={2} textAlign="left">
+			<HStack gap={4}>
+				<Button onClick={drawPlots}>Refresh</Button>
+			</HStack>
 			<VStack gap={4}>
 				{stats.map((stat) => (
 					<VStack key={stat} gap={2}>
