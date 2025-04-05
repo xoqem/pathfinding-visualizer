@@ -10,6 +10,7 @@ function heuristic(a: PointData, b: PointData): number {
 }
 
 interface Params {
+	checkEndPointLineOfSight?: boolean;
 	endPoint: PointData;
 	graph: Graph;
 	polygons: Polygon[] | null;
@@ -17,6 +18,7 @@ interface Params {
 }
 
 export default function* getThetaStarPath({
+	checkEndPointLineOfSight = true,
 	endPoint,
 	graph,
 	polygons,
@@ -95,9 +97,36 @@ export default function* getThetaStarPath({
 
 		const currentParent = cameFrom.get(currentPoint);
 
+		if (
+			checkEndPointLineOfSight &&
+			currentParent &&
+			!doesLineIntersectPolygons(currentParent, endPoint, polygons)
+		) {
+			const costToEndPoint = heuristic(currentParent, endPoint);
+
+			// if there is line of sight to the end point, use it
+			const newCost = (costSoFar.get(currentParent) || 0) + costToEndPoint;
+			const parent = currentParent;
+
+			costSoFar.set(endPoint, newCost);
+			const priority = newCost;
+			priorityQueue.push(endPoint, priority);
+			cameFrom.set(endPoint, parent);
+
+			pathGraph.getNode(endPoint).parent = {
+				point: parent,
+				cost: costToEndPoint,
+			};
+
+			yield path;
+
+			continue;
+		}
+
 		for (const neighbor of pathGraph.getNode(currentPoint).neighbors) {
 			let newCost: number;
 			let parent: PointData;
+			let costToParent = neighbor.cost;
 
 			if (
 				currentParent &&
@@ -109,6 +138,7 @@ export default function* getThetaStarPath({
 					(costSoFar.get(currentParent) || 0) +
 					heuristic(currentParent, neighbor.point);
 				parent = currentParent;
+				costToParent = heuristic(currentParent, neighbor.point);
 			} else {
 				// otherwise just use the current point
 				newCost = (costSoFar.get(currentPoint) || 0) + neighbor.cost;
@@ -126,7 +156,7 @@ export default function* getThetaStarPath({
 
 				pathGraph.getNode(neighbor.point).parent = {
 					point: parent,
-					cost: neighbor.cost,
+					cost: costToParent,
 				};
 
 				yield path;

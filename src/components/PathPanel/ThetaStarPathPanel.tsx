@@ -3,6 +3,7 @@ import { Button, HStack, Stack } from "@chakra-ui/react";
 import { useState } from "react";
 import { useAppContext } from "../../context/AppContext";
 import getThetaStarPath from "../../utils/getThetaStarPath";
+import SimpleCheckbox from "../ui/SimpleCheckbox";
 
 export default function ThetaStarPathPanel() {
 	const {
@@ -14,11 +15,14 @@ export default function ThetaStarPathPanel() {
 		setAppValues,
 	} = useAppContext();
 	const [busy, setBusy] = useState(false);
+	const [checkEndPointLineOfSight, setCheckEndPointLineOfSight] =
+		useState(false);
 
 	function handleRunClick() {
 		if (!graph) return;
 
 		const pathGenerator = getThetaStarPath({
+			checkEndPointLineOfSight,
 			endPoint: pathEndPoint,
 			graph,
 			polygons,
@@ -55,6 +59,11 @@ export default function ThetaStarPathPanel() {
 
 	return (
 		<Stack gap={4} padding={2} textAlign="left">
+			<SimpleCheckbox
+				label="Check endpoint line of sight"
+				checked={checkEndPointLineOfSight}
+				onChange={setCheckEndPointLineOfSight}
+			/>
 			<HStack justify="space-between">
 				<Button variant="outline" onClick={handleClearClick} disabled={busy}>
 					Clear
