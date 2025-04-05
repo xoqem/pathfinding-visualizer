@@ -1,7 +1,7 @@
 import { useCallback } from "react";
 import { useAppContext } from "../context/AppContext";
 import fetchFileAsString from "../utils/fetchFileAsString";
-import generateSvgString from "../utils/generateSvgString";
+import generateSvgStringWithRandomPolygons from "../utils/generateSvgStringWithRandomPolygons";
 import getPolygonsFromSvgString from "../utils/getPolygonsFromSvgString";
 
 export default function useLoadSvgPolygons() {
@@ -38,7 +38,7 @@ export default function useLoadSvgPolygons() {
 				getPolygonsFromSvgStringInternal(svgString);
 			});
 		} else {
-			const svgString = generateSvgString({
+			const svgString = generateSvgStringWithRandomPolygons({
 				height,
 				maxShapeSize: generatedSvgMaxShapeSize,
 				numShapes: generatedSvgNumShapes,

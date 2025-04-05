@@ -7,7 +7,7 @@ interface Params {
 	width: number;
 }
 
-export default function generateSvgString({
+export default function generateSvgStringWithRandomPolygons({
 	height,
 	numShapes = 10,
 	maxShapeSize = 20,
