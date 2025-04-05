@@ -1,56 +1,26 @@
 import { Button, HStack, Stack, Text } from "@chakra-ui/react";
 
-import { useState } from "react";
 import { useAppContext } from "../../context/AppContext";
+import useRunPathGenerator from "../../hooks/useRunPathGenerator";
 import getBreadthFirstPath from "../../utils/getBreadthFirstSearchPath";
 
 export default function BreadthFirstSearchPathPanel() {
-	const {
-		animatePath,
-		graph,
-		pathEndPoint,
-		pathStartPoint,
-		polygons,
-		setAppValues,
-	} = useAppContext();
-	const [busy, setBusy] = useState(false);
+	const { animatePath, graph, pathEndPoint, pathStartPoint, polygons } =
+		useAppContext();
+	const { busy, clearPath, runGenerator } = useRunPathGenerator();
 
 	function handleRunClick() {
 		if (!graph) return;
 
 		const pathGenerator = getBreadthFirstPath({
+			animate: animatePath,
 			endPoint: pathEndPoint,
 			graph,
 			polygons,
 			startPoint: pathStartPoint,
 		});
 
-		if (animatePath) {
-			setBusy(true);
-
-			const intervalId = setInterval(() => {
-				const path = pathGenerator.next().value;
-
-				if (path === undefined) {
-					clearInterval(intervalId);
-					setBusy(false);
-					return;
-				}
-
-				setAppValues({
-					path: {
-						...path,
-					},
-				});
-			}, 0);
-		} else {
-			const path = Array.from(pathGenerator).pop();
-			setAppValues({ path });
-		}
-	}
-
-	function handleClearClick() {
-		setAppValues({ path: null });
+		runGenerator(pathGenerator);
 	}
 
 	return (
@@ -61,7 +31,7 @@ export default function BreadthFirstSearchPathPanel() {
 			</Text>
 
 			<HStack justify="space-between">
-				<Button variant="outline" onClick={handleClearClick} disabled={busy}>
+				<Button variant="outline" onClick={clearPath}>
 					Clear
 				</Button>
 				<Button onClick={handleRunClick} disabled={busy}>

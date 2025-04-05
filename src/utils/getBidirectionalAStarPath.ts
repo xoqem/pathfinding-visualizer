@@ -9,6 +9,7 @@ function heuristic(a: PointData, b: PointData): number {
 }
 
 interface Params {
+	animate?: boolean;
 	endPoint: PointData;
 	graph: Graph;
 	polygons: Polygon[] | null;
@@ -16,6 +17,7 @@ interface Params {
 }
 
 export default function* getBidirectionalAStarPath({
+	animate,
 	endPoint,
 	graph,
 	polygons,
@@ -50,7 +52,9 @@ export default function* getBidirectionalAStarPath({
 		startPoint,
 	};
 
-	yield path;
+	if (animate) {
+		yield path;
+	}
 
 	if (
 		arePointsEqual(startPoint, endPoint) ||
@@ -106,7 +110,9 @@ export default function* getBidirectionalAStarPath({
 					cost: neighbor.cost,
 				};
 
-				yield path;
+				if (animate) {
+					yield path;
+				}
 			}
 		}
 
@@ -138,7 +144,9 @@ export default function* getBidirectionalAStarPath({
 					cost: neighbor.cost,
 				};
 
-				yield path;
+				if (animate) {
+					yield path;
+				}
 			}
 		}
 	}
@@ -168,7 +176,11 @@ export default function* getBidirectionalAStarPath({
 
 		for (const point of points) {
 			path.points.push(point);
-			yield path;
+			if (animate) {
+				yield path;
+			}
 		}
 	}
+
+	yield path;
 }

@@ -5,6 +5,7 @@ import type { Path } from "./path";
 import { arePointsEqual } from "./point";
 
 interface Params {
+	animate?: boolean;
 	endPoint: PointData;
 	graph: Graph;
 	polygons: Polygon[] | null;
@@ -12,6 +13,7 @@ interface Params {
 }
 
 export default function* getDijkstrasPath({
+	animate,
 	endPoint,
 	graph,
 	polygons,
@@ -46,7 +48,9 @@ export default function* getDijkstrasPath({
 		startPoint,
 	};
 
-	yield path;
+	if (animate) {
+		yield path;
+	}
 
 	if (
 		arePointsEqual(startPoint, endPoint) ||
@@ -82,7 +86,9 @@ export default function* getDijkstrasPath({
 
 			for (const point of points) {
 				path.points.push(point);
-				yield path;
+				if (animate) {
+					yield path;
+				}
 			}
 
 			// we're done, so break out of the main while loop
@@ -105,8 +111,12 @@ export default function* getDijkstrasPath({
 					cost: neighbor.cost,
 				};
 
-				yield path;
+				if (animate) {
+					yield path;
+				}
 			}
 		}
 	}
+
+	yield path;
 }

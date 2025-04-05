@@ -10,6 +10,7 @@ function heuristic(a: PointData, b: PointData): number {
 }
 
 interface Params {
+	animate?: boolean;
 	checkEndPointLineOfSight?: boolean;
 	endPoint: PointData;
 	graph: Graph;
@@ -18,6 +19,7 @@ interface Params {
 }
 
 export default function* getThetaStarPath({
+	animate,
 	checkEndPointLineOfSight = true,
 	endPoint,
 	graph,
@@ -53,7 +55,9 @@ export default function* getThetaStarPath({
 		startPoint,
 	};
 
-	yield path;
+	if (animate) {
+		yield path;
+	}
 
 	if (
 		arePointsEqual(startPoint, endPoint) ||
@@ -89,7 +93,9 @@ export default function* getThetaStarPath({
 
 			for (const point of points) {
 				path.points.push(point);
-				yield path;
+				if (animate) {
+					yield path;
+				}
 			}
 
 			break;
@@ -118,7 +124,9 @@ export default function* getThetaStarPath({
 				cost: costToEndPoint,
 			};
 
-			yield path;
+			if (animate) {
+				yield path;
+			}
 
 			continue;
 		}
@@ -159,8 +167,12 @@ export default function* getThetaStarPath({
 					cost: costToParent,
 				};
 
-				yield path;
+				if (animate) {
+					yield path;
+				}
 			}
 		}
 	}
+
+	yield path;
 }

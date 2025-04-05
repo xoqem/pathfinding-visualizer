@@ -2,19 +2,14 @@ import { Button, HStack, Stack } from "@chakra-ui/react";
 
 import { useState } from "react";
 import { useAppContext } from "../../context/AppContext";
+import useRunPathGenerator from "../../hooks/useRunPathGenerator";
 import getThetaStarPath from "../../utils/getThetaStarPath";
 import SimpleCheckbox from "../ui/SimpleCheckbox";
 
 export default function ThetaStarPathPanel() {
-	const {
-		animatePath,
-		graph,
-		pathEndPoint,
-		pathStartPoint,
-		polygons,
-		setAppValues,
-	} = useAppContext();
-	const [busy, setBusy] = useState(false);
+	const { animatePath, graph, pathEndPoint, pathStartPoint, polygons } =
+		useAppContext();
+	const { busy, clearPath, runGenerator } = useRunPathGenerator();
 	const [checkEndPointLineOfSight, setCheckEndPointLineOfSight] =
 		useState(false);
 
@@ -22,6 +17,7 @@ export default function ThetaStarPathPanel() {
 		if (!graph) return;
 
 		const pathGenerator = getThetaStarPath({
+			animate: animatePath,
 			checkEndPointLineOfSight,
 			endPoint: pathEndPoint,
 			graph,
@@ -29,32 +25,7 @@ export default function ThetaStarPathPanel() {
 			startPoint: pathStartPoint,
 		});
 
-		if (animatePath) {
-			setBusy(true);
-
-			const intervalId = setInterval(() => {
-				const path = pathGenerator.next().value;
-
-				if (path === undefined) {
-					clearInterval(intervalId);
-					setBusy(false);
-					return;
-				}
-
-				setAppValues({
-					path: {
-						...path,
-					},
-				});
-			}, 0);
-		} else {
-			const path = Array.from(pathGenerator).pop();
-			setAppValues({ path });
-		}
-	}
-
-	function handleClearClick() {
-		setAppValues({ path: null });
+		runGenerator(pathGenerator);
 	}
 
 	return (
@@ -65,7 +36,7 @@ export default function ThetaStarPathPanel() {
 				onChange={setCheckEndPointLineOfSight}
 			/>
 			<HStack justify="space-between">
-				<Button variant="outline" onClick={handleClearClick} disabled={busy}>
+				<Button variant="outline" onClick={clearPath}>
 					Clear
 				</Button>
 				<Button onClick={handleRunClick} disabled={busy}>
