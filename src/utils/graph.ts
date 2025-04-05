@@ -1,5 +1,5 @@
 import { PointData } from "pixi.js";
-import { arePointsEqual, getDistance } from "./point";
+import { arePointsEqual } from "./point";
 
 export interface Neighbor {
   point: PointData;
