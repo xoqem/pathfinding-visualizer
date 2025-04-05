@@ -36,7 +36,7 @@ export default function ProbabilisticRoadmapGraphPanel() {
   }
 
   return (
-    <Stack gap={4} p={2} textAlign="left">
+    <Stack gap={4} padding={2} textAlign="left">
       <SimpleSlider
         label="maxNeighborDistance"
         max={300}

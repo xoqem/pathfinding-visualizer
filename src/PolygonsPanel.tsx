@@ -31,18 +31,18 @@ export default function PolygonPanel() {
     setAppValues({ polygons: null });
   }
 
-  function handleSelectChange(event: any) {
+  function handleFilePathSelectChange(event: React.ChangeEvent<HTMLSelectElement>) {
     setFilePath(event.target.value);
   }
 
   return (
-    <Stack width={200} gap={4} p={2} textAlign="left">
+    <Stack gap={4} padding={2} textAlign="left">
       <Text fontSize="large" textAlign="center">
         Polygons
       </Text>
 
       <NativeSelect.Root>
-        <NativeSelect.Field onChange={handleSelectChange} value={filePath}>
+        <NativeSelect.Field onChange={handleFilePathSelectChange} value={filePath}>
           <option value="./maze.svg">maze.svg</option>
           <option value="./shapes.svg">shapes.svg</option>
         </NativeSelect.Field>

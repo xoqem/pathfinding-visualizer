@@ -1,18 +1,47 @@
-import { Stack, Text } from "@chakra-ui/react";
+import { NativeSelect, Stack, Text } from "@chakra-ui/react";
+import startCase from "lodash/startCase";
 
 import ProbabilisticRoadmapGraphPanel from "./ProbabilisticRoadmapGraphPanel";
-import PolygonPanel from "./PolygonsPanel";
+import { useMemo, useState } from "react";
+
+enum GraphType {
+  probabilisticRoadmap = "probabilisticRoadmap",
+}
 
 export default function GraphPanel() {
+  const [graphType, setGraphType] = useState<GraphType | null>(GraphType.probabilisticRoadmap);
+
+  function handleGraphTypeSelectChange(event: React.ChangeEvent<HTMLSelectElement>) {
+    setGraphType(event.target.value as GraphType);
+  }
+
+  const graphTypePanel = useMemo(() => {
+    switch (graphType) {
+      case GraphType.probabilisticRoadmap:
+        return <ProbabilisticRoadmapGraphPanel />;
+      default:
+        return <Text>Select a graph type.</Text>
+    }
+  }, [graphType]);
+
   return (
-    <Stack width={200} gap={4} p={2} textAlign="left">
+    <Stack gap={4} padding={2} textAlign="left">
       <Text fontSize="large" textAlign="center">
         Graph
       </Text>
 
-      <ProbabilisticRoadmapGraphPanel />
+      <NativeSelect.Root>
+        <NativeSelect.Field onChange={handleGraphTypeSelectChange} value={graphType || undefined}>
+          {
+            Object.values(GraphType).map((value) => (
+              <option key={value} value={value}>{startCase(value)}</option>
+            ))
+          }
+        </NativeSelect.Field>
+        <NativeSelect.Indicator />
+      </NativeSelect.Root>
 
-      <PolygonPanel />
+      {graphTypePanel}
     </Stack>
   );
 }
