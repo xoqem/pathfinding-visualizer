@@ -1,15 +1,17 @@
 import { Button, HStack, NativeSelect, Stack, Text } from "@chakra-ui/react";
 import startCase from "lodash/startCase";
 
-import { useEffect, useMemo, useState } from "react";
+import { useMemo, useState } from "react";
 import { TfiTarget } from "react-icons/tfi";
 import { useAppContext } from "../../context/AppContext";
 import SimpleInput from "../ui/SimpleInput";
 import AStarPathPanel from "./AStarPathPanel";
+import BidirectionalAStarPathPanel from "./BidirectionalAStarPathPanel";
 import DijkstrasPathPanel from "./DijkstrasPathPanel";
 
 enum AlgorithmType {
 	aStar = "aStar",
+	bidirectionalAStar = "bidirectionalAStar",
 	dijkstras = "dijkstras",
 }
 
@@ -49,6 +51,8 @@ export default function PathPanel() {
 		switch (graphType) {
 			case AlgorithmType.aStar:
 				return <AStarPathPanel />;
+			case AlgorithmType.bidirectionalAStar:
+				return <BidirectionalAStarPathPanel />;
 			case AlgorithmType.dijkstras:
 				return <DijkstrasPathPanel />;
 			default:
