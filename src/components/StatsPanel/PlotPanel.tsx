@@ -41,13 +41,19 @@ export default function PlotPanel() {
 					};
 				},
 			);
+
 			Plotly.newPlot(`${stat}Plot`, pathDistanceRatioPlotData, {
 				yaxis: {
 					tickmode: "auto",
-					nticks: 10, // Increase the number of ticks on the y-axis
+					nticks: 10,
 					title: {
 						text: yAxisLabels[stat],
 					},
+				},
+				margin: {
+					t: 50,
+					b: 50,
+					r: 50,
 				},
 			});
 		}
