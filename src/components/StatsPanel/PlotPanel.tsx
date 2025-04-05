@@ -92,9 +92,20 @@ export default function PlotPanel() {
 			Plotly.newPlot(`${stat}Plot`, pathDistanceRatioPlotData, {
 				yaxis: {
 					tickmode: "auto",
+					tickfont: {
+						size: 14,
+					},
 					nticks: 10,
 					title: {
 						text: yAxisLabels[stat],
+						font: {
+							size: 20,
+						},
+					},
+				},
+				xaxis: {
+					tickfont: {
+						size: 15,
 					},
 				},
 				margin: {
