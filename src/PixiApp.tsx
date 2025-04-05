@@ -2,7 +2,6 @@ import { Application, extend } from "@pixi/react";
 import { Container, Graphics } from "pixi.js";
 import { useCallback, useMemo } from "react";
 
-import "./App.css";
 import useSvgPolygons from "./hooks/useSvgPolygons";
 import getProbabilisticRoadmapGraph from "./utils/getProbabilisticRoadmapGraph";
 import drawBackground from "./graphics/drawBackground";
@@ -19,7 +18,7 @@ interface Props {
   width: number;
 }
 
-export default function App({ height, width }: Props) {
+export default function PixiApp({ height, width }: Props) {
   const { loading, polygons } = useSvgPolygons("./public/example.svg");
 
   const graph = useMemo(() => {
