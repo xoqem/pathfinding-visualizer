@@ -20,7 +20,14 @@ export default function App() {
   }, [mapHeight, loading, polygons, mapWidth]);
 
   return (
-    <div>
+    <div
+      style={{
+        height: mapHeight + 2,
+        width: mapWidth + 2,
+        background: "#ffffff",
+        border: "1px solid #000000",
+      }}
+    >
       <PixiApp
         graph={graph}
         height={mapHeight}
