@@ -1,6 +1,6 @@
 import { Button, Stack, Table } from "@chakra-ui/react";
 import { startCase } from "lodash";
-import { path, type PointData, type Polygon } from "pixi.js";
+import type { PointData, Polygon } from "pixi.js";
 import { useMemo, useState } from "react";
 import { useAppContext } from "../context/AppContext";
 import generateSvgStringWithRandomPolygons from "../utils/generateSvgStringWithRandomPolygons";

@@ -5,5 +5,5 @@ export function arePointsEqual(pointA: PointData, pointB: PointData) {
 }
 
 export function getDistance(a: PointData, b: PointData) {
-	return Math.sqrt((a.x - b.x) ** 2 + (a.y - b.y) ** 2);
+	return Math.hypot(a.x - b.x, a.y - b.y);
 }

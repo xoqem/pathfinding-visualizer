@@ -2,10 +2,10 @@ import FlatQueue from "flatqueue";
 import type { PointData, Polygon } from "pixi.js";
 import type Graph from "./graph";
 import type { Path } from "./path";
-import { arePointsEqual } from "./point";
+import { arePointsEqual, getDistance } from "./point";
 
 function heuristic(a: PointData, b: PointData): number {
-	return Math.sqrt((a.x - b.x) ** 2 + (a.y - b.y) ** 2);
+	return getDistance(a, b);
 }
 
 interface Params {
