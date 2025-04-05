@@ -59,7 +59,10 @@ export default function StatsPanel() {
 							<Progress.Range />
 						</Progress.Track>
 						<Progress.ValueText>
-							{((loadingPercent || 0) * 100).toFixed(2)}%
+							{((loadingPercent || 0) * 100).toLocaleString(undefined, {
+								maximumFractionDigits: 2,
+							})}
+							%
 						</Progress.ValueText>
 					</Progress.Root>
 				)}

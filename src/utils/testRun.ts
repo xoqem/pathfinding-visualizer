@@ -136,7 +136,7 @@ export const algorithms = [
 	"thetaStarEndCheck",
 ] as const;
 
-type Algorithm = (typeof algorithms)[number];
+export type Algorithm = (typeof algorithms)[number];
 
 export interface TestRun {
 	appValues: Partial<AppValues>;
