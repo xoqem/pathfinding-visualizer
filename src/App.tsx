@@ -56,8 +56,7 @@ export default function App() {
   return (
     <Flex columnGap={4}>
       <Box
-        // borderColor="black"
-        borderRadius={4}
+        borderRadius="sm"
         borderWidth={1}
         height={height + 2}
         minHeight={height + 2}
@@ -72,8 +71,8 @@ export default function App() {
           width={width}
         />
       </Box>
-      <Box borderRadius={4} borderWidth={1} overflow="scroll" width={200}>
-        <Stack width="200px" gap="4" p={2} textAlign="left">
+      <Box borderRadius="sm" borderWidth={1} overflow="scroll" width={200}>
+        <Stack width={200} gap={4} p={2} textAlign="left">
           <Text fontSize="large" textAlign="center">
             Graph
           </Text>
