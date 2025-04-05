@@ -1,7 +1,9 @@
 import { Box, Stack, Text, VStack, Wrap } from "@chakra-ui/react";
-import Plotly from "plotly.js";
+import { startCase } from "lodash";
+import Plotly, { type BoxPlotData } from "plotly.js";
 import { useEffect } from "react";
 import { useAppContext } from "../../context/AppContext";
+import { algorithms } from "../../utils/testRun";
 
 export default function PlotPanel() {
 	const { testRuns } = useAppContext();
@@ -9,26 +11,40 @@ export default function PlotPanel() {
 	useEffect(() => {
 		if (!testRuns) return;
 
-		const y0 = [];
-		const y1 = [];
-		for (let i = 0; i < 50; i++) {
-			y0[i] = Math.random();
-			y1[i] = Math.random() + 1;
-		}
+		// const y0 = [];
+		// const y1 = [];
+		// for (let i = 0; i < 50; i++) {
+		// 	y0[i] = Math.random();
+		// 	y1[i] = Math.random() + 1;
+		// }
 
-		const trace1 = {
-			y: y0,
-			type: "box" as const,
-		};
+		// const trace1 = {
+		// 	y: y0,
+		// 	type: "box" as const,
+		// };
 
-		const trace2 = {
-			y: y1,
-			type: "box" as const,
-		};
+		// const trace2 = {
+		// 	y: y1,
+		// 	type: "box" as const,
+		// };
 
-		const data: Partial<Plotly.BoxPlotData>[] = [trace1, trace2];
+		// const data: Partial<Plotly.BoxPlotData>[] = [trace1, trace2];
 
-		Plotly.newPlot("pathDistanceRatioPlot", data);
+		const pathDistanceRatioPlotData = algorithms.map(
+			(algorithm): Partial<BoxPlotData> => {
+				const y = testRuns
+					.map((run) => run.pathStatsMap.get(algorithm)?.pathDistanceRatio)
+					.filter((value): value is number => value !== undefined);
+
+				return {
+					y,
+					type: "box" as const,
+					name: startCase(algorithm),
+				};
+			},
+		);
+
+		Plotly.newPlot("pathDistanceRatioPlot", pathDistanceRatioPlotData);
 	}, [testRuns]);
 
 	return (

@@ -127,9 +127,20 @@ function getPathStats(
 	};
 }
 
+export const algorithms = [
+	"breadthFirstSearch",
+	"aStar",
+	"bidirectionalAStar",
+	"dijkstras",
+	"thetaStar",
+	"thetaStarEndCheck",
+] as const;
+
+type Algorithm = (typeof algorithms)[number];
+
 export interface TestRun {
 	appValues: Partial<AppValues>;
-	pathStatsMap: Map<string, PathStats | null>;
+	pathStatsMap: Map<Algorithm, PathStats | null>;
 }
 
 export function doTestRun(): TestRun | null {
@@ -161,9 +172,12 @@ export function doTestRun(): TestRun | null {
 		}),
 	};
 
-	const pathStatsMap = new Map<string, PathStats | null>();
+	const pathStatsMap = new Map<Algorithm, PathStats | null>();
 	for (const [key, pathGenerator] of Object.entries(pathGenerators)) {
-		pathStatsMap.set(key, getPathStats(pathGenerator, optimalPathDistance));
+		pathStatsMap.set(
+			key as Algorithm,
+			getPathStats(pathGenerator, optimalPathDistance),
+		);
 	}
 
 	return {
