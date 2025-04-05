@@ -2,6 +2,7 @@ import type { PointData, Polygon } from "pixi.js";
 import React from "react";
 import type Graph from "../utils/graph/graph";
 import type { Path } from "../utils/path/path";
+import type { TestRun } from "../utils/testRun";
 
 export interface AppValues {
 	animateGraph: boolean;
@@ -26,6 +27,7 @@ export interface AppValues {
 	scaleSvgToFit: boolean;
 	svgFilePath: string | null;
 	svgString: string | null;
+	testRuns: TestRun[] | null;
 	width: number;
 }
 
@@ -52,6 +54,7 @@ export const defaultAppValues: AppValues = {
 	showStatsPanel: false,
 	svgFilePath: "./shapes.svg",
 	svgString: null,
+	testRuns: null,
 	width: 800,
 } as const;
 

@@ -10,7 +10,6 @@ import { startCase } from "lodash";
 import { useMemo, useState } from "react";
 import { HiChevronLeft, HiChevronRight } from "react-icons/hi";
 import { useAppContext } from "../../context/AppContext";
-import type { TestRun } from "./testRun";
 
 const columnKeys = [
 	"pathDistance",
@@ -20,14 +19,10 @@ const columnKeys = [
 	"totalTime",
 ] as const;
 
-interface Props {
-	testRuns: NonNullable<TestRun>[];
-}
-
-export default function TestRunTable({ testRuns }: Props) {
-	const { setAppValues } = useAppContext();
+export default function TestRunTable() {
+	const { testRuns, setAppValues } = useAppContext();
 	const [page, setPage] = useState(1);
-	const visibleTestRun = useMemo(() => testRuns[page - 1], [page, testRuns]);
+	const visibleTestRun = useMemo(() => testRuns?.[page - 1], [page, testRuns]);
 	const pathStatsMapEntries = useMemo(
 		() => Array.from(visibleTestRun?.pathStatsMap.entries() || []),
 		[visibleTestRun],
@@ -55,7 +50,7 @@ export default function TestRunTable({ testRuns }: Props) {
 									size="xs"
 									onClick={() =>
 										setAppValues({
-											...visibleTestRun.appValues,
+											...visibleTestRun?.appValues,
 											path: pathStats?.path,
 										})
 									}
@@ -74,7 +69,7 @@ export default function TestRunTable({ testRuns }: Props) {
 			</Table.Root>
 
 			<Pagination.Root
-				count={testRuns.length}
+				count={testRuns?.length}
 				pageSize={1}
 				page={page}
 				onPageChange={(e) => setPage(e.page)}

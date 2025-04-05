@@ -1,4 +1,4 @@
-import { Card, Center, Flex, Spinner, Tabs, VStack } from "@chakra-ui/react";
+import { Card, Center, Flex, Spinner, Tabs } from "@chakra-ui/react";
 
 import { useEffect } from "react";
 import { LuSettings, LuShapes } from "react-icons/lu";

@@ -1,14 +1,15 @@
-import { Button, HStack, Stack } from "@chakra-ui/react";
-import { useState } from "react";
+import { Button, HStack, Stack, Tabs } from "@chakra-ui/react";
+import { AiOutlineBoxPlot } from "react-icons/ai";
+import { FaTable } from "react-icons/fa";
 import { useAppContext } from "../../context/AppContext";
+import { doTestRun } from "../../utils/testRun";
+import PlotPanel from "./PlotPanel";
 import TestRunTable from "./TestRunTable";
-import { type TestRun, doTestRun } from "./testRun";
 
 export default function StatsPanel() {
-	const { setAppValues } = useAppContext();
-	const [testRuns, setTestRuns] = useState<NonNullable<TestRun>[]>([]);
+	const { testRuns, setAppValues } = useAppContext();
 
-	async function handleRunClick() {
+	function handleRunClick() {
 		setAppValues({
 			loading: true,
 		});
@@ -19,10 +20,9 @@ export default function StatsPanel() {
 				.map(() => doTestRun())
 				.filter((testRun) => !!testRun);
 
-			setTestRuns((prevTestRuns) => [...prevTestRuns, ...newTestRuns]);
-
 			setAppValues({
 				...newTestRuns?.[0]?.appValues,
+				testRuns: [...(testRuns || []), ...newTestRuns],
 				loading: false,
 			});
 		}, 0);
@@ -34,7 +34,24 @@ export default function StatsPanel() {
 				<Button onClick={handleRunClick}>Run Test</Button>
 			</HStack>
 
-			<TestRunTable testRuns={testRuns} />
+			<Tabs.Root defaultValue="table">
+				<Tabs.List>
+					<Tabs.Trigger value="table">
+						<FaTable />
+						Table
+					</Tabs.Trigger>
+					<Tabs.Trigger value="plots">
+						<AiOutlineBoxPlot />
+						Plots
+					</Tabs.Trigger>
+				</Tabs.List>
+				<Tabs.Content value="table">
+					<TestRunTable />
+				</Tabs.Content>
+				<Tabs.Content value="plots">
+					<PlotPanel />
+				</Tabs.Content>
+			</Tabs.Root>
 		</Stack>
 	);
 }

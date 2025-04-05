@@ -1,15 +1,15 @@
 import type { PointData } from "pixi.js";
-import type { AppValues } from "../../context/AppContext";
-import generateSvgStringWithRandomPolygons from "../../utils/generateSvgStringWithRandomPolygons";
-import { getDistance } from "../../utils/geometry/point";
-import getPolygonsFromSvgString from "../../utils/getPolygonsFromSvgString";
-import getProbabilisticRoadmapGraph from "../../utils/graph/getProbabilisticRoadmapGraph";
-import getAStarPath from "../../utils/path/getAStarPath";
-import getBidirectionalAStarPath from "../../utils/path/getBidirectionalAStarPath";
-import getBreadthFirstPath from "../../utils/path/getBreadthFirstSearchPath";
-import getDijkstrasPath from "../../utils/path/getDijkstrasPath";
-import getThetaStarPath from "../../utils/path/getThetaStarPath";
-import { type Path, getPathDistance } from "../../utils/path/path";
+import type { AppValues } from "../context/AppContext";
+import generateSvgStringWithRandomPolygons from "./generateSvgStringWithRandomPolygons";
+import { getDistance } from "./geometry/point";
+import getPolygonsFromSvgString from "./getPolygonsFromSvgString";
+import getProbabilisticRoadmapGraph from "./graph/getProbabilisticRoadmapGraph";
+import getAStarPath from "./path/getAStarPath";
+import getBidirectionalAStarPath from "./path/getBidirectionalAStarPath";
+import getBreadthFirstPath from "./path/getBreadthFirstSearchPath";
+import getDijkstrasPath from "./path/getDijkstrasPath";
+import getThetaStarPath from "./path/getThetaStarPath";
+import { type Path, getPathDistance } from "./path/path";
 
 function generateTestValues() {
 	for (
