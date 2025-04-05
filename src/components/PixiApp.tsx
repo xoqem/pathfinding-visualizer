@@ -1,5 +1,5 @@
 import { Application, extend } from "@pixi/react";
-import { Container, Graphics } from "pixi.js";
+import { Container, type FederatedPointerEvent, Graphics } from "pixi.js";
 import { useCallback } from "react";
 
 import { useAppContext } from "../context/AppContext";
@@ -24,6 +24,7 @@ export default function PixiApp() {
 		polygonStrokeWidth,
 		searchAlpha,
 		width,
+		setAppValues,
 	} = useAppContext();
 
 	const drawCallback = useCallback(
@@ -53,9 +54,21 @@ export default function PixiApp() {
 		],
 	);
 
+	const handleMouseDown = useCallback(
+		(event: FederatedPointerEvent) => {
+			setAppValues({
+				clickedPoint: {
+					x: event.screen.x,
+					y: event.screen.y,
+				},
+			});
+		},
+		[setAppValues],
+	);
+
 	return (
 		<Application width={width} height={height}>
-			<pixiContainer x={0} y={0}>
+			<pixiContainer x={0} y={0} interactive onMouseDown={handleMouseDown}>
 				<pixiGraphics draw={drawCallback} />
 			</pixiContainer>
 		</Application>
