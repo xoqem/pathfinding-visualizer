@@ -25,7 +25,7 @@ export default function ProbabilisticRoadmapGraphPanel() {
 	const [busy, setBusy] = useState(false);
 
 	function handleApplyClick() {
-		setAppValues({ path: null });
+		setAppValues({ overlay: null, path: null });
 
 		const graphGenerator = getProbabilisticRoadmapGraph({
 			height,

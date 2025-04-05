@@ -1,7 +1,7 @@
 import { segmentIntersection } from "@pixi/math-extras";
 import type { PointData, Polygon } from "pixi.js";
 
-function doesLineIntersectPolygon(
+export function doesLineIntersectPolygon(
 	lineStart: PointData,
 	lineEnd: PointData,
 	polygon: Polygon | null,

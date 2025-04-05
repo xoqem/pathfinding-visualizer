@@ -3,7 +3,7 @@ import { useAppContext } from "../context/AppContext";
 import SimpleSlider from "./ui/SimpleSlider";
 
 export default function BottomMapPanel() {
-	const { graphAlpha, polygonAlpha, searchAlpha, setAppValues } =
+	const { graphAlpha, overlayAlpha, polygonAlpha, searchAlpha, setAppValues } =
 		useAppContext();
 
 	return (
@@ -36,6 +36,16 @@ export default function BottomMapPanel() {
 				step={0.1}
 				value={searchAlpha}
 				minWidth={115}
+			/>
+
+			<SimpleSlider
+				label="Overlay Alpha"
+				max={1}
+				min={0}
+				onChange={(value) => setAppValues({ overlayAlpha: value })}
+				step={0.1}
+				value={overlayAlpha}
+				minWidth={125}
 			/>
 		</HStack>
 	);

@@ -21,7 +21,7 @@ export default function GridPanel() {
 	const [busy, setBusy] = useState(false);
 
 	function handleApplyClick() {
-		setAppValues({ path: null });
+		setAppValues({ overlay: null, path: null });
 
 		const graphGenerator = getGridGraph({
 			allowDiagonal,
@@ -36,7 +36,7 @@ export default function GridPanel() {
 			setBusy(true);
 
 			const intervalId = setInterval(() => {
-				const graph = graphGenerator.next().value;
+				const { graph, overlay } = graphGenerator.next().value || {};
 
 				if (graph === undefined) {
 					clearInterval(intervalId);
@@ -44,11 +44,11 @@ export default function GridPanel() {
 					return;
 				}
 
-				setAppValues({ graph: graph.clone() });
+				setAppValues({ graph: graph.clone(), overlay: [...overlay] });
 			}, 0);
 		} else {
-			const graph = Array.from(graphGenerator).pop();
-			setAppValues({ graph });
+			const { graph, overlay } = Array.from(graphGenerator).pop() || {};
+			setAppValues({ graph, overlay });
 		}
 	}
 

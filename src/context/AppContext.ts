@@ -11,6 +11,8 @@ export interface AppValues {
 	graph: Graph | null;
 	height: number;
 	loading: boolean;
+	overlay: Polygon[] | null;
+	overlayAlpha: number;
 	path: Path | null;
 	pathEndPoint: PointData;
 	pathStartPoint: PointData;
@@ -35,6 +37,8 @@ export const defaultAppValues: AppValues = {
 	graphAlpha: 0.2,
 	height: 400,
 	loading: false,
+	overlay: null,
+	overlayAlpha: 1,
 	path: null,
 	pathStartPoint: { x: 5, y: 5 },
 	pathEndPoint: { x: 795, y: 395 },

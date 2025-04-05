@@ -5,6 +5,7 @@ import { useCallback } from "react";
 import { useAppContext } from "../context/AppContext";
 import drawBackground from "../graphics/drawBackground";
 import drawGraph from "../graphics/drawGraph";
+import drawOverlay from "../graphics/drawOverlay";
 import drawPath from "../graphics/drawPath";
 import drawPolygons from "../graphics/drawPolygons";
 
@@ -19,6 +20,8 @@ export default function PixiApp() {
 		graphAlpha,
 		height,
 		onPointClick,
+		overlay,
+		overlayAlpha,
 		path,
 		polygonAlpha,
 		polygons,
@@ -38,6 +41,7 @@ export default function PixiApp() {
 				polygons,
 				strokeWidth: polygonStrokeWidth,
 			});
+			drawOverlay({ alpha: overlayAlpha, overlay, graphics });
 			drawGraph({ alpha: graphAlpha, graph, graphics });
 			drawPath({ searchAlpha, graphics, path });
 		},
@@ -45,6 +49,8 @@ export default function PixiApp() {
 			graph,
 			graphAlpha,
 			height,
+			overlayAlpha,
+			overlay,
 			path,
 			polygonAlpha,
 			polygons,

@@ -1,6 +1,6 @@
 import type { PointData, Polygon } from "pixi.js";
 
-function isPointInPolygon(
+export function isPointInPolygon(
 	point: PointData,
 	polygon: Polygon | null,
 	strokeWidth: number,
