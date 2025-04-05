@@ -23,17 +23,25 @@ export default function* getAStarPath({
 }: Params): Generator<Path> {
 	const pathGraph = graph.clone();
 
-	pathGraph.connectPointToGraph({
-		maxNeighbors: 8,
-		point: startPoint,
-		polygons,
-	});
+	if (graph.hasPoint(startPoint)) {
+		startPoint = pathGraph.getNode(startPoint).point;
+	} else {
+		pathGraph.connectPointToGraph({
+			maxNeighbors: 8,
+			point: startPoint,
+			polygons,
+		});
+	}
 
-	pathGraph.connectPointToGraph({
-		maxNeighbors: 8,
-		point: endPoint,
-		polygons,
-	});
+	if (graph.hasPoint(endPoint)) {
+		endPoint = pathGraph.getNode(endPoint).point;
+	} else {
+		pathGraph.connectPointToGraph({
+			maxNeighbors: 8,
+			point: endPoint,
+			polygons,
+		});
+	}
 
 	const path: Path = {
 		endPoint,

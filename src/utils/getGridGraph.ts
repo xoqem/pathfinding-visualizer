@@ -1,4 +1,4 @@
-import { Polygon } from "pixi.js";
+import { type PointData, Polygon } from "pixi.js";
 
 import Graph from "./graph";
 import { doesPolygonIntersectPolygons } from "./polygon";
@@ -22,6 +22,7 @@ export default function* getGridGraph({
 }: Params): Generator<{ graph: Graph; overlayPolygons: Polygon[] }> {
 	const graph: Graph = new Graph();
 	const overlayPolygons: Polygon[] = [];
+	const gridPoints: (PointData | null)[][] = [];
 
 	yield { graph, overlayPolygons };
 
@@ -43,6 +44,7 @@ export default function* getGridGraph({
 	}
 
 	for (let x = 0; x < width; x += stepX) {
+		const columnPoints: (PointData | null)[] = [];
 		for (let y = 0; y < height; y += stepY) {
 			const startX = Math.floor(x);
 			const startY = Math.floor(y);
@@ -68,26 +70,57 @@ export default function* getGridGraph({
 				)
 			) {
 				overlayPolygons.push(overlayPolygon);
+
+				columnPoints.push(null);
 			} else {
 				const point = {
 					x: Math.round(x + gridSize / 2),
 					y: Math.round(y + gridSize / 2),
 				};
 
+				columnPoints.push(point);
 				graph.initializeGraphEntry(point);
 			}
 
 			yield { graph, overlayPolygons };
 		}
+		gridPoints.push(columnPoints);
 	}
 
-	for (const point of graph.points) {
-		graph.connectPointToGraph({
-			maxNeighbors: allowDiagonal ? 8 : 4,
-			point,
-			polygons,
-		});
+	for (let i = 0; i < gridPoints.length; i++) {
+		for (let j = 0; j < gridPoints[i].length; j++) {
+			const point = gridPoints[i][j];
+			if (!point) continue;
 
-		yield { graph, overlayPolygons };
+			const rightPoint = gridPoints[i + 1]?.[j];
+			if (rightPoint) {
+				graph.addNeighbor({ point, neighbor: { point: rightPoint, cost: 1 } });
+			}
+
+			const downPoint = gridPoints[i]?.[j + 1];
+			if (downPoint) {
+				graph.addNeighbor({ point, neighbor: { point: downPoint, cost: 1 } });
+			}
+
+			if (allowDiagonal) {
+				const upperRightPoint = gridPoints[i + 1]?.[j - 1];
+				if (upperRightPoint) {
+					graph.addNeighbor({
+						point,
+						neighbor: { point: upperRightPoint, cost: Math.SQRT2 },
+					});
+				}
+
+				const lowerRightPoint = gridPoints[i + 1]?.[j + 1];
+				if (lowerRightPoint) {
+					graph.addNeighbor({
+						point,
+						neighbor: { point: lowerRightPoint, cost: Math.SQRT2 },
+					});
+				}
+			}
+
+			yield { graph, overlayPolygons };
+		}
 	}
 }

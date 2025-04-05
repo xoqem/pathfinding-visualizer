@@ -22,16 +22,18 @@ export default function App() {
 		loadSvgPolygons();
 	}, []);
 
+	const mapCardBorderBuffer = 2;
+
 	return (
 		<Center>
 			<Flex direction="row" columnGap={4} padding={2}>
 				<Flex direction="column" rowGap={4}>
 					<Card.Root
-						height={height + 2}
-						minHeight={height + 2}
-						minWidth={width + 2}
+						height={height + mapCardBorderBuffer}
+						minHeight={height + mapCardBorderBuffer}
+						minWidth={width + mapCardBorderBuffer}
 						overflow="hidden"
-						width={width + 2}
+						width={width + mapCardBorderBuffer}
 					>
 						{loading ? (
 							<Center height="100%" width="100%">
