@@ -1,7 +1,6 @@
 import FlatQueue from "flatqueue";
 import type { PointData, Polygon } from "pixi.js";
 import type Graph from "./graph";
-import type { GraphNode } from "./graph";
 import type { Path } from "./path";
 import { arePointsEqual } from "./point";
 
@@ -76,11 +75,11 @@ export default function* getAStarPath({
 		}
 
 		if (currentPoint === endPoint) {
-			let node: GraphNode | null = pathGraph.getNode(endPoint);
+			let current: PointData | null = endPoint;
 			const points = [];
-			while (node?.parent) {
-				points.push(node.point);
-				node = pathGraph.getNode(node.parent.point);
+			while (current) {
+				points.push(current);
+				current = cameFrom.get(current) || null;
 			}
 
 			points.reverse();
