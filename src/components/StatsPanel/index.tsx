@@ -79,7 +79,9 @@ export default function StatsPanel() {
 		const url = URL.createObjectURL(blob);
 		const a = document.createElement("a");
 		a.href = url;
-		a.download = "pathStats.json";
+		const date = new Date();
+		const timestamp = date.toISOString().replace(/[:.]/g, "-");
+		a.download = `pathStats_${timestamp}.json`;
 		document.body.appendChild(a);
 		a.click();
 		document.body.removeChild(a);
