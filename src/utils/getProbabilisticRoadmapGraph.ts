@@ -63,7 +63,6 @@ export default function getProbabilisticRoadmapGraph({
     const gridHeight = (Math.ceil(heightWithPadding / step) - 1) * step;
     const startX = Math.floor((widthWithPadding - gridWidth) / 2);
     const startY = Math.floor((heightWithPadding - gridHeight) / 2);
-    console.log({ step, gridWidth, gridHeight, startX, startY });
 
     for (let x = startX; x < widthWithPadding; x += step) {
       for (let y = startY; y < heightWithPadding; y += step) {

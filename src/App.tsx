@@ -6,32 +6,39 @@ import getProbabilisticRoadmapGraph from "./utils/getProbabilisticRoadmapGraph";
 import PixiApp from "./PixiApp";
 
 export default function App() {
-  const { loading, polygons } = useSvgPolygons("./public/example.svg");
-  const mapWidth = 800;
-  const mapHeight = 400;
+  const width = 800;
+  const height = 400;
+
+  const { loading, polygons } = useSvgPolygons({
+    // filePath: './public/example.svg',
+    filePath: './public/maze.svg',
+    height,
+    scaleToFit: true,
+    width,
+  });
 
   const graph = useMemo(() => {
     if (loading) return null;
 
     return getProbabilisticRoadmapGraph({
-      height: mapHeight,
+      height,
       polygons,
-      width: mapWidth,
+      width,
     });
-  }, [mapHeight, loading, polygons, mapWidth]);
+  }, [height, loading, polygons, width]);
 
   return (
     <Box
       borderColor="black"
       borderWidth={1}
-      height={mapHeight + 2}
-      width={mapWidth + 2}
+      height={height + 2}
+      width={width + 2}
     >
       <PixiApp
         graph={graph}
-        height={mapHeight}
+        height={height}
         polygons={polygons}
-        width={mapWidth}
+        width={width}
       />
     </Box>
   );
