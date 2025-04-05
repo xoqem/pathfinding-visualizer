@@ -5,65 +5,63 @@ import { useEffect } from "react";
 import { useAppContext } from "../../context/AppContext";
 import { algorithms } from "../../utils/testRun";
 
+const stats = [
+	"pathDistanceRatio",
+	"percentGraphExplored",
+	"totalTime",
+] as const;
+
+type Stat = (typeof stats)[number];
+
+const yAxisLabels: Record<Stat, string> = {
+	pathDistanceRatio: "Ratio to Shortest Path",
+	percentGraphExplored: "Percent Graph Explored",
+	totalTime: "Time (ms)",
+};
+
 export default function PlotPanel() {
 	const { testRuns } = useAppContext();
 
 	useEffect(() => {
 		if (!testRuns) return;
 
-		// const y0 = [];
-		// const y1 = [];
-		// for (let i = 0; i < 50; i++) {
-		// 	y0[i] = Math.random();
-		// 	y1[i] = Math.random() + 1;
-		// }
+		for (const stat of stats) {
+			const pathDistanceRatioPlotData = algorithms.map(
+				(algorithm): Partial<BoxPlotData> => {
+					const y = testRuns
+						.map((run) => run.pathStatsMap.get(algorithm)?.[stat])
+						.filter((value): value is number => value !== undefined);
 
-		// const trace1 = {
-		// 	y: y0,
-		// 	type: "box" as const,
-		// };
-
-		// const trace2 = {
-		// 	y: y1,
-		// 	type: "box" as const,
-		// };
-
-		// const data: Partial<Plotly.BoxPlotData>[] = [trace1, trace2];
-
-		const pathDistanceRatioPlotData = algorithms.map(
-			(algorithm): Partial<BoxPlotData> => {
-				const y = testRuns
-					.map((run) => run.pathStatsMap.get(algorithm)?.pathDistanceRatio)
-					.filter((value): value is number => value !== undefined);
-
-				return {
-					y,
-					type: "box" as const,
-					name: startCase(algorithm),
-				};
-			},
-		);
-
-		Plotly.newPlot("pathDistanceRatioPlot", pathDistanceRatioPlotData);
+					return {
+						y,
+						type: "box" as const,
+						name: startCase(algorithm),
+						showlegend: false,
+						hoverinfo: "y",
+					};
+				},
+			);
+			Plotly.newPlot(`${stat}Plot`, pathDistanceRatioPlotData, {
+				yaxis: {
+					tickmode: "auto",
+					nticks: 10, // Increase the number of ticks on the y-axis
+					title: {
+						text: yAxisLabels[stat],
+					},
+				},
+			});
+		}
 	}, [testRuns]);
 
 	return (
 		<Stack gap={4} padding={2} textAlign="left">
 			<Wrap>
-				<VStack gap={2}>
-					<Text>Path distance ratio</Text>
-					<Box id="pathDistanceRatioPlot" width={400} height={400} />
-				</VStack>
-
-				<VStack gap={2}>
-					<Text>Percent graph explored</Text>
-					<Box id="percentGraphExploredPlot" width={400} height={400} />
-				</VStack>
-
-				<VStack gap={2}>
-					<Text>Time</Text>
-					<Box id="pathLengthPlot" width={400} height={400} />
-				</VStack>
+				{stats.map((stat) => (
+					<VStack key={stat} gap={2}>
+						<Text>{startCase(stat)}</Text>
+						<Box id={`${stat}Plot`} width={1000} height={400} />
+					</VStack>
+				))}
 			</Wrap>
 		</Stack>
 	);
