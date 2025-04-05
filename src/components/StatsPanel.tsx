@@ -196,18 +196,33 @@ export default function StatsPanel() {
 	const { setAppValues } = useAppContext();
 	const [pathStatsMaps, setPathStatsMaps] = useState<PathStatsMap[]>([]);
 
-	function handleRunClick() {
-		const testResult = doTestRun();
-		if (!testResult) return;
+	async function handleRunClick() {
+		setAppValues({
+			loading: true,
+		});
 
-		const { appValues, pathStatsMap } = testResult;
+		setTimeout(() => {
+			const testResult = doTestRun();
 
-		setPathStatsMaps((prevPathStatsMaps) => [
-			...prevPathStatsMaps,
-			pathStatsMap,
-		]);
+			if (!testResult) {
+				setAppValues({
+					loading: false,
+				});
+				return;
+			}
 
-		setAppValues(appValues);
+			const { appValues, pathStatsMap } = testResult;
+
+			setPathStatsMaps((prevPathStatsMaps) => [
+				...prevPathStatsMaps,
+				pathStatsMap,
+			]);
+
+			setAppValues({
+				...appValues,
+				loading: false,
+			});
+		}, 0);
 	}
 
 	const pathStatsMapEntries = useMemo(

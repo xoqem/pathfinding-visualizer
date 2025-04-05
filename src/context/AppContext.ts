@@ -39,7 +39,7 @@ export const defaultAppValues: AppValues = {
 	height: 400,
 	loading: false,
 	overlayPolygons: null,
-	overlayPolygonsAlpha: 1,
+	overlayPolygonsAlpha: 0.5,
 	path: null,
 	pathStartPoint: { x: 5, y: 5 },
 	pathEndPoint: { x: 795, y: 395 },

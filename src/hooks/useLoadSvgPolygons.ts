@@ -25,12 +25,16 @@ export default function useLoadSvgPolygons() {
 				svgString,
 				width,
 			});
-			setAppValues({
-				loading: false,
-				graph: null,
-				path: null,
-				polygons: newPolygons,
-			});
+			// wrapping in a setTimeout is a bit of a hack, but since we call setAppValues at the
+			// beginning of loadSvgPolygons, we want to wait until the next tick to call it again
+			setTimeout(() => {
+				setAppValues({
+					loading: false,
+					graph: null,
+					path: null,
+					polygons: newPolygons,
+				});
+			}, 0);
 		}
 
 		if (svgFilePath) {

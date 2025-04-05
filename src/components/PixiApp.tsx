@@ -78,8 +78,10 @@ export default function PixiApp() {
 				interactive={!!onPointClick}
 				onMouseDown={handleMouseDown}
 				cursor={onPointClick ? "crosshair" : "default"}
+				width={width}
+				height={height}
 			>
-				<pixiGraphics draw={drawCallback} />
+				<pixiGraphics draw={drawCallback} width={width} height={height} />
 			</pixiContainer>
 		</Application>
 	);
