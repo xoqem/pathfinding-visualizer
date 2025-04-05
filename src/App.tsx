@@ -5,7 +5,9 @@ import { useCallback, useMemo } from "react";
 import "./App.css";
 import useSvgPolygons from "./hooks/useSvgPolygons";
 import getProbabilisticRoadmapGraph from "./utils/getProbabilisticRoadmapGraph";
+import drawBackground from "./graphics/drawBackground";
 import drawGraph from "./graphics/drawGraph";
+import drawPolygons from "./graphics/drawPolygons";
 
 extend({
   Container,
@@ -34,22 +36,8 @@ export default function App({ height, width }: Props) {
         return;
       }
 
-      // set graphics background to white, with a black border
-      graphics.setStrokeStyle({ color: "#000000", width: 1, alignment: 1 });
-      graphics.setFillStyle({ color: "#ffffff" });
-      graphics.rect(0, 0, width, height);
-      graphics.fill();
-      graphics.stroke();
-
-      graphics.setFillStyle({ color: "#000000" });
-
-      polygons?.forEach((polygon) => {
-        graphics.poly(polygon.points);
-      });
-
-      graphics.fill();
-      graphics.stroke();
-
+      drawBackground({ graphics, height, width });
+      drawPolygons({ graphics, polygons });
       drawGraph({ graph, graphics });
     },
     [graph, height, loading, polygons, width]

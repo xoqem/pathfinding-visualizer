@@ -12,8 +12,8 @@ function doesLineIntersectPolygon(
   // segment can't be inside the polygon, then a line entering the last edge of the polygon would
   // need to minimally cross one other edge, so it's faster to not add that extra check
   for (let i = 0; i < polygon.points.length - 3; i += 2) {
-    const edgeStart = { x: polygon.points[i], y : polygon.points[i + 1] };
-    const edgeEnd = { x: polygon.points[i + 2], y : polygon.points[i + 3] };
+    const edgeStart = { x: polygon.points[i], y: polygon.points[i + 1] };
+    const edgeEnd = { x: polygon.points[i + 2], y: polygon.points[i + 3] };
 
     const intersection = segmentIntersection(
       lineStart,

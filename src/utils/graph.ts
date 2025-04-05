@@ -41,7 +41,7 @@ export function isPointInNeighbors(point: PointData, neighbors: Neighbor[]) {
 }
 
 export function sortNeighborsByCost(neighbors: Neighbor[]) {
-  return neighbors.sort(({ cost: costA }, {cost: costB }) => costA - costB);
+  return neighbors.sort(({ cost: costA }, { cost: costB }) => costA - costB);
 }
 
 interface AddNeighborParams {
@@ -50,11 +50,7 @@ interface AddNeighborParams {
   neighbor: Neighbor;
 }
 
-export function addNeighbor({
-  graph,
-  point,
-  neighbor,
-}: AddNeighborParams) {
+export function addNeighbor({ graph, point, neighbor }: AddNeighborParams) {
   const graphValue = getGraphValue(graph, point);
   if (isPointInNeighbors(neighbor.point, graphValue.neighbors)) return;
 
