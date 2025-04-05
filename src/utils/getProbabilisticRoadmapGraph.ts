@@ -20,7 +20,7 @@ export default function getProbabilisticRoadmapGraph({
   height,
   maxNeighborDistance = 100,
   maxNeighbors = 8,
-  numSamples = 200,
+  numSamples = 400,
   polygons,
   randomize = true,
   width,
