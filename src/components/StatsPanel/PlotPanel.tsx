@@ -64,14 +64,15 @@ export default function PlotPanel() {
 			const pathDistanceRatioPlotData = algorithms.map(
 				(algorithm): Partial<BoxPlotData> => {
 					const y = testRuns
-						.map((run) => run.pathStatsMap.get(algorithm)?.[stat])
+						.map((run) => run.pathStatsMap[algorithm]?.[stat])
 						.filter((value): value is number => value !== undefined);
 
 					dataForStat[algorithm] = {
 						y,
 						mean: math.mean(y),
 						median: math.median(y),
-						std: math.std(y),
+						// there may be a type mistake in mathjs, typeof shows returns a number, rather than the MathNumericType[] it suggests it will return
+						std: math.std(y) as unknown as number,
 						min: math.min(y),
 						max: math.max(y),
 						q1: math.quantileSeq(y, 0.25),

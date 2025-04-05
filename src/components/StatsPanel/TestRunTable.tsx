@@ -24,7 +24,7 @@ export default function TestRunTable() {
 	const [page, setPage] = useState(1);
 	const visibleTestRun = useMemo(() => testRuns?.[page - 1], [page, testRuns]);
 	const pathStatsMapEntries = useMemo(
-		() => Array.from(visibleTestRun?.pathStatsMap.entries() || []),
+		() => Object.entries(visibleTestRun?.pathStatsMap || {}),
 		[visibleTestRun],
 	);
 

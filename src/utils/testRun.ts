@@ -89,7 +89,7 @@ function generateTestValues() {
 	}
 }
 
-interface PathStats {
+export interface PathStats {
 	path: Path;
 	pathDistance: number;
 	pathDistanceRatio: number;
@@ -129,9 +129,9 @@ function getPathStats(
 
 export const algorithms = [
 	"breadthFirstSearch",
+	"dijkstras",
 	"aStar",
 	"bidirectionalAStar",
-	"dijkstras",
 	"thetaStar",
 	"thetaStarEndCheck",
 ] as const;
@@ -140,7 +140,7 @@ export type Algorithm = (typeof algorithms)[number];
 
 export interface TestRun {
 	appValues: Partial<AppValues>;
-	pathStatsMap: Map<Algorithm, PathStats | null>;
+	pathStatsMap: Partial<Record<Algorithm, PathStats | null>>;
 }
 
 export function doTestRun(): TestRun | null {
@@ -172,11 +172,11 @@ export function doTestRun(): TestRun | null {
 		}),
 	};
 
-	const pathStatsMap = new Map<Algorithm, PathStats | null>();
+	const pathStatsMap: Partial<Record<Algorithm, PathStats | null>> = {};
 	for (const [key, pathGenerator] of Object.entries(pathGenerators)) {
-		pathStatsMap.set(
-			key as Algorithm,
-			getPathStats(pathGenerator, optimalPathDistance),
+		pathStatsMap[key as Algorithm] = getPathStats(
+			pathGenerator,
+			optimalPathDistance,
 		);
 	}
 
