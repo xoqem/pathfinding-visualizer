@@ -33,10 +33,10 @@ export default function* getQuadtreeGraph({
 		cellHeight: number,
 	): void {
 		const overlayPolygonPoints = [
-			{ x, y },
+			{ x: Math.max(x, 1), y },
 			{ x: x + cellWidth, y },
-			{ x: x + cellWidth, y: y + cellHeight },
-			{ x, y: y + cellHeight },
+			{ x: x + cellWidth, y: Math.min(y + cellHeight, height - 1) },
+			{ x: Math.max(x, 1), y: Math.min(y + cellHeight, height - 1) },
 		];
 		const overlayPolygon = new Polygon(overlayPolygonPoints);
 
@@ -85,14 +85,21 @@ export default function* getQuadtreeGraph({
 		subdivide(x + halfWidth, y + halfHeight, halfWidth, halfHeight); // Bottom-right
 	}
 
-	subdivide(0, 0, width, height);
+	const maxSizeX = width / Math.floor(width / maxSize);
+	const maxSizeY = height / Math.floor(height / maxSize);
+
+	for (let x = 0; x < width; x += maxSizeX) {
+		for (let y = 0; y < height; y += maxSizeY) {
+			subdivide(x, y, maxSizeX, maxSizeY);
+		}
+	}
 
 	const maxNeighborDistance = maxSize * 2;
 
 	for (const point of graph.points) {
 		graph.connectPointToGraph({
 			maxNeighborDistance,
-			maxNeighbors: 16,
+			maxNeighbors: 8,
 			point,
 			polygons: blockingPolygons,
 		});
