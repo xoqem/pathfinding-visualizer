@@ -22,7 +22,7 @@ function generateRandomPolygon({
 	return points;
 }
 
-function generateRandomPolygons({
+export default function generateRandomPolygons({
 	height,
 	numShapes,
 	maxShapeSize,
@@ -34,6 +34,6 @@ function generateRandomPolygons({
 	width: number;
 }): PointData[][] {
 	return Array.from({ length: numShapes }, () =>
-		getRandomPolygon({ height, maxShapeSize, width }),
+		generateRandomPolygon({ height, maxShapeSize, width }),
 	);
 }
