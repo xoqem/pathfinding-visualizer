@@ -1,56 +1,20 @@
-import { useMemo, useState } from "react";
-import { Box, Flex } from "@chakra-ui/react";
+import { Box, Center, Flex, Spinner } from "@chakra-ui/react";
 
 import useSvgPolygons from "./hooks/useSvgPolygons";
-import getProbabilisticRoadmapGraph from "./utils/getProbabilisticRoadmapGraph";
 import PixiApp from "./PixiApp";
 import GraphPanel from "./GraphPanel";
+import { useAppContext } from "./context/AppContext";
 
 export default function App() {
-  const width = 800;
-  const height = 400;
+  const { graph, height, polygons, width } = useAppContext();
 
-  const [maxNeighborDistance, setMaxNeighborDistance] = useState(100);
-  const [maxNeighbors, setMaxNeighbors] = useState(8);
-  const [numSamples, setNumSamples] = useState(400);
-  const [overSampleFactor, setOverSampleFactor] = useState(2);
-  const [randomize, setRandomize] = useState(true);
-  const [randomPointBuffer, setRandomPointBuffer] = useState(10);
-
-  const { loading, polygons } = useSvgPolygons({
-    filePath: './public/example.svg',
-    // filePath: "./public/maze.svg",
+  const { loading } = useSvgPolygons({
+    filePath: "./example.svg",
+    // filePath: "./maze.svg",
     height,
     scaleToFit: true,
     width,
   });
-
-  const graph = useMemo(() => {
-    if (loading) return null;
-
-    return getProbabilisticRoadmapGraph({
-      height,
-      maxNeighborDistance,
-      maxNeighbors,
-      numSamples,
-      overSampleFactor,
-      polygons,
-      randomize,
-      randomPointBuffer,
-      width,
-    });
-  }, [
-    height,
-    loading,
-    maxNeighborDistance,
-    maxNeighbors,
-    numSamples,
-    overSampleFactor,
-    polygons,
-    randomize,
-    randomPointBuffer,
-    width,
-  ]);
 
   return (
     <Flex columnGap={4}>
@@ -63,28 +27,21 @@ export default function App() {
         overflow="hidden"
         width={width + 2}
       >
-        <PixiApp
-          graph={graph}
-          height={height}
-          polygons={polygons}
-          width={width}
-        />
+        {loading ? (
+          <Center height="100%" width="100%">
+            <Spinner />
+          </Center>
+        ) : (
+          <PixiApp
+            graph={graph}
+            height={height}
+            polygons={polygons}
+            width={width}
+          />
+        )}
       </Box>
-      <Box borderRadius="sm" borderWidth={1} overflow="scroll" width={200}>
-        <GraphPanel
-          maxNeighborDistance={maxNeighborDistance}
-          setMaxNeighborDistance={setMaxNeighborDistance}
-          maxNeighbors={maxNeighbors}
-          setMaxNeighbors={setMaxNeighbors}
-          numSamples={numSamples}
-          setNumSamples={setNumSamples}
-          overSampleFactor={overSampleFactor}
-          setOverSampleFactor={setOverSampleFactor}
-          randomize={randomize}
-          setRandomize={setRandomize}
-          randomPointBuffer={randomPointBuffer}
-          setRandomPointBuffer={setRandomPointBuffer}
-        />
+      <Box borderRadius="sm" borderWidth={1} width={200}>
+        <GraphPanel />
       </Box>
     </Flex>
   );

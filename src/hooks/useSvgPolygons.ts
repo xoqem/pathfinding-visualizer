@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import fetchFileAsString from "../utils/fetchFileAsString";
 import getPolygonsFromSvgString from "../utils/getPolygonsFromSvgString";
+import { useAppContext } from "../context/AppContext";
 
 interface Params {
   filePath: string;
@@ -9,10 +10,9 @@ interface Params {
   width: number;
 }
 
-export default function useSvgPolygons({ filePath, height, scaleToFit, width }: Params) {
+export default function useSvgPolygons({ filePath, scaleToFit, }: Params) {
   const [loading, setLoading] = useState(true);
-  const [polygons, setPolygons] =
-    useState<ReturnType<typeof getPolygonsFromSvgString>>(null);
+  const { height, width, setAppValues } = useAppContext();
 
   useEffect(() => {
     setLoading(true);
@@ -23,10 +23,10 @@ export default function useSvgPolygons({ filePath, height, scaleToFit, width }: 
         svgString,
         width,
       });
-      setPolygons(newPolygons);
+      setAppValues({ polygons: newPolygons });
       setLoading(false);
     });
-  }, [filePath, height, scaleToFit, width]);
+  }, [filePath, height, setAppValues, scaleToFit, width]);
 
-  return { loading, polygons };
+  return { loading };
 }
