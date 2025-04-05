@@ -1,9 +1,8 @@
 import { PointData, Polygon } from "pixi.js";
 
-import { addNeighbor, Graph, Neighbor, sortNeighborsByCost } from "./graph";
+import { connectPointToGraph, Graph, initializeGraphEntry } from "./graph";
 import isPointInPolygons from "./isPointInPolygons";
-import { arePointsEqual, getDistance } from "./point";
-import doesLineIntersectPolygons from "./doesLineIntersectPolygons";
+import { getDistance } from "./point";
 
 interface Params {
   height: number;
@@ -78,28 +77,10 @@ export default function getProbabilisticRoadmapGraph({
   }
 
   const graph: Graph = {};
+  points.forEach((point) => initializeGraphEntry(graph, point));
 
   points.forEach((point) => {
-    const neighbors: Neighbor[] = [];
-    points.forEach((neighborPoint) => {
-      if (arePointsEqual(point, neighborPoint)) return;
-
-      const distance = getDistance(point, neighborPoint);
-      if (maxNeighborDistance && distance > maxNeighborDistance) return;
-
-      if (doesLineIntersectPolygons(point, neighborPoint, polygons)) return;
-
-      neighbors.push({
-        cost: distance,
-        point: neighborPoint,
-      });
-    });
-
-    sortNeighborsByCost(neighbors)
-      .slice(0, maxNeighbors)
-      .forEach((neighbor) => {
-        addNeighbor({ graph, point, neighbor });
-      });
+    connectPointToGraph({ graph, maxNeighborDistance, maxNeighbors, point, polygons });
   });
 
   return graph;

@@ -24,7 +24,7 @@ export default function drawGraph({ graph, graphics }: Params) {
       graphics.setStrokeStyle({
         color: "#ff0000",
         width: 1,
-        alignment: 1,
+        alignment: 0.5,
       });
       graphics.moveTo(point.x, point.y);
       graphics.lineTo(neighborPoint.x, neighborPoint.y);
@@ -33,7 +33,7 @@ export default function drawGraph({ graph, graphics }: Params) {
   });
 
   graphNodes.forEach(({ point }) => {
-    graphics.setStrokeStyle({ color: "#0000ff", width: 1, alignment: 1 });
+    graphics.setStrokeStyle({ color: "#0000ff", width: 1, alignment: 0.5 });
     graphics.setFillStyle({ color: "#0000ff" });
     graphics.circle(point.x, point.y, 2);
     graphics.fill();

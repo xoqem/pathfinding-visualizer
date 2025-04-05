@@ -5,6 +5,7 @@ import { useCallback } from "react";
 import drawBackground from "../graphics/drawBackground";
 import drawGraph from "../graphics/drawGraph";
 import drawPolygons from "../graphics/drawPolygons";
+import drawPath from "../graphics/drawPath";
 import { useAppContext } from "../context/AppContext";
 
 extend({
@@ -13,7 +14,7 @@ extend({
 });
 
 export default function PixiApp() {
-  const { graph, height, polygons, polygonStrokeWidth, width } = useAppContext();
+  const { graph, height, path, polygons, polygonStrokeWidth, width } = useAppContext();
 
   const drawCallback = useCallback(
     (graphics: Graphics) => {
@@ -22,8 +23,9 @@ export default function PixiApp() {
       drawBackground({ graphics, height, width });
       drawPolygons({ graphics, polygons, strokeWidth: polygonStrokeWidth });
       drawGraph({ graph, graphics });
+      drawPath({ graphics, path });
     },
-    [graph, height, polygons, polygonStrokeWidth, width]
+    [graph, height, path, polygons, polygonStrokeWidth, width]
   );
 
   return (
