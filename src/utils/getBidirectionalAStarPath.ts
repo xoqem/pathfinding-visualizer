@@ -1,7 +1,6 @@
 import FlatQueue from "flatqueue";
 import type { PointData, Polygon } from "pixi.js";
 import type Graph from "./graph";
-import type { GraphNode } from "./graph";
 import type { Path } from "./path";
 import { arePointsEqual } from "./point";
 
@@ -165,7 +164,7 @@ export default function* getBidirectionalAStarPath({
 		}
 
 		// Combine the forward and backward paths
-		const points = [...forwardPoints, meetingPoint, ...backwardPoints];
+		const points = [...forwardPoints, ...backwardPoints];
 
 		for (const point of points) {
 			path.points.push(point);
