@@ -185,7 +185,10 @@ function doTestRun() {
 		aStar: getAStarPath(pathParams),
 		bidirectionalAStar: getBidirectionalAStarPath(pathParams),
 		dijkstras: getDijkstrasPath(pathParams),
-		thetaStar: getThetaStarPath(pathParams),
+		thetaStar: getThetaStarPath({
+			...pathParams,
+			checkEndPointLineOfSight: false,
+		}),
 		thetaStarEndCheck: getThetaStarPath({
 			...pathParams,
 			checkEndPointLineOfSight: true,
@@ -274,7 +277,15 @@ export default function StatsPanel() {
 						<Table.Body>
 							{pathStatsMapEntries.map(([key, pathStats]) => (
 								<Table.Row key={`${key}`}>
-									<Table.Cell>{startCase(key)}</Table.Cell>
+									<Table.Cell>
+										<Button
+											variant="outline"
+											size="xs"
+											onClick={() => setAppValues({ path: pathStats?.path })}
+										>
+											{startCase(key)}
+										</Button>
+									</Table.Cell>
 									{columnKeys.map((columnKey) => (
 										<Table.Cell key={columnKey}>
 											{pathStats?.[columnKey] ?? "—"}
