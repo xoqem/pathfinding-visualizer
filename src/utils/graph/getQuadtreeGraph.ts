@@ -98,7 +98,7 @@ export default function* getQuadtreeGraph({
 			return;
 		}
 
-		// Subdivide into four quadrants
+		// subdivide into four quads
 		subdivide(i * 2, j * 2, depth + 1); // Top-left
 		subdivide(i * 2 + 1, j * 2, depth + 1); // Top-right
 		subdivide(i * 2, j * 2 + 1, depth + 1); // Bottom-left

@@ -82,7 +82,7 @@ export default function* getBidirectionalAStarPath({
 	let meetingPoint: PointData | null = null;
 
 	while (forwardQueue.length && backwardQueue.length) {
-		// Forward search step
+		// forward search step
 		const currentForward = forwardQueue.pop();
 		if (!currentForward) {
 			throw new Error("Unexpected falsy currentForward value");
@@ -116,7 +116,7 @@ export default function* getBidirectionalAStarPath({
 			}
 		}
 
-		// Backward search step
+		// backward search step
 		const currentBackward = backwardQueue.pop();
 		if (!currentBackward) {
 			throw new Error("Unexpected falsy currentBackward value");
@@ -152,7 +152,7 @@ export default function* getBidirectionalAStarPath({
 	}
 
 	if (meetingPoint) {
-		// Reconstruct the path from startPoint to meetingPoint
+		// path from startPoint to meetingPoint
 		let currentPoint: PointData | null = meetingPoint;
 		const forwardPoints = [];
 		while (currentPoint) {
@@ -161,7 +161,7 @@ export default function* getBidirectionalAStarPath({
 		}
 		forwardPoints.reverse();
 
-		// Reconstruct the path from meetingPoint to endPoint
+		// path from meetingPoint to endPoint
 		currentPoint = meetingPoint;
 		const backwardPoints = [];
 		while (currentPoint) {
@@ -171,7 +171,7 @@ export default function* getBidirectionalAStarPath({
 			}
 		}
 
-		// Combine the forward and backward paths
+		// combine forward and backward paths
 		const points = [...forwardPoints, ...backwardPoints];
 
 		for (const point of points) {
