@@ -2,10 +2,10 @@ import { Application, extend } from "@pixi/react";
 import { Container, Graphics } from "pixi.js";
 import { useCallback } from "react";
 
-import drawBackground from "./graphics/drawBackground";
-import drawGraph from "./graphics/drawGraph";
-import drawPolygons from "./graphics/drawPolygons";
-import { useAppContext } from "./context/AppContext";
+import drawBackground from "../graphics/drawBackground";
+import drawGraph from "../graphics/drawGraph";
+import drawPolygons from "../graphics/drawPolygons";
+import { useAppContext } from "../context/AppContext";
 
 extend({
   Container,

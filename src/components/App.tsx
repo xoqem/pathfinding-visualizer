@@ -2,13 +2,14 @@ import { Card, Center, Flex, Spinner, Tabs } from "@chakra-ui/react";
 
 import PixiApp from "./PixiApp";
 import GraphPanel from "./GraphPanel";
-import { useAppContext } from "./context/AppContext";
+import { useAppContext } from "../context/AppContext";
 import PolygonPanel from "./PolygonsPanel";
-import { LuGitGraph, LuSettings, LuShapes } from "react-icons/lu";
-import useLoadSvgPolygons from "./hooks/useLoadSvgPolygons";
+import { LuShapes } from "react-icons/lu";
+import useLoadSvgPolygons from "../hooks/useLoadSvgPolygons";
 import { useEffect } from "react";
 import { PiGraph } from "react-icons/pi";
 import { TbRoute } from "react-icons/tb";
+import PathPanel from "./PathPanel";
 
 export default function App() {
   const { height, loading, width } = useAppContext();
@@ -58,7 +59,9 @@ export default function App() {
             <Tabs.Content value="graph">
               <GraphPanel />
             </Tabs.Content>
-            <Tabs.Content value="path">TODO</Tabs.Content>
+            <Tabs.Content value="path">
+              <PathPanel />
+            </Tabs.Content>
           </Tabs.Root>
         </Card.Root>
       </Flex>

@@ -1,10 +1,10 @@
 import { Button, HStack, Stack } from "@chakra-ui/react";
 
-import SimpleSlider from "./components/ui/SimpleSlider";
-import SimpleCheckbox from "./components/ui/SimpleCheckbox";
+import SimpleSlider from "../ui/SimpleSlider";
+import SimpleCheckbox from "../ui/SimpleCheckbox";
 import { useState } from "react";
-import getProbabilisticRoadmapGraph from "./utils/getProbabilisticRoadmapGraph";
-import { useAppContext } from "./context/AppContext";
+import getProbabilisticRoadmapGraph from "../../utils/getProbabilisticRoadmapGraph";
+import { useAppContext } from "../../context/AppContext";
 
 export default function ProbabilisticRoadmapGraphPanel() {
   const { height, width, polygons, polygonStrokeWidth, setAppValues } = useAppContext();

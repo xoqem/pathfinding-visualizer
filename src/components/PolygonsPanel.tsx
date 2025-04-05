@@ -1,8 +1,8 @@
 import { Button, HStack, NativeSelect, Stack } from "@chakra-ui/react";
-import SimpleCheckbox from "./components/ui/SimpleCheckbox";
-import { useAppContext } from "./context/AppContext";
-import useLoadSvgPolygons from "./hooks/useLoadSvgPolygons";
-import SimpleSlider from "./components/ui/SimpleSlider";
+import SimpleCheckbox from "./ui/SimpleCheckbox";
+import { useAppContext } from "../context/AppContext";
+import useLoadSvgPolygons from "../hooks/useLoadSvgPolygons";
+import SimpleSlider from "./ui/SimpleSlider";
 
 export default function PolygonPanel() {
   const { polygonStrokeWidth, scaleSvgToFit, svgFilePath, setAppValues } = useAppContext();

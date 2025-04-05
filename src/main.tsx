@@ -3,7 +3,7 @@ import { ChakraProvider, defaultSystem } from "@chakra-ui/react";
 import { ThemeProvider } from "next-themes";
 import { createRoot } from "react-dom/client";
 import "./index.css";
-import App from "./App.tsx";
+import App from "./components/App.tsx";
 import AppProvider from "./context/AppProvider.tsx";
 
 createRoot(document.getElementById("root")!).render(
