@@ -243,19 +243,15 @@ export default function StatsPanel() {
 		});
 
 		setTimeout(() => {
-			const testRun = doTestRun();
+			const numTestRuns = 1;
+			const newTestRuns = Array.from({ length: numTestRuns })
+				.map(() => doTestRun())
+				.filter((testRun) => !!testRun);
 
-			if (!testRun) {
-				setAppValues({
-					loading: false,
-				});
-				return;
-			}
-
-			setTestRuns((prevTestRuns) => [...prevTestRuns, testRun]);
+			setTestRuns((prevTestRuns) => [...prevTestRuns, ...newTestRuns]);
 
 			setAppValues({
-				...testRun.appValues,
+				...newTestRuns?.[0]?.appValues,
 				loading: false,
 			});
 		}, 0);
