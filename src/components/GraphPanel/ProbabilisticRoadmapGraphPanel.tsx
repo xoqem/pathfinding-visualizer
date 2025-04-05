@@ -8,17 +8,26 @@ import SimpleCheckbox from "../ui/SimpleCheckbox";
 import SimpleSlider from "../ui/SimpleSlider";
 
 export default function ProbabilisticRoadmapGraphPanel() {
-	const { height, width, polygons, polygonStrokeWidth, setAppValues } =
-		useAppContext();
+	const {
+		animateGraph,
+		height,
+		width,
+		polygons,
+		polygonStrokeWidth,
+		setAppValues,
+	} = useAppContext();
 	const [maxNeighborDistance, setMaxNeighborDistance] = useState(100);
 	const [maxNeighbors, setMaxNeighbors] = useState(8);
 	const [numSamples, setNumSamples] = useState(400);
 	const [oversampleFactor, setOversample] = useState(2);
 	const [randomize, setRandomize] = useState(true);
 	const [randomPointBuffer, setRandomPointBuffer] = useState(10);
+	const [busy, setBusy] = useState(false);
 
 	function handleApplyClick() {
-		const graph = getProbabilisticRoadmapGraph({
+		setAppValues({ path: null });
+
+		const graphGenerator = getProbabilisticRoadmapGraph({
 			height,
 			maxNeighborDistance,
 			maxNeighbors,
@@ -31,7 +40,24 @@ export default function ProbabilisticRoadmapGraphPanel() {
 			width,
 		});
 
-		setAppValues({ graph, path: null });
+		if (animateGraph) {
+			setBusy(true);
+
+			const intervalId = setInterval(() => {
+				const graph = graphGenerator.next().value;
+
+				if (graph === undefined) {
+					clearInterval(intervalId);
+					setBusy(false);
+					return;
+				}
+
+				setAppValues({ graph: graph.clone() });
+			}, 0);
+		} else {
+			const graph = Array.from(graphGenerator).pop();
+			setAppValues({ graph });
+		}
 	}
 
 	function handleClearClick() {
@@ -89,10 +115,12 @@ export default function ProbabilisticRoadmapGraphPanel() {
 			/>
 
 			<HStack justify="space-between">
-				<Button variant="outline" onClick={handleClearClick}>
+				<Button variant="outline" onClick={handleClearClick} disabled={busy}>
 					Clear
 				</Button>
-				<Button onClick={handleApplyClick}>Apply</Button>
+				<Button onClick={handleApplyClick} disabled={busy}>
+					Apply
+				</Button>
 			</HStack>
 		</Stack>
 	);

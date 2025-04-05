@@ -17,7 +17,7 @@ interface Params {
 	width: number;
 }
 
-export default function getProbabilisticRoadmapGraph({
+export default function* getProbabilisticRoadmapGraph({
 	height,
 	maxNeighborDistance = 100,
 	maxNeighbors = 8,
@@ -28,7 +28,7 @@ export default function getProbabilisticRoadmapGraph({
 	randomPointBuffer = 10,
 	oversampleFactor = 2,
 	width,
-}: Params): Graph {
+}: Params): Generator<Graph> {
 	const graph: Graph = new Graph();
 	const padding = 1;
 	const widthWithPadding = width - padding * 2;
@@ -54,6 +54,8 @@ export default function getProbabilisticRoadmapGraph({
 			if (nearExistingPoint) continue;
 
 			graph.initializeGraphEntry(point);
+
+			yield graph;
 		}
 	} else {
 		const step = Math.ceil(
@@ -72,6 +74,8 @@ export default function getProbabilisticRoadmapGraph({
 					continue;
 
 				graph.initializeGraphEntry(point);
+
+				yield graph;
 			}
 		}
 	}
@@ -83,7 +87,7 @@ export default function getProbabilisticRoadmapGraph({
 			point,
 			polygons,
 		});
-	}
 
-	return graph;
+		yield graph;
+	}
 }
