@@ -1,13 +1,19 @@
 import { Button, Stack, Table } from "@chakra-ui/react";
+import { startCase } from "lodash";
 import type { Polygon } from "pixi.js";
+import { useMemo, useState } from "react";
 import { useAppContext } from "../context/AppContext";
 import generateSvgStringWithRandomPolygons from "../utils/generateSvgStringWithRandomPolygons";
 import getAStarPath from "../utils/getAStarPath";
+import getBidirectionalAStarPath from "../utils/getBidirectionalAStarPath";
+import getBreadthFirstPath from "../utils/getBreadthFirstSearchPath";
+import getDijkstrasPath from "../utils/getDijkstrasPath";
 import getPolygonsFromSvgString from "../utils/getPolygonsFromSvgString";
 import getProbabilisticRoadmapGraph from "../utils/getProbabilisticRoadmapGraph";
+import getThetaStarPath from "../utils/getThetaStarPath";
 import type Graph from "../utils/graph";
 import isPointInPolygons from "../utils/isPointInPolygons";
-import { getPathDistance } from "../utils/path";
+import { type Path, getPathDistance } from "../utils/path";
 
 function getClearPoint(polygons: Polygon[], width: number, height: number) {
 	let i = 0;
@@ -49,7 +55,7 @@ function furthestTwoPointsOnGraph(graph: Graph) {
 	return { pointA, pointB };
 }
 
-function generateTestAppValues() {
+function generateTestValues() {
 	for (let i = 0; i < 100; i++) {
 		const width = 1000;
 		const height = 1000;
@@ -94,8 +100,10 @@ function generateTestAppValues() {
 			polygons,
 			startPoint: pathStartPoint,
 		});
-		const path = Array.from(pathGenerator).pop();
-		if (!path?.points?.length) continue;
+		const optimalPath = Array.from(pathGenerator).pop();
+		if (!optimalPath?.points?.length) continue;
+
+		const optimalPathDistance = getPathDistance(optimalPath.points);
 
 		return {
 			graph,
@@ -103,26 +111,19 @@ function generateTestAppValues() {
 			pathEndPoint,
 			pathStartPoint,
 			polygons,
+			optimalPath,
+			optimalPathDistance,
 			svgString,
 			width,
 		};
 	}
 }
 
-function doTestRun() {
-	const appValues = generateTestAppValues();
-	if (!appValues) return;
-
-	const { pathStartPoint, graph, polygons, pathEndPoint } = appValues;
-
+function getPathStats(
+	pathGenerator: Generator<Path>,
+	optimalPathDistance: number,
+) {
 	const startTime = performance.now();
-
-	const pathGenerator = getAStarPath({
-		graph,
-		endPoint: pathEndPoint,
-		polygons,
-		startPoint: pathStartPoint,
-	});
 
 	const path = Array.from(pathGenerator).pop();
 
@@ -131,54 +132,128 @@ function doTestRun() {
 	if (!path) return;
 
 	const pathDistance = getPathDistance(path.points);
+	const pathDistanceRatio = pathDistance / optimalPathDistance;
+
+	const graphNodesWithParents = path.graph.nodes.filter((node) => node.parent);
+	const percentGraphExplored =
+		graphNodesWithParents.length / path.graph.nodes.length;
+
+	return {
+		path,
+		pathDistance,
+		pathDistanceRatio,
+		percentGraphExplored,
+		totalTime,
+	};
+}
+
+type PathStats = ReturnType<typeof getPathStats>;
+type PathStatsMap = Map<string, PathStats>;
+
+function doTestRun() {
+	const testValues = generateTestValues();
+	if (!testValues) return;
+
+	const { optimalPath, optimalPathDistance, ...appValues } = testValues;
+	const { pathStartPoint, graph, polygons, pathEndPoint } = appValues;
+
+	const pathParams = {
+		graph,
+		endPoint: pathEndPoint,
+		polygons,
+		startPoint: pathStartPoint,
+	};
+
+	const pathGenerators: { [key: string]: Generator<Path> } = {
+		breadthFirstSearch: getBreadthFirstPath(pathParams),
+		aStar: getAStarPath(pathParams),
+		bidirectionalAStar: getBidirectionalAStarPath(pathParams),
+		dijkstras: getDijkstrasPath(pathParams),
+		thetaStar: getThetaStarPath(pathParams),
+		thetaStarEndCheck: getThetaStarPath({
+			...pathParams,
+			checkEndPointLineOfSight: true,
+		}),
+	};
+
+	const pathStatsMap = new Map<string, PathStats>();
+	for (const [key, pathGenerator] of Object.entries(pathGenerators)) {
+		pathStatsMap.set(key, getPathStats(pathGenerator, optimalPathDistance));
+	}
 
 	return {
 		appValues: {
 			...appValues,
-			path,
+			path: optimalPath,
 			svgFilePath: null,
 		},
-		pathDistance,
-		totalTime,
+		pathStatsMap,
 	};
 }
 
 export default function StatsPanel() {
 	const { setAppValues } = useAppContext();
+	const [pathStatsMaps, setPathStatsMaps] = useState<PathStatsMap[]>([]);
 
 	function handleRunClick() {
 		const testResult = doTestRun();
 		if (!testResult) return;
 
-		const { appValues, pathDistance, totalTime } = testResult;
+		const { appValues, pathStatsMap } = testResult;
+
+		setPathStatsMaps((prevPathStatsMaps) => [
+			...prevPathStatsMaps,
+			pathStatsMap,
+		]);
 
 		setAppValues(appValues);
 	}
+
+	const pathStatsMapEntries = useMemo(
+		() => Array.from(pathStatsMaps.entries()).slice(-1),
+		[pathStatsMaps],
+	);
 
 	return (
 		<Stack gap={4} padding={2} textAlign="left">
 			<Button onClick={handleRunClick}>Run Test</Button>
 
-			<Table.Root variant="outline">
-				<Table.Header>
-					<Table.Row>
-						<Table.ColumnHeader>Col1</Table.ColumnHeader>
-						<Table.ColumnHeader>Col2</Table.ColumnHeader>
-					</Table.Row>
-				</Table.Header>
-				<Table.Body>
-					<Table.Row>
-						<Table.Cell>Value 1</Table.Cell>
-						<Table.Cell>Value 2</Table.Cell>
-					</Table.Row>
-				</Table.Body>
-				<Table.Footer>
-					<Table.Row>
-						<Table.Cell>Value 3</Table.Cell>
-						<Table.Cell>Value 4</Table.Cell>
-					</Table.Row>
-				</Table.Footer>
-			</Table.Root>
+			{pathStatsMapEntries.map(([key, pathStatsMap]) => {
+				const pathStatsMapEntries = Array.from(pathStatsMap.entries());
+				const columnKeys = [
+					"pathDistance",
+					"pathDistanceRatio",
+					"percentGraphExplored",
+					"totalTime",
+				] as const;
+
+				return (
+					<Table.Root key={key} variant="outline">
+						<Table.Header>
+							<Table.Row>
+								<Table.ColumnHeader>Algorithm</Table.ColumnHeader>
+								{columnKeys.map((columnKey) => (
+									<Table.ColumnHeader key={columnKey}>
+										{startCase(columnKey)}
+									</Table.ColumnHeader>
+								))}
+							</Table.Row>
+						</Table.Header>
+						<Table.Body>
+							{pathStatsMapEntries.map(([key, pathStats]) => (
+								<Table.Row key={`${key}`}>
+									<Table.Cell>{startCase(key)}</Table.Cell>
+									{columnKeys.map((columnKey) => (
+										<Table.Cell key={columnKey}>
+											{pathStats?.[columnKey] ?? "—"}
+										</Table.Cell>
+									))}
+								</Table.Row>
+							))}
+						</Table.Body>
+					</Table.Root>
+				);
+			})}
 		</Stack>
 	);
 }

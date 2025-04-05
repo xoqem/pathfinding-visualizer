@@ -1,9 +1,10 @@
 import { Button, HStack, NativeSelect, Stack, Text } from "@chakra-ui/react";
-import startCase from "lodash/startCase";
+import { startCase } from "lodash";
 
 import { useMemo, useState } from "react";
 import { TfiTarget } from "react-icons/tfi";
 import { useAppContext } from "../../context/AppContext";
+import { getPathDistance } from "../../utils/path";
 import SimpleInput from "../ui/SimpleInput";
 import AStarPathPanel from "./AStarPathPanel";
 import BidirectionalAStarPathPanel from "./BidirectionalAStarPathPanel";
@@ -25,7 +26,7 @@ function getNumValue(value: string) {
 }
 
 export default function PathPanel() {
-	const { pathEndPoint, pathStartPoint, setAppValues } = useAppContext();
+	const { path, pathEndPoint, pathStartPoint, setAppValues } = useAppContext();
 
 	const [graphType, setGraphType] = useState<AlgorithmType | null>(
 		AlgorithmType.aStar,
@@ -147,6 +148,8 @@ export default function PathPanel() {
 			</NativeSelect.Root>
 
 			{graphTypePanel}
+
+			{path && <Text>Path distance: {getPathDistance(path?.points)}</Text>}
 		</Stack>
 	);
 }

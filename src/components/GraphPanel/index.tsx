@@ -1,5 +1,5 @@
 import { NativeSelect, Stack, Text } from "@chakra-ui/react";
-import startCase from "lodash/startCase";
+import { startCase } from "lodash";
 
 import { useMemo, useState } from "react";
 import GridGraphPanel from "./GridGraphPanel";

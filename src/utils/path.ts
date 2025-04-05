@@ -9,7 +9,9 @@ export interface Path {
 	startPoint: PointData;
 }
 
-export function getPathDistance(points: PointData[]): number {
+export function getPathDistance(points: PointData[] | null): number {
+	if (!points) return 0;
+
 	let distance = 0;
 
 	for (let i = 0; i < points.length - 1; i++) {
