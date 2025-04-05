@@ -5,7 +5,14 @@ import useLoadSvgPolygons from "../hooks/useLoadSvgPolygons";
 import SimpleSlider from "./ui/SimpleSlider";
 
 export default function PolygonPanel() {
-  const { polygonStrokeWidth, scaleSvgToFit, svgFilePath, setAppValues } = useAppContext();
+  const {
+    generatedSvgMaxShapeSize,
+    generatedSvgNumShapes,
+    polygonStrokeWidth,
+    scaleSvgToFit,
+    svgFilePath,
+    setAppValues,
+  } = useAppContext();
   const loadSvgPolygons = useLoadSvgPolygons();
 
   function handleClearClick() {
@@ -15,7 +22,7 @@ export default function PolygonPanel() {
   function handleFilePathSelectChange(
     event: React.ChangeEvent<HTMLSelectElement>
   ) {
-    setAppValues({ svgFilePath: event.target.value || null});
+    setAppValues({ svgFilePath: event.target.value || null });
   }
 
   return (
@@ -32,11 +39,35 @@ export default function PolygonPanel() {
         <NativeSelect.Indicator />
       </NativeSelect.Root>
 
-      <SimpleCheckbox
-        label="Scale to Fit"
-        checked={scaleSvgToFit}
-        onChange={(value) => setAppValues({ scaleSvgToFit: value })}
-      />
+      {svgFilePath && (
+        <SimpleCheckbox
+          label="Scale to Fit"
+          checked={scaleSvgToFit}
+          onChange={(value) => setAppValues({ scaleSvgToFit: value })}
+        />
+      )}
+
+      {!svgFilePath && (
+        <>
+          <SimpleSlider
+            label="Number of generated Shapes"
+            max={200}
+            min={1}
+            onChange={(value) => setAppValues({ generatedSvgNumShapes: value })}
+            value={generatedSvgNumShapes}
+          />
+
+          <SimpleSlider
+            label="Max shape size"
+            max={100}
+            min={1}
+            onChange={(value) =>
+              setAppValues({ generatedSvgMaxShapeSize: value })
+            }
+            value={generatedSvgMaxShapeSize}
+          />
+        </>
+      )}
 
       <SimpleSlider
         label="Stroke Width"

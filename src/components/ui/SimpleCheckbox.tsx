@@ -2,12 +2,18 @@ import { Checkbox } from "@chakra-ui/react";
 import { useCallback } from "react";
 
 interface Props {
-  label: string;
   checked: boolean;
+  disabled?: boolean;
+  label: string;
   onChange: (value: boolean) => void;
 }
 
-export default function SimpleCheckbox({ label, onChange, checked }: Props) {
+export default function SimpleCheckbox({
+  checked,
+  disabled,
+  label,
+  onChange,
+}: Props) {
   const handleCheckedChange = useCallback(
     ({ checked }: { checked: string | boolean }) => {
       onChange(!!checked);
@@ -16,7 +22,11 @@ export default function SimpleCheckbox({ label, onChange, checked }: Props) {
   );
 
   return (
-    <Checkbox.Root checked={checked} onCheckedChange={handleCheckedChange}>
+    <Checkbox.Root
+      checked={checked}
+      disabled={disabled}
+      onCheckedChange={handleCheckedChange}
+    >
       <Checkbox.HiddenInput />
       <Checkbox.Control>
         <Checkbox.Indicator />

@@ -5,8 +5,15 @@ import { useAppContext } from "../context/AppContext";
 import generateSvgString from "../utils/generateSvgString";
 
 export default function useLoadSvgPolygons() {
-  const { height, scaleSvgToFit, svgFilePath, width, setAppValues } =
-    useAppContext();
+  const {
+    height,
+    generatedSvgMaxShapeSize,
+    generatedSvgNumShapes,
+    scaleSvgToFit,
+    svgFilePath,
+    width,
+    setAppValues,
+  } = useAppContext();
 
   const loadSvgPolygons = useCallback(() => {
     setAppValues({ loading: true, polygons: null });
@@ -18,7 +25,12 @@ export default function useLoadSvgPolygons() {
         svgString,
         width,
       });
-      setAppValues({ loading: false, graph: null, path: null, polygons: newPolygons });
+      setAppValues({
+        loading: false,
+        graph: null,
+        path: null,
+        polygons: newPolygons,
+      });
     }
 
     if (svgFilePath) {
@@ -26,11 +38,23 @@ export default function useLoadSvgPolygons() {
         getPolygonsFromSvgStringInternal(svgString);
       });
     } else {
-      const svgString = generateSvgString({ height, width });
+      const svgString = generateSvgString({
+        height,
+        maxShapeSize: generatedSvgMaxShapeSize,
+        numShapes: generatedSvgNumShapes,
+        width,
+      });
       getPolygonsFromSvgStringInternal(svgString);
     }
-
-  }, [height, scaleSvgToFit, svgFilePath, width, setAppValues]);
+  }, [
+    height,
+    generatedSvgMaxShapeSize,
+    generatedSvgNumShapes,
+    scaleSvgToFit,
+    svgFilePath,
+    width,
+    setAppValues,
+  ]);
 
   return loadSvgPolygons;
 }

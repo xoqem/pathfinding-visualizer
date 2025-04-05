@@ -4,6 +4,8 @@ import { Path } from "../utils/path";
 import { Polygon } from "pixi.js";
 
 export interface AppValues {
+  generatedSvgMaxShapeSize: number;
+  generatedSvgNumShapes: number;
   graph: Graph | null;
   height: number;
   loading: boolean;
@@ -17,6 +19,8 @@ export interface AppValues {
 }
 
 export const defaultAppValues: AppValues = {
+  generatedSvgMaxShapeSize: 20,
+  generatedSvgNumShapes: 10,
   graph: null,
   height: 400,
   loading: false,
