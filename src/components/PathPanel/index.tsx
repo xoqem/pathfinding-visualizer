@@ -9,12 +9,14 @@ import AStarPathPanel from "./AStarPathPanel";
 import BidirectionalAStarPathPanel from "./BidirectionalAStarPathPanel";
 import BreadthFirstSearchPathPanel from "./BreadthFirstSearchPathPanel";
 import DijkstrasPathPanel from "./DijkstrasPathPanel";
+import ThetaStarPathPanel from "./ThetaStarPathPanel";
 
 enum AlgorithmType {
 	aStar = "aStar",
 	breadthFirstSearch = "breadthFirstSearch",
 	bidirectionalAStar = "bidirectionalAStar",
 	dijkstras = "dijkstras",
+	thetaStar = "thetaStar",
 }
 
 function getNumValue(value: string) {
@@ -59,6 +61,8 @@ export default function PathPanel() {
 				return <BreadthFirstSearchPathPanel />;
 			case AlgorithmType.dijkstras:
 				return <DijkstrasPathPanel />;
+			case AlgorithmType.thetaStar:
+				return <ThetaStarPathPanel />;
 			default:
 				return <Text>Select an algorithm.</Text>;
 		}
