@@ -7,6 +7,8 @@ import PolygonPanel from "./PolygonsPanel";
 import { LuGitGraph, LuSettings, LuShapes } from "react-icons/lu";
 import useLoadSvgPolygons from "./hooks/useLoadSvgPolygons";
 import { useEffect } from "react";
+import { PiGraph } from "react-icons/pi";
+import { TbRoute } from "react-icons/tb";
 
 export default function App() {
   const { height, loading, width } = useAppContext();
@@ -42,12 +44,12 @@ export default function App() {
                 Polygons
               </Tabs.Trigger>
               <Tabs.Trigger value="graph">
-                <LuGitGraph />
+                <PiGraph />
                 Graph
               </Tabs.Trigger>
-              <Tabs.Trigger value="settings">
-                <LuSettings />
-                Settings
+              <Tabs.Trigger value="path">
+                <TbRoute />
+                Path
               </Tabs.Trigger>
             </Tabs.List>
             <Tabs.Content value="polygons">
@@ -56,7 +58,7 @@ export default function App() {
             <Tabs.Content value="graph">
               <GraphPanel />
             </Tabs.Content>
-            <Tabs.Content value="settings">TODO</Tabs.Content>
+            <Tabs.Content value="path">TODO</Tabs.Content>
           </Tabs.Root>
         </Card.Root>
       </Flex>
