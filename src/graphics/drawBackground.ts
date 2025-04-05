@@ -9,6 +9,5 @@ interface Params {
 export default function drawBackground({ graphics, height, width }: Params) {
 	graphics.setFillStyle({ color: "#ffffff" });
 	graphics.rect(0, 0, width, height);
-	console.log("width", width);
 	graphics.fill();
 }

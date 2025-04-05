@@ -22,6 +22,7 @@ export interface AppValues {
 	polygons: Polygon[] | null;
 	polygonStrokeWidth: number;
 	searchAlpha: number;
+	showStatsPanel: boolean;
 	scaleSvgToFit: boolean;
 	svgFilePath: string | null;
 	svgString: string | null;
@@ -48,6 +49,7 @@ export const defaultAppValues: AppValues = {
 	polygonStrokeWidth: 1,
 	scaleSvgToFit: true,
 	searchAlpha: 0.6,
+	showStatsPanel: false,
 	svgFilePath: "./shapes.svg",
 	svgString: null,
 	width: 800,

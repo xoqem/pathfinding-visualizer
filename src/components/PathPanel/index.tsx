@@ -27,6 +27,10 @@ function getNumValue(value: string) {
 
 export default function PathPanel() {
 	const { path, pathEndPoint, pathStartPoint, setAppValues } = useAppContext();
+	const pathDistance = useMemo(
+		() => path && getPathDistance(path?.points),
+		[path],
+	);
 
 	const [graphType, setGraphType] = useState<AlgorithmType | null>(
 		AlgorithmType.aStar,
@@ -149,7 +153,12 @@ export default function PathPanel() {
 
 			{graphTypePanel}
 
-			{path && <Text>Path distance: {getPathDistance(path?.points)}</Text>}
+			{path && (
+				<>
+					<Text>Path distance: {pathDistance}</Text>
+					<Text>Path segments: {path.points.length}</Text>
+				</>
+			)}
 		</Stack>
 	);
 }

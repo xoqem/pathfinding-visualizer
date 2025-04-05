@@ -15,7 +15,7 @@ import SettingsPanel from "./SettingsPanel";
 import StatsPanel from "./StatsPanel";
 
 export default function App() {
-	const { height, loading, width } = useAppContext();
+	const { height, loading, showStatsPanel, width } = useAppContext();
 	const loadSvgPolygons = useLoadSvgPolygons();
 
 	// biome-ignore lint/correctness/useExhaustiveDependencies: empty array for dependencies to only run once
@@ -84,9 +84,11 @@ export default function App() {
 						</Tabs.Root>
 					</Card.Root>
 				</Flex>
-				<Card.Root>
-					<StatsPanel />
-				</Card.Root>
+				{showStatsPanel && (
+					<Card.Root>
+						<StatsPanel />
+					</Card.Root>
+				)}
 			</Flex>
 		</Center>
 	);

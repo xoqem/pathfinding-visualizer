@@ -1,4 +1,5 @@
-import { HStack } from "@chakra-ui/react";
+import { Button, HStack } from "@chakra-ui/react";
+import { GrTest } from "react-icons/gr";
 import { useAppContext } from "../context/AppContext";
 import SimpleSlider from "./ui/SimpleSlider";
 
@@ -9,6 +10,7 @@ export default function BottomMapPanel() {
 		polygonAlpha,
 		searchAlpha,
 		setAppValues,
+		showStatsPanel,
 	} = useAppContext();
 
 	return (
@@ -52,6 +54,13 @@ export default function BottomMapPanel() {
 				value={overlayPolygonsAlpha}
 				minWidth={125}
 			/>
+
+			<Button
+				variant={showStatsPanel ? "solid" : "outline"}
+				onClick={() => setAppValues({ showStatsPanel: !showStatsPanel })}
+			>
+				<GrTest />
+			</Button>
 		</HStack>
 	);
 }
