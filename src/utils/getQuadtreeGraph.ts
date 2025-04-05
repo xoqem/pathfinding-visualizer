@@ -29,6 +29,9 @@ export default function* getQuadtreeGraph({
 	polygonStrokeWidth,
 	width,
 }: Params): Generator<{ graph: Graph; overlayPolygons: Polygon[] }> {
+	const maxSizeX = width / Math.floor(width / maxSize);
+	const maxSizeY = height / Math.floor(height / maxSize);
+
 	const graph: Graph = new Graph();
 	const overlayPolygons: Polygon[] = [];
 
@@ -41,10 +44,8 @@ export default function* getQuadtreeGraph({
 			quadLayers.push(new Map<string, QuadNode>());
 		}
 
-		// const maxSizeX = width / Math.floor(width / maxSize);
-		// const maxSizeY = height / Math.floor(height / maxSize);
-		const cellWidth = width / 2 ** depth;
-		const cellHeight = height / 2 ** depth;
+		const cellWidth = maxSizeX / 2 ** depth;
+		const cellHeight = maxSizeY / 2 ** depth;
 		const x = i * cellWidth;
 		const y = j * cellHeight;
 
@@ -112,8 +113,12 @@ export default function* getQuadtreeGraph({
 		});
 	}
 
-	subdivide(0, 0, 0);
-	yield { graph, overlayPolygons };
+	for (let i = 0; i < Math.floor(width / maxSizeX); i++) {
+		for (let j = 0; j < Math.floor(height / maxSizeY); j++) {
+			subdivide(i, j, 0);
+			yield { graph, overlayPolygons };
+		}
+	}
 
 	function findNeighborsForDirection(
 		i: number,
