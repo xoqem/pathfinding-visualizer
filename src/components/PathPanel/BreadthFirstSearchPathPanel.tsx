@@ -2,7 +2,7 @@ import { Button, HStack, Stack, Text } from "@chakra-ui/react";
 
 import { useAppContext } from "../../context/AppContext";
 import useRunPathGenerator from "../../hooks/useRunPathGenerator";
-import getBreadthFirstPath from "../../utils/getBreadthFirstSearchPath";
+import getBreadthFirstPath from "../../utils/path/getBreadthFirstSearchPath";
 
 export default function BreadthFirstSearchPathPanel() {
 	const { animatePath, graph, pathEndPoint, pathStartPoint, polygons } =

@@ -1,6 +1,6 @@
 import type { PointData } from "pixi.js";
-import type Graph from "./graph";
-import { getDistance } from "./point";
+import { getDistance } from "../geometry/point";
+import type Graph from "../graph/graph";
 
 export interface Path {
 	endPoint: PointData;

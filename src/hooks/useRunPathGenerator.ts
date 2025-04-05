@@ -1,6 +1,6 @@
 import { useCallback, useMemo, useState } from "react";
 import { useAppContext } from "../context/AppContext";
-import type { Path } from "../utils/path";
+import type { Path } from "../utils/path/path";
 
 export default function useRunPathGenerator() {
 	const { setAppValues } = useAppContext();

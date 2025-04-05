@@ -1,12 +1,8 @@
-import FlatQueue from "flatqueue";
 import type { PointData, Polygon } from "pixi.js";
-import type Graph from "./graph";
+import { arePointsEqual } from "../geometry/point";
+import type Graph from "../graph/graph";
+import type { GraphNode } from "../graph/graph";
 import type { Path } from "./path";
-import { arePointsEqual, getDistance } from "./point";
-
-function heuristic(a: PointData, b: PointData): number {
-	return getDistance(a, b);
-}
 
 interface Params {
 	animate?: boolean;
@@ -16,7 +12,7 @@ interface Params {
 	startPoint: PointData;
 }
 
-export default function* getAStarPath({
+export default function* getBreadthFirstPath({
 	animate,
 	endPoint,
 	graph,
@@ -64,26 +60,22 @@ export default function* getAStarPath({
 		return;
 	}
 
-	const priorityQueue = new FlatQueue<PointData>();
-	priorityQueue.push(startPoint, 0);
-	const cameFrom = new Map<PointData, PointData | null>();
-	const costSoFar = new Map<PointData, number>();
-	cameFrom.set(startPoint, null);
-	costSoFar.set(startPoint, 0);
+	const queue = new Array<PointData>();
+	queue.push(startPoint);
 
-	while (priorityQueue.length) {
-		const currentPoint = priorityQueue.pop();
+	while (queue.length) {
+		const currentPoint = queue.shift();
 
 		if (!currentPoint) {
 			throw new Error("Unexpected falsy currentPoint value");
 		}
 
 		if (currentPoint === endPoint) {
-			let current: PointData | null = endPoint;
+			let node: GraphNode | null = pathGraph.getNode(endPoint);
 			const points = [];
-			while (current) {
-				points.push(current);
-				current = cameFrom.get(current) || null;
+			while (node) {
+				points.push(node.point);
+				node = node.parent ? pathGraph.getNode(node.parent.point) : null;
 			}
 
 			points.reverse();
@@ -100,24 +92,19 @@ export default function* getAStarPath({
 		}
 
 		for (const neighbor of pathGraph.getNode(currentPoint).neighbors) {
-			const newCost = (costSoFar.get(currentPoint) || 0) + neighbor.cost;
-			if (
-				!costSoFar.has(neighbor.point) ||
-				newCost < (costSoFar.get(neighbor.point) || 0)
-			) {
-				costSoFar.set(neighbor.point, newCost);
-				const priority = newCost + heuristic(endPoint, neighbor.point);
-				priorityQueue.push(neighbor.point, priority);
-				cameFrom.set(neighbor.point, currentPoint);
+			const neighborNode = pathGraph.getNode(neighbor.point);
 
-				pathGraph.getNode(neighbor.point).parent = {
-					point: currentPoint,
-					cost: neighbor.cost,
-				};
+			if (neighborNode.parent || neighborNode.point === startPoint) continue;
 
-				if (animate) {
-					yield path;
-				}
+			queue.push(neighbor.point);
+
+			pathGraph.getNode(neighbor.point).parent = {
+				point: currentPoint,
+				cost: neighbor.cost,
+			};
+
+			if (animate) {
+				yield path;
 			}
 		}
 	}

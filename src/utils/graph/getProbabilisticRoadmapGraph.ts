@@ -1,8 +1,8 @@
 import type { Polygon } from "pixi.js";
 
+import isPointInPolygons from "../geometry/isPointInPolygons";
+import { getDistance } from "../geometry/point";
 import Graph from "./graph";
-import isPointInPolygons from "./isPointInPolygons";
-import { getDistance } from "./point";
 
 interface Params {
 	height: number;

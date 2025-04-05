@@ -2,7 +2,7 @@ import { Button, HStack, Stack } from "@chakra-ui/react";
 
 import { useAppContext } from "../../context/AppContext";
 import useRunPathGenerator from "../../hooks/useRunPathGenerator";
-import getAStarPath from "../../utils/getAStarPath";
+import getAStarPath from "../../utils/path/getAStarPath";
 
 export default function AStarPathPanel() {
 	const { animatePath, graph, pathEndPoint, pathStartPoint, polygons } =

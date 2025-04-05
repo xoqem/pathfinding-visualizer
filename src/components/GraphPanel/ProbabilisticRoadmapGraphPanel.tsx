@@ -3,7 +3,7 @@ import { Button, HStack, Stack } from "@chakra-ui/react";
 import { startCase } from "lodash";
 import { useState } from "react";
 import { useAppContext } from "../../context/AppContext";
-import getProbabilisticRoadmapGraph from "../../utils/getProbabilisticRoadmapGraph";
+import getProbabilisticRoadmapGraph from "../../utils/graph/getProbabilisticRoadmapGraph";
 import SimpleCheckbox from "../ui/SimpleCheckbox";
 import SimpleSlider from "../ui/SimpleSlider";
 

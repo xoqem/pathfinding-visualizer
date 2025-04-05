@@ -1,8 +1,8 @@
 import FlatQueue from "flatqueue";
 import type { PointData, Polygon } from "pixi.js";
-import type Graph from "./graph";
+import { arePointsEqual, getDistance } from "../geometry/point";
+import type Graph from "../graph/graph";
 import type { Path } from "./path";
-import { arePointsEqual, getDistance } from "./point";
 
 function heuristic(a: PointData, b: PointData): number {
 	return getDistance(a, b);

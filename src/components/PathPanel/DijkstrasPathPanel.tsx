@@ -2,7 +2,7 @@ import { Button, HStack, Stack } from "@chakra-ui/react";
 
 import { useAppContext } from "../../context/AppContext";
 import useRunPathGenerator from "../../hooks/useRunPathGenerator";
-import getDijkstrasPath from "../../utils/getDijkstrasPath";
+import getDijkstrasPath from "../../utils/path/getDijkstrasPath";
 
 export default function DijkstrasPathPanel() {
 	const { animatePath, graph, pathEndPoint, pathStartPoint, polygons } =

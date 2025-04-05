@@ -4,7 +4,7 @@ import { startCase } from "lodash";
 import { useMemo, useState } from "react";
 import { TfiTarget } from "react-icons/tfi";
 import { useAppContext } from "../../context/AppContext";
-import { getPathDistance } from "../../utils/path";
+import { getPathDistance } from "../../utils/path/path";
 import SimpleInput from "../ui/SimpleInput";
 import AStarPathPanel from "./AStarPathPanel";
 import BidirectionalAStarPathPanel from "./BidirectionalAStarPathPanel";

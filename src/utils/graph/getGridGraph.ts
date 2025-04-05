@@ -1,8 +1,8 @@
 import { type PointData, Polygon } from "pixi.js";
 
+import { getDistance } from "../geometry/point";
+import { doesPolygonIntersectPolygons } from "../geometry/polygon";
 import Graph from "./graph";
-import { getDistance } from "./point";
-import { doesPolygonIntersectPolygons } from "./polygon";
 
 interface Params {
 	allowDiagonal: boolean;

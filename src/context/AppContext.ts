@@ -1,7 +1,7 @@
 import type { PointData, Polygon } from "pixi.js";
 import React from "react";
-import type Graph from "../utils/graph";
-import type { Path } from "../utils/path";
+import type Graph from "../utils/graph/graph";
+import type { Path } from "../utils/path/path";
 
 export interface AppValues {
 	animateGraph: boolean;

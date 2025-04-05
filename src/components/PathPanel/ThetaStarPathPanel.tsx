@@ -3,7 +3,7 @@ import { Button, HStack, Stack } from "@chakra-ui/react";
 import { useState } from "react";
 import { useAppContext } from "../../context/AppContext";
 import useRunPathGenerator from "../../hooks/useRunPathGenerator";
-import getThetaStarPath from "../../utils/getThetaStarPath";
+import getThetaStarPath from "../../utils/path/getThetaStarPath";
 import SimpleCheckbox from "../ui/SimpleCheckbox";
 
 export default function ThetaStarPathPanel() {

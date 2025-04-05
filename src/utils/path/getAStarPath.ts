@@ -1,9 +1,8 @@
 import FlatQueue from "flatqueue";
 import type { PointData, Polygon } from "pixi.js";
-import doesLineIntersectPolygons from "./doesLineIntersectPolygons";
-import type Graph from "./graph";
+import { arePointsEqual, getDistance } from "../geometry/point";
+import type Graph from "../graph/graph";
 import type { Path } from "./path";
-import { arePointsEqual, getDistance } from "./point";
 
 function heuristic(a: PointData, b: PointData): number {
 	return getDistance(a, b);
@@ -11,16 +10,14 @@ function heuristic(a: PointData, b: PointData): number {
 
 interface Params {
 	animate?: boolean;
-	checkEndPointLineOfSight?: boolean;
 	endPoint: PointData;
 	graph: Graph;
 	polygons: Polygon[] | null;
 	startPoint: PointData;
 }
 
-export default function* getThetaStarPath({
+export default function* getAStarPath({
 	animate,
-	checkEndPointLineOfSight = true,
 	endPoint,
 	graph,
 	polygons,
@@ -98,61 +95,12 @@ export default function* getThetaStarPath({
 				}
 			}
 
+			// we're done, so break out of the main while loop
 			break;
 		}
 
-		const currentParent = cameFrom.get(currentPoint);
-
-		if (
-			checkEndPointLineOfSight &&
-			currentParent &&
-			!doesLineIntersectPolygons(currentParent, endPoint, polygons)
-		) {
-			const costToEndPoint = heuristic(currentParent, endPoint);
-
-			// if there is line of sight to the end point, use it
-			const newCost = (costSoFar.get(currentParent) || 0) + costToEndPoint;
-			const parent = currentParent;
-
-			costSoFar.set(endPoint, newCost);
-			const priority = newCost;
-			priorityQueue.push(endPoint, priority);
-			cameFrom.set(endPoint, parent);
-
-			pathGraph.getNode(endPoint).parent = {
-				point: parent,
-				cost: costToEndPoint,
-			};
-
-			if (animate) {
-				yield path;
-			}
-
-			continue;
-		}
-
 		for (const neighbor of pathGraph.getNode(currentPoint).neighbors) {
-			let newCost: number;
-			let parent: PointData;
-			let costToParent = neighbor.cost;
-
-			if (
-				currentParent &&
-				// this is the line of sight check
-				!doesLineIntersectPolygons(currentParent, neighbor.point, polygons)
-			) {
-				// if there is line of sight to the parent, use it
-				newCost =
-					(costSoFar.get(currentParent) || 0) +
-					heuristic(currentParent, neighbor.point);
-				parent = currentParent;
-				costToParent = heuristic(currentParent, neighbor.point);
-			} else {
-				// otherwise just use the current point
-				newCost = (costSoFar.get(currentPoint) || 0) + neighbor.cost;
-				parent = currentPoint;
-			}
-
+			const newCost = (costSoFar.get(currentPoint) || 0) + neighbor.cost;
 			if (
 				!costSoFar.has(neighbor.point) ||
 				newCost < (costSoFar.get(neighbor.point) || 0)
@@ -160,11 +108,11 @@ export default function* getThetaStarPath({
 				costSoFar.set(neighbor.point, newCost);
 				const priority = newCost + heuristic(endPoint, neighbor.point);
 				priorityQueue.push(neighbor.point, priority);
-				cameFrom.set(neighbor.point, parent);
+				cameFrom.set(neighbor.point, currentPoint);
 
 				pathGraph.getNode(neighbor.point).parent = {
-					point: parent,
-					cost: costToParent,
+					point: currentPoint,
+					cost: neighbor.cost,
 				};
 
 				if (animate) {

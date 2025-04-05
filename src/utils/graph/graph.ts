@@ -1,6 +1,6 @@
 import type { PointData, Polygon } from "pixi.js";
-import doesLineIntersectPolygons from "./doesLineIntersectPolygons";
-import { arePointsEqual, getDistance } from "./point";
+import doesLineIntersectPolygons from "../geometry/doesLineIntersectPolygons";
+import { arePointsEqual, getDistance } from "../geometry/point";
 
 export interface Neighbor {
 	point: PointData;

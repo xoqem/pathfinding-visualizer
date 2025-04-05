@@ -13,17 +13,17 @@ import { useMemo, useState } from "react";
 import { HiChevronLeft, HiChevronRight } from "react-icons/hi";
 import { useAppContext } from "../context/AppContext";
 import generateSvgStringWithRandomPolygons from "../utils/generateSvgStringWithRandomPolygons";
-import getAStarPath from "../utils/getAStarPath";
-import getBidirectionalAStarPath from "../utils/getBidirectionalAStarPath";
-import getBreadthFirstPath from "../utils/getBreadthFirstSearchPath";
-import getDijkstrasPath from "../utils/getDijkstrasPath";
+import isPointInPolygons from "../utils/geometry/isPointInPolygons";
+import { getDistance } from "../utils/geometry/point";
 import getPolygonsFromSvgString from "../utils/getPolygonsFromSvgString";
-import getProbabilisticRoadmapGraph from "../utils/getProbabilisticRoadmapGraph";
-import getThetaStarPath from "../utils/getThetaStarPath";
-import type Graph from "../utils/graph";
-import isPointInPolygons from "../utils/isPointInPolygons";
-import { type Path, getPathDistance } from "../utils/path";
-import { getDistance } from "../utils/point";
+import getProbabilisticRoadmapGraph from "../utils/graph/getProbabilisticRoadmapGraph";
+import type Graph from "../utils/graph/graph";
+import getAStarPath from "../utils/path/getAStarPath";
+import getBidirectionalAStarPath from "../utils/path/getBidirectionalAStarPath";
+import getBreadthFirstPath from "../utils/path/getBreadthFirstSearchPath";
+import getDijkstrasPath from "../utils/path/getDijkstrasPath";
+import getThetaStarPath from "../utils/path/getThetaStarPath";
+import { type Path, getPathDistance } from "../utils/path/path";
 
 function getClearPoint(polygons: Polygon[], width: number, height: number) {
 	let i = 0;

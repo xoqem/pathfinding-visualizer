@@ -1,5 +1,5 @@
 import type { Graphics } from "pixi.js";
-import type Graph from "../utils/graph";
+import type Graph from "../utils/graph/graph";
 
 interface Params {
 	alpha?: number;

@@ -2,7 +2,7 @@ import { Button, HStack, Stack, Text } from "@chakra-ui/react";
 
 import { useAppContext } from "../../context/AppContext";
 import useRunPathGenerator from "../../hooks/useRunPathGenerator";
-import getBidirectionalAStarPath from "../../utils/getBidirectionalAStarPath";
+import getBidirectionalAStarPath from "../../utils/path/getBidirectionalAStarPath";
 
 export default function BidirectionalAStarPathPanel() {
 	const { animatePath, graph, pathEndPoint, pathStartPoint, polygons } =

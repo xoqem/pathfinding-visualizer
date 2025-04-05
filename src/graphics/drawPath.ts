@@ -1,5 +1,5 @@
 import type { Graphics } from "pixi.js";
-import type { Path } from "../utils/path";
+import type { Path } from "../utils/path/path";
 
 interface Params {
 	path: Path | null;
