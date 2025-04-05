@@ -61,7 +61,7 @@ export default function ProbabilisticRoadmapGraphPanel() {
 	}
 
 	function handleClearClick() {
-		setAppValues({ graph: null });
+		setAppValues({ graph: null, overlayPolygons: null });
 	}
 
 	return (

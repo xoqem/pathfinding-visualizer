@@ -1,7 +1,6 @@
-import { type PointData, Polygon } from "pixi.js";
+import { Polygon } from "pixi.js";
 
 import Graph from "./graph";
-import { getDistance } from "./point";
 import { doesPolygonIntersectPolygons } from "./polygon";
 
 interface Params {
@@ -23,93 +22,81 @@ export default function* getQuadtreeGraph({
 }: Params): Generator<{ graph: Graph; overlayPolygons: Polygon[] }> {
 	const graph: Graph = new Graph();
 	const overlayPolygons: Polygon[] = [];
-	const gridPoints: (PointData | null)[][] = [];
+	const blockingPolygons: Polygon[] = [];
 
 	yield { graph, overlayPolygons };
 
-	const stepX = width / Math.floor(width / maxSize);
-	const stepY = height / Math.floor(height / maxSize);
+	function subdivide(
+		x: number,
+		y: number,
+		cellWidth: number,
+		cellHeight: number,
+	): void {
+		const overlayPolygonPoints = [
+			{ x, y },
+			{ x: x + cellWidth, y },
+			{ x: x + cellWidth, y: y + cellHeight },
+			{ x, y: y + cellHeight },
+		];
+		const overlayPolygon = new Polygon(overlayPolygonPoints);
 
-	// vertical grid lines
-	for (let x = 0; x <= width; x += stepX) {
-		const floorX = Math.max(Math.floor(x), 1);
-		overlayPolygons.push(new Polygon([floorX, 0, floorX, height]));
-		yield { graph, overlayPolygons };
-	}
+		const point = {
+			x: Math.round(x + cellWidth / 2),
+			y: Math.round(y + cellHeight / 2),
+		};
 
-	// horizontal grid lines
-	for (let y = 0; y <= height; y += stepY) {
-		const floorY = Math.min(Math.floor(y), height - 1);
-		overlayPolygons.push(new Polygon([0, floorY, width, floorY]));
-		yield { graph, overlayPolygons };
-	}
+		if (
+			!doesPolygonIntersectPolygons(
+				overlayPolygon,
+				polygons,
+				polygonStrokeWidth,
+			)
+		) {
+			overlayPolygons.push(
+				new Polygon([overlayPolygonPoints[0], overlayPolygonPoints[1]]),
+			);
+			overlayPolygons.push(
+				new Polygon([overlayPolygonPoints[1], overlayPolygonPoints[2]]),
+			);
+			overlayPolygons.push(
+				new Polygon([overlayPolygonPoints[2], overlayPolygonPoints[3]]),
+			);
+			overlayPolygons.push(
+				new Polygon([overlayPolygonPoints[3], overlayPolygonPoints[0]]),
+			);
 
-	for (let x = 0; x < width; x += stepX) {
-		const columnPoints: (PointData | null)[] = [];
-		for (let y = 0; y < height; y += stepY) {
-			const startX = Math.floor(x);
-			const startY = Math.floor(y);
-			const endX = Math.ceil(x + stepX);
-			const endY = Math.ceil(y + stepY);
-
-			const overlayPolygon = new Polygon([
-				startX,
-				startY,
-				endX,
-				startY,
-				endX,
-				endY,
-				startX,
-				endY,
-			]);
-
-			if (
-				doesPolygonIntersectPolygons(
-					overlayPolygon,
-					polygons,
-					polygonStrokeWidth,
-				)
-			) {
-				overlayPolygons.push(overlayPolygon);
-
-				columnPoints.push(null);
-			} else {
-				const point = {
-					x: Math.round(x + maxSize / 2),
-					y: Math.round(y + maxSize / 2),
-				};
-
-				columnPoints.push(point);
-				graph.initializeGraphEntry(point);
-			}
-
-			yield { graph, overlayPolygons };
+			graph.initializeGraphEntry(point);
+			return;
 		}
-		gridPoints.push(columnPoints);
+
+		if (cellWidth <= minSize || cellHeight <= minSize) {
+			overlayPolygons.push(overlayPolygon);
+			blockingPolygons.push(overlayPolygon);
+			return;
+		}
+
+		const halfWidth = cellWidth / 2;
+		const halfHeight = cellHeight / 2;
+
+		// Subdivide into four quadrants
+		subdivide(x, y, halfWidth, halfHeight); // Top-left
+		subdivide(x + halfWidth, y, halfWidth, halfHeight); // Top-right
+		subdivide(x, y + halfHeight, halfWidth, halfHeight); // Bottom-left
+		subdivide(x + halfWidth, y + halfHeight, halfWidth, halfHeight); // Bottom-right
 	}
 
-	for (let i = 0; i < gridPoints.length; i++) {
-		for (let j = 0; j < gridPoints[i].length; j++) {
-			const point = gridPoints[i][j];
-			if (!point) continue;
+	subdivide(0, 0, width, height);
 
-			const rightPoint = gridPoints[i + 1]?.[j];
-			if (rightPoint) {
-				graph.addNeighbor({
-					point,
-					neighbor: { point: rightPoint, cost: getDistance(point, rightPoint) },
-				});
-			}
+	const maxNeighborDistance = maxSize * 2;
 
-			const downPoint = gridPoints[i]?.[j + 1];
-			if (downPoint) {
-				graph.addNeighbor({
-					point,
-					neighbor: { point: downPoint, cost: getDistance(point, downPoint) },
-				});
-			}
+	for (const point of graph.points) {
+		graph.connectPointToGraph({
+			maxNeighborDistance,
+			maxNeighbors: 16,
+			point,
+			polygons: blockingPolygons,
+		});
 
-			yield { graph, overlayPolygons };
-		}
+		yield { graph, overlayPolygons };
 	}
 }

@@ -56,7 +56,7 @@ export default function GridGraphPanel() {
 	}
 
 	function handleClearClick() {
-		setAppValues({ graph: null });
+		setAppValues({ graph: null, overlayPolygons: null });
 	}
 
 	return (

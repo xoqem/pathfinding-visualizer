@@ -55,7 +55,7 @@ export default function QuadtreeGraphPanel() {
 	}
 
 	function handleClearClick() {
-		setAppValues({ graph: null });
+		setAppValues({ graph: null, overlayPolygons: null });
 	}
 
 	return (
