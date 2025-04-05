@@ -1,4 +1,4 @@
-import { Box, Stack, Text, VStack, Wrap } from "@chakra-ui/react";
+import { Box, Stack, Text, VStack } from "@chakra-ui/react";
 import { startCase } from "lodash";
 import Plotly, { type BoxPlotData } from "plotly.js";
 import { useEffect } from "react";
@@ -61,14 +61,14 @@ export default function PlotPanel() {
 
 	return (
 		<Stack gap={4} padding={2} textAlign="left">
-			<Wrap>
+			<VStack gap={4}>
 				{stats.map((stat) => (
 					<VStack key={stat} gap={2}>
 						<Text>{startCase(stat)}</Text>
 						<Box id={`${stat}Plot`} width={1000} height={400} />
 					</VStack>
 				))}
-			</Wrap>
+			</VStack>
 		</Stack>
 	);
 }
