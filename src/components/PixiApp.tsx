@@ -20,8 +20,8 @@ export default function PixiApp() {
 		graphAlpha,
 		height,
 		onPointClick,
-		overlay,
-		overlayAlpha,
+		overlayPolygons,
+		overlayPolygonsAlpha,
 		path,
 		polygonAlpha,
 		polygons,
@@ -41,7 +41,7 @@ export default function PixiApp() {
 				polygons,
 				strokeWidth: polygonStrokeWidth,
 			});
-			drawOverlay({ alpha: overlayAlpha, overlay, graphics });
+			drawOverlay({ alpha: overlayPolygonsAlpha, overlayPolygons, graphics });
 			drawGraph({ alpha: graphAlpha, graph, graphics });
 			drawPath({ searchAlpha, graphics, path });
 		},
@@ -49,8 +49,8 @@ export default function PixiApp() {
 			graph,
 			graphAlpha,
 			height,
-			overlayAlpha,
-			overlay,
+			overlayPolygons,
+			overlayPolygonsAlpha,
 			path,
 			polygonAlpha,
 			polygons,

@@ -1,8 +1,6 @@
 import { Polygon } from "pixi.js";
 
-import type { Overlay } from "../context/AppContext";
 import Graph from "./graph";
-import isPointInPolygons from "./isPointInPolygons";
 import { doesPolygonIntersectPolygons } from "./polygon";
 
 interface Params {
@@ -21,34 +19,45 @@ export default function* getGridGraph({
 	polygons,
 	polygonStrokeWidth,
 	width,
-}: Params): Generator<{ graph: Graph; overlay: Overlay }> {
+}: Params): Generator<{ graph: Graph; overlayPolygons: Polygon[] }> {
 	const graph: Graph = new Graph();
-	const overlay: Overlay = {
-		filledPolygons: [],
-		outlinePolygons: [],
-	};
-	const padding = 1;
-	const widthWithPadding = width - padding * 2;
-	const heightWithPadding = height - padding * 2;
+	const overlayPolygons: Polygon[] = [];
 
-	yield { graph, overlay };
+	yield { graph, overlayPolygons };
 
-	const gridWidth = (Math.ceil(widthWithPadding / gridSize) - 1) * gridSize;
-	const gridHeight = (Math.ceil(heightWithPadding / gridSize) - 1) * gridSize;
-	const startX = Math.floor((widthWithPadding - gridWidth) / 2);
-	const startY = Math.floor((heightWithPadding - gridHeight) / 2);
+	const stepX = width / Math.floor(width / gridSize);
+	const stepY = height / Math.floor(height / gridSize);
 
-	for (let x = startX; x < widthWithPadding - gridSize; x += gridSize) {
-		for (let y = startY; y < heightWithPadding - gridSize; y += gridSize) {
+	// vertical grid lines
+	for (let x = 0; x <= width; x += stepX) {
+		const floorX = Math.max(Math.floor(x), 1);
+		overlayPolygons.push(new Polygon([floorX, 0, floorX, height]));
+		yield { graph, overlayPolygons };
+	}
+
+	// horizontal grid lines
+	for (let y = 0; y <= height; y += stepY) {
+		const floorY = Math.min(Math.floor(y), height - 1);
+		overlayPolygons.push(new Polygon([0, floorY, width, floorY]));
+		yield { graph, overlayPolygons };
+	}
+
+	for (let x = 0; x < width; x += stepX) {
+		for (let y = 0; y < height; y += stepY) {
+			const startX = Math.floor(x);
+			const startY = Math.floor(y);
+			const endX = Math.ceil(x + stepX);
+			const endY = Math.ceil(y + stepY);
+
 			const overlayPolygon = new Polygon([
-				x,
-				y,
-				x + gridSize,
-				y,
-				x + gridSize,
-				y + gridSize,
-				x,
-				y + gridSize,
+				startX,
+				startY,
+				endX,
+				startY,
+				endX,
+				endY,
+				startX,
+				endY,
 			]);
 
 			if (
@@ -58,10 +67,8 @@ export default function* getGridGraph({
 					polygonStrokeWidth,
 				)
 			) {
-				overlay.filledPolygons?.push(overlayPolygon);
+				overlayPolygons.push(overlayPolygon);
 			} else {
-				overlay.outlinePolygons?.push(overlayPolygon);
-
 				const point = {
 					x: Math.round(x + gridSize / 2),
 					y: Math.round(y + gridSize / 2),
@@ -70,7 +77,7 @@ export default function* getGridGraph({
 				graph.initializeGraphEntry(point);
 			}
 
-			yield { graph, overlay };
+			yield { graph, overlayPolygons };
 		}
 	}
 
@@ -81,6 +88,6 @@ export default function* getGridGraph({
 			polygons,
 		});
 
-		yield { graph, overlay };
+		yield { graph, overlayPolygons };
 	}
 }

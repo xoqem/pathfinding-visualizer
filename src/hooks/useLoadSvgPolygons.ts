@@ -16,7 +16,7 @@ export default function useLoadSvgPolygons() {
 	} = useAppContext();
 
 	const loadSvgPolygons = useCallback(() => {
-		setAppValues({ loading: true, polygons: null });
+		setAppValues({ loading: true, overlayPolygons: null, polygons: null });
 
 		function getPolygonsFromSvgStringInternal(svgString: string) {
 			const newPolygons = getPolygonsFromSvgString({
