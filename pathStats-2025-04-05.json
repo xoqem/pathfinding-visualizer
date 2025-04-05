@@ -1,0 +1,4402 @@
+[
+	{
+		"breadthFirstSearch": {
+			"pathDistance": 715.5131352699514,
+			"pathDistanceRatio": 1.0165485075892053,
+			"pathSegments": 26,
+			"percentGraphExplored": 0.3627932351336607,
+			"totalTime": 2.5999999940395355
+		},
+		"dijkstras": {
+			"pathDistance": 703.8652163946666,
+			"pathDistanceRatio": 1,
+			"pathSegments": 30,
+			"percentGraphExplored": 0.3496999454446263,
+			"totalTime": 2.699999988079071
+		},
+		"aStar": {
+			"pathDistance": 703.8652163946666,
+			"pathDistanceRatio": 1,
+			"pathSegments": 30,
+			"percentGraphExplored": 0.15002727768685215,
+			"totalTime": 3.4000000059604645
+		},
+		"bidirectionalAStar": {
+			"pathDistance": 709.4968291994304,
+			"pathDistanceRatio": 1.0080009818266202,
+			"pathSegments": 29,
+			"percentGraphExplored": 0.15057283142389524,
+			"totalTime": 2.4000000059604645
+		},
+		"thetaStar": {
+			"pathDistance": 686.0855307241818,
+			"pathDistanceRatio": 0.9747399285312666,
+			"pathSegments": 4,
+			"percentGraphExplored": 0.132569558101473,
+			"totalTime": 11.5
+		},
+		"thetaStarEndCheck": {
+			"pathDistance": 686.0855307241818,
+			"pathDistanceRatio": 0.9747399285312666,
+			"pathSegments": 4,
+			"percentGraphExplored": 0.1254773595199127,
+			"totalTime": 11.399999976158142
+		}
+	},
+	{
+		"breadthFirstSearch": {
+			"pathDistance": 853.333371914798,
+			"pathDistanceRatio": 1.087569491988862,
+			"pathSegments": 34,
+			"percentGraphExplored": 0.7475263325885733,
+			"totalTime": 5.199999988079071
+		},
+		"dijkstras": {
+			"pathDistance": 784.6242269579378,
+			"pathDistanceRatio": 1,
+			"pathSegments": 38,
+			"percentGraphExplored": 0.7353973827002873,
+			"totalTime": 4.5
+		},
+		"aStar": {
+			"pathDistance": 784.6242269579378,
+			"pathDistanceRatio": 1,
+			"pathSegments": 38,
+			"percentGraphExplored": 0.14905841046919885,
+			"totalTime": 3.5
+		},
+		"bidirectionalAStar": {
+			"pathDistance": 801.5599924816438,
+			"pathDistanceRatio": 1.0215845559464403,
+			"pathSegments": 35,
+			"percentGraphExplored": 0.11330992658793489,
+			"totalTime": 3.4000000059604645
+		},
+		"thetaStar": {
+			"pathDistance": 757.7084240712975,
+			"pathDistanceRatio": 0.9656959319354751,
+			"pathSegments": 2,
+			"percentGraphExplored": 0.11458665815512288,
+			"totalTime": 8.5
+		},
+		"thetaStarEndCheck": {
+			"pathDistance": 757.7084240712975,
+			"pathDistanceRatio": 0.9656959319354751,
+			"pathSegments": 2,
+			"percentGraphExplored": 0.08905202681136291,
+			"totalTime": 6.100000023841858
+		}
+	},
+	{
+		"breadthFirstSearch": {
+			"pathDistance": 678.5261729537219,
+			"pathDistanceRatio": 1.1564516933824536,
+			"pathSegments": 26,
+			"percentGraphExplored": 0.4940308988764045,
+			"totalTime": 3.9000000059604645
+		},
+		"dijkstras": {
+			"pathDistance": 586.7310989611085,
+			"pathDistanceRatio": 1,
+			"pathSegments": 31,
+			"percentGraphExplored": 0.480688202247191,
+			"totalTime": 5
+		},
+		"aStar": {
+			"pathDistance": 586.7310989611085,
+			"pathDistanceRatio": 1,
+			"pathSegments": 31,
+			"percentGraphExplored": 0.13307584269662923,
+			"totalTime": 3.300000011920929
+		},
+		"bidirectionalAStar": {
+			"pathDistance": 604.1864010727573,
+			"pathDistanceRatio": 1.0297500884861157,
+			"pathSegments": 31,
+			"percentGraphExplored": 0.08707865168539326,
+			"totalTime": 3.9000000059604645
+		},
+		"thetaStar": {
+			"pathDistance": 566.6019381717717,
+			"pathDistanceRatio": 0.9656926983673129,
+			"pathSegments": 3,
+			"percentGraphExplored": 0.12359550561797752,
+			"totalTime": 9.900000005960464
+		},
+		"thetaStarEndCheck": {
+			"pathDistance": 566.6019381717717,
+			"pathDistanceRatio": 0.9656926983673129,
+			"pathSegments": 3,
+			"percentGraphExplored": 0.11622191011235955,
+			"totalTime": 16.69999998807907
+		}
+	},
+	{
+		"breadthFirstSearch": {
+			"pathDistance": 1179.4274914037944,
+			"pathDistanceRatio": 1.0531747113954903,
+			"pathSegments": 41,
+			"percentGraphExplored": 0.7459742351046699,
+			"totalTime": 4.5
+		},
+		"dijkstras": {
+			"pathDistance": 1119.8782867099183,
+			"pathDistanceRatio": 1,
+			"pathSegments": 49,
+			"percentGraphExplored": 0.7648953301127214,
+			"totalTime": 5.9000000059604645
+		},
+		"aStar": {
+			"pathDistance": 1119.8782867099183,
+			"pathDistanceRatio": 1,
+			"pathSegments": 49,
+			"percentGraphExplored": 0.29066022544283415,
+			"totalTime": 2.9000000059604645
+		},
+		"bidirectionalAStar": {
+			"pathDistance": 1119.8782867099183,
+			"pathDistanceRatio": 1,
+			"pathSegments": 49,
+			"percentGraphExplored": 0.2363123993558776,
+			"totalTime": 3
+		},
+		"thetaStar": {
+			"pathDistance": 1088.401986901135,
+			"pathDistanceRatio": 0.9718931064363635,
+			"pathSegments": 10,
+			"percentGraphExplored": 0.21256038647342995,
+			"totalTime": 22.5
+		},
+		"thetaStarEndCheck": {
+			"pathDistance": 1087.60436263065,
+			"pathDistanceRatio": 0.9711808645079766,
+			"pathSegments": 10,
+			"percentGraphExplored": 0.19847020933977455,
+			"totalTime": 21.900000005960464
+		}
+	},
+	{
+		"breadthFirstSearch": {
+			"pathDistance": 1123.7174658416031,
+			"pathDistanceRatio": 1.0632488807528306,
+			"pathSegments": 44,
+			"percentGraphExplored": 0.9584352078239609,
+			"totalTime": 5.4000000059604645
+		},
+		"dijkstras": {
+			"pathDistance": 1056.871524798557,
+			"pathDistanceRatio": 1,
+			"pathSegments": 54,
+			"percentGraphExplored": 0.9483496332518337,
+			"totalTime": 5.300000011920929
+		},
+		"aStar": {
+			"pathDistance": 1056.871524798557,
+			"pathDistanceRatio": 1,
+			"pathSegments": 54,
+			"percentGraphExplored": 0.20079462102689485,
+			"totalTime": 3.300000011920929
+		},
+		"bidirectionalAStar": {
+			"pathDistance": 1074.4028924786255,
+			"pathDistanceRatio": 1.0165879837508254,
+			"pathSegments": 54,
+			"percentGraphExplored": 0.15892420537897312,
+			"totalTime": 3.199999988079071
+		},
+		"thetaStar": {
+			"pathDistance": 1023.7327666047471,
+			"pathDistanceRatio": 0.9686444781449418,
+			"pathSegments": 4,
+			"percentGraphExplored": 0.11124694376528117,
+			"totalTime": 6.199999988079071
+		},
+		"thetaStarEndCheck": {
+			"pathDistance": 1023.7327666047471,
+			"pathDistanceRatio": 0.9686444781449418,
+			"pathSegments": 4,
+			"percentGraphExplored": 0.06295843520782396,
+			"totalTime": 6.800000011920929
+		}
+	},
+	{
+		"breadthFirstSearch": {
+			"pathDistance": 675.4305696302137,
+			"pathDistanceRatio": 1.094691849246661,
+			"pathSegments": 24,
+			"percentGraphExplored": 0.31412337662337664,
+			"totalTime": 4.5
+		},
+		"dijkstras": {
+			"pathDistance": 617.0052057070012,
+			"pathDistanceRatio": 1,
+			"pathSegments": 30,
+			"percentGraphExplored": 0.36742424242424243,
+			"totalTime": 4
+		},
+		"aStar": {
+			"pathDistance": 617.0052057070012,
+			"pathDistanceRatio": 1,
+			"pathSegments": 30,
+			"percentGraphExplored": 0.06764069264069264,
+			"totalTime": 3.4000000059604645
+		},
+		"bidirectionalAStar": {
+			"pathDistance": 629.2372767956313,
+			"pathDistanceRatio": 1.0198249074326915,
+			"pathSegments": 30,
+			"percentGraphExplored": 0.058712121212121215,
+			"totalTime": 3.300000011920929
+		},
+		"thetaStar": {
+			"pathDistance": 600.7596120041616,
+			"pathDistanceRatio": 0.9736702485609915,
+			"pathSegments": 2,
+			"percentGraphExplored": 0.05627705627705628,
+			"totalTime": 4.300000011920929
+		},
+		"thetaStarEndCheck": {
+			"pathDistance": 600.7596120041616,
+			"pathDistanceRatio": 0.9736702485609915,
+			"pathSegments": 2,
+			"percentGraphExplored": 0.03409090909090909,
+			"totalTime": 3.7999999821186066
+		}
+	},
+	{
+		"breadthFirstSearch": {
+			"pathDistance": 773.1823534794892,
+			"pathDistanceRatio": 1.0381930353462268,
+			"pathSegments": 30,
+			"percentGraphExplored": 0.5954031375410435,
+			"totalTime": 3.5
+		},
+		"dijkstras": {
+			"pathDistance": 744.7385285354383,
+			"pathDistanceRatio": 1,
+			"pathSegments": 32,
+			"percentGraphExplored": 0.6034294053265231,
+			"totalTime": 3.199999988079071
+		},
+		"aStar": {
+			"pathDistance": 744.7385285354383,
+			"pathDistanceRatio": 1,
+			"pathSegments": 32,
+			"percentGraphExplored": 0.1820503465888362,
+			"totalTime": 2.5999999940395355
+		},
+		"bidirectionalAStar": {
+			"pathDistance": 753.0870670076406,
+			"pathDistanceRatio": 1.0112100262740806,
+			"pathSegments": 32,
+			"percentGraphExplored": 0.1273257935060197,
+			"totalTime": 2.5
+		},
+		"thetaStar": {
+			"pathDistance": 721.3499016588739,
+			"pathDistanceRatio": 0.968594847748029,
+			"pathSegments": 5,
+			"percentGraphExplored": 0.16563298066399124,
+			"totalTime": 16
+		},
+		"thetaStarEndCheck": {
+			"pathDistance": 721.3499016588739,
+			"pathDistanceRatio": 0.968594847748029,
+			"pathSegments": 5,
+			"percentGraphExplored": 0.16453848960233491,
+			"totalTime": 16.600000023841858
+		}
+	},
+	{
+		"breadthFirstSearch": {
+			"pathDistance": 754.3135952370437,
+			"pathDistanceRatio": 1.1830543143693595,
+			"pathSegments": 25,
+			"percentGraphExplored": 0.5459770114942529,
+			"totalTime": 2.4000000059604645
+		},
+		"dijkstras": {
+			"pathDistance": 637.598448418777,
+			"pathDistanceRatio": 1,
+			"pathSegments": 27,
+			"percentGraphExplored": 0.5705329153605015,
+			"totalTime": 2.4000000059604645
+		},
+		"aStar": {
+			"pathDistance": 637.598448418777,
+			"pathDistanceRatio": 1,
+			"pathSegments": 27,
+			"percentGraphExplored": 0.2001044932079415,
+			"totalTime": 2
+		},
+		"bidirectionalAStar": {
+			"pathDistance": 638.2152645294263,
+			"pathDistanceRatio": 1.0009674052880446,
+			"pathSegments": 31,
+			"percentGraphExplored": 0.09247648902821316,
+			"totalTime": 1.9000000059604645
+		},
+		"thetaStar": {
+			"pathDistance": 622.4605513792901,
+			"pathDistanceRatio": 0.9762579456129036,
+			"pathSegments": 5,
+			"percentGraphExplored": 0.19278996865203762,
+			"totalTime": 16.400000005960464
+		},
+		"thetaStarEndCheck": {
+			"pathDistance": 622.4605513792901,
+			"pathDistanceRatio": 0.9762579456129036,
+			"pathSegments": 5,
+			"percentGraphExplored": 0.19278996865203762,
+			"totalTime": 17.19999998807907
+		}
+	},
+	{
+		"breadthFirstSearch": {
+			"pathDistance": 1072.036998162703,
+			"pathDistanceRatio": 1.0509621556792283,
+			"pathSegments": 40,
+			"percentGraphExplored": 0.588477366255144,
+			"totalTime": 3.100000023841858
+		},
+		"dijkstras": {
+			"pathDistance": 1020.052903303501,
+			"pathDistanceRatio": 1,
+			"pathSegments": 46,
+			"percentGraphExplored": 0.6588477366255144,
+			"totalTime": 3
+		},
+		"aStar": {
+			"pathDistance": 1020.052903303501,
+			"pathDistanceRatio": 1,
+			"pathSegments": 46,
+			"percentGraphExplored": 0.24526748971193416,
+			"totalTime": 2.5
+		},
+		"bidirectionalAStar": {
+			"pathDistance": 1035.8098494745227,
+			"pathDistanceRatio": 1.0154471852587175,
+			"pathSegments": 45,
+			"percentGraphExplored": 0.19465020576131686,
+			"totalTime": 2.2999999821186066
+		},
+		"thetaStar": {
+			"pathDistance": 993.7736035801668,
+			"pathDistanceRatio": 0.9742373168703042,
+			"pathSegments": 8,
+			"percentGraphExplored": 0.18806584362139916,
+			"totalTime": 12.5
+		},
+		"thetaStarEndCheck": {
+			"pathDistance": 993.7736035801668,
+			"pathDistanceRatio": 0.9742373168703042,
+			"pathSegments": 8,
+			"percentGraphExplored": 0.17530864197530865,
+			"totalTime": 13.399999976158142
+		}
+	},
+	{
+		"breadthFirstSearch": {
+			"pathDistance": 867.7141735963344,
+			"pathDistanceRatio": 1.107490814705384,
+			"pathSegments": 33,
+			"percentGraphExplored": 0.9533213644524237,
+			"totalTime": 5.899999976158142
+		},
+		"dijkstras": {
+			"pathDistance": 783.4955938909206,
+			"pathDistanceRatio": 1,
+			"pathSegments": 38,
+			"percentGraphExplored": 0.9488330341113106,
+			"totalTime": 5.4000000059604645
+		},
+		"aStar": {
+			"pathDistance": 783.4955938909206,
+			"pathDistanceRatio": 1,
+			"pathSegments": 38,
+			"percentGraphExplored": 0.24536205864751645,
+			"totalTime": 4.399999976158142
+		},
+		"bidirectionalAStar": {
+			"pathDistance": 791.2555071909152,
+			"pathDistanceRatio": 1.0099042207263196,
+			"pathSegments": 38,
+			"percentGraphExplored": 0.08976660682226212,
+			"totalTime": 4.9000000059604645
+		},
+		"thetaStar": {
+			"pathDistance": 760.8907198475115,
+			"pathDistanceRatio": 0.9711486902802465,
+			"pathSegments": 3,
+			"percentGraphExplored": 0.23040095751047276,
+			"totalTime": 10.599999994039536
+		},
+		"thetaStarEndCheck": {
+			"pathDistance": 760.8907198475115,
+			"pathDistanceRatio": 0.9711486902802465,
+			"pathSegments": 3,
+			"percentGraphExplored": 0.22681029323758228,
+			"totalTime": 10.599999994039536
+		}
+	},
+	{
+		"breadthFirstSearch": {
+			"pathDistance": 806.1722017649047,
+			"pathDistanceRatio": 1.0517206601518,
+			"pathSegments": 34,
+			"percentGraphExplored": 0.6978361669242659,
+			"totalTime": 5.799999982118607
+		},
+		"dijkstras": {
+			"pathDistance": 766.5269232692888,
+			"pathDistanceRatio": 1,
+			"pathSegments": 39,
+			"percentGraphExplored": 0.6888201957753736,
+			"totalTime": 5.199999988079071
+		},
+		"aStar": {
+			"pathDistance": 766.5269232692888,
+			"pathDistanceRatio": 1,
+			"pathSegments": 39,
+			"percentGraphExplored": 0.09659969088098919,
+			"totalTime": 3.800000011920929
+		},
+		"bidirectionalAStar": {
+			"pathDistance": 766.5269232692888,
+			"pathDistanceRatio": 1,
+			"pathSegments": 39,
+			"percentGraphExplored": 0.07470376094796496,
+			"totalTime": 4.4000000059604645
+		},
+		"thetaStar": {
+			"pathDistance": 744.6797969597402,
+			"pathDistanceRatio": 0.9714985532192801,
+			"pathSegments": 1,
+			"percentGraphExplored": 0.06491499227202473,
+			"totalTime": 4.0999999940395355
+		},
+		"thetaStarEndCheck": {
+			"pathDistance": 744.6797969597402,
+			"pathDistanceRatio": 0.9714985532192801,
+			"pathSegments": 1,
+			"percentGraphExplored": 0.0030911901081916537,
+			"totalTime": 3.5
+		}
+	},
+	{
+		"breadthFirstSearch": {
+			"pathDistance": 971.648969435707,
+			"pathDistanceRatio": 1.090406315924657,
+			"pathSegments": 38,
+			"percentGraphExplored": 0.8156874440799284,
+			"totalTime": 5.199999988079071
+		},
+		"dijkstras": {
+			"pathDistance": 891.0889044252787,
+			"pathDistanceRatio": 1,
+			"pathSegments": 44,
+			"percentGraphExplored": 0.8210557709513868,
+			"totalTime": 4.9000000059604645
+		},
+		"aStar": {
+			"pathDistance": 891.0889044252787,
+			"pathDistanceRatio": 1,
+			"pathSegments": 44,
+			"percentGraphExplored": 0.176260065612884,
+			"totalTime": 3.5
+		},
+		"bidirectionalAStar": {
+			"pathDistance": 921.0649089078679,
+			"pathDistanceRatio": 1.0336397460833864,
+			"pathSegments": 46,
+			"percentGraphExplored": 0.12257679689830003,
+			"totalTime": 3.5999999940395355
+		},
+		"thetaStar": {
+			"pathDistance": 869.8282695526904,
+			"pathDistanceRatio": 0.9761408376122687,
+			"pathSegments": 6,
+			"percentGraphExplored": 0.16194452728899492,
+			"totalTime": 7.699999988079071
+		},
+		"thetaStarEndCheck": {
+			"pathDistance": 869.8282695526904,
+			"pathDistanceRatio": 0.9761408376122687,
+			"pathSegments": 6,
+			"percentGraphExplored": 0.15001491201908737,
+			"totalTime": 7.699999988079071
+		}
+	},
+	{
+		"breadthFirstSearch": {
+			"pathDistance": 866.8908221206522,
+			"pathDistanceRatio": 1.0893763831207846,
+			"pathSegments": 29,
+			"percentGraphExplored": 0.6592964824120603,
+			"totalTime": 4.800000011920929
+		},
+		"dijkstras": {
+			"pathDistance": 795.7679600481441,
+			"pathDistanceRatio": 1,
+			"pathSegments": 32,
+			"percentGraphExplored": 0.7658291457286432,
+			"totalTime": 4.200000017881393
+		},
+		"aStar": {
+			"pathDistance": 795.7679600481441,
+			"pathDistanceRatio": 1,
+			"pathSegments": 32,
+			"percentGraphExplored": 0.13098827470686766,
+			"totalTime": 2.699999988079071
+		},
+		"bidirectionalAStar": {
+			"pathDistance": 800.297752153604,
+			"pathDistanceRatio": 1.0056923529632757,
+			"pathSegments": 32,
+			"percentGraphExplored": 0.11926298157453936,
+			"totalTime": 2.9000000059604645
+		},
+		"thetaStar": {
+			"pathDistance": 765.7872789257393,
+			"pathDistanceRatio": 0.9623248451463277,
+			"pathSegments": 8,
+			"percentGraphExplored": 0.10586264656616415,
+			"totalTime": 6
+		},
+		"thetaStarEndCheck": {
+			"pathDistance": 765.7872789257393,
+			"pathDistanceRatio": 0.9623248451463277,
+			"pathSegments": 8,
+			"percentGraphExplored": 0.09447236180904522,
+			"totalTime": 5.699999988079071
+		}
+	},
+	{
+		"breadthFirstSearch": {
+			"pathDistance": 2074.928787688571,
+			"pathDistanceRatio": 1.1105062899200167,
+			"pathSegments": 67,
+			"percentGraphExplored": 0.86348251222264,
+			"totalTime": 4.100000023841858
+		},
+		"dijkstras": {
+			"pathDistance": 1868.4529808813745,
+			"pathDistanceRatio": 1,
+			"pathSegments": 74,
+			"percentGraphExplored": 0.8616021060549078,
+			"totalTime": 3.5999999940395355
+		},
+		"aStar": {
+			"pathDistance": 1868.4529808813745,
+			"pathDistanceRatio": 1,
+			"pathSegments": 74,
+			"percentGraphExplored": 0.7649492290334712,
+			"totalTime": 3.7999999821186066
+		},
+		"bidirectionalAStar": {
+			"pathDistance": 1907.4667789328544,
+			"pathDistanceRatio": 1.0208802674997348,
+			"pathSegments": 80,
+			"percentGraphExplored": 0.704024069198947,
+			"totalTime": 4.200000017881393
+		},
+		"thetaStar": {
+			"pathDistance": 1836.8694107438755,
+			"pathDistanceRatio": 0.9830964062458769,
+			"pathSegments": 17,
+			"percentGraphExplored": 0.7623166603986461,
+			"totalTime": 50.400000005960464
+		},
+		"thetaStarEndCheck": {
+			"pathDistance": 1836.8694107438755,
+			"pathDistanceRatio": 0.9830964062458769,
+			"pathSegments": 17,
+			"percentGraphExplored": 0.7623166603986461,
+			"totalTime": 51.80000001192093
+		}
+	},
+	{
+		"breadthFirstSearch": {
+			"pathDistance": 1339.9841041821066,
+			"pathDistanceRatio": 1.0490385157223598,
+			"pathSegments": 49,
+			"percentGraphExplored": 0.5678749111584932,
+			"totalTime": 3.7999999821186066
+		},
+		"dijkstras": {
+			"pathDistance": 1277.3450012551768,
+			"pathDistanceRatio": 1,
+			"pathSegments": 56,
+			"percentGraphExplored": 0.5621890547263682,
+			"totalTime": 3.5
+		},
+		"aStar": {
+			"pathDistance": 1277.3450012551768,
+			"pathDistanceRatio": 1,
+			"pathSegments": 56,
+			"percentGraphExplored": 0.27434257285003555,
+			"totalTime": 3.2000000178813934
+		},
+		"bidirectionalAStar": {
+			"pathDistance": 1288.0701261804577,
+			"pathDistanceRatio": 1.0083964198511302,
+			"pathSegments": 56,
+			"percentGraphExplored": 0.19047619047619047,
+			"totalTime": 3.199999988079071
+		},
+		"thetaStar": {
+			"pathDistance": 1241.0156433773427,
+			"pathDistanceRatio": 0.9715586956991766,
+			"pathSegments": 10,
+			"percentGraphExplored": 0.27007818052594174,
+			"totalTime": 21.80000001192093
+		},
+		"thetaStarEndCheck": {
+			"pathDistance": 1241.0156433773427,
+			"pathDistanceRatio": 0.9715586956991766,
+			"pathSegments": 10,
+			"percentGraphExplored": 0.26616915422885573,
+			"totalTime": 22.799999982118607
+		}
+	},
+	{
+		"breadthFirstSearch": {
+			"pathDistance": 576.9578774475983,
+			"pathDistanceRatio": 1.0495928256514306,
+			"pathSegments": 24,
+			"percentGraphExplored": 0.45772767724710767,
+			"totalTime": 4.300000011920929
+		},
+		"dijkstras": {
+			"pathDistance": 549.6968570545525,
+			"pathDistanceRatio": 1,
+			"pathSegments": 26,
+			"percentGraphExplored": 0.43725897359833876,
+			"totalTime": 4
+		},
+		"aStar": {
+			"pathDistance": 549.6968570545525,
+			"pathDistanceRatio": 1,
+			"pathSegments": 26,
+			"percentGraphExplored": 0.05992287155146841,
+			"totalTime": 3.0999999940395355
+		},
+		"bidirectionalAStar": {
+			"pathDistance": 557.6909344563365,
+			"pathDistanceRatio": 1.014542701671279,
+			"pathSegments": 26,
+			"percentGraphExplored": 0.05161673094037378,
+			"totalTime": 4
+		},
+		"thetaStar": {
+			"pathDistance": 535.4960317313285,
+			"pathDistanceRatio": 0.9741660787378037,
+			"pathSegments": 1,
+			"percentGraphExplored": 0.04360723820824681,
+			"totalTime": 5.200000017881393
+		},
+		"thetaStarEndCheck": {
+			"pathDistance": 535.4960317313285,
+			"pathDistanceRatio": 0.9741660787378037,
+			"pathSegments": 1,
+			"percentGraphExplored": 0.0029664787896766538,
+			"totalTime": 3.9000000059604645
+		}
+	},
+	{
+		"breadthFirstSearch": {
+			"pathDistance": 764.9605364603806,
+			"pathDistanceRatio": 1.0553841384140443,
+			"pathSegments": 28,
+			"percentGraphExplored": 0.2790135396518375,
+			"totalTime": 2.199999988079071
+		},
+		"dijkstras": {
+			"pathDistance": 724.8171624124543,
+			"pathDistanceRatio": 1,
+			"pathSegments": 30,
+			"percentGraphExplored": 0.26595744680851063,
+			"totalTime": 2
+		},
+		"aStar": {
+			"pathDistance": 724.8171624124543,
+			"pathDistanceRatio": 1,
+			"pathSegments": 30,
+			"percentGraphExplored": 0.10154738878143134,
+			"totalTime": 1.7000000178813934
+		},
+		"bidirectionalAStar": {
+			"pathDistance": 741.5968720944802,
+			"pathDistanceRatio": 1.0231502654078677,
+			"pathSegments": 31,
+			"percentGraphExplored": 0.12088974854932302,
+			"totalTime": 1.7999999821186066
+		},
+		"thetaStar": {
+			"pathDistance": 712.0723417471511,
+			"pathDistanceRatio": 0.9824165026351145,
+			"pathSegments": 5,
+			"percentGraphExplored": 0.09719535783365571,
+			"totalTime": 6.0999999940395355
+		},
+		"thetaStarEndCheck": {
+			"pathDistance": 712.0723417471511,
+			"pathDistanceRatio": 0.9824165026351145,
+			"pathSegments": 5,
+			"percentGraphExplored": 0.09719535783365571,
+			"totalTime": 6.299999982118607
+		}
+	},
+	{
+		"breadthFirstSearch": {
+			"pathDistance": 828.9954744341406,
+			"pathDistanceRatio": 1.0755364134375864,
+			"pathSegments": 32,
+			"percentGraphExplored": 0.9598765432098766,
+			"totalTime": 6.300000011920929
+		},
+		"dijkstras": {
+			"pathDistance": 770.7739729467071,
+			"pathDistanceRatio": 1,
+			"pathSegments": 36,
+			"percentGraphExplored": 0.9592592592592593,
+			"totalTime": 5.399999976158142
+		},
+		"aStar": {
+			"pathDistance": 770.7739729467071,
+			"pathDistanceRatio": 1,
+			"pathSegments": 36,
+			"percentGraphExplored": 0.12037037037037036,
+			"totalTime": 3.5
+		},
+		"bidirectionalAStar": {
+			"pathDistance": 775.9643685577289,
+			"pathDistanceRatio": 1.0067340047707873,
+			"pathSegments": 37,
+			"percentGraphExplored": 0.09753086419753086,
+			"totalTime": 3.4000000059604645
+		},
+		"thetaStar": {
+			"pathDistance": 744.7815042847246,
+			"pathDistanceRatio": 0.966277443745782,
+			"pathSegments": 3,
+			"percentGraphExplored": 0.06728395061728396,
+			"totalTime": 4.399999976158142
+		},
+		"thetaStarEndCheck": {
+			"pathDistance": 744.4689382371839,
+			"pathDistanceRatio": 0.9658719214285899,
+			"pathSegments": 1,
+			"percentGraphExplored": 0.002777777777777778,
+			"totalTime": 4
+		}
+	},
+	{
+		"breadthFirstSearch": {
+			"pathDistance": 883.9327819043513,
+			"pathDistanceRatio": 1.0817157390708332,
+			"pathSegments": 36,
+			"percentGraphExplored": 0.7398110661268557,
+			"totalTime": 5.800000011920929
+		},
+		"dijkstras": {
+			"pathDistance": 817.1581035361725,
+			"pathDistanceRatio": 1,
+			"pathSegments": 43,
+			"percentGraphExplored": 0.7276653171390014,
+			"totalTime": 5.0999999940395355
+		},
+		"aStar": {
+			"pathDistance": 817.1581035361725,
+			"pathDistanceRatio": 1,
+			"pathSegments": 43,
+			"percentGraphExplored": 0.14008097165991903,
+			"totalTime": 3.7999999821186066
+		},
+		"bidirectionalAStar": {
+			"pathDistance": 842.3978787993137,
+			"pathDistanceRatio": 1.0308872605606167,
+			"pathSegments": 42,
+			"percentGraphExplored": 0.1241565452091768,
+			"totalTime": 3.9000000059604645
+		},
+		"thetaStar": {
+			"pathDistance": 793.6092826207362,
+			"pathDistanceRatio": 0.9711820505560295,
+			"pathSegments": 2,
+			"percentGraphExplored": 0.11390013495276653,
+			"totalTime": 5.9000000059604645
+		},
+		"thetaStarEndCheck": {
+			"pathDistance": 793.6092826207362,
+			"pathDistanceRatio": 0.9711820505560295,
+			"pathSegments": 2,
+			"percentGraphExplored": 0.08016194331983806,
+			"totalTime": 4.4000000059604645
+		}
+	},
+	{
+		"breadthFirstSearch": {
+			"pathDistance": 578.2850073871477,
+			"pathDistanceRatio": 1.0431325293150993,
+			"pathSegments": 22,
+			"percentGraphExplored": 0.7397216951296648,
+			"totalTime": 4.699999988079071
+		},
+		"dijkstras": {
+			"pathDistance": 554.3734771331871,
+			"pathDistanceRatio": 1,
+			"pathSegments": 24,
+			"percentGraphExplored": 0.784629981024668,
+			"totalTime": 4.5
+		},
+		"aStar": {
+			"pathDistance": 554.3734771331871,
+			"pathDistanceRatio": 1,
+			"pathSegments": 24,
+			"percentGraphExplored": 0.0777988614800759,
+			"totalTime": 2.9000000059604645
+		},
+		"bidirectionalAStar": {
+			"pathDistance": 586.4024582959116,
+			"pathDistanceRatio": 1.0577750965438588,
+			"pathSegments": 27,
+			"percentGraphExplored": 0.08222643896268185,
+			"totalTime": 3
+		},
+		"thetaStar": {
+			"pathDistance": 539.240209452737,
+			"pathDistanceRatio": 0.9727020351718335,
+			"pathSegments": 3,
+			"percentGraphExplored": 0.0730550284629981,
+			"totalTime": 4.700000017881393
+		},
+		"thetaStarEndCheck": {
+			"pathDistance": 539.240209452737,
+			"pathDistanceRatio": 0.9727020351718335,
+			"pathSegments": 3,
+			"percentGraphExplored": 0.06451612903225806,
+			"totalTime": 4.699999988079071
+		}
+	},
+	{
+		"breadthFirstSearch": {
+			"pathDistance": 937.7677943733346,
+			"pathDistanceRatio": 1.049296223309417,
+			"pathSegments": 36,
+			"percentGraphExplored": 0.84,
+			"totalTime": 5.4000000059604645
+		},
+		"dijkstras": {
+			"pathDistance": 893.7112071324069,
+			"pathDistanceRatio": 1,
+			"pathSegments": 39,
+			"percentGraphExplored": 0.8715328467153285,
+			"totalTime": 5.200000017881393
+		},
+		"aStar": {
+			"pathDistance": 893.7112071324069,
+			"pathDistanceRatio": 1,
+			"pathSegments": 39,
+			"percentGraphExplored": 0.17897810218978102,
+			"totalTime": 3.5
+		},
+		"bidirectionalAStar": {
+			"pathDistance": 893.7112071324069,
+			"pathDistanceRatio": 1,
+			"pathSegments": 39,
+			"percentGraphExplored": 0.13722627737226278,
+			"totalTime": 3.5
+		},
+		"thetaStar": {
+			"pathDistance": 866.9001762430679,
+			"pathDistanceRatio": 0.9700003416367958,
+			"pathSegments": 6,
+			"percentGraphExplored": 0.1564963503649635,
+			"totalTime": 7.800000011920929
+		},
+		"thetaStarEndCheck": {
+			"pathDistance": 866.9001762430679,
+			"pathDistanceRatio": 0.9700003416367958,
+			"pathSegments": 6,
+			"percentGraphExplored": 0.14978102189781023,
+			"totalTime": 7.5999999940395355
+		}
+	},
+	{
+		"breadthFirstSearch": {
+			"pathDistance": 674.0115119591999,
+			"pathDistanceRatio": 1.0791282668033453,
+			"pathSegments": 27,
+			"percentGraphExplored": 0.6147058823529412,
+			"totalTime": 3.7000000178813934
+		},
+		"dijkstras": {
+			"pathDistance": 624.5888766826532,
+			"pathDistanceRatio": 1,
+			"pathSegments": 28,
+			"percentGraphExplored": 0.600735294117647,
+			"totalTime": 3.4000000059604645
+		},
+		"aStar": {
+			"pathDistance": 624.5888766826532,
+			"pathDistanceRatio": 1,
+			"pathSegments": 28,
+			"percentGraphExplored": 0.07720588235294118,
+			"totalTime": 2.4000000059604645
+		},
+		"bidirectionalAStar": {
+			"pathDistance": 639.4883230147274,
+			"pathDistanceRatio": 1.0238548057583234,
+			"pathSegments": 28,
+			"percentGraphExplored": 0.0713235294117647,
+			"totalTime": 2.5999999940395355
+		},
+		"thetaStar": {
+			"pathDistance": 609.1696085877824,
+			"pathDistanceRatio": 0.9753129319613144,
+			"pathSegments": 4,
+			"percentGraphExplored": 0.06323529411764706,
+			"totalTime": 4.9000000059604645
+		},
+		"thetaStarEndCheck": {
+			"pathDistance": 609.1696085877824,
+			"pathDistanceRatio": 0.9753129319613144,
+			"pathSegments": 4,
+			"percentGraphExplored": 0.06323529411764706,
+			"totalTime": 3.899999976158142
+		}
+	},
+	{
+		"breadthFirstSearch": {
+			"pathDistance": 1247.6367277572567,
+			"pathDistanceRatio": 1.090887312743137,
+			"pathSegments": 45,
+			"percentGraphExplored": 0.9104609929078015,
+			"totalTime": 3.5
+		},
+		"dijkstras": {
+			"pathDistance": 1143.689832288872,
+			"pathDistanceRatio": 1,
+			"pathSegments": 51,
+			"percentGraphExplored": 0.9051418439716312,
+			"totalTime": 3.0999999940395355
+		},
+		"aStar": {
+			"pathDistance": 1143.689832288872,
+			"pathDistanceRatio": 1,
+			"pathSegments": 51,
+			"percentGraphExplored": 0.3390957446808511,
+			"totalTime": 2.399999976158142
+		},
+		"bidirectionalAStar": {
+			"pathDistance": 1152.831447504639,
+			"pathDistanceRatio": 1.0079930895227704,
+			"pathSegments": 52,
+			"percentGraphExplored": 0.43351063829787234,
+			"totalTime": 2.600000023841858
+		},
+		"thetaStar": {
+			"pathDistance": 1121.0775923113006,
+			"pathDistanceRatio": 0.9802286954564269,
+			"pathSegments": 10,
+			"percentGraphExplored": 0.3178191489361702,
+			"totalTime": 20.099999994039536
+		},
+		"thetaStarEndCheck": {
+			"pathDistance": 1121.0775923113006,
+			"pathDistanceRatio": 0.9802286954564269,
+			"pathSegments": 10,
+			"percentGraphExplored": 0.3178191489361702,
+			"totalTime": 20.5
+		}
+	},
+	{
+		"breadthFirstSearch": {
+			"pathDistance": 854.3433919917596,
+			"pathDistanceRatio": 1.068691836053688,
+			"pathSegments": 27,
+			"percentGraphExplored": 0.25154215215901304,
+			"totalTime": 1.699999988079071
+		},
+		"dijkstras": {
+			"pathDistance": 799.4291367907857,
+			"pathDistanceRatio": 1,
+			"pathSegments": 29,
+			"percentGraphExplored": 0.25222755311857437,
+			"totalTime": 1.5
+		},
+		"aStar": {
+			"pathDistance": 799.4291367907857,
+			"pathDistanceRatio": 1,
+			"pathSegments": 29,
+			"percentGraphExplored": 0.2069910897875257,
+			"totalTime": 1.4000000059604645
+		},
+		"bidirectionalAStar": {
+			"pathDistance": 815.0168639995405,
+			"pathDistanceRatio": 1.0194985727832362,
+			"pathSegments": 30,
+			"percentGraphExplored": 0.2117888965044551,
+			"totalTime": 1.5
+		},
+		"thetaStar": {
+			"pathDistance": 789.4456778713758,
+			"pathDistanceRatio": 0.9875117650083566,
+			"pathSegments": 9,
+			"percentGraphExplored": 0.20767649074708705,
+			"totalTime": 17.400000005960464
+		},
+		"thetaStarEndCheck": {
+			"pathDistance": 789.4456778713758,
+			"pathDistanceRatio": 0.9875117650083566,
+			"pathSegments": 9,
+			"percentGraphExplored": 0.19671007539410554,
+			"totalTime": 17.900000005960464
+		}
+	},
+	{
+		"breadthFirstSearch": {
+			"pathDistance": 780.155179571161,
+			"pathDistanceRatio": 1.048374059383104,
+			"pathSegments": 29,
+			"percentGraphExplored": 0.778485491861288,
+			"totalTime": 4.199999988079071
+		},
+		"dijkstras": {
+			"pathDistance": 744.1572715279018,
+			"pathDistanceRatio": 1,
+			"pathSegments": 33,
+			"percentGraphExplored": 0.7770700636942676,
+			"totalTime": 3.9000000059604645
+		},
+		"aStar": {
+			"pathDistance": 744.1572715279018,
+			"pathDistanceRatio": 1,
+			"pathSegments": 33,
+			"percentGraphExplored": 0.1613588110403397,
+			"totalTime": 2.699999988079071
+		},
+		"bidirectionalAStar": {
+			"pathDistance": 744.1572715279018,
+			"pathDistanceRatio": 1,
+			"pathSegments": 33,
+			"percentGraphExplored": 0.12101910828025478,
+			"totalTime": 2.5999999940395355
+		},
+		"thetaStar": {
+			"pathDistance": 727.8837308278321,
+			"pathDistanceRatio": 0.9781315841117068,
+			"pathSegments": 8,
+			"percentGraphExplored": 0.15392781316348195,
+			"totalTime": 9.300000011920929
+		},
+		"thetaStarEndCheck": {
+			"pathDistance": 727.8837308278321,
+			"pathDistanceRatio": 0.9781315841117068,
+			"pathSegments": 8,
+			"percentGraphExplored": 0.1510969568294409,
+			"totalTime": 9.599999994039536
+		}
+	},
+	{
+		"breadthFirstSearch": {
+			"pathDistance": 852.6564310459281,
+			"pathDistanceRatio": 1.0689861212951803,
+			"pathSegments": 32,
+			"percentGraphExplored": 0.5972682119205298,
+			"totalTime": 3.0999999940395355
+		},
+		"dijkstras": {
+			"pathDistance": 797.6309645749677,
+			"pathDistanceRatio": 1,
+			"pathSegments": 36,
+			"percentGraphExplored": 0.6183774834437086,
+			"totalTime": 3
+		},
+		"aStar": {
+			"pathDistance": 797.6309645749677,
+			"pathDistanceRatio": 1,
+			"pathSegments": 36,
+			"percentGraphExplored": 0.15066225165562913,
+			"totalTime": 2.300000011920929
+		},
+		"bidirectionalAStar": {
+			"pathDistance": 802.0530903861423,
+			"pathDistanceRatio": 1.0055440749012685,
+			"pathSegments": 37,
+			"percentGraphExplored": 0.11713576158940397,
+			"totalTime": 2.300000011920929
+		},
+		"thetaStar": {
+			"pathDistance": 777.8212501027634,
+			"pathDistanceRatio": 0.9751643111263111,
+			"pathSegments": 9,
+			"percentGraphExplored": 0.13700331125827814,
+			"totalTime": 7.299999982118607
+		},
+		"thetaStarEndCheck": {
+			"pathDistance": 777.8212501027634,
+			"pathDistanceRatio": 0.9751643111263111,
+			"pathSegments": 9,
+			"percentGraphExplored": 0.1353476821192053,
+			"totalTime": 7.300000011920929
+		}
+	},
+	{
+		"breadthFirstSearch": {
+			"pathDistance": 700.9568875517205,
+			"pathDistanceRatio": 1.1000605740387481,
+			"pathSegments": 24,
+			"percentGraphExplored": 0.49788035798398494,
+			"totalTime": 2.5999999940395355
+		},
+		"dijkstras": {
+			"pathDistance": 637.1984453349113,
+			"pathDistanceRatio": 1,
+			"pathSegments": 30,
+			"percentGraphExplored": 0.5261422515308526,
+			"totalTime": 2.5
+		},
+		"aStar": {
+			"pathDistance": 637.1984453349113,
+			"pathDistanceRatio": 1,
+			"pathSegments": 30,
+			"percentGraphExplored": 0.17333961375412152,
+			"totalTime": 2
+		},
+		"bidirectionalAStar": {
+			"pathDistance": 645.9338959010455,
+			"pathDistanceRatio": 1.0137091523529107,
+			"pathSegments": 29,
+			"percentGraphExplored": 0.09750353273669336,
+			"totalTime": 2
+		},
+		"thetaStar": {
+			"pathDistance": 623.2419910902577,
+			"pathDistanceRatio": 0.9780971621214203,
+			"pathSegments": 4,
+			"percentGraphExplored": 0.1700423928403203,
+			"totalTime": 11
+		},
+		"thetaStarEndCheck": {
+			"pathDistance": 623.2419910902577,
+			"pathDistanceRatio": 0.9780971621214203,
+			"pathSegments": 4,
+			"percentGraphExplored": 0.167687235044748,
+			"totalTime": 11.600000023841858
+		}
+	},
+	{
+		"breadthFirstSearch": {
+			"pathDistance": 1276.7013316077987,
+			"pathDistanceRatio": 1.0650789623409997,
+			"pathSegments": 47,
+			"percentGraphExplored": 0.7374727668845316,
+			"totalTime": 3.9000000059604645
+		},
+		"dijkstras": {
+			"pathDistance": 1198.6917184071137,
+			"pathDistanceRatio": 1,
+			"pathSegments": 53,
+			"percentGraphExplored": 0.7519970951343501,
+			"totalTime": 3.5999999940395355
+		},
+		"aStar": {
+			"pathDistance": 1198.6917184071137,
+			"pathDistanceRatio": 1,
+			"pathSegments": 53,
+			"percentGraphExplored": 0.42701525054466233,
+			"totalTime": 3.5
+		},
+		"bidirectionalAStar": {
+			"pathDistance": 1198.6917184071137,
+			"pathDistanceRatio": 1,
+			"pathSegments": 53,
+			"percentGraphExplored": 0.6005809731299927,
+			"totalTime": 3.7999999821186066
+		},
+		"thetaStar": {
+			"pathDistance": 1162.484000516283,
+			"pathDistanceRatio": 0.9697939700968774,
+			"pathSegments": 7,
+			"percentGraphExplored": 0.41612200435729846,
+			"totalTime": 22.799999982118607
+		},
+		"thetaStarEndCheck": {
+			"pathDistance": 1162.484000516283,
+			"pathDistanceRatio": 0.9697939700968774,
+			"pathSegments": 7,
+			"percentGraphExplored": 0.3961510530137981,
+			"totalTime": 23.100000023841858
+		}
+	},
+	{
+		"breadthFirstSearch": {
+			"pathDistance": 1004.819410828542,
+			"pathDistanceRatio": 1.0833215632898194,
+			"pathSegments": 39,
+			"percentGraphExplored": 0.5950050624367196,
+			"totalTime": 4
+		},
+		"dijkstras": {
+			"pathDistance": 927.5356873513318,
+			"pathDistanceRatio": 1,
+			"pathSegments": 46,
+			"percentGraphExplored": 0.6020924738440769,
+			"totalTime": 3.9000000059604645
+		},
+		"aStar": {
+			"pathDistance": 927.5356873513318,
+			"pathDistanceRatio": 1,
+			"pathSegments": 46,
+			"percentGraphExplored": 0.1633479581505231,
+			"totalTime": 3.0999999940395355
+		},
+		"bidirectionalAStar": {
+			"pathDistance": 941.3453410799615,
+			"pathDistanceRatio": 1.0148885416668596,
+			"pathSegments": 46,
+			"percentGraphExplored": 0.1690853864326696,
+			"totalTime": 2.9000000059604645
+		},
+		"thetaStar": {
+			"pathDistance": 901.6347802018845,
+			"pathDistanceRatio": 0.9720755680857845,
+			"pathSegments": 6,
+			"percentGraphExplored": 0.1542355720553493,
+			"totalTime": 9.299999982118607
+		},
+		"thetaStarEndCheck": {
+			"pathDistance": 901.6347802018845,
+			"pathDistanceRatio": 0.9720755680857845,
+			"pathSegments": 6,
+			"percentGraphExplored": 0.15288558893013837,
+			"totalTime": 9.300000011920929
+		}
+	},
+	{
+		"breadthFirstSearch": {
+			"pathDistance": 785.0876783566464,
+			"pathDistanceRatio": 1.0359661277239924,
+			"pathSegments": 27,
+			"percentGraphExplored": 0.5499466761464629,
+			"totalTime": 3.5
+		},
+		"dijkstras": {
+			"pathDistance": 757.8314168258343,
+			"pathDistanceRatio": 1,
+			"pathSegments": 30,
+			"percentGraphExplored": 0.6118023462495557,
+			"totalTime": 3.600000023841858
+		},
+		"aStar": {
+			"pathDistance": 757.8314168258343,
+			"pathDistanceRatio": 1,
+			"pathSegments": 30,
+			"percentGraphExplored": 0.1453963739779595,
+			"totalTime": 2.7999999821186066
+		},
+		"bidirectionalAStar": {
+			"pathDistance": 760.1372553469881,
+			"pathDistanceRatio": 1.0030426800340528,
+			"pathSegments": 31,
+			"percentGraphExplored": 0.13437611091361537,
+			"totalTime": 2.5999999940395355
+		},
+		"thetaStar": {
+			"pathDistance": 734.0259799113028,
+			"pathDistanceRatio": 0.9685874240814135,
+			"pathSegments": 8,
+			"percentGraphExplored": 0.1418414504088162,
+			"totalTime": 9.399999976158142
+		},
+		"thetaStarEndCheck": {
+			"pathDistance": 734.0259799113028,
+			"pathDistanceRatio": 0.9685874240814135,
+			"pathSegments": 8,
+			"percentGraphExplored": 0.13046569498755778,
+			"totalTime": 9.5
+		}
+	},
+	{
+		"breadthFirstSearch": {
+			"pathDistance": 744.6855601516507,
+			"pathDistanceRatio": 1.06161604767639,
+			"pathSegments": 31,
+			"percentGraphExplored": 0.597103357472021,
+			"totalTime": 4.5999999940395355
+		},
+		"dijkstras": {
+			"pathDistance": 701.464113868267,
+			"pathDistanceRatio": 1,
+			"pathSegments": 35,
+			"percentGraphExplored": 0.5895325872284397,
+			"totalTime": 4.199999988079071
+		},
+		"aStar": {
+			"pathDistance": 701.464113868267,
+			"pathDistanceRatio": 1,
+			"pathSegments": 35,
+			"percentGraphExplored": 0.08130348913759051,
+			"totalTime": 2.9000000059604645
+		},
+		"bidirectionalAStar": {
+			"pathDistance": 717.1608320560719,
+			"pathDistanceRatio": 1.022377079422131,
+			"pathSegments": 36,
+			"percentGraphExplored": 0.08558262014483213,
+			"totalTime": 2.699999988079071
+		},
+		"thetaStar": {
+			"pathDistance": 685.0992885406831,
+			"pathDistanceRatio": 0.9766704739358097,
+			"pathSegments": 2,
+			"percentGraphExplored": 0.065174456879526,
+			"totalTime": 3.5999999940395355
+		},
+		"thetaStarEndCheck": {
+			"pathDistance": 685.0992885406831,
+			"pathDistanceRatio": 0.9766704739358097,
+			"pathSegments": 2,
+			"percentGraphExplored": 0.03357472021066491,
+			"totalTime": 3.2999999821186066
+		}
+	},
+	{
+		"breadthFirstSearch": {
+			"pathDistance": 691.1680351508222,
+			"pathDistanceRatio": 1.1107914147030502,
+			"pathSegments": 27,
+			"percentGraphExplored": 0.5443696450428397,
+			"totalTime": 4.299999982118607
+		},
+		"dijkstras": {
+			"pathDistance": 622.230263938071,
+			"pathDistanceRatio": 1,
+			"pathSegments": 32,
+			"percentGraphExplored": 0.5489596083231334,
+			"totalTime": 4.200000017881393
+		},
+		"aStar": {
+			"pathDistance": 622.230263938071,
+			"pathDistanceRatio": 1,
+			"pathSegments": 32,
+			"percentGraphExplored": 0.11872705018359853,
+			"totalTime": 3.300000011920929
+		},
+		"bidirectionalAStar": {
+			"pathDistance": 635.381006707447,
+			"pathDistanceRatio": 1.0211348491572003,
+			"pathSegments": 30,
+			"percentGraphExplored": 0.12821297429620562,
+			"totalTime": 3.199999988079071
+		},
+		"thetaStar": {
+			"pathDistance": 605.091177818028,
+			"pathDistanceRatio": 0.9724553961558051,
+			"pathSegments": 4,
+			"percentGraphExplored": 0.10679314565483476,
+			"totalTime": 6
+		},
+		"thetaStarEndCheck": {
+			"pathDistance": 605.091177818028,
+			"pathDistanceRatio": 0.9724553961558051,
+			"pathSegments": 4,
+			"percentGraphExplored": 0.09424724602203183,
+			"totalTime": 6.199999988079071
+		}
+	},
+	{
+		"breadthFirstSearch": {
+			"pathDistance": 1040.398188938941,
+			"pathDistanceRatio": 1.0800440992971088,
+			"pathSegments": 40,
+			"percentGraphExplored": 0.7068160597572363,
+			"totalTime": 3.5
+		},
+		"dijkstras": {
+			"pathDistance": 963.2923226153737,
+			"pathDistanceRatio": 1,
+			"pathSegments": 45,
+			"percentGraphExplored": 0.723155929038282,
+			"totalTime": 2.699999988079071
+		},
+		"aStar": {
+			"pathDistance": 963.2923226153737,
+			"pathDistanceRatio": 1,
+			"pathSegments": 45,
+			"percentGraphExplored": 0.22782446311858076,
+			"totalTime": 2.2000000178813934
+		},
+		"bidirectionalAStar": {
+			"pathDistance": 963.2923226153737,
+			"pathDistanceRatio": 1,
+			"pathSegments": 45,
+			"percentGraphExplored": 0.18720821661998133,
+			"totalTime": 2
+		},
+		"thetaStar": {
+			"pathDistance": 932.1515789584538,
+			"pathDistanceRatio": 0.967672592290187,
+			"pathSegments": 5,
+			"percentGraphExplored": 0.21288515406162464,
+			"totalTime": 16.900000005960464
+		},
+		"thetaStarEndCheck": {
+			"pathDistance": 932.1515789584538,
+			"pathDistanceRatio": 0.967672592290187,
+			"pathSegments": 5,
+			"percentGraphExplored": 0.19327731092436976,
+			"totalTime": 16.900000005960464
+		}
+	},
+	{
+		"breadthFirstSearch": {
+			"pathDistance": 836.7751828488728,
+			"pathDistanceRatio": 1.0646319974545972,
+			"pathSegments": 36,
+			"percentGraphExplored": 0.864684634620728,
+			"totalTime": 5.799999952316284
+		},
+		"dijkstras": {
+			"pathDistance": 785.9759849877687,
+			"pathDistanceRatio": 1,
+			"pathSegments": 39,
+			"percentGraphExplored": 0.8241178105029174,
+			"totalTime": 5.199999988079071
+		},
+		"aStar": {
+			"pathDistance": 785.9759849877687,
+			"pathDistanceRatio": 1,
+			"pathSegments": 39,
+			"percentGraphExplored": 0.144206724090025,
+			"totalTime": 3.5
+		},
+		"bidirectionalAStar": {
+			"pathDistance": 786.1624730775493,
+			"pathDistanceRatio": 1.0002372694501391,
+			"pathSegments": 39,
+			"percentGraphExplored": 0.1008613503751042,
+			"totalTime": 3.5
+		},
+		"thetaStar": {
+			"pathDistance": 753.5369931197805,
+			"pathDistanceRatio": 0.9587277569702171,
+			"pathSegments": 1,
+			"percentGraphExplored": 0.053903862183939985,
+			"totalTime": 3.5
+		},
+		"thetaStarEndCheck": {
+			"pathDistance": 753.5369931197805,
+			"pathDistanceRatio": 0.9587277569702171,
+			"pathSegments": 1,
+			"percentGraphExplored": 0.0027785495971103086,
+			"totalTime": 3.199999988079071
+		}
+	},
+	{
+		"breadthFirstSearch": {
+			"pathDistance": 1648.6146277473977,
+			"pathDistanceRatio": 1.1230414212505762,
+			"pathSegments": 58,
+			"percentGraphExplored": 0.9317394317394317,
+			"totalTime": 4.599999964237213
+		},
+		"dijkstras": {
+			"pathDistance": 1467.9909365333679,
+			"pathDistanceRatio": 1,
+			"pathSegments": 70,
+			"percentGraphExplored": 0.9126819126819127,
+			"totalTime": 5.299999952316284
+		},
+		"aStar": {
+			"pathDistance": 1467.9909365333679,
+			"pathDistanceRatio": 1,
+			"pathSegments": 70,
+			"percentGraphExplored": 0.33471933471933474,
+			"totalTime": 3.5
+		},
+		"bidirectionalAStar": {
+			"pathDistance": 1495.5008386822165,
+			"pathDistanceRatio": 1.01873983106041,
+			"pathSegments": 64,
+			"percentGraphExplored": 0.44317394317394315,
+			"totalTime": 3.800000011920929
+		},
+		"thetaStar": {
+			"pathDistance": 1418.0256339358668,
+			"pathDistanceRatio": 0.9659634801864014,
+			"pathSegments": 9,
+			"percentGraphExplored": 0.29244629244629244,
+			"totalTime": 18.200000047683716
+		},
+		"thetaStarEndCheck": {
+			"pathDistance": 1418.0256339358668,
+			"pathDistanceRatio": 0.9659634801864014,
+			"pathSegments": 9,
+			"percentGraphExplored": 0.24982674982674982,
+			"totalTime": 17.69999998807907
+		}
+	},
+	{
+		"breadthFirstSearch": {
+			"pathDistance": 873.8605116748192,
+			"pathDistanceRatio": 1.1235867363109857,
+			"pathSegments": 33,
+			"percentGraphExplored": 0.6121919584954605,
+			"totalTime": 5.599999964237213
+		},
+		"dijkstras": {
+			"pathDistance": 777.741925419946,
+			"pathDistanceRatio": 1,
+			"pathSegments": 39,
+			"percentGraphExplored": 0.6064850843060959,
+			"totalTime": 5.200000047683716
+		},
+		"aStar": {
+			"pathDistance": 777.741925419946,
+			"pathDistanceRatio": 1,
+			"pathSegments": 39,
+			"percentGraphExplored": 0.14656290531776914,
+			"totalTime": 4.100000023841858
+		},
+		"bidirectionalAStar": {
+			"pathDistance": 786.1644311272875,
+			"pathDistanceRatio": 1.0108294351018734,
+			"pathSegments": 38,
+			"percentGraphExplored": 0.09987029831387809,
+			"totalTime": 3.800000011920929
+		},
+		"thetaStar": {
+			"pathDistance": 754.1683917719531,
+			"pathDistanceRatio": 0.9696897738471997,
+			"pathSegments": 2,
+			"percentGraphExplored": 0.08223086900129702,
+			"totalTime": 4.099999964237213
+		},
+		"thetaStarEndCheck": {
+			"pathDistance": 754.1683917719531,
+			"pathDistanceRatio": 0.9696897738471997,
+			"pathSegments": 2,
+			"percentGraphExplored": 0.03735408560311284,
+			"totalTime": 4
+		}
+	},
+	{
+		"breadthFirstSearch": {
+			"pathDistance": 1156.1290829862962,
+			"pathDistanceRatio": 1.1420634991671392,
+			"pathSegments": 42,
+			"percentGraphExplored": 0.8172757475083057,
+			"totalTime": 4.099999964237213
+		},
+		"dijkstras": {
+			"pathDistance": 1012.31593850028,
+			"pathDistanceRatio": 1,
+			"pathSegments": 47,
+			"percentGraphExplored": 0.7777777777777778,
+			"totalTime": 3.699999988079071
+		},
+		"aStar": {
+			"pathDistance": 1012.31593850028,
+			"pathDistanceRatio": 1,
+			"pathSegments": 47,
+			"percentGraphExplored": 0.34071613141380586,
+			"totalTime": 3.199999988079071
+		},
+		"bidirectionalAStar": {
+			"pathDistance": 1012.31593850028,
+			"pathDistanceRatio": 1,
+			"pathSegments": 47,
+			"percentGraphExplored": 0.42524916943521596,
+			"totalTime": 3.400000035762787
+		},
+		"thetaStar": {
+			"pathDistance": 986.0340848498872,
+			"pathDistanceRatio": 0.9740378940498273,
+			"pathSegments": 7,
+			"percentGraphExplored": 0.3237356958287191,
+			"totalTime": 27.19999998807907
+		},
+		"thetaStarEndCheck": {
+			"pathDistance": 986.0340848498872,
+			"pathDistanceRatio": 0.9740378940498273,
+			"pathSegments": 7,
+			"percentGraphExplored": 0.3163528977482466,
+			"totalTime": 26.19999998807907
+		}
+	},
+	{
+		"breadthFirstSearch": {
+			"pathDistance": 1025.467600997054,
+			"pathDistanceRatio": 1.0596316626385673,
+			"pathSegments": 36,
+			"percentGraphExplored": 0.7850296668188042,
+			"totalTime": 3.100000023841858
+		},
+		"dijkstras": {
+			"pathDistance": 967.758549648807,
+			"pathDistanceRatio": 1,
+			"pathSegments": 45,
+			"percentGraphExplored": 0.8055682336832497,
+			"totalTime": 6.5
+		},
+		"aStar": {
+			"pathDistance": 967.758549648807,
+			"pathDistanceRatio": 1,
+			"pathSegments": 45,
+			"percentGraphExplored": 0.3450479233226837,
+			"totalTime": 2.399999976158142
+		},
+		"bidirectionalAStar": {
+			"pathDistance": 975.6382715009654,
+			"pathDistanceRatio": 1.008142239461504,
+			"pathSegments": 42,
+			"percentGraphExplored": 0.21314468279324508,
+			"totalTime": 2
+		},
+		"thetaStar": {
+			"pathDistance": 949.304469122418,
+			"pathDistanceRatio": 0.9809311108301901,
+			"pathSegments": 6,
+			"percentGraphExplored": 0.3404837973528069,
+			"totalTime": 27.80000001192093
+		},
+		"thetaStarEndCheck": {
+			"pathDistance": 949.304469122418,
+			"pathDistanceRatio": 0.9809311108301901,
+			"pathSegments": 6,
+			"percentGraphExplored": 0.33226837060702874,
+			"totalTime": 28.30000001192093
+		}
+	},
+	{
+		"breadthFirstSearch": {
+			"pathDistance": 1495.7493444643933,
+			"pathDistanceRatio": 1.0550199506661357,
+			"pathSegments": 55,
+			"percentGraphExplored": 0.6396276595744681,
+			"totalTime": 3.100000023841858
+		},
+		"dijkstras": {
+			"pathDistance": 1417.7450801001276,
+			"pathDistanceRatio": 1,
+			"pathSegments": 60,
+			"percentGraphExplored": 0.6117021276595744,
+			"totalTime": 2.699999988079071
+		},
+		"aStar": {
+			"pathDistance": 1417.7450801001276,
+			"pathDistanceRatio": 1,
+			"pathSegments": 60,
+			"percentGraphExplored": 0.387854609929078,
+			"totalTime": 2.600000023841858
+		},
+		"bidirectionalAStar": {
+			"pathDistance": 1430.3565163926653,
+			"pathDistanceRatio": 1.0088954188376709,
+			"pathSegments": 60,
+			"percentGraphExplored": 0.5394503546099291,
+			"totalTime": 3.099999964237213
+		},
+		"thetaStar": {
+			"pathDistance": 1381.2047983571445,
+			"pathDistanceRatio": 0.9742264796006892,
+			"pathSegments": 11,
+			"percentGraphExplored": 0.38120567375886527,
+			"totalTime": 28.5
+		},
+		"thetaStarEndCheck": {
+			"pathDistance": 1381.2047983571445,
+			"pathDistanceRatio": 0.9742264796006892,
+			"pathSegments": 11,
+			"percentGraphExplored": 0.3674645390070922,
+			"totalTime": 29.19999998807907
+		}
+	},
+	{
+		"breadthFirstSearch": {
+			"pathDistance": 872.06893940517,
+			"pathDistanceRatio": 1.0541851159039073,
+			"pathSegments": 34,
+			"percentGraphExplored": 0.6797658862876255,
+			"totalTime": 3.599999964237213
+		},
+		"dijkstras": {
+			"pathDistance": 827.2445951368015,
+			"pathDistanceRatio": 1,
+			"pathSegments": 39,
+			"percentGraphExplored": 0.6726588628762542,
+			"totalTime": 3.099999964237213
+		},
+		"aStar": {
+			"pathDistance": 827.2445951368015,
+			"pathDistanceRatio": 1,
+			"pathSegments": 39,
+			"percentGraphExplored": 0.15091973244147158,
+			"totalTime": 2.300000011920929
+		},
+		"bidirectionalAStar": {
+			"pathDistance": 835.4818054252291,
+			"pathDistanceRatio": 1.009957405991955,
+			"pathSegments": 39,
+			"percentGraphExplored": 0.12750836120401338,
+			"totalTime": 2.100000023841858
+		},
+		"thetaStar": {
+			"pathDistance": 802.0724706652494,
+			"pathDistanceRatio": 0.9695711224714748,
+			"pathSegments": 5,
+			"percentGraphExplored": 0.13001672240802675,
+			"totalTime": 6.699999988079071
+		},
+		"thetaStarEndCheck": {
+			"pathDistance": 802.0724706652494,
+			"pathDistanceRatio": 0.9695711224714748,
+			"pathSegments": 5,
+			"percentGraphExplored": 0.11162207357859531,
+			"totalTime": 6.199999988079071
+		}
+	},
+	{
+		"breadthFirstSearch": {
+			"pathDistance": 842.9121808151313,
+			"pathDistanceRatio": 1.0918896513909881,
+			"pathSegments": 34,
+			"percentGraphExplored": 0.6619928400954654,
+			"totalTime": 4.699999988079071
+		},
+		"dijkstras": {
+			"pathDistance": 771.9756110347985,
+			"pathDistanceRatio": 1,
+			"pathSegments": 36,
+			"percentGraphExplored": 0.6387231503579952,
+			"totalTime": 4.5
+		},
+		"aStar": {
+			"pathDistance": 771.9756110347985,
+			"pathDistanceRatio": 1,
+			"pathSegments": 36,
+			"percentGraphExplored": 0.110381861575179,
+			"totalTime": 3.300000011920929
+		},
+		"bidirectionalAStar": {
+			"pathDistance": 776.6208109922909,
+			"pathDistanceRatio": 1.006017288488254,
+			"pathSegments": 36,
+			"percentGraphExplored": 0.10590692124105013,
+			"totalTime": 3.199999988079071
+		},
+		"thetaStar": {
+			"pathDistance": 751.8838755596852,
+			"pathDistanceRatio": 0.9739736136894517,
+			"pathSegments": 2,
+			"percentGraphExplored": 0.09158711217183771,
+			"totalTime": 4.900000035762787
+		},
+		"thetaStarEndCheck": {
+			"pathDistance": 751.8838755596852,
+			"pathDistanceRatio": 0.9739736136894517,
+			"pathSegments": 2,
+			"percentGraphExplored": 0.0441527446300716,
+			"totalTime": 4
+		}
+	},
+	{
+		"breadthFirstSearch": {
+			"pathDistance": 768.6934605412621,
+			"pathDistanceRatio": 1.1040103986548142,
+			"pathSegments": 30,
+			"percentGraphExplored": 0.7747854394791358,
+			"totalTime": 5
+		},
+		"dijkstras": {
+			"pathDistance": 696.2737502091281,
+			"pathDistanceRatio": 1,
+			"pathSegments": 35,
+			"percentGraphExplored": 0.7703462562888429,
+			"totalTime": 4.699999988079071
+		},
+		"aStar": {
+			"pathDistance": 696.2737502091281,
+			"pathDistanceRatio": 1,
+			"pathSegments": 35,
+			"percentGraphExplored": 0.10417283219887541,
+			"totalTime": 3.300000011920929
+		},
+		"bidirectionalAStar": {
+			"pathDistance": 696.2737502091281,
+			"pathDistanceRatio": 1,
+			"pathSegments": 35,
+			"percentGraphExplored": 0.063924237940219,
+			"totalTime": 3
+		},
+		"thetaStar": {
+			"pathDistance": 676.2765734513264,
+			"pathDistanceRatio": 0.9712797204378371,
+			"pathSegments": 2,
+			"percentGraphExplored": 0.07517016868896123,
+			"totalTime": 4.400000035762787
+		},
+		"thetaStarEndCheck": {
+			"pathDistance": 676.2373843555235,
+			"pathDistanceRatio": 0.9712234364033017,
+			"pathSegments": 1,
+			"percentGraphExplored": 0.002959455460195324,
+			"totalTime": 2.899999976158142
+		}
+	},
+	{
+		"breadthFirstSearch": {
+			"pathDistance": 1005.9898348582055,
+			"pathDistanceRatio": 1.1150725607827774,
+			"pathSegments": 38,
+			"percentGraphExplored": 0.7991089509923046,
+			"totalTime": 3.699999988079071
+		},
+		"dijkstras": {
+			"pathDistance": 902.1743250071582,
+			"pathDistanceRatio": 1,
+			"pathSegments": 40,
+			"percentGraphExplored": 0.7399756986634265,
+			"totalTime": 3.100000023841858
+		},
+		"aStar": {
+			"pathDistance": 902.1743250071582,
+			"pathDistanceRatio": 1,
+			"pathSegments": 40,
+			"percentGraphExplored": 0.267314702308627,
+			"totalTime": 2.399999976158142
+		},
+		"bidirectionalAStar": {
+			"pathDistance": 911.402101858319,
+			"pathDistanceRatio": 1.0102283744896947,
+			"pathSegments": 41,
+			"percentGraphExplored": 0.33819360064803566,
+			"totalTime": 2.800000011920929
+		},
+		"thetaStar": {
+			"pathDistance": 873.2808286252059,
+			"pathDistanceRatio": 0.9679734885142923,
+			"pathSegments": 5,
+			"percentGraphExplored": 0.2596192790603483,
+			"totalTime": 18.399999976158142
+		},
+		"thetaStarEndCheck": {
+			"pathDistance": 873.2808286252059,
+			"pathDistanceRatio": 0.9679734885142923,
+			"pathSegments": 5,
+			"percentGraphExplored": 0.25678412312677196,
+			"totalTime": 19.30000001192093
+		}
+	},
+	{
+		"breadthFirstSearch": {
+			"pathDistance": 987.684776924335,
+			"pathDistanceRatio": 1.0644451468759304,
+			"pathSegments": 40,
+			"percentGraphExplored": 0.919396183423526,
+			"totalTime": 5.900000035762787
+		},
+		"dijkstras": {
+			"pathDistance": 927.8869651697115,
+			"pathDistanceRatio": 1,
+			"pathSegments": 44,
+			"percentGraphExplored": 0.9111364283679864,
+			"totalTime": 5.199999988079071
+		},
+		"aStar": {
+			"pathDistance": 927.8869651697115,
+			"pathDistanceRatio": 1,
+			"pathSegments": 44,
+			"percentGraphExplored": 0.15038450583879237,
+			"totalTime": 3.5
+		},
+		"bidirectionalAStar": {
+			"pathDistance": 927.8869651697115,
+			"pathDistanceRatio": 1,
+			"pathSegments": 44,
+			"percentGraphExplored": 0.1105098262603247,
+			"totalTime": 3.299999952316284
+		},
+		"thetaStar": {
+			"pathDistance": 903.9467982631332,
+			"pathDistanceRatio": 0.9741992636978152,
+			"pathSegments": 3,
+			"percentGraphExplored": 0.11392765593847906,
+			"totalTime": 5.100000023841858
+		},
+		"thetaStarEndCheck": {
+			"pathDistance": 903.9467982631332,
+			"pathDistanceRatio": 0.9741992636978152,
+			"pathSegments": 3,
+			"percentGraphExplored": 0.10481344346340074,
+			"totalTime": 6.5
+		}
+	},
+	{
+		"breadthFirstSearch": {
+			"pathDistance": 1307.669982000406,
+			"pathDistanceRatio": 1.1048032124721405,
+			"pathSegments": 49,
+			"percentGraphExplored": 0.6884422110552764,
+			"totalTime": 2.699999988079071
+		},
+		"dijkstras": {
+			"pathDistance": 1183.6225376954912,
+			"pathDistanceRatio": 1,
+			"pathSegments": 54,
+			"percentGraphExplored": 0.6689000558347292,
+			"totalTime": 2.200000047683716
+		},
+		"aStar": {
+			"pathDistance": 1183.6225376954912,
+			"pathDistanceRatio": 1,
+			"pathSegments": 54,
+			"percentGraphExplored": 0.3796761585706309,
+			"totalTime": 2.100000023841858
+		},
+		"bidirectionalAStar": {
+			"pathDistance": 1187.3119550459003,
+			"pathDistanceRatio": 1.0031170556768818,
+			"pathSegments": 53,
+			"percentGraphExplored": 0.35510887772194305,
+			"totalTime": 2.299999952316284
+		},
+		"thetaStar": {
+			"pathDistance": 1150.8846098010533,
+			"pathDistanceRatio": 0.9723409052702067,
+			"pathSegments": 12,
+			"percentGraphExplored": 0.37353433835845895,
+			"totalTime": 33.799999952316284
+		},
+		"thetaStarEndCheck": {
+			"pathDistance": 1150.8846098010533,
+			"pathDistanceRatio": 0.9723409052702067,
+			"pathSegments": 12,
+			"percentGraphExplored": 0.36180904522613067,
+			"totalTime": 34.40000003576279
+		}
+	},
+	{
+		"breadthFirstSearch": {
+			"pathDistance": 713.3389688327863,
+			"pathDistanceRatio": 1.0605789424848546,
+			"pathSegments": 28,
+			"percentGraphExplored": 0.8124152886961236,
+			"totalTime": 6
+		},
+		"dijkstras": {
+			"pathDistance": 672.5939392700823,
+			"pathDistanceRatio": 1,
+			"pathSegments": 30,
+			"percentGraphExplored": 0.8452155055570615,
+			"totalTime": 5.5
+		},
+		"aStar": {
+			"pathDistance": 672.5939392700823,
+			"pathDistanceRatio": 1,
+			"pathSegments": 30,
+			"percentGraphExplored": 0.1217132014095961,
+			"totalTime": 3.599999964237213
+		},
+		"bidirectionalAStar": {
+			"pathDistance": 686.8697721131039,
+			"pathDistanceRatio": 1.0212250393729598,
+			"pathSegments": 30,
+			"percentGraphExplored": 0.08376253727297371,
+			"totalTime": 3.699999988079071
+		},
+		"thetaStar": {
+			"pathDistance": 659.5130087942603,
+			"pathDistanceRatio": 0.9805515189595407,
+			"pathSegments": 4,
+			"percentGraphExplored": 0.11846028734074275,
+			"totalTime": 5.800000011920929
+		},
+		"thetaStarEndCheck": {
+			"pathDistance": 659.5130087942603,
+			"pathDistanceRatio": 0.9805515189595407,
+			"pathSegments": 4,
+			"percentGraphExplored": 0.11412306858227161,
+			"totalTime": 5.699999988079071
+		}
+	},
+	{
+		"breadthFirstSearch": {
+			"pathDistance": 1082.5879895623095,
+			"pathDistanceRatio": 1.0813410559125058,
+			"pathSegments": 37,
+			"percentGraphExplored": 0.8344899375433726,
+			"totalTime": 4.699999988079071
+		},
+		"dijkstras": {
+			"pathDistance": 1001.1531363236287,
+			"pathDistanceRatio": 1,
+			"pathSegments": 42,
+			"percentGraphExplored": 0.8601665510062456,
+			"totalTime": 5.199999988079071
+		},
+		"aStar": {
+			"pathDistance": 1001.1531363236287,
+			"pathDistanceRatio": 1,
+			"pathSegments": 42,
+			"percentGraphExplored": 0.21651630811936157,
+			"totalTime": 3.199999988079071
+		},
+		"bidirectionalAStar": {
+			"pathDistance": 1023.0155206876015,
+			"pathDistanceRatio": 1.021837203091881,
+			"pathSegments": 42,
+			"percentGraphExplored": 0.22068008327550312,
+			"totalTime": 3.199999988079071
+		},
+		"thetaStar": {
+			"pathDistance": 977.339532233635,
+			"pathDistanceRatio": 0.9762138246128454,
+			"pathSegments": 11,
+			"percentGraphExplored": 0.20575988896599584,
+			"totalTime": 13
+		},
+		"thetaStarEndCheck": {
+			"pathDistance": 977.339532233635,
+			"pathDistanceRatio": 0.9762138246128454,
+			"pathSegments": 11,
+			"percentGraphExplored": 0.20090215128383068,
+			"totalTime": 13.199999988079071
+		}
+	},
+	{
+		"breadthFirstSearch": {
+			"pathDistance": 913.1813448686408,
+			"pathDistanceRatio": 1.0793390916966108,
+			"pathSegments": 30,
+			"percentGraphExplored": 0.7365873336022589,
+			"totalTime": 3.399999976158142
+		},
+		"dijkstras": {
+			"pathDistance": 846.056028076601,
+			"pathDistanceRatio": 1,
+			"pathSegments": 35,
+			"percentGraphExplored": 0.8229124647035094,
+			"totalTime": 3.399999976158142
+		},
+		"aStar": {
+			"pathDistance": 846.056028076601,
+			"pathDistanceRatio": 1,
+			"pathSegments": 35,
+			"percentGraphExplored": 0.373134328358209,
+			"totalTime": 2.900000035762787
+		},
+		"bidirectionalAStar": {
+			"pathDistance": 862.9995618075701,
+			"pathDistanceRatio": 1.0200264913536377,
+			"pathSegments": 40,
+			"percentGraphExplored": 0.218233158531666,
+			"totalTime": 2.5
+		},
+		"thetaStar": {
+			"pathDistance": 829.6636649511804,
+			"pathDistanceRatio": 0.9806249673999883,
+			"pathSegments": 8,
+			"percentGraphExplored": 0.36829366680112946,
+			"totalTime": 23.80000001192093
+		},
+		"thetaStarEndCheck": {
+			"pathDistance": 829.6636649511804,
+			"pathDistanceRatio": 0.9806249673999883,
+			"pathSegments": 8,
+			"percentGraphExplored": 0.36345300524405,
+			"totalTime": 24.19999998807907
+		}
+	},
+	{
+		"breadthFirstSearch": {
+			"pathDistance": 642.0840196438239,
+			"pathDistanceRatio": 1.0370603704867019,
+			"pathSegments": 27,
+			"percentGraphExplored": 0.8416301969365426,
+			"totalTime": 5.699999988079071
+		},
+		"dijkstras": {
+			"pathDistance": 619.1385168276058,
+			"pathDistanceRatio": 1,
+			"pathSegments": 31,
+			"percentGraphExplored": 0.8419037199124726,
+			"totalTime": 5.400000035762787
+		},
+		"aStar": {
+			"pathDistance": 619.1385168276058,
+			"pathDistanceRatio": 1,
+			"pathSegments": 31,
+			"percentGraphExplored": 0.09463894967177243,
+			"totalTime": 3.399999976158142
+		},
+		"bidirectionalAStar": {
+			"pathDistance": 621.8780780562474,
+			"pathDistanceRatio": 1.0044247953473784,
+			"pathSegments": 31,
+			"percentGraphExplored": 0.05525164113785558,
+			"totalTime": 3.300000011920929
+		},
+		"thetaStar": {
+			"pathDistance": 597.3072038211918,
+			"pathDistanceRatio": 0.9647392103494463,
+			"pathSegments": 2,
+			"percentGraphExplored": 0.04923413566739606,
+			"totalTime": 3.600000023841858
+		},
+		"thetaStarEndCheck": {
+			"pathDistance": 597.3072038211918,
+			"pathDistanceRatio": 0.9647392103494463,
+			"pathSegments": 2,
+			"percentGraphExplored": 0.03637855579868709,
+			"totalTime": 3.5
+		}
+	},
+	{
+		"breadthFirstSearch": {
+			"pathDistance": 836.2756294004516,
+			"pathDistanceRatio": 1.143691330764859,
+			"pathSegments": 30,
+			"percentGraphExplored": 0.5733695652173914,
+			"totalTime": 3.200000047683716
+		},
+		"dijkstras": {
+			"pathDistance": 731.2074568591693,
+			"pathDistanceRatio": 1,
+			"pathSegments": 34,
+			"percentGraphExplored": 0.5842391304347826,
+			"totalTime": 4.300000011920929
+		},
+		"aStar": {
+			"pathDistance": 731.2074568591693,
+			"pathDistanceRatio": 1,
+			"pathSegments": 34,
+			"percentGraphExplored": 0.18711180124223603,
+			"totalTime": 2.5
+		},
+		"bidirectionalAStar": {
+			"pathDistance": 747.65079324158,
+			"pathDistanceRatio": 1.0224879221733343,
+			"pathSegments": 34,
+			"percentGraphExplored": 0.14635093167701863,
+			"totalTime": 2.5
+		},
+		"thetaStar": {
+			"pathDistance": 707.8273485486063,
+			"pathDistanceRatio": 0.9680253420677766,
+			"pathSegments": 5,
+			"percentGraphExplored": 0.17080745341614906,
+			"totalTime": 11.399999976158142
+		},
+		"thetaStarEndCheck": {
+			"pathDistance": 707.8273485486063,
+			"pathDistanceRatio": 0.9680253420677766,
+			"pathSegments": 5,
+			"percentGraphExplored": 0.15333850931677018,
+			"totalTime": 10.799999952316284
+		}
+	},
+	{
+		"breadthFirstSearch": {
+			"pathDistance": 827.3345559611148,
+			"pathDistanceRatio": 1.0613296136096841,
+			"pathSegments": 32,
+			"percentGraphExplored": 0.7481429076759816,
+			"totalTime": 4.099999964237213
+		},
+		"dijkstras": {
+			"pathDistance": 779.5264970957235,
+			"pathDistanceRatio": 1,
+			"pathSegments": 36,
+			"percentGraphExplored": 0.7527414220021224,
+			"totalTime": 3.800000011920929
+		},
+		"aStar": {
+			"pathDistance": 779.5264970957235,
+			"pathDistanceRatio": 1,
+			"pathSegments": 36,
+			"percentGraphExplored": 0.24336752741422002,
+			"totalTime": 3.600000023841858
+		},
+		"bidirectionalAStar": {
+			"pathDistance": 793.4484216722853,
+			"pathDistanceRatio": 1.0178594629283684,
+			"pathSegments": 37,
+			"percentGraphExplored": 0.2193137601697913,
+			"totalTime": 3.100000023841858
+		},
+		"thetaStar": {
+			"pathDistance": 757.8621399715639,
+			"pathDistanceRatio": 0.9722083120908984,
+			"pathSegments": 5,
+			"percentGraphExplored": 0.23169437566324727,
+			"totalTime": 12.800000011920929
+		},
+		"thetaStarEndCheck": {
+			"pathDistance": 757.8621399715639,
+			"pathDistanceRatio": 0.9722083120908984,
+			"pathSegments": 5,
+			"percentGraphExplored": 0.22744959320834807,
+			"totalTime": 13.099999964237213
+		}
+	},
+	{
+		"breadthFirstSearch": {
+			"pathDistance": 1223.6776839926958,
+			"pathDistanceRatio": 1.1076138418245471,
+			"pathSegments": 44,
+			"percentGraphExplored": 0.8952919020715631,
+			"totalTime": 4.100000023841858
+		},
+		"dijkstras": {
+			"pathDistance": 1104.7872803548205,
+			"pathDistanceRatio": 1,
+			"pathSegments": 49,
+			"percentGraphExplored": 0.8975517890772128,
+			"totalTime": 3.800000011920929
+		},
+		"aStar": {
+			"pathDistance": 1104.7872803548205,
+			"pathDistanceRatio": 1,
+			"pathSegments": 49,
+			"percentGraphExplored": 0.23540489642184556,
+			"totalTime": 2.699999988079071
+		},
+		"bidirectionalAStar": {
+			"pathDistance": 1131.5657222001585,
+			"pathDistanceRatio": 1.0242385501005566,
+			"pathSegments": 51,
+			"percentGraphExplored": 0.2896421845574388,
+			"totalTime": 2.699999988079071
+		},
+		"thetaStar": {
+			"pathDistance": 1065.0817586496623,
+			"pathDistanceRatio": 0.9640604825823066,
+			"pathSegments": 8,
+			"percentGraphExplored": 0.16836158192090395,
+			"totalTime": 9.599999964237213
+		},
+		"thetaStarEndCheck": {
+			"pathDistance": 1065.0817586496623,
+			"pathDistanceRatio": 0.9640604825823066,
+			"pathSegments": 8,
+			"percentGraphExplored": 0.16685499058380415,
+			"totalTime": 10
+		}
+	},
+	{
+		"breadthFirstSearch": {
+			"pathDistance": 1103.6651292405222,
+			"pathDistanceRatio": 1.0550886086767524,
+			"pathSegments": 37,
+			"percentGraphExplored": 0.7454475009686168,
+			"totalTime": 4.399999976158142
+		},
+		"dijkstras": {
+			"pathDistance": 1046.040228436067,
+			"pathDistanceRatio": 1,
+			"pathSegments": 42,
+			"percentGraphExplored": 0.8481208833785354,
+			"totalTime": 3.400000035762787
+		},
+		"aStar": {
+			"pathDistance": 1046.040228436067,
+			"pathDistanceRatio": 1,
+			"pathSegments": 42,
+			"percentGraphExplored": 0.4060441689267726,
+			"totalTime": 3.300000011920929
+		},
+		"bidirectionalAStar": {
+			"pathDistance": 1069.8256254529947,
+			"pathDistanceRatio": 1.0227385107860423,
+			"pathSegments": 42,
+			"percentGraphExplored": 0.27586206896551724,
+			"totalTime": 2.900000035762787
+		},
+		"thetaStar": {
+			"pathDistance": 1021.7075633001692,
+			"pathDistanceRatio": 0.976738308456571,
+			"pathSegments": 9,
+			"percentGraphExplored": 0.4021697016660209,
+			"totalTime": 27.80000001192093
+		},
+		"thetaStarEndCheck": {
+			"pathDistance": 1021.7075633001692,
+			"pathDistanceRatio": 0.976738308456571,
+			"pathSegments": 9,
+			"percentGraphExplored": 0.4021697016660209,
+			"totalTime": 29.69999998807907
+		}
+	},
+	{
+		"breadthFirstSearch": {
+			"pathDistance": 967.8743145760429,
+			"pathDistanceRatio": 1.110586780474262,
+			"pathSegments": 38,
+			"percentGraphExplored": 0.9508506616257089,
+			"totalTime": 5.300000011920929
+		},
+		"dijkstras": {
+			"pathDistance": 871.4981409761825,
+			"pathDistanceRatio": 1,
+			"pathSegments": 42,
+			"percentGraphExplored": 0.9269061121613107,
+			"totalTime": 4.899999976158142
+		},
+		"aStar": {
+			"pathDistance": 871.4981409761825,
+			"pathDistanceRatio": 1,
+			"pathSegments": 42,
+			"percentGraphExplored": 0.3270321361058601,
+			"totalTime": 3.900000035762787
+		},
+		"bidirectionalAStar": {
+			"pathDistance": 876.464704631034,
+			"pathDistanceRatio": 1.0056988803777462,
+			"pathSegments": 43,
+			"percentGraphExplored": 0.1713925645872716,
+			"totalTime": 3.099999964237213
+		},
+		"thetaStar": {
+			"pathDistance": 853.5954400190485,
+			"pathDistanceRatio": 0.9794575569179289,
+			"pathSegments": 3,
+			"percentGraphExplored": 0.31758034026465026,
+			"totalTime": 17.599999964237213
+		},
+		"thetaStarEndCheck": {
+			"pathDistance": 853.5954400190485,
+			"pathDistanceRatio": 0.9794575569179289,
+			"pathSegments": 3,
+			"percentGraphExplored": 0.30970384373030874,
+			"totalTime": 18
+		}
+	},
+	{
+		"breadthFirstSearch": {
+			"pathDistance": 963.2832503615723,
+			"pathDistanceRatio": 1.0993964627800674,
+			"pathSegments": 34,
+			"percentGraphExplored": 0.6741775574583145,
+			"totalTime": 3
+		},
+		"dijkstras": {
+			"pathDistance": 876.1927866546862,
+			"pathDistanceRatio": 1,
+			"pathSegments": 39,
+			"percentGraphExplored": 0.6597566471383506,
+			"totalTime": 2.899999976158142
+		},
+		"aStar": {
+			"pathDistance": 876.1927866546862,
+			"pathDistanceRatio": 1,
+			"pathSegments": 39,
+			"percentGraphExplored": 0.3028391167192429,
+			"totalTime": 2.399999976158142
+		},
+		"bidirectionalAStar": {
+			"pathDistance": 932.0023100713076,
+			"pathDistanceRatio": 1.0636954837641415,
+			"pathSegments": 38,
+			"percentGraphExplored": 0.29247408742676884,
+			"totalTime": 2.300000011920929
+		},
+		"thetaStar": {
+			"pathDistance": 855.4668567208292,
+			"pathDistanceRatio": 0.9763454684293981,
+			"pathSegments": 10,
+			"percentGraphExplored": 0.2897701667417756,
+			"totalTime": 18.400000035762787
+		},
+		"thetaStarEndCheck": {
+			"pathDistance": 855.4668567208292,
+			"pathDistanceRatio": 0.9763454684293981,
+			"pathSegments": 10,
+			"percentGraphExplored": 0.2875168995042812,
+			"totalTime": 19
+		}
+	},
+	{
+		"breadthFirstSearch": {
+			"pathDistance": 1151.162302247964,
+			"pathDistanceRatio": 1.08119736847587,
+			"pathSegments": 44,
+			"percentGraphExplored": 0.9504021447721179,
+			"totalTime": 5.099999964237213
+		},
+		"dijkstras": {
+			"pathDistance": 1064.7106030887971,
+			"pathDistanceRatio": 1,
+			"pathSegments": 49,
+			"percentGraphExplored": 0.9510723860589813,
+			"totalTime": 4.399999976158142
+		},
+		"aStar": {
+			"pathDistance": 1064.7106030887971,
+			"pathDistanceRatio": 1,
+			"pathSegments": 49,
+			"percentGraphExplored": 0.4313002680965147,
+			"totalTime": 3.800000011920929
+		},
+		"bidirectionalAStar": {
+			"pathDistance": 1071.759601294719,
+			"pathDistanceRatio": 1.006620576695181,
+			"pathSegments": 49,
+			"percentGraphExplored": 0.1769436997319035,
+			"totalTime": 3.100000023841858
+		},
+		"thetaStar": {
+			"pathDistance": 1028.2692059592912,
+			"pathDistanceRatio": 0.9657734251694432,
+			"pathSegments": 7,
+			"percentGraphExplored": 0.3930965147453083,
+			"totalTime": 26.80000001192093
+		},
+		"thetaStarEndCheck": {
+			"pathDistance": 1028.2692059592912,
+			"pathDistanceRatio": 0.9657734251694432,
+			"pathSegments": 7,
+			"percentGraphExplored": 0.38304289544235925,
+			"totalTime": 25.700000047683716
+		}
+	},
+	{
+		"breadthFirstSearch": {
+			"pathDistance": 1464.5424066921596,
+			"pathDistanceRatio": 1.0647392773746662,
+			"pathSegments": 51,
+			"percentGraphExplored": 0.7241847826086957,
+			"totalTime": 3.199999988079071
+		},
+		"dijkstras": {
+			"pathDistance": 1375.4939240179908,
+			"pathDistanceRatio": 1,
+			"pathSegments": 61,
+			"percentGraphExplored": 0.7336956521739131,
+			"totalTime": 2.800000011920929
+		},
+		"aStar": {
+			"pathDistance": 1375.4939240179908,
+			"pathDistanceRatio": 1,
+			"pathSegments": 61,
+			"percentGraphExplored": 0.44655797101449274,
+			"totalTime": 2.600000023841858
+		},
+		"bidirectionalAStar": {
+			"pathDistance": 1375.4939240179908,
+			"pathDistanceRatio": 1,
+			"pathSegments": 61,
+			"percentGraphExplored": 0.40625,
+			"totalTime": 2.599999964237213
+		},
+		"thetaStar": {
+			"pathDistance": 1344.5717642525267,
+			"pathDistanceRatio": 0.9775192320187525,
+			"pathSegments": 12,
+			"percentGraphExplored": 0.4361413043478261,
+			"totalTime": 42.799999952316284
+		},
+		"thetaStarEndCheck": {
+			"pathDistance": 1344.5717642525267,
+			"pathDistanceRatio": 0.9775192320187525,
+			"pathSegments": 12,
+			"percentGraphExplored": 0.43523550724637683,
+			"totalTime": 40.80000001192093
+		}
+	},
+	{
+		"breadthFirstSearch": {
+			"pathDistance": 1199.3121236747345,
+			"pathDistanceRatio": 1.0558085244912145,
+			"pathSegments": 46,
+			"percentGraphExplored": 0.8165329612835717,
+			"totalTime": 4.5
+		},
+		"dijkstras": {
+			"pathDistance": 1135.918204726253,
+			"pathDistanceRatio": 1,
+			"pathSegments": 54,
+			"percentGraphExplored": 0.8113010115102895,
+			"totalTime": 3.900000035762787
+		},
+		"aStar": {
+			"pathDistance": 1135.918204726253,
+			"pathDistanceRatio": 1,
+			"pathSegments": 54,
+			"percentGraphExplored": 0.35542378793163587,
+			"totalTime": 3.400000035762787
+		},
+		"bidirectionalAStar": {
+			"pathDistance": 1147.818599062197,
+			"pathDistanceRatio": 1.010476453574236,
+			"pathSegments": 55,
+			"percentGraphExplored": 0.47820020927799095,
+			"totalTime": 3.699999988079071
+		},
+		"thetaStar": {
+			"pathDistance": 1105.9269490081144,
+			"pathDistanceRatio": 0.9735973456597906,
+			"pathSegments": 5,
+			"percentGraphExplored": 0.29298918730380186,
+			"totalTime": 15.800000011920929
+		},
+		"thetaStarEndCheck": {
+			"pathDistance": 1105.9269490081144,
+			"pathDistanceRatio": 0.9735973456597906,
+			"pathSegments": 5,
+			"percentGraphExplored": 0.240320892919428,
+			"totalTime": 15.299999952316284
+		}
+	},
+	{
+		"breadthFirstSearch": {
+			"pathDistance": 715.3430880352515,
+			"pathDistanceRatio": 1.051548629479469,
+			"pathSegments": 26,
+			"percentGraphExplored": 0.9001225490196079,
+			"totalTime": 5.399999976158142
+		},
+		"dijkstras": {
+			"pathDistance": 680.2758027361571,
+			"pathDistanceRatio": 1,
+			"pathSegments": 27,
+			"percentGraphExplored": 0.9188112745098039,
+			"totalTime": 5.200000047683716
+		},
+		"aStar": {
+			"pathDistance": 680.2758027361571,
+			"pathDistanceRatio": 1,
+			"pathSegments": 27,
+			"percentGraphExplored": 0.0860906862745098,
+			"totalTime": 3.300000011920929
+		},
+		"bidirectionalAStar": {
+			"pathDistance": 683.8727144401706,
+			"pathDistanceRatio": 1.0052874314940299,
+			"pathSegments": 27,
+			"percentGraphExplored": 0.04932598039215686,
+			"totalTime": 2.899999976158142
+		},
+		"thetaStar": {
+			"pathDistance": 657.7058240844359,
+			"pathDistanceRatio": 0.9668223115375532,
+			"pathSegments": 5,
+			"percentGraphExplored": 0.07628676470588236,
+			"totalTime": 5
+		},
+		"thetaStarEndCheck": {
+			"pathDistance": 657.7058240844359,
+			"pathDistanceRatio": 0.9668223115375532,
+			"pathSegments": 5,
+			"percentGraphExplored": 0.07536764705882353,
+			"totalTime": 5
+		}
+	},
+	{
+		"breadthFirstSearch": {
+			"pathDistance": 817.5323650124744,
+			"pathDistanceRatio": 1.0875413002955807,
+			"pathSegments": 33,
+			"percentGraphExplored": 0.7096100278551533,
+			"totalTime": 4
+		},
+		"dijkstras": {
+			"pathDistance": 751.7253503754561,
+			"pathDistanceRatio": 1,
+			"pathSegments": 39,
+			"percentGraphExplored": 0.6831476323119777,
+			"totalTime": 4.900000035762787
+		},
+		"aStar": {
+			"pathDistance": 751.7253503754561,
+			"pathDistanceRatio": 1,
+			"pathSegments": 39,
+			"percentGraphExplored": 0.10445682451253482,
+			"totalTime": 2.700000047683716
+		},
+		"bidirectionalAStar": {
+			"pathDistance": 751.7253503754561,
+			"pathDistanceRatio": 1,
+			"pathSegments": 39,
+			"percentGraphExplored": 0.11142061281337047,
+			"totalTime": 2.600000023841858
+		},
+		"thetaStar": {
+			"pathDistance": 729.7348143149509,
+			"pathDistanceRatio": 0.9707465817808035,
+			"pathSegments": 2,
+			"percentGraphExplored": 0.08635097493036212,
+			"totalTime": 4.699999988079071
+		},
+		"thetaStarEndCheck": {
+			"pathDistance": 729.7348143149509,
+			"pathDistanceRatio": 0.9707465817808035,
+			"pathSegments": 2,
+			"percentGraphExplored": 0.04387186629526462,
+			"totalTime": 4.199999988079071
+		}
+	},
+	{
+		"breadthFirstSearch": {
+			"pathDistance": 958.1659570410833,
+			"pathDistanceRatio": 1.1262145440784204,
+			"pathSegments": 35,
+			"percentGraphExplored": 0.7387673956262425,
+			"totalTime": 4.399999976158142
+		},
+		"dijkstras": {
+			"pathDistance": 850.7845703814356,
+			"pathDistanceRatio": 1,
+			"pathSegments": 42,
+			"percentGraphExplored": 0.7383697813121273,
+			"totalTime": 3.5
+		},
+		"aStar": {
+			"pathDistance": 850.7845703814356,
+			"pathDistanceRatio": 1,
+			"pathSegments": 42,
+			"percentGraphExplored": 0.16182902584493042,
+			"totalTime": 2.599999964237213
+		},
+		"bidirectionalAStar": {
+			"pathDistance": 850.7845703814356,
+			"pathDistanceRatio": 1,
+			"pathSegments": 42,
+			"percentGraphExplored": 0.13479125248508947,
+			"totalTime": 2.400000035762787
+		},
+		"thetaStar": {
+			"pathDistance": 818.2314387808253,
+			"pathDistanceRatio": 0.961737515307764,
+			"pathSegments": 3,
+			"percentGraphExplored": 0.09980119284294235,
+			"totalTime": 5
+		},
+		"thetaStarEndCheck": {
+			"pathDistance": 818.2314387808253,
+			"pathDistanceRatio": 0.961737515307764,
+			"pathSegments": 3,
+			"percentGraphExplored": 0.0536779324055666,
+			"totalTime": 4.399999976158142
+		}
+	},
+	{
+		"breadthFirstSearch": {
+			"pathDistance": 759.1520571546201,
+			"pathDistanceRatio": 1.1032217792270484,
+			"pathSegments": 28,
+			"percentGraphExplored": 0.7738227660363367,
+			"totalTime": 7.200000047683716
+		},
+		"dijkstras": {
+			"pathDistance": 688.1227976540725,
+			"pathDistanceRatio": 1,
+			"pathSegments": 33,
+			"percentGraphExplored": 0.7923618835743419,
+			"totalTime": 6.199999988079071
+		},
+		"aStar": {
+			"pathDistance": 688.1227976540725,
+			"pathDistanceRatio": 1,
+			"pathSegments": 33,
+			"percentGraphExplored": 0.10938079347423063,
+			"totalTime": 3.400000035762787
+		},
+		"bidirectionalAStar": {
+			"pathDistance": 708.527907254757,
+			"pathDistanceRatio": 1.0296532968683045,
+			"pathSegments": 33,
+			"percentGraphExplored": 0.10456062291434928,
+			"totalTime": 3.599999964237213
+		},
+		"thetaStar": {
+			"pathDistance": 663.14870727947,
+			"pathDistanceRatio": 0.963706927804538,
+			"pathSegments": 4,
+			"percentGraphExplored": 0.09936967000370782,
+			"totalTime": 8.899999976158142
+		},
+		"thetaStarEndCheck": {
+			"pathDistance": 663.14870727947,
+			"pathDistanceRatio": 0.963706927804538,
+			"pathSegments": 4,
+			"percentGraphExplored": 0.0778642936596218,
+			"totalTime": 8
+		}
+	},
+	{
+		"breadthFirstSearch": {
+			"pathDistance": 626.0358370382024,
+			"pathDistanceRatio": 1.0428633445663262,
+			"pathSegments": 24,
+			"percentGraphExplored": 0.5235925805401888,
+			"totalTime": 4.100000023841858
+		},
+		"dijkstras": {
+			"pathDistance": 600.3047669668923,
+			"pathDistanceRatio": 1,
+			"pathSegments": 26,
+			"percentGraphExplored": 0.5187113569801497,
+			"totalTime": 3.800000011920929
+		},
+		"aStar": {
+			"pathDistance": 600.3047669668923,
+			"pathDistanceRatio": 1,
+			"pathSegments": 26,
+			"percentGraphExplored": 0.12007809957696063,
+			"totalTime": 3
+		},
+		"bidirectionalAStar": {
+			"pathDistance": 615.8480971404966,
+			"pathDistanceRatio": 1.0258923983764758,
+			"pathSegments": 27,
+			"percentGraphExplored": 0.0686625447445493,
+			"totalTime": 2.699999988079071
+		},
+		"thetaStar": {
+			"pathDistance": 580.8606284525251,
+			"pathDistanceRatio": 0.9676095550388332,
+			"pathSegments": 5,
+			"percentGraphExplored": 0.11389521640091116,
+			"totalTime": 9.099999964237213
+		},
+		"thetaStarEndCheck": {
+			"pathDistance": 580.8606284525251,
+			"pathDistanceRatio": 0.9676095550388332,
+			"pathSegments": 5,
+			"percentGraphExplored": 0.11324438659290595,
+			"totalTime": 7.300000011920929
+		}
+	},
+	{
+		"breadthFirstSearch": {
+			"pathDistance": 1203.3840608215612,
+			"pathDistanceRatio": 1.1373560348961662,
+			"pathSegments": 42,
+			"percentGraphExplored": 0.9933043187144291,
+			"totalTime": 5
+		},
+		"dijkstras": {
+			"pathDistance": 1058.0539636661997,
+			"pathDistanceRatio": 1,
+			"pathSegments": 49,
+			"percentGraphExplored": 0.9912956143287579,
+			"totalTime": 4.5
+		},
+		"aStar": {
+			"pathDistance": 1058.0539636661997,
+			"pathDistanceRatio": 1,
+			"pathSegments": 49,
+			"percentGraphExplored": 0.16906595246066286,
+			"totalTime": 2.899999976158142
+		},
+		"bidirectionalAStar": {
+			"pathDistance": 1071.8380404255297,
+			"pathDistanceRatio": 1.013027763453168,
+			"pathSegments": 49,
+			"percentGraphExplored": 0.17207900903916973,
+			"totalTime": 3.300000011920929
+		},
+		"thetaStar": {
+			"pathDistance": 1023.938408622161,
+			"pathDistanceRatio": 0.9677563184718604,
+			"pathSegments": 6,
+			"percentGraphExplored": 0.1402745229327084,
+			"totalTime": 7
+		},
+		"thetaStarEndCheck": {
+			"pathDistance": 1023.938408622161,
+			"pathDistanceRatio": 0.9677563184718604,
+			"pathSegments": 6,
+			"percentGraphExplored": 0.12420488784733846,
+			"totalTime": 7.399999976158142
+		}
+	},
+	{
+		"breadthFirstSearch": {
+			"pathDistance": 1150.3993258365754,
+			"pathDistanceRatio": 1.0645548428955085,
+			"pathSegments": 34,
+			"percentGraphExplored": 0.4670599803343166,
+			"totalTime": 2.599999964237213
+		},
+		"dijkstras": {
+			"pathDistance": 1080.638854366184,
+			"pathDistanceRatio": 1,
+			"pathSegments": 40,
+			"percentGraphExplored": 0.5304818092428711,
+			"totalTime": 3.5
+		},
+		"aStar": {
+			"pathDistance": 1080.638854366184,
+			"pathDistanceRatio": 1,
+			"pathSegments": 40,
+			"percentGraphExplored": 0.2669616519174041,
+			"totalTime": 2.400000035762787
+		},
+		"bidirectionalAStar": {
+			"pathDistance": 1083.4164506276832,
+			"pathDistanceRatio": 1.0025703279594997,
+			"pathSegments": 40,
+			"percentGraphExplored": 0.24090462143559488,
+			"totalTime": 2.400000035762787
+		},
+		"thetaStar": {
+			"pathDistance": 1066.9789781947527,
+			"pathDistanceRatio": 0.9873594437991562,
+			"pathSegments": 12,
+			"percentGraphExplored": 0.2615535889872173,
+			"totalTime": 24
+		},
+		"thetaStarEndCheck": {
+			"pathDistance": 1066.9789781947527,
+			"pathDistanceRatio": 0.9873594437991562,
+			"pathSegments": 12,
+			"percentGraphExplored": 0.2615535889872173,
+			"totalTime": 24.399999976158142
+		}
+	},
+	{
+		"breadthFirstSearch": {
+			"pathDistance": 1063.29335898277,
+			"pathDistanceRatio": 1.0662525452802964,
+			"pathSegments": 39,
+			"percentGraphExplored": 0.7550857598723574,
+			"totalTime": 3.600000023841858
+		},
+		"dijkstras": {
+			"pathDistance": 997.2246853612448,
+			"pathDistanceRatio": 1,
+			"pathSegments": 44,
+			"percentGraphExplored": 0.759872357399282,
+			"totalTime": 3.300000011920929
+		},
+		"aStar": {
+			"pathDistance": 997.2246853612448,
+			"pathDistanceRatio": 1,
+			"pathSegments": 44,
+			"percentGraphExplored": 0.19465496609493418,
+			"totalTime": 2.399999976158142
+		},
+		"bidirectionalAStar": {
+			"pathDistance": 1002.0183791085286,
+			"pathDistanceRatio": 1.0048070347812812,
+			"pathSegments": 44,
+			"percentGraphExplored": 0.14678899082568808,
+			"totalTime": 2.300000011920929
+		},
+		"thetaStar": {
+			"pathDistance": 977.5520285273825,
+			"pathDistanceRatio": 0.9802725934058322,
+			"pathSegments": 4,
+			"percentGraphExplored": 0.17351416035101716,
+			"totalTime": 10.299999952316284
+		},
+		"thetaStarEndCheck": {
+			"pathDistance": 977.5520285273825,
+			"pathDistanceRatio": 0.9802725934058322,
+			"pathSegments": 4,
+			"percentGraphExplored": 0.1587554846429996,
+			"totalTime": 10.400000035762787
+		}
+	},
+	{
+		"breadthFirstSearch": {
+			"pathDistance": 1072.4145506927618,
+			"pathDistanceRatio": 1.07167273251783,
+			"pathSegments": 34,
+			"percentGraphExplored": 0.48712155445097155,
+			"totalTime": 2.700000047683716
+		},
+		"dijkstras": {
+			"pathDistance": 1000.6922058875092,
+			"pathDistanceRatio": 1,
+			"pathSegments": 41,
+			"percentGraphExplored": 0.5291459557162224,
+			"totalTime": 2.699999988079071
+		},
+		"aStar": {
+			"pathDistance": 1000.6922058875092,
+			"pathDistanceRatio": 1,
+			"pathSegments": 41,
+			"percentGraphExplored": 0.2033438770899232,
+			"totalTime": 2.199999988079071
+		},
+		"bidirectionalAStar": {
+			"pathDistance": 1027.2931169880455,
+			"pathDistanceRatio": 1.0265825105302426,
+			"pathSegments": 41,
+			"percentGraphExplored": 0.15408947130591957,
+			"totalTime": 2.300000011920929
+		},
+		"thetaStar": {
+			"pathDistance": 980.2498172784628,
+			"pathDistanceRatio": 0.9795717519445292,
+			"pathSegments": 9,
+			"percentGraphExplored": 0.20153637596023496,
+			"totalTime": 17.100000023841858
+		},
+		"thetaStarEndCheck": {
+			"pathDistance": 980.2498172784628,
+			"pathDistanceRatio": 0.9795717519445292,
+			"pathSegments": 9,
+			"percentGraphExplored": 0.19837324898328063,
+			"totalTime": 18
+		}
+	},
+	{
+		"breadthFirstSearch": {
+			"pathDistance": 1104.7630526226073,
+			"pathDistanceRatio": 1.1177717623138985,
+			"pathSegments": 42,
+			"percentGraphExplored": 0.9525810324129652,
+			"totalTime": 5.899999976158142
+		},
+		"dijkstras": {
+			"pathDistance": 988.3619267100094,
+			"pathDistanceRatio": 1,
+			"pathSegments": 47,
+			"percentGraphExplored": 0.9591836734693877,
+			"totalTime": 5.400000035762787
+		},
+		"aStar": {
+			"pathDistance": 988.3619267100094,
+			"pathDistanceRatio": 1,
+			"pathSegments": 47,
+			"percentGraphExplored": 0.31782713085234093,
+			"totalTime": 4.100000023841858
+		},
+		"bidirectionalAStar": {
+			"pathDistance": 990.6391135156275,
+			"pathDistanceRatio": 1.0023040009373876,
+			"pathSegments": 48,
+			"percentGraphExplored": 0.21608643457382953,
+			"totalTime": 3.699999988079071
+		},
+		"thetaStar": {
+			"pathDistance": 960.513590828234,
+			"pathDistanceRatio": 0.9718237468186629,
+			"pathSegments": 5,
+			"percentGraphExplored": 0.29261704681872747,
+			"totalTime": 12.699999988079071
+		},
+		"thetaStarEndCheck": {
+			"pathDistance": 960.513590828234,
+			"pathDistanceRatio": 0.9718237468186629,
+			"pathSegments": 5,
+			"percentGraphExplored": 0.287515006002401,
+			"totalTime": 13.100000023841858
+		}
+	},
+	{
+		"breadthFirstSearch": {
+			"pathDistance": 1057.5584543586479,
+			"pathDistanceRatio": 1.1641025097017565,
+			"pathSegments": 36,
+			"percentGraphExplored": 0.686189889025894,
+			"totalTime": 4.800000011920929
+		},
+		"dijkstras": {
+			"pathDistance": 908.4753666836391,
+			"pathDistanceRatio": 1,
+			"pathSegments": 40,
+			"percentGraphExplored": 0.6840320591861899,
+			"totalTime": 5.800000011920929
+		},
+		"aStar": {
+			"pathDistance": 908.4753666836391,
+			"pathDistanceRatio": 1,
+			"pathSegments": 40,
+			"percentGraphExplored": 0.2059186189889026,
+			"totalTime": 3.799999952316284
+		},
+		"bidirectionalAStar": {
+			"pathDistance": 922.6560448766479,
+			"pathDistanceRatio": 1.015609315027192,
+			"pathSegments": 41,
+			"percentGraphExplored": 0.13224414303329224,
+			"totalTime": 3.200000047683716
+		},
+		"thetaStar": {
+			"pathDistance": 890.6351620901246,
+			"pathDistanceRatio": 0.9803624784471157,
+			"pathSegments": 6,
+			"percentGraphExplored": 0.19882860665844637,
+			"totalTime": 11.399999976158142
+		},
+		"thetaStarEndCheck": {
+			"pathDistance": 890.6351620901246,
+			"pathDistanceRatio": 0.9803624784471157,
+			"pathSegments": 6,
+			"percentGraphExplored": 0.1966707768187423,
+			"totalTime": 11.399999976158142
+		}
+	},
+	{
+		"breadthFirstSearch": {
+			"pathDistance": 695.2562922499848,
+			"pathDistanceRatio": 1.1240737800755032,
+			"pathSegments": 26,
+			"percentGraphExplored": 0.46841294298921415,
+			"totalTime": 4.199999988079071
+		},
+		"dijkstras": {
+			"pathDistance": 618.5148204446908,
+			"pathDistanceRatio": 1,
+			"pathSegments": 29,
+			"percentGraphExplored": 0.4610169491525424,
+			"totalTime": 4
+		},
+		"aStar": {
+			"pathDistance": 618.5148204446908,
+			"pathDistanceRatio": 1,
+			"pathSegments": 29,
+			"percentGraphExplored": 0.08751926040061633,
+			"totalTime": 3.199999988079071
+		},
+		"bidirectionalAStar": {
+			"pathDistance": 625.4809141195599,
+			"pathDistanceRatio": 1.011262613998256,
+			"pathSegments": 30,
+			"percentGraphExplored": 0.0637904468412943,
+			"totalTime": 3.200000047683716
+		},
+		"thetaStar": {
+			"pathDistance": 604.1485532580853,
+			"pathDistanceRatio": 0.976772962083145,
+			"pathSegments": 3,
+			"percentGraphExplored": 0.07519260400616333,
+			"totalTime": 5
+		},
+		"thetaStarEndCheck": {
+			"pathDistance": 604.1485532580853,
+			"pathDistanceRatio": 0.976772962083145,
+			"pathSegments": 3,
+			"percentGraphExplored": 0.06964560862865947,
+			"totalTime": 4.899999976158142
+		}
+	},
+	{
+		"breadthFirstSearch": {
+			"pathDistance": 1174.9903981812633,
+			"pathDistanceRatio": 1.0406651395107922,
+			"pathSegments": 46,
+			"percentGraphExplored": 0.9777322004101963,
+			"totalTime": 6.099999964237213
+		},
+		"dijkstras": {
+			"pathDistance": 1129.0763508553925,
+			"pathDistanceRatio": 1,
+			"pathSegments": 53,
+			"percentGraphExplored": 0.9759742162320539,
+			"totalTime": 5.199999988079071
+		},
+		"aStar": {
+			"pathDistance": 1129.0763508553925,
+			"pathDistanceRatio": 1,
+			"pathSegments": 53,
+			"percentGraphExplored": 0.18546733079402286,
+			"totalTime": 3.5
+		},
+		"bidirectionalAStar": {
+			"pathDistance": 1146.8125513473876,
+			"pathDistanceRatio": 1.0157085926727258,
+			"pathSegments": 57,
+			"percentGraphExplored": 0.15499560503955465,
+			"totalTime": 3.700000047683716
+		},
+		"thetaStar": {
+			"pathDistance": 1093.5867809222163,
+			"pathDistanceRatio": 0.9685676084648401,
+			"pathSegments": 5,
+			"percentGraphExplored": 0.12891883973044244,
+			"totalTime": 6.100000023841858
+		},
+		"thetaStarEndCheck": {
+			"pathDistance": 1093.5867809222163,
+			"pathDistanceRatio": 0.9685676084648401,
+			"pathSegments": 5,
+			"percentGraphExplored": 0.11895692938763551,
+			"totalTime": 5.799999952316284
+		}
+	},
+	{
+		"breadthFirstSearch": {
+			"pathDistance": 866.1222514907402,
+			"pathDistanceRatio": 1.0930078266424361,
+			"pathSegments": 32,
+			"percentGraphExplored": 0.6663124335812965,
+			"totalTime": 4.199999988079071
+		},
+		"dijkstras": {
+			"pathDistance": 792.420905302521,
+			"pathDistanceRatio": 1,
+			"pathSegments": 36,
+			"percentGraphExplored": 0.7300743889479278,
+			"totalTime": 3.899999976158142
+		},
+		"aStar": {
+			"pathDistance": 792.420905302521,
+			"pathDistanceRatio": 1,
+			"pathSegments": 36,
+			"percentGraphExplored": 0.1647183846971307,
+			"totalTime": 2.900000035762787
+		},
+		"bidirectionalAStar": {
+			"pathDistance": 796.894662127915,
+			"pathDistanceRatio": 1.0056456824844697,
+			"pathSegments": 37,
+			"percentGraphExplored": 0.1073326248671626,
+			"totalTime": 2.700000047683716
+		},
+		"thetaStar": {
+			"pathDistance": 770.0787521158758,
+			"pathDistanceRatio": 0.9718051946419616,
+			"pathSegments": 6,
+			"percentGraphExplored": 0.1526744597945448,
+			"totalTime": 9
+		},
+		"thetaStarEndCheck": {
+			"pathDistance": 769.3724620859833,
+			"pathDistanceRatio": 0.9709138879826265,
+			"pathSegments": 5,
+			"percentGraphExplored": 0.13567127169677648,
+			"totalTime": 8.899999976158142
+		}
+	},
+	{
+		"breadthFirstSearch": {
+			"pathDistance": 1862.2320659321917,
+			"pathDistanceRatio": 1.0431241582667483,
+			"pathSegments": 69,
+			"percentGraphExplored": 0.59229853116316,
+			"totalTime": 3.299999952316284
+		},
+		"dijkstras": {
+			"pathDistance": 1785.2448830506144,
+			"pathDistanceRatio": 1,
+			"pathSegments": 75,
+			"percentGraphExplored": 0.593489479952362,
+			"totalTime": 2.800000011920929
+		},
+		"aStar": {
+			"pathDistance": 1785.2448830506144,
+			"pathDistanceRatio": 1,
+			"pathSegments": 75,
+			"percentGraphExplored": 0.4462088130210401,
+			"totalTime": 3.199999988079071
+		},
+		"bidirectionalAStar": {
+			"pathDistance": 1795.196232969542,
+			"pathDistanceRatio": 1.0055742212250025,
+			"pathSegments": 77,
+			"percentGraphExplored": 0.6462882096069869,
+			"totalTime": 5
+		},
+		"thetaStar": {
+			"pathDistance": 1738.333498991091,
+			"pathDistanceRatio": 0.9737227175358926,
+			"pathSegments": 14,
+			"percentGraphExplored": 0.43787217149662566,
+			"totalTime": 29.900000035762787
+		},
+		"thetaStarEndCheck": {
+			"pathDistance": 1733.543653364826,
+			"pathDistanceRatio": 0.971039698712122,
+			"pathSegments": 11,
+			"percentGraphExplored": 0.425962683604605,
+			"totalTime": 29.80000001192093
+		}
+	},
+	{
+		"breadthFirstSearch": {
+			"pathDistance": 805.0357143181411,
+			"pathDistanceRatio": 1.1510157857831036,
+			"pathSegments": 27,
+			"percentGraphExplored": 0.46551724137931033,
+			"totalTime": 3.299999952316284
+		},
+		"dijkstras": {
+			"pathDistance": 699.4132697931923,
+			"pathDistanceRatio": 1,
+			"pathSegments": 31,
+			"percentGraphExplored": 0.49137931034482757,
+			"totalTime": 3.100000023841858
+		},
+		"aStar": {
+			"pathDistance": 699.4132697931923,
+			"pathDistanceRatio": 1,
+			"pathSegments": 31,
+			"percentGraphExplored": 0.21776611694152923,
+			"totalTime": 2.800000011920929
+		},
+		"bidirectionalAStar": {
+			"pathDistance": 709.3023507436824,
+			"pathDistanceRatio": 1.0141391097046446,
+			"pathSegments": 31,
+			"percentGraphExplored": 0.16379310344827586,
+			"totalTime": 2.699999988079071
+		},
+		"thetaStar": {
+			"pathDistance": 682.0469818841298,
+			"pathDistanceRatio": 0.9751702052862143,
+			"pathSegments": 3,
+			"percentGraphExplored": 0.20877061469265368,
+			"totalTime": 11.399999976158142
+		},
+		"thetaStarEndCheck": {
+			"pathDistance": 682.0263203216653,
+			"pathDistanceRatio": 0.9751406640073212,
+			"pathSegments": 3,
+			"percentGraphExplored": 0.19490254872563717,
+			"totalTime": 11.600000023841858
+		}
+	},
+	{
+		"breadthFirstSearch": {
+			"pathDistance": 641.7887877023634,
+			"pathDistanceRatio": 1.0477833299472241,
+			"pathSegments": 27,
+			"percentGraphExplored": 0.5448275862068965,
+			"totalTime": 5.099999964237213
+		},
+		"dijkstras": {
+			"pathDistance": 612.5205177054016,
+			"pathDistanceRatio": 1,
+			"pathSegments": 28,
+			"percentGraphExplored": 0.5230344827586207,
+			"totalTime": 5.899999976158142
+		},
+		"aStar": {
+			"pathDistance": 612.5205177054016,
+			"pathDistanceRatio": 1,
+			"pathSegments": 28,
+			"percentGraphExplored": 0.1023448275862069,
+			"totalTime": 3.800000011920929
+		},
+		"bidirectionalAStar": {
+			"pathDistance": 618.7522099156704,
+			"pathDistanceRatio": 1.0101738505570617,
+			"pathSegments": 28,
+			"percentGraphExplored": 0.056827586206896555,
+			"totalTime": 3.5
+		},
+		"thetaStar": {
+			"pathDistance": 593.5971760488026,
+			"pathDistanceRatio": 0.9691057832193297,
+			"pathSegments": 4,
+			"percentGraphExplored": 0.09710344827586206,
+			"totalTime": 5.899999976158142
+		},
+		"thetaStarEndCheck": {
+			"pathDistance": 593.5971760488026,
+			"pathDistanceRatio": 0.9691057832193297,
+			"pathSegments": 4,
+			"percentGraphExplored": 0.09379310344827586,
+			"totalTime": 6.300000011920929
+		}
+	},
+	{
+		"breadthFirstSearch": {
+			"pathDistance": 929.438604253104,
+			"pathDistanceRatio": 1.0655171635509133,
+			"pathSegments": 29,
+			"percentGraphExplored": 0.3835978835978836,
+			"totalTime": 2.300000011920929
+		},
+		"dijkstras": {
+			"pathDistance": 872.2887214277077,
+			"pathDistanceRatio": 1,
+			"pathSegments": 33,
+			"percentGraphExplored": 0.40370370370370373,
+			"totalTime": 2.300000011920929
+		},
+		"aStar": {
+			"pathDistance": 872.2887214277077,
+			"pathDistanceRatio": 1,
+			"pathSegments": 33,
+			"percentGraphExplored": 0.21693121693121692,
+			"totalTime": 2.099999964237213
+		},
+		"bidirectionalAStar": {
+			"pathDistance": 872.2887214277077,
+			"pathDistanceRatio": 1,
+			"pathSegments": 33,
+			"percentGraphExplored": 0.16613756613756614,
+			"totalTime": 2
+		},
+		"thetaStar": {
+			"pathDistance": 851.9207993513133,
+			"pathDistanceRatio": 0.97665002243402,
+			"pathSegments": 10,
+			"percentGraphExplored": 0.21481481481481482,
+			"totalTime": 21.400000035762787
+		},
+		"thetaStarEndCheck": {
+			"pathDistance": 851.9207993513133,
+			"pathDistanceRatio": 0.97665002243402,
+			"pathSegments": 10,
+			"percentGraphExplored": 0.21481481481481482,
+			"totalTime": 20
+		}
+	},
+	{
+		"breadthFirstSearch": {
+			"pathDistance": 1210.8043274738743,
+			"pathDistanceRatio": 1.0824468044039806,
+			"pathSegments": 44,
+			"percentGraphExplored": 0.635145482388974,
+			"totalTime": 3.600000023841858
+		},
+		"dijkstras": {
+			"pathDistance": 1118.580906283492,
+			"pathDistanceRatio": 1,
+			"pathSegments": 52,
+			"percentGraphExplored": 0.6140888208269525,
+			"totalTime": 3.399999976158142
+		},
+		"aStar": {
+			"pathDistance": 1118.580906283492,
+			"pathDistanceRatio": 1,
+			"pathSegments": 52,
+			"percentGraphExplored": 0.2163093415007657,
+			"totalTime": 2.699999988079071
+		},
+		"bidirectionalAStar": {
+			"pathDistance": 1118.580906283492,
+			"pathDistanceRatio": 1,
+			"pathSegments": 52,
+			"percentGraphExplored": 0.2599540581929556,
+			"totalTime": 3
+		},
+		"thetaStar": {
+			"pathDistance": 1087.9046987244826,
+			"pathDistanceRatio": 0.9725757811646083,
+			"pathSegments": 10,
+			"percentGraphExplored": 0.19601837672281777,
+			"totalTime": 13.900000035762787
+		},
+		"thetaStarEndCheck": {
+			"pathDistance": 1087.9046987244826,
+			"pathDistanceRatio": 0.9725757811646083,
+			"pathSegments": 10,
+			"percentGraphExplored": 0.18453292496171517,
+			"totalTime": 14.399999976158142
+		}
+	},
+	{
+		"breadthFirstSearch": {
+			"pathDistance": 1316.6252080639126,
+			"pathDistanceRatio": 1.080401186362171,
+			"pathSegments": 44,
+			"percentGraphExplored": 0.6598214285714286,
+			"totalTime": 3
+		},
+		"dijkstras": {
+			"pathDistance": 1218.6447263142443,
+			"pathDistanceRatio": 1,
+			"pathSegments": 50,
+			"percentGraphExplored": 0.646875,
+			"totalTime": 2.700000047683716
+		},
+		"aStar": {
+			"pathDistance": 1218.6447263142443,
+			"pathDistanceRatio": 1,
+			"pathSegments": 50,
+			"percentGraphExplored": 0.3888392857142857,
+			"totalTime": 2.600000023841858
+		},
+		"bidirectionalAStar": {
+			"pathDistance": 1238.5226411251385,
+			"pathDistanceRatio": 1.0163114929082033,
+			"pathSegments": 52,
+			"percentGraphExplored": 0.37723214285714285,
+			"totalTime": 2.799999952316284
+		},
+		"thetaStar": {
+			"pathDistance": 1190.1251654122236,
+			"pathDistanceRatio": 0.9765973131576442,
+			"pathSegments": 12,
+			"percentGraphExplored": 0.3763392857142857,
+			"totalTime": 30.099999964237213
+		},
+		"thetaStarEndCheck": {
+			"pathDistance": 1190.1251654122236,
+			"pathDistanceRatio": 0.9765973131576442,
+			"pathSegments": 12,
+			"percentGraphExplored": 0.3763392857142857,
+			"totalTime": 31.19999998807907
+		}
+	},
+	{
+		"breadthFirstSearch": {
+			"pathDistance": 881.0241704966447,
+			"pathDistanceRatio": 1.1514817956075758,
+			"pathSegments": 36,
+			"percentGraphExplored": 0.8253489249339871,
+			"totalTime": 4.100000023841858
+		},
+		"dijkstras": {
+			"pathDistance": 765.1221008073124,
+			"pathDistanceRatio": 1,
+			"pathSegments": 37,
+			"percentGraphExplored": 0.6514522821576764,
+			"totalTime": 3.300000011920929
+		},
+		"aStar": {
+			"pathDistance": 765.1221008073124,
+			"pathDistanceRatio": 1,
+			"pathSegments": 37,
+			"percentGraphExplored": 0.11882308562806489,
+			"totalTime": 2.5
+		},
+		"bidirectionalAStar": {
+			"pathDistance": 768.5715293327588,
+			"pathDistanceRatio": 1.004508337325254,
+			"pathSegments": 40,
+			"percentGraphExplored": 0.10222557525462089,
+			"totalTime": 2.400000035762787
+		},
+		"thetaStar": {
+			"pathDistance": 745.1709692207368,
+			"pathDistanceRatio": 0.9739242513508309,
+			"pathSegments": 3,
+			"percentGraphExplored": 0.08977744247453791,
+			"totalTime": 4.899999976158142
+		},
+		"thetaStarEndCheck": {
+			"pathDistance": 745.1709692207368,
+			"pathDistanceRatio": 0.9739242513508309,
+			"pathSegments": 3,
+			"percentGraphExplored": 0.07468879668049792,
+			"totalTime": 3.600000023841858
+		}
+	},
+	{
+		"breadthFirstSearch": {
+			"pathDistance": 795.9166180084551,
+			"pathDistanceRatio": 1.0678616846087416,
+			"pathSegments": 33,
+			"percentGraphExplored": 0.8609159876369766,
+			"totalTime": 6.099999964237213
+		},
+		"dijkstras": {
+			"pathDistance": 745.3368067045822,
+			"pathDistanceRatio": 1,
+			"pathSegments": 36,
+			"percentGraphExplored": 0.817645406012925,
+			"totalTime": 5.399999976158142
+		},
+		"aStar": {
+			"pathDistance": 745.3368067045822,
+			"pathDistanceRatio": 1,
+			"pathSegments": 36,
+			"percentGraphExplored": 0.1168867659454903,
+			"totalTime": 3.699999988079071
+		},
+		"bidirectionalAStar": {
+			"pathDistance": 753.2397711512773,
+			"pathDistanceRatio": 1.0106032123673554,
+			"pathSegments": 37,
+			"percentGraphExplored": 0.10480472042708626,
+			"totalTime": 3.600000023841858
+		},
+		"thetaStar": {
+			"pathDistance": 708.2069574566485,
+			"pathDistanceRatio": 0.9501837975611337,
+			"pathSegments": 4,
+			"percentGraphExplored": 0.08288845181230682,
+			"totalTime": 4.700000047683716
+		},
+		"thetaStarEndCheck": {
+			"pathDistance": 708.2069574566485,
+			"pathDistanceRatio": 0.9501837975611337,
+			"pathSegments": 4,
+			"percentGraphExplored": 0.06631076144984546,
+			"totalTime": 6.199999988079071
+		}
+	},
+	{
+		"breadthFirstSearch": {
+			"pathDistance": 970.0554382243598,
+			"pathDistanceRatio": 1.055278736328297,
+			"pathSegments": 35,
+			"percentGraphExplored": 0.3701067615658363,
+			"totalTime": 2.899999976158142
+		},
+		"dijkstras": {
+			"pathDistance": 919.2409595966461,
+			"pathDistanceRatio": 1,
+			"pathSegments": 40,
+			"percentGraphExplored": 0.3623962040332147,
+			"totalTime": 1.899999976158142
+		},
+		"aStar": {
+			"pathDistance": 919.2409595966461,
+			"pathDistanceRatio": 1,
+			"pathSegments": 40,
+			"percentGraphExplored": 0.19276393831553973,
+			"totalTime": 1.699999988079071
+		},
+		"bidirectionalAStar": {
+			"pathDistance": 920.4593916327786,
+			"pathDistanceRatio": 1.0013254762240655,
+			"pathSegments": 40,
+			"percentGraphExplored": 0.1737841043890866,
+			"totalTime": 1.699999988079071
+		},
+		"thetaStar": {
+			"pathDistance": 891.08276714907,
+			"pathDistanceRatio": 0.9693679963304381,
+			"pathSegments": 10,
+			"percentGraphExplored": 0.1826809015421115,
+			"totalTime": 13.800000011920929
+		},
+		"thetaStarEndCheck": {
+			"pathDistance": 891.08276714907,
+			"pathDistanceRatio": 0.9693679963304381,
+			"pathSegments": 10,
+			"percentGraphExplored": 0.1708185053380783,
+			"totalTime": 13.5
+		}
+	},
+	{
+		"breadthFirstSearch": {
+			"pathDistance": 890.5315842770633,
+			"pathDistanceRatio": 1.138147868747721,
+			"pathSegments": 32,
+			"percentGraphExplored": 0.4554016620498615,
+			"totalTime": 2.400000035762787
+		},
+		"dijkstras": {
+			"pathDistance": 782.4392671023455,
+			"pathDistanceRatio": 1,
+			"pathSegments": 35,
+			"percentGraphExplored": 0.4393351800554017,
+			"totalTime": 2.099999964237213
+		},
+		"aStar": {
+			"pathDistance": 782.4392671023455,
+			"pathDistanceRatio": 1,
+			"pathSegments": 35,
+			"percentGraphExplored": 0.22714681440443213,
+			"totalTime": 2
+		},
+		"bidirectionalAStar": {
+			"pathDistance": 819.0274375918349,
+			"pathDistanceRatio": 1.046761674711174,
+			"pathSegments": 34,
+			"percentGraphExplored": 0.21329639889196675,
+			"totalTime": 2
+		},
+		"thetaStar": {
+			"pathDistance": 757.908125924903,
+			"pathDistanceRatio": 0.9686478654524967,
+			"pathSegments": 8,
+			"percentGraphExplored": 0.2188365650969529,
+			"totalTime": 16.5
+		},
+		"thetaStarEndCheck": {
+			"pathDistance": 757.908125924903,
+			"pathDistanceRatio": 0.9686478654524967,
+			"pathSegments": 8,
+			"percentGraphExplored": 0.20609418282548475,
+			"totalTime": 16.5
+		}
+	},
+	{
+		"breadthFirstSearch": {
+			"pathDistance": 778.340513799633,
+			"pathDistanceRatio": 1.118925071631662,
+			"pathSegments": 29,
+			"percentGraphExplored": 0.5127986348122867,
+			"totalTime": 4.599999964237213
+		},
+		"dijkstras": {
+			"pathDistance": 695.6145085431191,
+			"pathDistanceRatio": 1,
+			"pathSegments": 32,
+			"percentGraphExplored": 0.5130830489192264,
+			"totalTime": 4.400000035762787
+		},
+		"aStar": {
+			"pathDistance": 695.6145085431191,
+			"pathDistanceRatio": 1,
+			"pathSegments": 32,
+			"percentGraphExplored": 0.07565415244596133,
+			"totalTime": 3.300000011920929
+		},
+		"bidirectionalAStar": {
+			"pathDistance": 701.2806094747331,
+			"pathDistanceRatio": 1.0081454611167915,
+			"pathSegments": 33,
+			"percentGraphExplored": 0.06655290102389079,
+			"totalTime": 3.299999952316284
+		},
+		"thetaStar": {
+			"pathDistance": 680.352864047486,
+			"pathDistanceRatio": 0.9780601981295693,
+			"pathSegments": 3,
+			"percentGraphExplored": 0.05261660978384528,
+			"totalTime": 3.600000023841858
+		},
+		"thetaStarEndCheck": {
+			"pathDistance": 680.352864047486,
+			"pathDistanceRatio": 0.9780601981295693,
+			"pathSegments": 3,
+			"percentGraphExplored": 0.014505119453924915,
+			"totalTime": 3.300000011920929
+		}
+	},
+	{
+		"breadthFirstSearch": {
+			"pathDistance": 837.8652930087068,
+			"pathDistanceRatio": 1.1783276446293267,
+			"pathSegments": 29,
+			"percentGraphExplored": 0.4772093023255814,
+			"totalTime": 2.699999988079071
+		},
+		"dijkstras": {
+			"pathDistance": 711.0630874422699,
+			"pathDistanceRatio": 1,
+			"pathSegments": 31,
+			"percentGraphExplored": 0.4730232558139535,
+			"totalTime": 2.300000011920929
+		},
+		"aStar": {
+			"pathDistance": 711.0630874422699,
+			"pathDistanceRatio": 1,
+			"pathSegments": 31,
+			"percentGraphExplored": 0.14930232558139536,
+			"totalTime": 2
+		},
+		"bidirectionalAStar": {
+			"pathDistance": 716.5580252004744,
+			"pathDistanceRatio": 1.007727778104711,
+			"pathSegments": 32,
+			"percentGraphExplored": 0.13627906976744186,
+			"totalTime": 2
+		},
+		"thetaStar": {
+			"pathDistance": 682.5776614431729,
+			"pathDistanceRatio": 0.9599396642827285,
+			"pathSegments": 4,
+			"percentGraphExplored": 0.13674418604651162,
+			"totalTime": 7.800000011920929
+		},
+		"thetaStarEndCheck": {
+			"pathDistance": 682.5776614431729,
+			"pathDistanceRatio": 0.9599396642827285,
+			"pathSegments": 4,
+			"percentGraphExplored": 0.11069767441860465,
+			"totalTime": 7.099999964237213
+		}
+	},
+	{
+		"breadthFirstSearch": {
+			"pathDistance": 1091.2512489070546,
+			"pathDistanceRatio": 1.0808663649510666,
+			"pathSegments": 43,
+			"percentGraphExplored": 0.8291208791208792,
+			"totalTime": 6.900000035762787
+		},
+		"dijkstras": {
+			"pathDistance": 1009.6079259127081,
+			"pathDistanceRatio": 1,
+			"pathSegments": 50,
+			"percentGraphExplored": 0.8510989010989011,
+			"totalTime": 5.599999964237213
+		},
+		"aStar": {
+			"pathDistance": 1009.6079259127081,
+			"pathDistanceRatio": 1,
+			"pathSegments": 50,
+			"percentGraphExplored": 0.17802197802197803,
+			"totalTime": 4
+		},
+		"bidirectionalAStar": {
+			"pathDistance": 1014.2987121315665,
+			"pathDistanceRatio": 1.0046461463885774,
+			"pathSegments": 50,
+			"percentGraphExplored": 0.18296703296703296,
+			"totalTime": 4.399999976158142
+		},
+		"thetaStar": {
+			"pathDistance": 973.712449615737,
+			"pathDistanceRatio": 0.9644461227218272,
+			"pathSegments": 3,
+			"percentGraphExplored": 0.11730769230769231,
+			"totalTime": 4.899999976158142
+		},
+		"thetaStarEndCheck": {
+			"pathDistance": 973.712449615737,
+			"pathDistanceRatio": 0.9644461227218272,
+			"pathSegments": 3,
+			"percentGraphExplored": 0.07582417582417582,
+			"totalTime": 4.5
+		}
+	},
+	{
+		"breadthFirstSearch": {
+			"pathDistance": 751.0218746784161,
+			"pathDistanceRatio": 1.0636553373184738,
+			"pathSegments": 28,
+			"percentGraphExplored": 0.8113069016152716,
+			"totalTime": 4.100000023841858
+		},
+		"dijkstras": {
+			"pathDistance": 706.0763466592273,
+			"pathDistanceRatio": 1,
+			"pathSegments": 33,
+			"percentGraphExplored": 0.8175477239353891,
+			"totalTime": 3.899999976158142
+		},
+		"aStar": {
+			"pathDistance": 706.0763466592273,
+			"pathDistanceRatio": 1,
+			"pathSegments": 33,
+			"percentGraphExplored": 0.13693098384728342,
+			"totalTime": 2.699999988079071
+		},
+		"bidirectionalAStar": {
+			"pathDistance": 779.1038960252813,
+			"pathDistanceRatio": 1.1034272705941517,
+			"pathSegments": 34,
+			"percentGraphExplored": 0.10499265785609398,
+			"totalTime": 2.5
+		},
+		"thetaStar": {
+			"pathDistance": 678.7636280206183,
+			"pathDistanceRatio": 0.9613176127938033,
+			"pathSegments": 5,
+			"percentGraphExplored": 0.12041116005873716,
+			"totalTime": 7.199999988079071
+		},
+		"thetaStarEndCheck": {
+			"pathDistance": 678.7636280206183,
+			"pathDistanceRatio": 0.9613176127938033,
+			"pathSegments": 5,
+			"percentGraphExplored": 0.11894273127753303,
+			"totalTime": 8.5
+		}
+	},
+	{
+		"breadthFirstSearch": {
+			"pathDistance": 1285.9390781024592,
+			"pathDistanceRatio": 1.0819865726033486,
+			"pathSegments": 46,
+			"percentGraphExplored": 0.9067085953878407,
+			"totalTime": 4.800000011920929
+		},
+		"dijkstras": {
+			"pathDistance": 1188.4981853410472,
+			"pathDistanceRatio": 1,
+			"pathSegments": 54,
+			"percentGraphExplored": 0.9311670160726765,
+			"totalTime": 4.299999952316284
+		},
+		"aStar": {
+			"pathDistance": 1188.4981853410472,
+			"pathDistanceRatio": 1,
+			"pathSegments": 54,
+			"percentGraphExplored": 0.5269042627533194,
+			"totalTime": 5
+		},
+		"bidirectionalAStar": {
+			"pathDistance": 1217.3175498846244,
+			"pathDistanceRatio": 1.0242485557816037,
+			"pathSegments": 56,
+			"percentGraphExplored": 0.3060796645702306,
+			"totalTime": 3.300000011920929
+		},
+		"thetaStar": {
+			"pathDistance": 1154.4864479096518,
+			"pathDistanceRatio": 0.9713825920385099,
+			"pathSegments": 8,
+			"percentGraphExplored": 0.5031446540880503,
+			"totalTime": 32.80000001192093
+		},
+		"thetaStarEndCheck": {
+			"pathDistance": 1154.4864479096518,
+			"pathDistanceRatio": 0.9713825920385099,
+			"pathSegments": 8,
+			"percentGraphExplored": 0.48218029350104824,
+			"totalTime": 32.90000003576279
+		}
+	},
+	{
+		"breadthFirstSearch": {
+			"pathDistance": 990.6992973094361,
+			"pathDistanceRatio": 1.0697449391737597,
+			"pathSegments": 35,
+			"percentGraphExplored": 0.6366227288920556,
+			"totalTime": 4.5
+		},
+		"dijkstras": {
+			"pathDistance": 926.1079543639851,
+			"pathDistanceRatio": 1,
+			"pathSegments": 38,
+			"percentGraphExplored": 0.6996793729960812,
+			"totalTime": 4.100000023841858
+		},
+		"aStar": {
+			"pathDistance": 926.1079543639851,
+			"pathDistanceRatio": 1,
+			"pathSegments": 38,
+			"percentGraphExplored": 0.25080156750979693,
+			"totalTime": 3.399999976158142
+		},
+		"bidirectionalAStar": {
+			"pathDistance": 931.7298035250724,
+			"pathDistanceRatio": 1.0060704037089803,
+			"pathSegments": 38,
+			"percentGraphExplored": 0.3049519059494122,
+			"totalTime": 3.599999964237213
+		},
+		"thetaStar": {
+			"pathDistance": 906.1432744578824,
+			"pathDistanceRatio": 0.9784423837285647,
+			"pathSegments": 11,
+			"percentGraphExplored": 0.24545778411115068,
+			"totalTime": 18.700000047683716
+		},
+		"thetaStarEndCheck": {
+			"pathDistance": 906.1432744578824,
+			"pathDistanceRatio": 0.9784423837285647,
+			"pathSegments": 11,
+			"percentGraphExplored": 0.23619522622016387,
+			"totalTime": 18.600000023841858
+		}
+	},
+	{
+		"breadthFirstSearch": {
+			"pathDistance": 755.4085834330513,
+			"pathDistanceRatio": 1.066707809452729,
+			"pathSegments": 32,
+			"percentGraphExplored": 0.8512522135087276,
+			"totalTime": 6.699999988079071
+		},
+		"dijkstras": {
+			"pathDistance": 708.168231955301,
+			"pathDistanceRatio": 1,
+			"pathSegments": 35,
+			"percentGraphExplored": 0.8135593220338984,
+			"totalTime": 6
+		},
+		"aStar": {
+			"pathDistance": 708.168231955301,
+			"pathDistanceRatio": 1,
+			"pathSegments": 35,
+			"percentGraphExplored": 0.09005818365798128,
+			"totalTime": 4
+		},
+		"bidirectionalAStar": {
+			"pathDistance": 708.168231955301,
+			"pathDistanceRatio": 1,
+			"pathSegments": 35,
+			"percentGraphExplored": 0.07057930685555275,
+			"totalTime": 3.899999976158142
+		},
+		"thetaStar": {
+			"pathDistance": 690.0101448529579,
+			"pathDistanceRatio": 0.974359077006028,
+			"pathSegments": 1,
+			"percentGraphExplored": 0.047811788515051856,
+			"totalTime": 4
+		},
+		"thetaStarEndCheck": {
+			"pathDistance": 690.0101448529579,
+			"pathDistanceRatio": 0.974359077006028,
+			"pathSegments": 1,
+			"percentGraphExplored": 0.0022767518340500886,
+			"totalTime": 3.699999988079071
+		}
+	},
+	{
+		"breadthFirstSearch": {
+			"pathDistance": 1047.214070689346,
+			"pathDistanceRatio": 1.0828237091047836,
+			"pathSegments": 37,
+			"percentGraphExplored": 0.7333333333333333,
+			"totalTime": 4.399999976158142
+		},
+		"dijkstras": {
+			"pathDistance": 967.1140942740554,
+			"pathDistanceRatio": 1,
+			"pathSegments": 40,
+			"percentGraphExplored": 0.8322061191626409,
+			"totalTime": 7
+		},
+		"aStar": {
+			"pathDistance": 967.1140942740554,
+			"pathDistanceRatio": 1,
+			"pathSegments": 40,
+			"percentGraphExplored": 0.14428341384863125,
+			"totalTime": 3.099999964237213
+		},
+		"bidirectionalAStar": {
+			"pathDistance": 978.6501661045743,
+			"pathDistanceRatio": 1.0119283463024888,
+			"pathSegments": 41,
+			"percentGraphExplored": 0.12045088566827697,
+			"totalTime": 3.199999988079071
+		},
+		"thetaStar": {
+			"pathDistance": 948.3911822776446,
+			"pathDistanceRatio": 0.9806404310440074,
+			"pathSegments": 9,
+			"percentGraphExplored": 0.13333333333333333,
+			"totalTime": 7.600000023841858
+		},
+		"thetaStarEndCheck": {
+			"pathDistance": 948.3911822776446,
+			"pathDistanceRatio": 0.9806404310440074,
+			"pathSegments": 9,
+			"percentGraphExplored": 0.12657004830917876,
+			"totalTime": 7.5
+		}
+	},
+	{
+		"breadthFirstSearch": {
+			"pathDistance": 1511.7874819806111,
+			"pathDistanceRatio": 1.169589132253426,
+			"pathSegments": 52,
+			"percentGraphExplored": 0.40620384047267355,
+			"totalTime": 2.599999964237213
+		},
+		"dijkstras": {
+			"pathDistance": 1292.5799670076258,
+			"pathDistanceRatio": 1,
+			"pathSegments": 58,
+			"percentGraphExplored": 0.4032496307237814,
+			"totalTime": 2.400000035762787
+		},
+		"aStar": {
+			"pathDistance": 1292.5799670076258,
+			"pathDistanceRatio": 1,
+			"pathSegments": 58,
+			"percentGraphExplored": 0.3436730674544559,
+			"totalTime": 2.399999976158142
+		},
+		"bidirectionalAStar": {
+			"pathDistance": 1305.5533188735699,
+			"pathDistanceRatio": 1.0100367885910981,
+			"pathSegments": 58,
+			"percentGraphExplored": 0.5563761693746923,
+			"totalTime": 2.900000035762787
+		},
+		"thetaStar": {
+			"pathDistance": 1265.2779968876628,
+			"pathDistanceRatio": 0.9788779256859689,
+			"pathSegments": 12,
+			"percentGraphExplored": 0.34071885770556376,
+			"totalTime": 26.099999964237213
+		},
+		"thetaStarEndCheck": {
+			"pathDistance": 1265.2779968876628,
+			"pathDistanceRatio": 0.9788779256859689,
+			"pathSegments": 12,
+			"percentGraphExplored": 0.34071885770556376,
+			"totalTime": 27.19999998807907
+		}
+	},
+	{
+		"breadthFirstSearch": {
+			"pathDistance": 1357.45343134103,
+			"pathDistanceRatio": 1.1292097723889445,
+			"pathSegments": 50,
+			"percentGraphExplored": 0.9615881213686249,
+			"totalTime": 5.099999964237213
+		},
+		"dijkstras": {
+			"pathDistance": 1202.126889558541,
+			"pathDistanceRatio": 1,
+			"pathSegments": 58,
+			"percentGraphExplored": 0.9619109102646869,
+			"totalTime": 4.899999976158142
+		},
+		"aStar": {
+			"pathDistance": 1202.126889558541,
+			"pathDistanceRatio": 1,
+			"pathSegments": 58,
+			"percentGraphExplored": 0.5213040671400904,
+			"totalTime": 4.100000023841858
+		},
+		"bidirectionalAStar": {
+			"pathDistance": 1226.7823708543167,
+			"pathDistanceRatio": 1.0205098825339727,
+			"pathSegments": 61,
+			"percentGraphExplored": 0.2262750161394448,
+			"totalTime": 3.199999988079071
+		},
+		"thetaStar": {
+			"pathDistance": 1168.8644467992324,
+			"pathDistanceRatio": 0.9723303396270225,
+			"pathSegments": 6,
+			"percentGraphExplored": 0.513234344738541,
+			"totalTime": 30.19999998807907
+		},
+		"thetaStarEndCheck": {
+			"pathDistance": 1168.8574256245508,
+			"pathDistanceRatio": 0.9723244990000949,
+			"pathSegments": 5,
+			"percentGraphExplored": 0.4983860555196901,
+			"totalTime": 33
+		}
+	},
+	{
+		"breadthFirstSearch": {
+			"pathDistance": 686.638386568722,
+			"pathDistanceRatio": 1.068234511331973,
+			"pathSegments": 24,
+			"percentGraphExplored": 0.2673837879369958,
+			"totalTime": 2.699999988079071
+		},
+		"dijkstras": {
+			"pathDistance": 642.7786963300392,
+			"pathDistanceRatio": 1,
+			"pathSegments": 27,
+			"percentGraphExplored": 0.2631578947368421,
+			"totalTime": 2.599999964237213
+		},
+		"aStar": {
+			"pathDistance": 642.7786963300392,
+			"pathDistanceRatio": 1,
+			"pathSegments": 27,
+			"percentGraphExplored": 0.07068766807529774,
+			"totalTime": 2.300000011920929
+		},
+		"bidirectionalAStar": {
+			"pathDistance": 645.0373898490866,
+			"pathDistanceRatio": 1.00351395205215,
+			"pathSegments": 27,
+			"percentGraphExplored": 0.08528620822128313,
+			"totalTime": 2.300000011920929
+		},
+		"thetaStar": {
+			"pathDistance": 615.0147691259697,
+			"pathDistanceRatio": 0.956806397967779,
+			"pathSegments": 5,
+			"percentGraphExplored": 0.06415674222051479,
+			"totalTime": 3.699999988079071
+		},
+		"thetaStarEndCheck": {
+			"pathDistance": 615.0147691259697,
+			"pathDistanceRatio": 0.956806397967779,
+			"pathSegments": 5,
+			"percentGraphExplored": 0.051094890510948905,
+			"totalTime": 3.800000011920929
+		}
+	},
+	{
+		"breadthFirstSearch": {
+			"pathDistance": 731.2838463221692,
+			"pathDistanceRatio": 1.1276748069612947,
+			"pathSegments": 25,
+			"percentGraphExplored": 0.6211389961389961,
+			"totalTime": 2.699999988079071
+		},
+		"dijkstras": {
+			"pathDistance": 648.4882359771199,
+			"pathDistanceRatio": 1,
+			"pathSegments": 29,
+			"percentGraphExplored": 0.597972972972973,
+			"totalTime": 2.5
+		},
+		"aStar": {
+			"pathDistance": 648.4882359771199,
+			"pathDistanceRatio": 1,
+			"pathSegments": 29,
+			"percentGraphExplored": 0.19015444015444016,
+			"totalTime": 2
+		},
+		"bidirectionalAStar": {
+			"pathDistance": 654.2903731890038,
+			"pathDistanceRatio": 1.0089471741968326,
+			"pathSegments": 28,
+			"percentGraphExplored": 0.10617760617760617,
+			"totalTime": 1.800000011920929
+		},
+		"thetaStar": {
+			"pathDistance": 621.3899270000363,
+			"pathDistanceRatio": 0.958213106308316,
+			"pathSegments": 6,
+			"percentGraphExplored": 0.1776061776061776,
+			"totalTime": 16.5
+		},
+		"thetaStarEndCheck": {
+			"pathDistance": 621.3899270000363,
+			"pathDistanceRatio": 0.958213106308316,
+			"pathSegments": 6,
+			"percentGraphExplored": 0.1776061776061776,
+			"totalTime": 18
+		}
+	},
+	{
+		"breadthFirstSearch": {
+			"pathDistance": 1807.4744853427685,
+			"pathDistanceRatio": 1.0477905272908572,
+			"pathSegments": 55,
+			"percentGraphExplored": 0.571964956195244,
+			"totalTime": 1.899999976158142
+		},
+		"dijkstras": {
+			"pathDistance": 1725.0341917254514,
+			"pathDistanceRatio": 1,
+			"pathSegments": 62,
+			"percentGraphExplored": 0.5738423028785983,
+			"totalTime": 1.899999976158142
+		},
+		"aStar": {
+			"pathDistance": 1725.0341917254514,
+			"pathDistanceRatio": 1,
+			"pathSegments": 62,
+			"percentGraphExplored": 0.4111389236545682,
+			"totalTime": 1.899999976158142
+		},
+		"bidirectionalAStar": {
+			"pathDistance": 1785.3664874333804,
+			"pathDistanceRatio": 1.0349745506479393,
+			"pathSegments": 64,
+			"percentGraphExplored": 0.5794743429286608,
+			"totalTime": 2.100000023841858
+		},
+		"thetaStar": {
+			"pathDistance": 1694.0538579889972,
+			"pathDistanceRatio": 0.9820407422153955,
+			"pathSegments": 19,
+			"percentGraphExplored": 0.40613266583229035,
+			"totalTime": 37
+		},
+		"thetaStarEndCheck": {
+			"pathDistance": 1694.0538579889972,
+			"pathDistanceRatio": 0.9820407422153955,
+			"pathSegments": 19,
+			"percentGraphExplored": 0.40425531914893614,
+			"totalTime": 38.60000002384186
+		}
+	},
+	{
+		"breadthFirstSearch": {
+			"pathDistance": 1128.9152851478107,
+			"pathDistanceRatio": 1.0536612700552974,
+			"pathSegments": 43,
+			"percentGraphExplored": 0.6638163816381638,
+			"totalTime": 3
+		},
+		"dijkstras": {
+			"pathDistance": 1071.4214494080852,
+			"pathDistanceRatio": 1,
+			"pathSegments": 51,
+			"percentGraphExplored": 0.6485148514851485,
+			"totalTime": 2.699999988079071
+		},
+		"aStar": {
+			"pathDistance": 1071.4214494080852,
+			"pathDistanceRatio": 1,
+			"pathSegments": 51,
+			"percentGraphExplored": 0.3442844284428443,
+			"totalTime": 2.5
+		},
+		"bidirectionalAStar": {
+			"pathDistance": 1079.7200024811416,
+			"pathDistanceRatio": 1.0077453676866754,
+			"pathSegments": 51,
+			"percentGraphExplored": 0.35283528352835286,
+			"totalTime": 2.600000023841858
+		},
+		"thetaStar": {
+			"pathDistance": 1032.1089988594088,
+			"pathDistanceRatio": 0.9633081355890393,
+			"pathSegments": 10,
+			"percentGraphExplored": 0.3276327632763276,
+			"totalTime": 29
+		},
+		"thetaStarEndCheck": {
+			"pathDistance": 1032.1089988594088,
+			"pathDistanceRatio": 0.9633081355890393,
+			"pathSegments": 10,
+			"percentGraphExplored": 0.3262826282628263,
+			"totalTime": 30
+		}
+	},
+	{
+		"breadthFirstSearch": {
+			"pathDistance": 1242.3542648321957,
+			"pathDistanceRatio": 1.0668702843984503,
+			"pathSegments": 40,
+			"percentGraphExplored": 0.7057256990679095,
+			"totalTime": 3.200000047683716
+		},
+		"dijkstras": {
+			"pathDistance": 1164.484832879839,
+			"pathDistanceRatio": 1,
+			"pathSegments": 47,
+			"percentGraphExplored": 0.7248113626276076,
+			"totalTime": 2.800000011920929
+		},
+		"aStar": {
+			"pathDistance": 1164.484832879839,
+			"pathDistanceRatio": 1,
+			"pathSegments": 47,
+			"percentGraphExplored": 0.5108743897026188,
+			"totalTime": 2.799999952316284
+		},
+		"bidirectionalAStar": {
+			"pathDistance": 1201.232470546435,
+			"pathDistanceRatio": 1.0315569912368177,
+			"pathSegments": 48,
+			"percentGraphExplored": 0.23524189968930315,
+			"totalTime": 2.300000011920929
+		},
+		"thetaStar": {
+			"pathDistance": 1134.1451307996538,
+			"pathDistanceRatio": 0.9739458160179267,
+			"pathSegments": 15,
+			"percentGraphExplored": 0.49267643142476697,
+			"totalTime": 43.299999952316284
+		},
+		"thetaStarEndCheck": {
+			"pathDistance": 1134.1451307996538,
+			"pathDistanceRatio": 0.9739458160179267,
+			"pathSegments": 15,
+			"percentGraphExplored": 0.49267643142476697,
+			"totalTime": 43.200000047683716
+		}
+	},
+	{
+		"breadthFirstSearch": {
+			"pathDistance": 1006.9524554568798,
+			"pathDistanceRatio": 1.075291758398891,
+			"pathSegments": 38,
+			"percentGraphExplored": 0.602455871066769,
+			"totalTime": 4.199999988079071
+		},
+		"dijkstras": {
+			"pathDistance": 936.44580421246,
+			"pathDistanceRatio": 1,
+			"pathSegments": 44,
+			"percentGraphExplored": 0.5955487336914812,
+			"totalTime": 3.299999952316284
+		},
+		"aStar": {
+			"pathDistance": 936.44580421246,
+			"pathDistanceRatio": 1,
+			"pathSegments": 44,
+			"percentGraphExplored": 0.17958557175748274,
+			"totalTime": 2.600000023841858
+		},
+		"bidirectionalAStar": {
+			"pathDistance": 937.018030624412,
+			"pathDistanceRatio": 1.0006110619636266,
+			"pathSegments": 44,
+			"percentGraphExplored": 0.1696085955487337,
+			"totalTime": 2.5
+		},
+		"thetaStar": {
+			"pathDistance": 906.3003258668857,
+			"pathDistanceRatio": 0.9678086246849851,
+			"pathSegments": 4,
+			"percentGraphExplored": 0.1515732924021489,
+			"totalTime": 8.800000011920929
+		},
+		"thetaStarEndCheck": {
+			"pathDistance": 906.3003258668857,
+			"pathDistanceRatio": 0.9678086246849851,
+			"pathSegments": 4,
+			"percentGraphExplored": 0.13622409823484266,
+			"totalTime": 8.699999988079071
+		}
+	},
+	{
+		"breadthFirstSearch": {
+			"pathDistance": 609.0629945007578,
+			"pathDistanceRatio": 1.0321523464358169,
+			"pathSegments": 23,
+			"percentGraphExplored": 0.5737333710727427,
+			"totalTime": 5
+		},
+		"dijkstras": {
+			"pathDistance": 590.090209651654,
+			"pathDistanceRatio": 1,
+			"pathSegments": 25,
+			"percentGraphExplored": 0.626379847155392,
+			"totalTime": 4.699999988079071
+		},
+		"aStar": {
+			"pathDistance": 590.090209651654,
+			"pathDistanceRatio": 1,
+			"pathSegments": 25,
+			"percentGraphExplored": 0.11123690914237193,
+			"totalTime": 3.399999976158142
+		},
+		"bidirectionalAStar": {
+			"pathDistance": 616.2271853596571,
+			"pathDistanceRatio": 1.0442931865001326,
+			"pathSegments": 26,
+			"percentGraphExplored": 0.10614208887630909,
+			"totalTime": 3.600000023841858
+		},
+		"thetaStar": {
+			"pathDistance": 572.6414726087098,
+			"pathDistanceRatio": 0.970430390544448,
+			"pathSegments": 2,
+			"percentGraphExplored": 0.09368808378148882,
+			"totalTime": 5
+		},
+		"thetaStarEndCheck": {
+			"pathDistance": 572.6414726087098,
+			"pathDistanceRatio": 0.970430390544448,
+			"pathSegments": 2,
+			"percentGraphExplored": 0.07444098499858477,
+			"totalTime": 4.900000035762787
+		}
+	},
+	{
+		"breadthFirstSearch": {
+			"pathDistance": 972.827148069838,
+			"pathDistanceRatio": 1.0849762604154398,
+			"pathSegments": 36,
+			"percentGraphExplored": 0.8907721280602636,
+			"totalTime": 4
+		},
+		"dijkstras": {
+			"pathDistance": 896.6345011985243,
+			"pathDistanceRatio": 1,
+			"pathSegments": 42,
+			"percentGraphExplored": 0.9001883239171374,
+			"totalTime": 4.699999988079071
+		},
+		"aStar": {
+			"pathDistance": 896.6345011985243,
+			"pathDistanceRatio": 1,
+			"pathSegments": 42,
+			"percentGraphExplored": 0.28700564971751413,
+			"totalTime": 2.899999976158142
+		},
+		"bidirectionalAStar": {
+			"pathDistance": 897.8160847780116,
+			"pathDistanceRatio": 1.001317798476311,
+			"pathSegments": 43,
+			"percentGraphExplored": 0.264030131826742,
+			"totalTime": 2.800000011920929
+		},
+		"thetaStar": {
+			"pathDistance": 866.9109450913597,
+			"pathDistanceRatio": 0.9668498634979656,
+			"pathSegments": 4,
+			"percentGraphExplored": 0.26516007532956687,
+			"totalTime": 13.5
+		},
+		"thetaStarEndCheck": {
+			"pathDistance": 866.9109450913597,
+			"pathDistanceRatio": 0.9668498634979656,
+			"pathSegments": 4,
+			"percentGraphExplored": 0.26252354048964216,
+			"totalTime": 13.800000011920929
+		}
+	}
+]
