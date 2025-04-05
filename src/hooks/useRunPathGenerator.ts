@@ -26,8 +26,6 @@ export default function useRunPathGenerator() {
 					},
 				});
 			}, 0);
-
-			setIntervalId(intervalIdInternal);
 		},
 		[setAppValues],
 	);
