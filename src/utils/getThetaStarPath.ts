@@ -1,5 +1,6 @@
 import FlatQueue from "flatqueue";
 import type { PointData, Polygon } from "pixi.js";
+import doesLineIntersectPolygons from "./doesLineIntersectPolygons";
 import type Graph from "./graph";
 import type { Path } from "./path";
 import { arePointsEqual } from "./point";
@@ -89,12 +90,31 @@ export default function* getThetaStarPath({
 				yield path;
 			}
 
-			// we're done, so break out of the main while loop
 			break;
 		}
 
+		const currentParent = cameFrom.get(currentPoint);
+
 		for (const neighbor of pathGraph.getNode(currentPoint).neighbors) {
-			const newCost = (costSoFar.get(currentPoint) || 0) + neighbor.cost;
+			let newCost: number;
+			let parent: PointData;
+
+			if (
+				currentParent &&
+				// this is the line of sight check
+				!doesLineIntersectPolygons(currentParent, neighbor.point, polygons)
+			) {
+				// if there is line of sight to the parent, use it
+				newCost =
+					(costSoFar.get(currentParent) || 0) +
+					heuristic(currentParent, neighbor.point);
+				parent = currentParent;
+			} else {
+				// otherwise just use the current point
+				newCost = (costSoFar.get(currentPoint) || 0) + neighbor.cost;
+				parent = currentPoint;
+			}
+
 			if (
 				!costSoFar.has(neighbor.point) ||
 				newCost < (costSoFar.get(neighbor.point) || 0)
@@ -102,10 +122,10 @@ export default function* getThetaStarPath({
 				costSoFar.set(neighbor.point, newCost);
 				const priority = newCost + heuristic(endPoint, neighbor.point);
 				priorityQueue.push(neighbor.point, priority);
-				cameFrom.set(neighbor.point, currentPoint);
+				cameFrom.set(neighbor.point, parent);
 
 				pathGraph.getNode(neighbor.point).parent = {
-					point: currentPoint,
+					point: parent,
 					cost: neighbor.cost,
 				};
 
