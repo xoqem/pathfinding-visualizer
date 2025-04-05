@@ -31,6 +31,14 @@ export default function PathPanel() {
 		() => path && getPathDistance(path?.points),
 		[path],
 	);
+	const percentGraphExplored = useMemo(
+		() =>
+			path
+				? path.graph.nodes.filter(({ parent }) => parent).length /
+					path.graph.nodes.length
+				: 0,
+		[path],
+	);
 
 	const [graphType, setGraphType] = useState<AlgorithmType | null>(
 		AlgorithmType.aStar,
@@ -159,6 +167,7 @@ export default function PathPanel() {
 					<Text>
 						Path segments: {path.points.length ? path.points.length - 1 : 0}
 					</Text>
+					<Text>Percent graph explored: {percentGraphExplored}</Text>
 				</>
 			)}
 		</Stack>
