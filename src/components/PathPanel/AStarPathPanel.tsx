@@ -9,9 +9,9 @@ export default function AStarPathPanel() {
 	function handleRunClick() {
 		if (!graph) return;
 
-		const start = { x: 5, y: 5 };
-		const end = { x: width - 5, y: height - 5 };
-		const path = getAStarPath({ end, graph, polygons, start });
+		const startPoint = { x: 5, y: 5 };
+		const endPoint = { x: width - 5, y: height - 5 };
+		const path = getAStarPath({ endPoint, graph, polygons, startPoint });
 
 		setAppValues({ path });
 	}

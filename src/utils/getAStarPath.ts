@@ -1,11 +1,6 @@
 import type { PointData, Polygon } from "pixi.js";
-import {
-	type Graph,
-	type GraphNode,
-	connectPointToGraph,
-	getGraphKey,
-	getGraphValue,
-} from "./graph";
+import type Graph from "./graph";
+import type { GraphNode } from "./graph";
 import type { Path } from "./path";
 
 function heuristic(a: PointData, b: PointData): number {
@@ -13,70 +8,67 @@ function heuristic(a: PointData, b: PointData): number {
 }
 
 interface Params {
-	end: PointData;
+	endPoint: PointData;
 	graph: Graph;
 	polygons: Polygon[] | null;
-	start: PointData;
+	startPoint: PointData;
 }
 
 export default function getAStarPath({
-	end,
+	endPoint,
 	graph,
 	polygons,
-	start,
+	startPoint,
 }: Params): Path {
-	const pathGraph = JSON.parse(JSON.stringify(graph)) as Graph;
+	const pathGraph = graph.clone();
 
-	connectPointToGraph({
-		graph: pathGraph,
+	pathGraph.connectPointToGraph({
 		maxNeighbors: 8,
-		point: start,
+		point: startPoint,
 		polygons,
 	});
-	connectPointToGraph({
-		graph: pathGraph,
+
+	pathGraph.connectPointToGraph({
 		maxNeighbors: 8,
-		point: end,
+		point: endPoint,
 		polygons,
 	});
 
 	const path: Path = {
-		end,
+		endPoint,
 		graph: pathGraph,
 		points: [],
-		start,
+		startPoint,
 	};
 
-	if (!getGraphValue(pathGraph, start) || !getGraphValue(pathGraph, end)) {
+	if (!pathGraph.hasPoint(startPoint) || !pathGraph.hasPoint(endPoint)) {
 		return path;
 	}
 
-	const startKey = getGraphKey(start);
-	const endKey = getGraphKey(end);
+	const openSet: Set<PointData> = new Set([startPoint]);
+	const gScore: Map<PointData, number> = new Map();
+	const fScore: Map<PointData, number> = new Map();
 
-	const openSet: Set<string> = new Set([startKey]);
-	const gScore: { [key: string]: number } = {};
-	const fScore: { [key: string]: number } = {};
-
-	gScore[startKey] = 0;
-	fScore[startKey] = heuristic(start, end);
+	gScore.set(startPoint, 0);
+	fScore.set(startPoint, heuristic(startPoint, endPoint));
 
 	while (openSet.size > 0) {
-		let currentKey: string | null = null;
+		let currentPoint: PointData | null = null;
 		let lowestFScore = Number.POSITIVE_INFINITY;
 
-		for (const key of openSet) {
-			if (fScore[key] !== undefined && fScore[key] < lowestFScore) {
-				lowestFScore = fScore[key];
-				currentKey = key;
+		for (const point of openSet) {
+			const fScoreValue = fScore.get(point);
+			if (fScoreValue && fScoreValue < lowestFScore) {
+				lowestFScore = fScoreValue;
+				currentPoint = point;
 			}
 		}
 
-		if (currentKey === endKey) {
-			let node: GraphNode | null = getGraphValue(pathGraph, end);
-			while (node.parent) {
+		if (currentPoint === endPoint) {
+			let node: GraphNode | null = pathGraph.getNode(endPoint);
+			while (node?.parent) {
 				path.points.push(node.point);
-				node = getGraphValue(pathGraph, node.parent.point);
+				node = pathGraph.getNode(node.parent.point);
 			}
 
 			path.points.reverse();
@@ -85,27 +77,32 @@ export default function getAStarPath({
 			break;
 		}
 
-		if (!currentKey) {
-			throw new Error("Unexpected falsy currentKey value");
+		if (!currentPoint) {
+			throw new Error("Unexpected falsy currentPoint value");
 		}
 
-		openSet.delete(currentKey);
+		openSet.delete(currentPoint);
 
-		const currentNode = pathGraph[currentKey];
+		const currentNode = pathGraph.getNode(currentPoint);
 		for (const neighbor of currentNode.neighbors) {
-			const neighborKey = getGraphKey(neighbor.point);
-			const tentativeGScore = gScore[currentKey] + neighbor.cost;
+			const tentativeGScore = (gScore.get(currentPoint) || 0) + neighbor.cost;
 
-			if (tentativeGScore < (gScore[neighborKey] || Number.POSITIVE_INFINITY)) {
-				gScore[neighborKey] = tentativeGScore;
-				fScore[neighborKey] = tentativeGScore + heuristic(neighbor.point, end);
+			if (
+				tentativeGScore <
+				(gScore.get(neighbor.point) || Number.POSITIVE_INFINITY)
+			) {
+				gScore.set(neighbor.point, tentativeGScore);
+				fScore.set(
+					neighbor.point,
+					tentativeGScore + heuristic(neighbor.point, endPoint),
+				);
 
-				if (!openSet.has(neighborKey)) {
-					openSet.add(neighborKey);
+				if (!openSet.has(neighbor.point)) {
+					openSet.add(neighbor.point);
 				}
 
-				if (neighborKey !== startKey) {
-					pathGraph[neighborKey].parent = {
+				if (neighbor.point !== startPoint) {
+					pathGraph.getNode(neighbor.point).parent = {
 						point: currentNode.point,
 						cost: neighbor.cost,
 					};

@@ -16,12 +16,10 @@ export default function drawPath({
 }: Params) {
 	if (!path) return;
 
-	const { end, graph, points, start } = path;
-
-	const graphNodes = Object.values(graph);
+	const { endPoint, graph, points, startPoint } = path;
 
 	// search branches
-	for (const node of graphNodes) {
+	for (const node of graph.nodes) {
 		const { parent, point } = node;
 		if (!parent) continue;
 
@@ -39,14 +37,14 @@ export default function drawPath({
 	// start point
 	graphics.setStrokeStyle({ color: "#0000ff", width: 1, alignment: 0.5 });
 	graphics.setFillStyle({ color: "#0000ff" });
-	graphics.circle(start.x, start.y, 4);
+	graphics.circle(startPoint.x, startPoint.y, 4);
 	graphics.fill();
 	graphics.stroke();
 
 	// end point
 	graphics.setStrokeStyle({ color: "#0000ff", width: 1, alignment: 0.5 });
 	graphics.setFillStyle({ color: "#0000ff" });
-	graphics.circle(end.x, end.y, 4);
+	graphics.circle(endPoint.x, endPoint.y, 4);
 	graphics.fill();
 	graphics.stroke();
 
@@ -57,14 +55,14 @@ export default function drawPath({
 		width: 4,
 		alignment: 0.5,
 	});
-	graphics.moveTo(start.x, start.y);
+	graphics.moveTo(startPoint.x, startPoint.y);
 	for (const point of points) {
 		graphics.lineTo(point.x, point.y);
 	}
 	graphics.stroke();
 
 	// nodes in search search branches
-	for (const { parent, point } of graphNodes) {
+	for (const { parent, point } of graph.nodes) {
 		if (!parent) continue;
 
 		graphics.setStrokeStyle({

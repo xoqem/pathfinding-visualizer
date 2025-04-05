@@ -1,6 +1,6 @@
 import type { Polygon } from "pixi.js";
 import React from "react";
-import type { Graph } from "../utils/graph";
+import type Graph from "../utils/graph";
 import type { Path } from "../utils/path";
 
 export interface AppValues {

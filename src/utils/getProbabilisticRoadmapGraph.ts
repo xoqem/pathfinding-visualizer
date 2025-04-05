@@ -1,6 +1,6 @@
-import type { PointData, Polygon } from "pixi.js";
+import type { Polygon } from "pixi.js";
 
-import { type Graph, connectPointToGraph, initializeGraphEntry } from "./graph";
+import Graph from "./graph";
 import isPointInPolygons from "./isPointInPolygons";
 import { getDistance } from "./point";
 
@@ -29,8 +29,7 @@ export default function getProbabilisticRoadmapGraph({
 	oversampleFactor = 2,
 	width,
 }: Params): Graph {
-	const points: PointData[] = [];
-
+	const graph: Graph = new Graph();
 	const padding = 1;
 	const widthWithPadding = width - padding * 2;
 	const heightWithPadding = height - padding * 2;
@@ -38,7 +37,7 @@ export default function getProbabilisticRoadmapGraph({
 	if (randomize) {
 		for (
 			let i = 0;
-			i < numSamples * oversampleFactor && points.length < numSamples;
+			i < numSamples * oversampleFactor && graph.points.length < numSamples;
 			i++
 		) {
 			const x = Math.round(Math.random() * widthWithPadding) + padding;
@@ -47,14 +46,14 @@ export default function getProbabilisticRoadmapGraph({
 
 			if (isPointInPolygons(point, polygons, polygonStrokeWidth + 2)) continue;
 
-			const nearExistingPoint = points.find((neighborPoint) => {
+			const nearExistingPoint = graph.points.find((neighborPoint) => {
 				const distance = getDistance(point, neighborPoint);
 				return distance < randomPointBuffer;
 			});
 
 			if (nearExistingPoint) continue;
 
-			points.push(point);
+			graph.initializeGraphEntry(point);
 		}
 	} else {
 		const step = Math.ceil(
@@ -72,19 +71,13 @@ export default function getProbabilisticRoadmapGraph({
 				if (isPointInPolygons(point, polygons, polygonStrokeWidth + 2))
 					continue;
 
-				points.push(point);
+				graph.initializeGraphEntry(point);
 			}
 		}
 	}
 
-	const graph: Graph = {};
-	for (const point of points) {
-		initializeGraphEntry(graph, point);
-	}
-
-	for (const point of points) {
-		connectPointToGraph({
-			graph,
+	for (const point of graph.points) {
+		graph.connectPointToGraph({
 			maxNeighborDistance,
 			maxNeighbors,
 			point,
