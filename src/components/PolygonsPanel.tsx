@@ -59,7 +59,7 @@ export default function PolygonPanel() {
 
           <SimpleSlider
             label="Max shape size"
-            max={100}
+            max={200}
             min={1}
             onChange={(value) =>
               setAppValues({ generatedSvgMaxShapeSize: value })

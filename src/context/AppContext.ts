@@ -19,7 +19,7 @@ export interface AppValues {
 }
 
 export const defaultAppValues: AppValues = {
-  generatedSvgMaxShapeSize: 20,
+  generatedSvgMaxShapeSize: 100,
   generatedSvgNumShapes: 10,
   graph: null,
   height: 400,
