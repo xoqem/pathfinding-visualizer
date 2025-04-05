@@ -2,9 +2,10 @@ import { Button, HStack, NativeSelect, Stack } from "@chakra-ui/react";
 import SimpleCheckbox from "./components/ui/SimpleCheckbox";
 import { useAppContext } from "./context/AppContext";
 import useLoadSvgPolygons from "./hooks/useLoadSvgPolygons";
+import SimpleSlider from "./components/ui/SimpleSlider";
 
 export default function PolygonPanel() {
-  const { scaleSvgToFit, svgFilePath, setAppValues } = useAppContext();
+  const { polygonStrokeWidth, scaleSvgToFit, svgFilePath, setAppValues } = useAppContext();
   const loadSvgPolygons = useLoadSvgPolygons();
 
   function handleClearClick() {
@@ -34,6 +35,14 @@ export default function PolygonPanel() {
         label="Scale to Fit"
         checked={scaleSvgToFit}
         onChange={(value) => setAppValues({ scaleSvgToFit: value })}
+      />
+
+      <SimpleSlider
+        label="Stroke Width"
+        max={10}
+        min={1}
+        onChange={(value) => setAppValues({ polygonStrokeWidth: value })}
+        value={polygonStrokeWidth}
       />
 
       <HStack justify="space-between">

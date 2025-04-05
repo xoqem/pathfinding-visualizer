@@ -3,16 +3,22 @@ import { Graphics, Polygon } from "pixi.js";
 interface Params {
   graphics: Graphics;
   polygons: Polygon[] | null;
+  strokeWidth: number;
 }
 
-export default function drawPolygons({ graphics, polygons }: Params) {
+export default function drawPolygons({ graphics, polygons, strokeWidth }: Params) {
   if (!polygons) return;
 
-  graphics.setStrokeStyle({ color: "#000000", width: 1, alignment: 1 });
+  graphics.setStrokeStyle({ color: "#000000", width: strokeWidth, alignment: 0.5, cap: "round", join: "round" });
   graphics.setFillStyle({ color: "#000000" });
 
   polygons?.forEach((polygon) => {
-    graphics.poly(polygon.points);
+    if (polygon.points.length === 4) {
+      graphics.moveTo(polygon.points[0], polygon.points[1]);
+      graphics.lineTo(polygon.points[2], polygon.points[3]);
+    } else {
+      graphics.poly(polygon.points);
+    }
   });
 
   graphics.fill();

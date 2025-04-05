@@ -7,6 +7,7 @@ export interface AppValues {
   height: number;
   loading: boolean;
   polygons: Polygon[] | null;
+  polygonStrokeWidth: number;
   scaleSvgToFit: boolean;
   svgFilePath: string;
   width: number;
@@ -17,6 +18,7 @@ export const defaultAppValues: AppValues = {
   height: 400,
   loading: false,
   polygons: null,
+  polygonStrokeWidth: 1,
   scaleSvgToFit: true,
   svgFilePath: "./shapes.svg",
   width: 800,

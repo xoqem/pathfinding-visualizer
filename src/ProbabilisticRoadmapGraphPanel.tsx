@@ -7,7 +7,7 @@ import getProbabilisticRoadmapGraph from "./utils/getProbabilisticRoadmapGraph";
 import { useAppContext } from "./context/AppContext";
 
 export default function ProbabilisticRoadmapGraphPanel() {
-  const { height, width, polygons, setAppValues } = useAppContext();
+  const { height, width, polygons, polygonStrokeWidth, setAppValues } = useAppContext();
   const [maxNeighborDistance, setMaxNeighborDistance] = useState(100);
   const [maxNeighbors, setMaxNeighbors] = useState(8);
   const [numSamples, setNumSamples] = useState(400);
@@ -23,6 +23,7 @@ export default function ProbabilisticRoadmapGraphPanel() {
       numSamples,
       overSampleFactor,
       polygons,
+      polygonStrokeWidth,
       randomize,
       randomPointBuffer,
       width,

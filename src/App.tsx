@@ -9,7 +9,7 @@ import useLoadSvgPolygons from "./hooks/useLoadSvgPolygons";
 import { useEffect } from "react";
 
 export default function App() {
-  const { graph, height, loading, polygons, width } = useAppContext();
+  const { height, loading, width } = useAppContext();
   const loadSvgPolygons = useLoadSvgPolygons();
 
   useEffect(() => {
@@ -31,12 +31,7 @@ export default function App() {
               <Spinner />
             </Center>
           ) : (
-            <PixiApp
-              graph={graph}
-              height={height}
-              polygons={polygons}
-              width={width}
-            />
+            <PixiApp />
           )}
         </Card.Root>
         <Card.Root width={400}>
