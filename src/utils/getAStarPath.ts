@@ -27,7 +27,7 @@ export default function* getAStarPath({
 		startPoint = pathGraph.getNode(startPoint).point;
 	} else {
 		pathGraph.connectPointToGraph({
-			maxNeighbors: 8,
+			maxNeighbors: 4,
 			point: startPoint,
 			polygons,
 		});
@@ -37,7 +37,7 @@ export default function* getAStarPath({
 		endPoint = pathGraph.getNode(endPoint).point;
 	} else {
 		pathGraph.connectPointToGraph({
-			maxNeighbors: 8,
+			maxNeighbors: 4,
 			point: endPoint,
 			polygons,
 		});
