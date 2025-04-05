@@ -1,35 +1,27 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { Application, extend } from "@pixi/react";
+import { Container, Graphics } from "pixi.js";
+import { useCallback } from "react";
 
-function App() {
-  const [count, setCount] = useState(0)
+import "./App.css";
+
+extend({
+  Container,
+  Graphics,
+});
+
+export default function App() {
+  const drawCallback = useCallback((graphics: Graphics) => {
+    graphics.clear();
+    graphics.setFillStyle({ color: "red" });
+    graphics.rect(0, 0, 100, 100);
+    graphics.fill();
+  }, []);
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <Application>
+      <pixiContainer x={100} y={100}>
+        <pixiGraphics draw={drawCallback} />
+      </pixiContainer>
+    </Application>
+  );
 }
-
-export default App
