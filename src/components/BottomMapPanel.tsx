@@ -15,7 +15,7 @@ export default function BottomMapPanel() {
 				onChange={(value) => setAppValues({ polygonAlpha: value })}
 				step={0.1}
 				value={polygonAlpha}
-				minWidth={130}
+				minWidth={125}
 			/>
 
 			<SimpleSlider
@@ -25,7 +25,7 @@ export default function BottomMapPanel() {
 				onChange={(value) => setAppValues({ graphAlpha: value })}
 				step={0.1}
 				value={graphAlpha}
-				minWidth={130}
+				minWidth={110}
 			/>
 
 			<SimpleSlider
@@ -35,7 +35,7 @@ export default function BottomMapPanel() {
 				onChange={(value) => setAppValues({ searchAlpha: value })}
 				step={0.1}
 				value={searchAlpha}
-				minWidth={130}
+				minWidth={115}
 			/>
 		</HStack>
 	);

@@ -1,7 +1,7 @@
 import { Card, Center, Flex, Spinner, Tabs } from "@chakra-ui/react";
 
 import { useEffect } from "react";
-import { LuShapes } from "react-icons/lu";
+import { LuSettings, LuShapes } from "react-icons/lu";
 import { PiGraph } from "react-icons/pi";
 import { TbRoute } from "react-icons/tb";
 import { useAppContext } from "../context/AppContext";
@@ -11,6 +11,7 @@ import GraphPanel from "./GraphPanel";
 import PathPanel from "./PathPanel";
 import PixiApp from "./PixiApp";
 import PolygonPanel from "./PolygonsPanel";
+import SettingsPanel from "./SettingsPanel";
 
 export default function App() {
 	const { height, loading, width } = useAppContext();
@@ -59,6 +60,10 @@ export default function App() {
 								<TbRoute />
 								Path
 							</Tabs.Trigger>
+							<Tabs.Trigger value="settings">
+								<LuSettings />
+								Settings
+							</Tabs.Trigger>
 						</Tabs.List>
 						<Tabs.Content value="polygons">
 							<PolygonPanel />
@@ -68,6 +73,9 @@ export default function App() {
 						</Tabs.Content>
 						<Tabs.Content value="path">
 							<PathPanel />
+						</Tabs.Content>
+						<Tabs.Content value="settings">
+							<SettingsPanel />
 						</Tabs.Content>
 					</Tabs.Root>
 				</Card.Root>

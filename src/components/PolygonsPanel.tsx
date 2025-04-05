@@ -8,9 +8,11 @@ export default function PolygonPanel() {
 	const {
 		generatedSvgMaxShapeSize,
 		generatedSvgNumShapes,
+		height,
 		polygonStrokeWidth,
 		scaleSvgToFit,
 		svgFilePath,
+		width,
 		setAppValues,
 	} = useAppContext();
 	const loadSvgPolygons = useLoadSvgPolygons();
@@ -75,6 +77,24 @@ export default function PolygonPanel() {
 				min={1}
 				onChange={(value) => setAppValues({ polygonStrokeWidth: value })}
 				value={polygonStrokeWidth}
+			/>
+
+			<SimpleSlider
+				label="Map Width"
+				max={1000}
+				min={400}
+				onChange={(value) => setAppValues({ width: value })}
+				step={10}
+				value={width}
+			/>
+
+			<SimpleSlider
+				label="Map Height"
+				max={1000}
+				min={200}
+				onChange={(value) => setAppValues({ height: value })}
+				step={10}
+				value={height}
 			/>
 
 			<HStack justify="space-between">
