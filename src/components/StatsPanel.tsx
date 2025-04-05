@@ -1,6 +1,6 @@
 import { Button, Stack, Table } from "@chakra-ui/react";
 import { startCase } from "lodash";
-import type { Polygon } from "pixi.js";
+import { path, type PointData, type Polygon } from "pixi.js";
 import { useMemo, useState } from "react";
 import { useAppContext } from "../context/AppContext";
 import generateSvgStringWithRandomPolygons from "../utils/generateSvgStringWithRandomPolygons";
@@ -14,6 +14,7 @@ import getThetaStarPath from "../utils/getThetaStarPath";
 import type Graph from "../utils/graph";
 import isPointInPolygons from "../utils/isPointInPolygons";
 import { type Path, getPathDistance } from "../utils/path";
+import { getDistance } from "../utils/point";
 
 function getClearPoint(polygons: Polygon[], width: number, height: number) {
 	let i = 0;
@@ -56,7 +57,11 @@ function furthestTwoPointsOnGraph(graph: Graph) {
 }
 
 function generateTestValues() {
-	for (let i = 0; i < 100; i++) {
+	for (
+		let validTestValueTries = 0;
+		validTestValueTries < 100;
+		validTestValueTries++
+	) {
 		const width = 1000;
 		const height = 1000;
 
@@ -88,11 +93,21 @@ function generateTestValues() {
 
 		if (!graph) continue;
 
-		const pathStartPoint = getRandomPointOnGraph(graph);
-		if (!pathStartPoint) continue;
+		let pathStartPoint: PointData | null = null;
+		let pathEndPoint: PointData | null = null;
+		for (let validPointTries = 0; validPointTries < 100; validPointTries++) {
+			const tempStartPoint = getRandomPointOnGraph(graph);
+			const tempEndPoint = getRandomPointOnGraph(graph);
 
-		const pathEndPoint = getRandomPointOnGraph(graph);
-		if (!pathEndPoint) continue;
+			// if the points are two near each other, try again for a more interesting path
+			if (getDistance(tempStartPoint, tempEndPoint) >= width / 2) {
+				pathStartPoint = tempStartPoint;
+				pathEndPoint = tempEndPoint;
+				break;
+			}
+		}
+
+		if (!pathStartPoint || !pathEndPoint) continue;
 
 		const pathGenerator = getAStarPath({
 			graph,
