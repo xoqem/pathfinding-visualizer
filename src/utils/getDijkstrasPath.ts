@@ -1,7 +1,6 @@
 import FlatQueue from "flatqueue";
 import type { PointData, Polygon } from "pixi.js";
 import type Graph from "./graph";
-import type { GraphNode } from "./graph";
 import type { Path } from "./path";
 import { arePointsEqual } from "./point";
 
@@ -59,7 +58,9 @@ export default function* getDijkstrasPath({
 
 	const priorityQueue = new FlatQueue<PointData>();
 	priorityQueue.push(startPoint, 0);
+	const cameFrom = new Map<PointData, PointData | null>();
 	const costSoFar = new Map<PointData, number>();
+	cameFrom.set(startPoint, null);
 	costSoFar.set(startPoint, 0);
 
 	while (priorityQueue.length) {
@@ -70,11 +71,11 @@ export default function* getDijkstrasPath({
 		}
 
 		if (currentPoint === endPoint) {
-			let node: GraphNode | null = pathGraph.getNode(endPoint);
+			let current: PointData | null = endPoint;
 			const points = [];
-			while (node?.parent) {
-				points.push(node.point);
-				node = pathGraph.getNode(node.parent.point);
+			while (current) {
+				points.push(current);
+				current = cameFrom.get(current) || null;
 			}
 
 			points.reverse();
@@ -97,6 +98,7 @@ export default function* getDijkstrasPath({
 				costSoFar.set(neighbor.point, newCost);
 				const priority = newCost;
 				priorityQueue.push(neighbor.point, priority);
+				cameFrom.set(neighbor.point, currentPoint);
 
 				pathGraph.getNode(neighbor.point).parent = {
 					point: currentPoint,
