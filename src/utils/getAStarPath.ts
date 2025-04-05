@@ -47,6 +47,10 @@ export default function getAStarPath({
 		start,
 	};
 
+	if (!getGraphValue(pathGraph, start) || !getGraphValue(pathGraph, end)) {
+		return path;
+	}
+
 	const startKey = getGraphKey(start);
 	const endKey = getGraphKey(end);
 
