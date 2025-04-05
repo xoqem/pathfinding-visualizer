@@ -1,5 +1,6 @@
 import { Polygon } from "pixi.js";
 
+import type { Overlay } from "../context/AppContext";
 import Graph from "./graph";
 import isPointInPolygons from "./isPointInPolygons";
 import { doesPolygonIntersectPolygons } from "./polygon";
@@ -20,9 +21,12 @@ export default function* getGridGraph({
 	polygons,
 	polygonStrokeWidth,
 	width,
-}: Params): Generator<{ graph: Graph; overlay: Polygon[] }> {
+}: Params): Generator<{ graph: Graph; overlay: Overlay }> {
 	const graph: Graph = new Graph();
-	const overlay: Polygon[] = [];
+	const overlay: Overlay = {
+		filledPolygons: [],
+		outlinePolygons: [],
+	};
 	const padding = 1;
 	const widthWithPadding = width - padding * 2;
 	const heightWithPadding = height - padding * 2;
@@ -34,10 +38,8 @@ export default function* getGridGraph({
 	const startX = Math.floor((widthWithPadding - gridWidth) / 2);
 	const startY = Math.floor((heightWithPadding - gridHeight) / 2);
 
-	for (let x = startX; x < widthWithPadding; x += gridSize) {
-		for (let y = startY; y < heightWithPadding; y += gridSize) {
-			const point = { x, y };
-
+	for (let x = startX; x < widthWithPadding - gridSize; x += gridSize) {
+		for (let y = startY; y < heightWithPadding - gridSize; y += gridSize) {
 			const overlayPolygon = new Polygon([
 				x,
 				y,
@@ -56,23 +58,17 @@ export default function* getGridGraph({
 					polygonStrokeWidth,
 				)
 			) {
-				overlay.push(
-					new Polygon([
-						x,
-						y,
-						x + gridSize,
-						y,
-						x + gridSize,
-						y + gridSize,
-						x,
-						y + gridSize,
-					]),
-				);
+				overlay.filledPolygons?.push(overlayPolygon);
+			} else {
+				overlay.outlinePolygons?.push(overlayPolygon);
+
+				const point = {
+					x: Math.round(x + gridSize / 2),
+					y: Math.round(y + gridSize / 2),
+				};
+
+				graph.initializeGraphEntry(point);
 			}
-
-			if (isPointInPolygons(point, polygons, polygonStrokeWidth + 2)) continue;
-
-			graph.initializeGraphEntry(point);
 
 			yield { graph, overlay };
 		}

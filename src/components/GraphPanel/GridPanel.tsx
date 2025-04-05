@@ -44,7 +44,7 @@ export default function GridPanel() {
 					return;
 				}
 
-				setAppValues({ graph: graph.clone(), overlay: [...overlay] });
+				setAppValues({ graph: graph.clone(), overlay: { ...overlay } });
 			}, 0);
 		} else {
 			const { graph, overlay } = Array.from(graphGenerator).pop() || {};

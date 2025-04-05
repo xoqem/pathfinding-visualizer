@@ -3,6 +3,11 @@ import React from "react";
 import type Graph from "../utils/graph";
 import type { Path } from "../utils/path";
 
+export interface Overlay {
+	filledPolygons?: Polygon[] | null;
+	outlinePolygons?: Polygon[] | null;
+}
+
 export interface AppValues {
 	animateGraph: boolean;
 	animatePath: boolean;
@@ -11,7 +16,7 @@ export interface AppValues {
 	graph: Graph | null;
 	height: number;
 	loading: boolean;
-	overlay: Polygon[] | null;
+	overlay: Overlay | null;
 	overlayAlpha: number;
 	path: Path | null;
 	pathEndPoint: PointData;
