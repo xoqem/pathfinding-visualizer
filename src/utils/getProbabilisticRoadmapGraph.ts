@@ -26,10 +26,14 @@ export default function getProbabilisticRoadmapGraph({
 }: Params): Graph {
   const points: PointData[] = [];
 
+  const padding = 1;
+  const widthWithPadding = width - padding * 2;
+  const heightWithPadding = height - padding * 2;
+
   if (randomize) {
     for (let i = 0; i < numSamples; i++) {
-      const x = Math.round(Math.random() * width);
-      const y = Math.round(Math.random() * height);
+      const x = Math.round(Math.random() * widthWithPadding) + padding;
+      const y = Math.round(Math.random() * heightWithPadding) + padding;
       const point = { x, y };
 
       if (isPointInPolygons(point, polygons)) continue;
@@ -37,9 +41,17 @@ export default function getProbabilisticRoadmapGraph({
       points.push(point);
     }
   } else {
-    const step = Math.ceil(Math.sqrt((width * height) / numSamples));
-    for (let x = Math.round(step / 2); x < width; x += step) {
-      for (let y = Math.round(step / 2); y < height; y += step) {
+    const step = Math.ceil(
+      Math.sqrt((widthWithPadding * heightWithPadding) / numSamples)
+    );
+    const gridWidth = (Math.ceil(widthWithPadding / step) - 1) * step;
+    const gridHeight = (Math.ceil(heightWithPadding / step) - 1) * step;
+    const startX = Math.floor((widthWithPadding - gridWidth) / 2);
+    const startY = Math.floor((heightWithPadding - gridHeight) / 2);
+    console.log({ step, gridWidth, gridHeight, startX, startY });
+
+    for (let x = startX; x < widthWithPadding; x += step) {
+      for (let y = startY; y < heightWithPadding; y += step) {
         const point = { x, y };
 
         if (isPointInPolygons(point, polygons)) continue;
