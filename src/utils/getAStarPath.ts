@@ -50,11 +50,9 @@ export default function getAStarPath({end, graph, polygons, start}: Params): Pat
     if (currentKey === endKey) {
       let node: GraphNode | null = getGraphValue(pathGraph, end);
       while (node.parent) {
-        console.log('node', node);
         path.points.push(node.point);
         node = getGraphValue(pathGraph, node.parent.point);
       }
-      console.log({ pathGraph })
 
       path.points.reverse();
 

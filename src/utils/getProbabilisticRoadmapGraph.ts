@@ -9,7 +9,7 @@ interface Params {
   maxNeighborDistance?: number;
   maxNeighbors?: number;
   numSamples?: number;
-  overSampleFactor?: number;
+  oversampleFactor?: number;
   polygons: Polygon[] | null;
   polygonStrokeWidth: number;
   randomize?: boolean;
@@ -26,7 +26,7 @@ export default function getProbabilisticRoadmapGraph({
   polygonStrokeWidth,
   randomize = true,
   randomPointBuffer = 10,
-  overSampleFactor = 2,
+  oversampleFactor = 2,
   width,
 }: Params): Graph {
   const points: PointData[] = [];
@@ -38,7 +38,7 @@ export default function getProbabilisticRoadmapGraph({
   if (randomize) {
     for (
       let i = 0;
-      i < numSamples * overSampleFactor && points.length < numSamples;
+      i < numSamples * oversampleFactor && points.length < numSamples;
       i++
     ) {
       const x = Math.round(Math.random() * widthWithPadding) + padding;

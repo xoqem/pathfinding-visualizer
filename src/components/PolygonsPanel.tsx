@@ -15,7 +15,7 @@ export default function PolygonPanel() {
   function handleFilePathSelectChange(
     event: React.ChangeEvent<HTMLSelectElement>
   ) {
-    setAppValues({ svgFilePath: event.target.value });
+    setAppValues({ svgFilePath: event.target.value || null});
   }
 
   return (
@@ -23,8 +23,9 @@ export default function PolygonPanel() {
       <NativeSelect.Root>
         <NativeSelect.Field
           onChange={handleFilePathSelectChange}
-          value={svgFilePath}
+          value={svgFilePath || undefined}
         >
+          <option value={""}>Generate random shapes</option>
           <option value="./maze.svg">maze.svg</option>
           <option value="./shapes.svg">shapes.svg</option>
         </NativeSelect.Field>

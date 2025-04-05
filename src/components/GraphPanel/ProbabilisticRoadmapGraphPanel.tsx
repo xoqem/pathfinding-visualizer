@@ -5,13 +5,14 @@ import SimpleCheckbox from "../ui/SimpleCheckbox";
 import { useState } from "react";
 import getProbabilisticRoadmapGraph from "../../utils/getProbabilisticRoadmapGraph";
 import { useAppContext } from "../../context/AppContext";
+import { startCase } from "lodash";
 
 export default function ProbabilisticRoadmapGraphPanel() {
   const { height, width, polygons, polygonStrokeWidth, setAppValues } = useAppContext();
   const [maxNeighborDistance, setMaxNeighborDistance] = useState(100);
   const [maxNeighbors, setMaxNeighbors] = useState(8);
   const [numSamples, setNumSamples] = useState(400);
-  const [overSampleFactor, setOverSampleFactor] = useState(2);
+  const [oversampleFactor, setOversample] = useState(2);
   const [randomize, setRandomize] = useState(true);
   const [randomPointBuffer, setRandomPointBuffer] = useState(10);
 
@@ -21,7 +22,7 @@ export default function ProbabilisticRoadmapGraphPanel() {
       maxNeighborDistance,
       maxNeighbors,
       numSamples,
-      overSampleFactor,
+      oversampleFactor,
       polygons,
       polygonStrokeWidth,
       randomize,
@@ -29,7 +30,7 @@ export default function ProbabilisticRoadmapGraphPanel() {
       width,
     });
 
-    setAppValues({ graph });
+    setAppValues({ graph, path: null });
   }
 
   function handleClearClick() {
@@ -39,7 +40,7 @@ export default function ProbabilisticRoadmapGraphPanel() {
   return (
     <Stack gap={4} padding={2} textAlign="left">
       <SimpleSlider
-        label="maxNeighborDistance"
+        label={startCase("maxNeighborDistance")}
         max={300}
         min={10}
         onChange={setMaxNeighborDistance}
@@ -47,7 +48,7 @@ export default function ProbabilisticRoadmapGraphPanel() {
       />
 
       <SimpleSlider
-        label="maxNeighbors"
+        label={startCase("maxNeighbors")}
         max={10}
         min={1}
         onChange={setMaxNeighbors}
@@ -55,7 +56,7 @@ export default function ProbabilisticRoadmapGraphPanel() {
       />
 
       <SimpleSlider
-        label="numSamples"
+        label={startCase("numSamples")}
         max={4000}
         min={10}
         onChange={setNumSamples}
@@ -63,23 +64,23 @@ export default function ProbabilisticRoadmapGraphPanel() {
       />
 
       <SimpleSlider
-        label="overSampleFactor"
-        onChange={setOverSampleFactor}
+        label={startCase("oversampleFactor")}
+        onChange={setOversample}
         max={3}
         min={1}
         step={0.1}
-        value={overSampleFactor}
+        value={oversampleFactor}
       />
 
       <SimpleCheckbox
-        label="randomize"
+        label={startCase("randomize")}
         checked={randomize}
         onChange={setRandomize}
       />
 
       <SimpleSlider
         disabled={!randomize}
-        label="randomPointBuffer"
+        label={startCase("randomPointBuffer")}
         onChange={setRandomPointBuffer}
         max={50}
         min={1}

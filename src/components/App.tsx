@@ -21,7 +21,8 @@ export default function App() {
 
   return (
     <Center>
-      <Flex columnGap={4} padding={2}>
+      <Flex direction="row" columnGap={4} padding={2}>
+        <Flex direction="column" rowGap={4}>
         <Card.Root
           height={height + 2}
           minHeight={height + 2}
@@ -37,6 +38,7 @@ export default function App() {
             <PixiApp />
           )}
         </Card.Root>
+        </Flex>
         <Card.Root width={400}>
           <Tabs.Root defaultValue="graph">
             <Tabs.List>
