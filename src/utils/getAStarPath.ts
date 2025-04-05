@@ -1,7 +1,7 @@
 import FlatQueue from "flatqueue";
 import type { PointData, Polygon } from "pixi.js";
 import type Graph from "./graph";
-import { type GraphNode, getPointKey } from "./graph";
+import type { GraphNode } from "./graph";
 import type { Path } from "./path";
 import { arePointsEqual } from "./point";
 

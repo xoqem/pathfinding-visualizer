@@ -1,6 +1,7 @@
 import { type PointData, Polygon } from "pixi.js";
 
 import Graph from "./graph";
+import { getDistance } from "./point";
 import { doesPolygonIntersectPolygons } from "./polygon";
 
 interface Params {
@@ -94,12 +95,18 @@ export default function* getGridGraph({
 
 			const rightPoint = gridPoints[i + 1]?.[j];
 			if (rightPoint) {
-				graph.addNeighbor({ point, neighbor: { point: rightPoint, cost: 1 } });
+				graph.addNeighbor({
+					point,
+					neighbor: { point: rightPoint, cost: getDistance(point, rightPoint) },
+				});
 			}
 
 			const downPoint = gridPoints[i]?.[j + 1];
 			if (downPoint) {
-				graph.addNeighbor({ point, neighbor: { point: downPoint, cost: 1 } });
+				graph.addNeighbor({
+					point,
+					neighbor: { point: downPoint, cost: getDistance(point, downPoint) },
+				});
 			}
 
 			if (allowDiagonal) {
@@ -107,7 +114,10 @@ export default function* getGridGraph({
 				if (upperRightPoint) {
 					graph.addNeighbor({
 						point,
-						neighbor: { point: upperRightPoint, cost: Math.SQRT2 },
+						neighbor: {
+							point: upperRightPoint,
+							cost: getDistance(point, upperRightPoint),
+						},
 					});
 				}
 
@@ -115,7 +125,10 @@ export default function* getGridGraph({
 				if (lowerRightPoint) {
 					graph.addNeighbor({
 						point,
-						neighbor: { point: lowerRightPoint, cost: Math.SQRT2 },
+						neighbor: {
+							point: lowerRightPoint,
+							cost: getDistance(point, lowerRightPoint),
+						},
 					});
 				}
 			}
