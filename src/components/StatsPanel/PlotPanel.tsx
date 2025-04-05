@@ -15,7 +15,7 @@ type Stat = (typeof stats)[number];
 
 const yAxisLabels: Record<Stat, string> = {
 	pathDistanceRatio: "Ratio to Shortest Path",
-	percentGraphExplored: "Percent Graph Explored",
+	percentGraphExplored: "Graph Explored %",
 	totalTime: "Time (ms)",
 };
 

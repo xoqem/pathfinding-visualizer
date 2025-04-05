@@ -1,37 +1,68 @@
-import { Button, HStack, Stack, Tabs } from "@chakra-ui/react";
+import { Button, HStack, Progress, Stack, Tabs } from "@chakra-ui/react";
+import { useState } from "react";
 import { AiOutlineBoxPlot } from "react-icons/ai";
 import { FaTable } from "react-icons/fa";
 import { useAppContext } from "../../context/AppContext";
-import { doTestRun } from "../../utils/testRun";
+import { type TestRun, doTestRun } from "../../utils/testRun";
 import PlotPanel from "./PlotPanel";
 import TestRunTable from "./TestRunTable";
 
 export default function StatsPanel() {
-	const { testRuns, setAppValues } = useAppContext();
+	const { loading, testRuns, setAppValues } = useAppContext();
+	const [loadingPercent, setLoadingPercent] = useState<number | null>(null);
 
 	function handleRunClick() {
 		setAppValues({
 			loading: true,
 		});
+		setLoadingPercent(0);
 
-		setTimeout(() => {
-			const numTestRuns = 1;
-			const newTestRuns = Array.from({ length: numTestRuns })
-				.map(() => doTestRun())
-				.filter((testRun) => !!testRun);
+		const numTestRuns = 1;
+		const newTestRuns: TestRun[] = [];
 
-			setAppValues({
-				...newTestRuns?.[0]?.appValues,
-				testRuns: [...(testRuns || []), ...newTestRuns],
-				loading: false,
-			});
+		const intervalId = setInterval(() => {
+			const testRun = doTestRun();
+			if (testRun) {
+				newTestRuns.push(testRun);
+			}
+
+			setLoadingPercent(newTestRuns.length / numTestRuns);
+
+			if (newTestRuns.length >= numTestRuns) {
+				clearInterval(intervalId);
+				setLoadingPercent(null);
+
+				setAppValues({
+					...newTestRuns?.[0]?.appValues,
+					testRuns: [...(testRuns || []), ...newTestRuns],
+					loading: false,
+				});
+			}
 		}, 0);
 	}
 
 	return (
 		<Stack gap={4} padding={2} textAlign="left">
-			<HStack gap={4} justifyContent="space-between">
-				<Button onClick={handleRunClick}>Run Test</Button>
+			<HStack gap={4}>
+				<Button onClick={handleRunClick} disabled={loading}>
+					Run Test
+				</Button>
+				{Number.isFinite(loadingPercent) && (
+					<Progress.Root
+						min={0}
+						max={100}
+						width={200}
+						striped
+						value={(loadingPercent || 0) * 100}
+					>
+						<Progress.Track>
+							<Progress.Range />
+						</Progress.Track>
+						<Progress.ValueText>
+							{((loadingPercent || 0) * 100).toFixed(2)}%
+						</Progress.ValueText>
+					</Progress.Root>
+				)}
 			</HStack>
 
 			<Tabs.Root defaultValue="table">

@@ -54,7 +54,7 @@ function generateTestValues() {
 			const tempStartPoint = graph.getRandomPointOnGraph();
 			const tempEndPoint = graph.getRandomPointOnGraph();
 
-			// if the points are two near each other, try again for a more interesting path
+			// if the points are too near each other, try again for a more interesting path
 			if (getDistance(tempStartPoint, tempEndPoint) >= width / 2) {
 				pathStartPoint = tempStartPoint;
 				pathEndPoint = tempEndPoint;
