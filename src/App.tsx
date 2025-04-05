@@ -11,8 +11,16 @@ extend({
 
 async function fetchSvgAsString(svgPath: string){
   const response = await fetch(svgPath);
-  const text = await response.text();
-  console.log(text);
+  const svgString = await response.text();
+  console.log(svgString);
+
+  const parser = new DOMParser();
+  const svgDoc = parser.parseFromString(svgString, "image/svg+xml");
+
+  const polygons = svgDoc.querySelectorAll("polygon");
+  polygons.forEach(polygon => {
+    console.log(polygon.getAttribute("points"));
+  });
 }
 
 
