@@ -4,6 +4,7 @@ import { useCallback } from "react";
 
 import "./App.css";
 import useSvgPolygons from "./hooks/useSvgPolygons";
+import pointInPolygons from "./utils/pointInPolygons";
 
 extend({
   Container,
@@ -27,15 +28,31 @@ export default function App() {
       graphics.fill();
       graphics.stroke();
 
-      graphics.setFillStyle({ color: "black" });
-
-      // graphics.rect(0, 0, 100, 100);
-      // graphics.fill();
+      graphics.setFillStyle({ color: "#000000" });
 
       polygons?.forEach((polygon) => {
         graphics.poly(polygon);
       });
-      graphics.fill();
+      // graphics.fill();
+      graphics.stroke();
+
+      // generate 100 random points, if pointInPolygons returns true, color the point red, otherwise color it green
+      for (let i = 0; i < 100; i++) {
+        const x = Math.random() * WIDTH;
+        const y = Math.random() * HEIGHT;
+        const point = { x, y };
+        if (pointInPolygons(point, polygons)) {
+          graphics.setStrokeStyle({ color: "#ff0000", width: 1, alignment: 1 });
+          graphics.setFillStyle({ color: "#ff0000" });
+        } else {
+          graphics.setStrokeStyle({ color: "#00ff00", width: 1, alignment: 1 });
+          graphics.setFillStyle({ color: "#00ff00" });
+        }
+        graphics.circle(x, y, 2);
+        graphics.fill();
+        graphics.stroke();
+      }
+        
     },
     [polygons]
   );
