@@ -26,9 +26,9 @@ export default function App() {
 	const mapCardBorderBuffer = 2;
 
 	return (
-		<Center>
+		<Center padding={2}>
 			<Flex direction="column" rowGap={4}>
-				<Flex direction="row" columnGap={4} padding={2}>
+				<Flex direction="row" columnGap={4}>
 					<Flex direction="column" rowGap={4}>
 						<Card.Root
 							height={height + mapCardBorderBuffer}
