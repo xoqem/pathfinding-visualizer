@@ -5,20 +5,24 @@ import { useAppContext } from "../../context/AppContext";
 import getAStarPath from "../../utils/getAStarPath";
 
 export default function AStarPathPanel() {
-	const { animatePath, graph, height, polygons, width, setAppValues } =
-		useAppContext();
+	const {
+		animatePath,
+		graph,
+		pathEndPoint,
+		pathStartPoint,
+		polygons,
+		setAppValues,
+	} = useAppContext();
 	const [busy, setBusy] = useState(false);
 
 	function handleRunClick() {
 		if (!graph) return;
 
-		const startPoint = { x: 5, y: 5 };
-		const endPoint = { x: width - 5, y: height - 5 };
 		const pathGenerator = getAStarPath({
-			endPoint,
+			endPoint: pathEndPoint,
 			graph,
 			polygons,
-			startPoint,
+			startPoint: pathStartPoint,
 		});
 
 		if (animatePath) {

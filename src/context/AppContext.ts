@@ -1,4 +1,4 @@
-import type { Polygon } from "pixi.js";
+import type { PointData, Polygon } from "pixi.js";
 import React from "react";
 import type Graph from "../utils/graph";
 import type { Path } from "../utils/path";
@@ -12,6 +12,8 @@ export interface AppValues {
 	height: number;
 	loading: boolean;
 	path: Path | null;
+	pathEndPoint: PointData;
+	pathStartPoint: PointData;
 	graphAlpha: number;
 	polygonAlpha: number;
 	polygons: Polygon[] | null;
@@ -33,6 +35,8 @@ export const defaultAppValues: AppValues = {
 	height: 400,
 	loading: false,
 	path: null,
+	pathStartPoint: { x: 5, y: 5 },
+	pathEndPoint: { x: 795, y: 395 },
 	polygonAlpha: 1,
 	polygons: null,
 	polygonStrokeWidth: 1,
