@@ -19,7 +19,7 @@ interface Params {
 export default function getProbabilisticRoadmapGraph({
   height,
   maxNeighborDistance = 100,
-  maxNeighbors = 6,
+  maxNeighbors = 8,
   numSamples = 200,
   polygons,
   randomize = true,

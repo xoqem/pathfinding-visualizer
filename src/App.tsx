@@ -52,8 +52,14 @@ export default function App({ height, width }: Props) {
       if (graph) {
         const graphNodes = Object.values(graph);
 
+        const renderedEdges = new Set<string>();
         graphNodes.forEach(({ neighbors, point }) => {
           neighbors.forEach(({ point: neighborPoint }) => {
+            const edgePoints = [point, neighborPoint].sort((a, b) => a.x - b.x || a.y - b.y);
+            const edgeKey = `${edgePoints[0].x},${edgePoints[0].y}-${edgePoints[1].x},${edgePoints[1].y}`;
+            if (renderedEdges.has(edgeKey)) return;
+            renderedEdges.add(edgeKey);
+
             graphics.setStrokeStyle({
               color: "#ff0000",
               width: 1,
