@@ -11,7 +11,7 @@ interface Params {
 	numSamples?: number;
 	oversampleFactor?: number;
 	polygons: Polygon[] | null;
-	polygonStrokeWidth: number;
+	polygonStrokeWidth?: number;
 	randomize?: boolean;
 	randomPointBuffer?: number;
 	width: number;
@@ -23,7 +23,7 @@ export default function* getProbabilisticRoadmapGraph({
 	maxNeighbors = 8,
 	numSamples = 400,
 	polygons,
-	polygonStrokeWidth,
+	polygonStrokeWidth = 1,
 	randomize = true,
 	randomPointBuffer = 10,
 	oversampleFactor = 2,
