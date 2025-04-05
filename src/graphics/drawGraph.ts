@@ -2,11 +2,12 @@ import type { Graphics } from "pixi.js";
 import type { Graph } from "../utils/graph";
 
 interface Params {
+	alpha?: number;
 	graph: Graph | null;
 	graphics: Graphics;
 }
 
-export default function drawGraph({ graph, graphics }: Params) {
+export default function drawGraph({ alpha = 1, graph, graphics }: Params) {
 	if (!graph) return;
 
 	const graphNodes = Object.values(graph);
@@ -22,6 +23,7 @@ export default function drawGraph({ graph, graphics }: Params) {
 			renderedEdges.add(edgeKey);
 
 			graphics.setStrokeStyle({
+				alpha,
 				color: "#ff0000",
 				width: 1,
 				alignment: 0.5,
@@ -33,8 +35,13 @@ export default function drawGraph({ graph, graphics }: Params) {
 	}
 
 	for (const { point } of graphNodes) {
-		graphics.setStrokeStyle({ color: "#0000ff", width: 1, alignment: 0.5 });
-		graphics.setFillStyle({ color: "#0000ff" });
+		graphics.setStrokeStyle({
+			alpha,
+			color: "#0000ff",
+			width: 1,
+			alignment: 0.5,
+		});
+		graphics.setFillStyle({ alpha, color: "#0000ff" });
 		graphics.circle(point.x, point.y, 2);
 		graphics.fill();
 		graphics.stroke();

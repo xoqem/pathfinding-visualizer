@@ -14,19 +14,41 @@ extend({
 });
 
 export default function PixiApp() {
-	const { graph, height, path, polygons, polygonStrokeWidth, width } =
-		useAppContext();
+	const {
+		graph,
+		graphAlpha,
+		height,
+		path,
+		polygonAlpha,
+		polygons,
+		polygonStrokeWidth,
+		width,
+	} = useAppContext();
 
 	const drawCallback = useCallback(
 		(graphics: Graphics) => {
 			graphics.clear();
 
 			drawBackground({ graphics, height, width });
-			drawPolygons({ graphics, polygons, strokeWidth: polygonStrokeWidth });
-			drawGraph({ graph, graphics });
+			drawPolygons({
+				graphics,
+				alpha: polygonAlpha,
+				polygons,
+				strokeWidth: polygonStrokeWidth,
+			});
+			drawGraph({ alpha: graphAlpha, graph, graphics });
 			drawPath({ graphics, path });
 		},
-		[graph, height, path, polygons, polygonStrokeWidth, width],
+		[
+			graph,
+			graphAlpha,
+			height,
+			path,
+			polygonAlpha,
+			polygons,
+			polygonStrokeWidth,
+			width,
+		],
 	);
 
 	return (

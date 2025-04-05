@@ -6,6 +6,7 @@ import { PiGraph } from "react-icons/pi";
 import { TbRoute } from "react-icons/tb";
 import { useAppContext } from "../context/AppContext";
 import useLoadSvgPolygons from "../hooks/useLoadSvgPolygons";
+import BottomMapPanel from "./BottomMapPanel";
 import GraphPanel from "./GraphPanel";
 import PathPanel from "./PathPanel";
 import PixiApp from "./PixiApp";
@@ -38,6 +39,9 @@ export default function App() {
 						) : (
 							<PixiApp />
 						)}
+					</Card.Root>
+					<Card.Root width={width + 2}>
+						<BottomMapPanel />
 					</Card.Root>
 				</Flex>
 				<Card.Root width={400}>

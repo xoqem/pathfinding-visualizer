@@ -10,6 +10,8 @@ export interface AppValues {
 	height: number;
 	loading: boolean;
 	path: Path | null;
+	graphAlpha: number;
+	polygonAlpha: number;
 	polygons: Polygon[] | null;
 	polygonStrokeWidth: number;
 	scaleSvgToFit: boolean;
@@ -22,9 +24,11 @@ export const defaultAppValues: AppValues = {
 	generatedSvgMaxShapeSize: 100,
 	generatedSvgNumShapes: 10,
 	graph: null,
+	graphAlpha: 0.5,
 	height: 400,
 	loading: false,
 	path: null,
+	polygonAlpha: 0.5,
 	polygons: null,
 	polygonStrokeWidth: 1,
 	scaleSvgToFit: true,
