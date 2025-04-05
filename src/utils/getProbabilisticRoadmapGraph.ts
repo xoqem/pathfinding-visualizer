@@ -10,8 +10,10 @@ interface Params {
   maxNeighborDistance?: number;
   maxNeighbors?: number;
   numSamples?: number;
+  overSampleFactor?: number;
   polygons: Polygon[] | null;
   randomize?: boolean;
+  randomPointBuffer?: number;
   width: number;
 }
 
@@ -22,6 +24,8 @@ export default function getProbabilisticRoadmapGraph({
   numSamples = 400,
   polygons,
   randomize = true,
+  randomPointBuffer = 10,
+  overSampleFactor = 2,
   width,
 }: Params): Graph {
   const points: PointData[] = [];
@@ -31,12 +35,23 @@ export default function getProbabilisticRoadmapGraph({
   const heightWithPadding = height - padding * 2;
 
   if (randomize) {
-    for (let i = 0; i < numSamples; i++) {
+    for (
+      let i = 0;
+      i < numSamples * overSampleFactor && points.length < numSamples;
+      i++
+    ) {
       const x = Math.round(Math.random() * widthWithPadding) + padding;
       const y = Math.round(Math.random() * heightWithPadding) + padding;
       const point = { x, y };
 
       if (isPointInPolygons(point, polygons)) continue;
+
+      const nearExistingPoint = points.find((neighborPoint) => {
+        const distance = getDistance(point, neighborPoint);
+        return distance < randomPointBuffer;
+      });
+
+      if (nearExistingPoint) continue;
 
       points.push(point);
     }
