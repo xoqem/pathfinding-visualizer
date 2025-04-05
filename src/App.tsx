@@ -1,44 +1,48 @@
 import { Application, extend } from "@pixi/react";
 import { Container, Graphics } from "pixi.js";
-import { useCallback, useEffect } from "react";
+import { useCallback } from "react";
 
 import "./App.css";
+import useSvgPolygons from "./hooks/useSvgPolygons";
 
 extend({
   Container,
   Graphics,
 });
 
-async function fetchSvgAsString(svgPath: string){
-  const response = await fetch(svgPath);
-  const svgString = await response.text();
-  console.log(svgString);
-
-  const parser = new DOMParser();
-  const svgDoc = parser.parseFromString(svgString, "image/svg+xml");
-
-  const polygons = svgDoc.querySelectorAll("polygon");
-  polygons.forEach(polygon => {
-    console.log(polygon.getAttribute("points"));
-  });
-}
-
+const WIDTH = 800;
+const HEIGHT = 400;
 
 export default function App() {
-  useEffect(() => {
-    fetchSvgAsString('./public/example.svg');
-  }, []);
+  const { polygons } = useSvgPolygons("./public/example.svg");
 
-  const drawCallback = useCallback((graphics: Graphics) => {
-    graphics.clear();
-    graphics.setFillStyle({ color: "red" });
-    graphics.rect(0, 0, 100, 100);
-    graphics.fill();
-  }, []);
+  const drawCallback = useCallback(
+    (graphics: Graphics) => {
+      graphics.clear();
+
+      // set graphics background to white, with a black border
+      graphics.setStrokeStyle({ color: "#000000", width: 1, alignment: 1 });
+      graphics.setFillStyle({ color: "#ffffff" });
+      graphics.rect(0, 0, WIDTH, HEIGHT);
+      graphics.fill();
+      graphics.stroke();
+
+      graphics.setFillStyle({ color: "black" });
+
+      // graphics.rect(0, 0, 100, 100);
+      // graphics.fill();
+
+      polygons?.forEach((polygon) => {
+        graphics.poly(polygon);
+      });
+      graphics.fill();
+    },
+    [polygons]
+  );
 
   return (
-    <Application>
-      <pixiContainer x={100} y={100}>
+    <Application width={WIDTH} height={HEIGHT}>
+      <pixiContainer x={0} y={0}>
         <pixiGraphics draw={drawCallback} />
       </pixiContainer>
     </Application>
