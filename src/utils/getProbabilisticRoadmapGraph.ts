@@ -34,6 +34,8 @@ export default function* getProbabilisticRoadmapGraph({
 	const widthWithPadding = width - padding * 2;
 	const heightWithPadding = height - padding * 2;
 
+	yield graph;
+
 	if (randomize) {
 		for (
 			let i = 0;

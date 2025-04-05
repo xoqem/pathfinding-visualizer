@@ -14,12 +14,12 @@ interface Params {
 	startPoint: PointData;
 }
 
-export default function getAStarPath({
+export default function* getAStarPath({
 	endPoint,
 	graph,
 	polygons,
 	startPoint,
-}: Params): Path {
+}: Params): Generator<Path> {
 	const pathGraph = graph.clone();
 
 	pathGraph.connectPointToGraph({
@@ -41,8 +41,10 @@ export default function getAStarPath({
 		startPoint,
 	};
 
+	yield path;
+
 	if (!pathGraph.hasPoint(startPoint) || !pathGraph.hasPoint(endPoint)) {
-		return path;
+		return;
 	}
 
 	const openSet: Set<PointData> = new Set([startPoint]);
@@ -66,12 +68,18 @@ export default function getAStarPath({
 
 		if (currentPoint === endPoint) {
 			let node: GraphNode | null = pathGraph.getNode(endPoint);
+			const points = [];
 			while (node?.parent) {
-				path.points.push(node.point);
+				points.push(node.point);
 				node = pathGraph.getNode(node.parent.point);
 			}
 
-			path.points.reverse();
+			points.reverse();
+
+			for (const point of points) {
+				path.points.push(point);
+				yield path;
+			}
 
 			// we're done, so break out of the main while loop
 			break;
@@ -106,10 +114,9 @@ export default function getAStarPath({
 						point: currentNode.point,
 						cost: neighbor.cost,
 					};
+					yield path;
 				}
 			}
 		}
 	}
-
-	return path;
 }

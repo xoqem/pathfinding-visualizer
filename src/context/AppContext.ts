@@ -5,6 +5,7 @@ import type { Path } from "../utils/path";
 
 export interface AppValues {
 	animateGraph: boolean;
+	animatePath: boolean;
 	generatedSvgMaxShapeSize: number;
 	generatedSvgNumShapes: number;
 	graph: Graph | null;
@@ -24,6 +25,7 @@ export interface AppValues {
 
 export const defaultAppValues: AppValues = {
 	animateGraph: false,
+	animatePath: false,
 	generatedSvgMaxShapeSize: 100,
 	generatedSvgNumShapes: 10,
 	graph: null,
