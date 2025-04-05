@@ -39,8 +39,8 @@ export default function getProbabilisticRoadmapGraph({
     }
   } else {
     const step = Math.ceil(Math.sqrt((width * height) / numSamples));
-    for (let x = 0; x < width; x += step) {
-      for (let y = 0; y < height; y += step) {
+    for (let x = Math.round(step / 2); x < width; x += step) {
+      for (let y = Math.round(step / 2) ; y < height; y += step) {
         const point = { x, y };
 
         if (isPointInPolygons(point, polygons)) continue;
