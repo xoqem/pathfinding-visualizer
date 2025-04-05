@@ -1,14 +1,14 @@
 import { PointData, Polygon } from "pixi.js";
 
-function isPointInPolygon(point: PointData, polygon: PointData[] | null) {
+function isPointInPolygon(point: PointData, polygon: Polygon | null) {
   if (!polygon) return false;
 
-  return new Polygon(polygon).contains(point.x, point.y);
+  return polygon.contains(point.x, point.y);
 }
 
 export default function isPointInPolygons(
   point: PointData,
-  polygons: PointData[][] | null
+  polygons: Polygon[] | null
 ): boolean {
   if (!polygons) return false;
 

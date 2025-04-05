@@ -1,4 +1,4 @@
-import { PointData } from "pixi.js";
+import { PointData, Polygon } from "pixi.js";
 
 import { addNeighbor, Graph, Neighbor, sortNeighborsByCost } from "./graph";
 import isPointInPolygons from "./isPointInPolygons";
@@ -10,7 +10,7 @@ interface Params {
   maxNeighborDistance?: number;
   maxNeighbors?: number;
   numSamples?: number;
-  polygons: PointData[][] | null;
+  polygons: Polygon[] | null;
   randomize?: boolean;
   width: number;
 }

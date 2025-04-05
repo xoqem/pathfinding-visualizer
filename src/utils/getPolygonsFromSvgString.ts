@@ -1,8 +1,8 @@
-import { PointData } from "pixi.js";
+import { PointData, Polygon } from "pixi.js";
 
 export default function getPolygonsFromSvgString(
   svgString: string | null
-): PointData[][] | null {
+): Polygon[] | null {
   if (!svgString) return null;
 
   const parser = new DOMParser();
@@ -29,7 +29,7 @@ export default function getPolygonsFromSvgString(
         points.push({ x: numbers[i], y: numbers[i + 1] });
       }
 
-      return points;
+      return new Polygon(points);
     })
     .filter((points) => !!points);
 }
