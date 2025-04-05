@@ -2,12 +2,14 @@ import { NativeSelect, Stack, Text } from "@chakra-ui/react";
 import startCase from "lodash/startCase";
 
 import { useMemo, useState } from "react";
-import GridPanel from "./GridPanel";
+import GridGraphPanel from "./GridGraphPanel";
 import ProbabilisticRoadmapGraphPanel from "./ProbabilisticRoadmapGraphPanel";
+import QuadtreeGraphPanel from "./QuadtreeGraphPanel";
 
 enum GraphType {
 	grid = "grid",
 	probabilisticRoadmap = "probabilisticRoadmap",
+	quadtree = "quadtree",
 }
 
 export default function GraphPanel() {
@@ -24,9 +26,11 @@ export default function GraphPanel() {
 	const graphTypePanel = useMemo(() => {
 		switch (graphType) {
 			case GraphType.grid:
-				return <GridPanel />;
+				return <GridGraphPanel />;
 			case GraphType.probabilisticRoadmap:
 				return <ProbabilisticRoadmapGraphPanel />;
+			case GraphType.quadtree:
+				return <QuadtreeGraphPanel />;
 			default:
 				return <Text>Select a graph type.</Text>;
 		}

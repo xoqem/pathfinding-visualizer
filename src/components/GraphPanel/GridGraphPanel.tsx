@@ -7,7 +7,7 @@ import getGridGraph from "../../utils/getGridGraph";
 import SimpleCheckbox from "../ui/SimpleCheckbox";
 import SimpleSlider from "../ui/SimpleSlider";
 
-export default function GridPanel() {
+export default function GridGraphPanel() {
 	const {
 		animateGraph,
 		height,
