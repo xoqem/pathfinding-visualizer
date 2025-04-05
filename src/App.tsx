@@ -1,6 +1,6 @@
 import { Application, extend } from "@pixi/react";
 import { Container, Graphics } from "pixi.js";
-import { useCallback } from "react";
+import { useCallback, useMemo } from "react";
 
 import "./App.css";
 import useSvgPolygons from "./hooks/useSvgPolygons";
@@ -17,11 +17,21 @@ interface Props {
 }
 
 export default function App({ height, width }: Props) {
-  const { polygons } = useSvgPolygons("./public/example.svg");
+  const { loading, polygons } = useSvgPolygons('./public/example.svg');
+
+  const graph = useMemo(() => {
+    if (loading) return null;
+
+    return getProbabilisticRoadmapGraph({ height, polygons, width });
+  }, [height, loading, polygons, width]);
 
   const drawCallback = useCallback(
     (graphics: Graphics) => {
       graphics.clear();
+
+      if (loading) {
+        return;
+      }
 
       // set graphics background to white, with a black border
       graphics.setStrokeStyle({ color: "#000000", width: 1, alignment: 1 });
@@ -39,28 +49,32 @@ export default function App({ height, width }: Props) {
       graphics.fill();
       graphics.stroke();
 
-      const graph = getProbabilisticRoadmapGraph({ height, polygons, width });
-      const graphNodes = Object.values(graph);
+      if (graph) {
+        const graphNodes = Object.values(graph);
 
-      graphNodes.forEach(({ point }) => {
-        graphics.setStrokeStyle({ color: "#0000ff", width: 1, alignment: 1 });
-        graphics.setFillStyle({ color: "#0000ff" });
-        graphics.circle(point.x, point.y, 2);
-        graphics.fill();
-        graphics.stroke();
-      });
+        graphNodes.forEach(({ neighbors, point }) => {
+          neighbors.forEach(({ point: neighborPoint }) => {
+            graphics.setStrokeStyle({
+              color: "#ff0000",
+              width: 1,
+              alignment: 1,
+            });
+            graphics.moveTo(point.x, point.y);
+            graphics.lineTo(neighborPoint.x, neighborPoint.y);
+            graphics.stroke();
+          });
+        });
 
-      // draw paths between points and their neighbors
-      graphNodes.forEach(({ neighbors, point }) => {
-        neighbors.forEach(({ point: neighborPoint }) => {
-          graphics.setStrokeStyle({ color: "#ff0000", width: 1, alignment: 1 });
-          graphics.moveTo(point.x, point.y);
-          graphics.lineTo(neighborPoint.x, neighborPoint.y);
+        graphNodes.forEach(({ point }) => {
+          graphics.setStrokeStyle({ color: "#0000ff", width: 1, alignment: 1 });
+          graphics.setFillStyle({ color: "#0000ff" });
+          graphics.circle(point.x, point.y, 2);
+          graphics.fill();
           graphics.stroke();
         });
-      });
+      }
     },
-    [height, polygons, width]
+    [graph, height, loading, polygons, width]
   );
 
   return (

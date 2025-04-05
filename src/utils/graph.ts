@@ -40,13 +40,26 @@ export function isPointInNeighbors(point: PointData, neighbors: Neighbor[]) {
   return neighbors.some((neighbor) => arePointsEqual(neighbor.point, point));
 }
 
-export function addNeighbor(graph: Graph, point: PointData, neighborPoint: PointData) {
-  const { neighbors } = getGraphValue(graph, point);
-  if (isPointInNeighbors(neighborPoint, neighbors)) return;
+export function sortNeighborsByCost(neighbors: Neighbor[]) {
+  return neighbors.sort(({ cost: costA }, {cost: costB }) => costA - costB);
+}
 
-  const cost = getDistance(point, neighborPoint);
-  neighbors.push({ point: neighborPoint, cost });
+interface AddNeighborParams {
+  graph: Graph;
+  point: PointData;
+  neighbor: Neighbor;
+}
 
-  const { neighbors: neighborNeighbors } = getGraphValue(graph, neighborPoint);
-  neighborNeighbors.push({ point, cost });
+export function addNeighbor({
+  graph,
+  point,
+  neighbor,
+}: AddNeighborParams) {
+  const graphValue = getGraphValue(graph, point);
+  if (isPointInNeighbors(neighbor.point, graphValue.neighbors)) return;
+
+  graphValue.neighbors.push({ point: neighbor.point, cost: neighbor.cost });
+
+  const neighborGraphValue = getGraphValue(graph, neighbor.point);
+  neighborGraphValue.neighbors.push({ point, cost: neighbor.cost });
 }

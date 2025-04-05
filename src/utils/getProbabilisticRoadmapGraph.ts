@@ -1,52 +1,74 @@
 import { PointData } from "pixi.js";
 
-import { addNeighbor, getGraphValue, Graph, isPointInNeighbors } from "./graph";
+import { addNeighbor, getGraphValue, Graph, isPointInNeighbors, Neighbor, sortNeighborsByCost } from "./graph";
 import isPointInPolygons from "./isPointInPolygons";
-import { arePointsEqual } from "./point";
+import { arePointsEqual, getDistance } from "./point";
 
 interface Params {
   height: number;
+  maxNeighborDistance?: number;
+  maxNeighbors?: number;
+  numSamples?: number;
   polygons: PointData[][] | null;
+  randomize?: boolean;
   width: number;
 }
 
 
 export default function getProbabilisticRoadmapGraph({
   height,
+  maxNeighborDistance = 100,
+  maxNeighbors = 6,
+  numSamples = 200,
   polygons,
+  randomize = true,
   width,
 }: Params): Graph {
-  // generate random points, discarding any that are inside the polygons
   const points: PointData[] = [];
-  for (let i = 0; i < 40; i++) {
-    const x = Math.random() * width;
-    const y = Math.random() * height;
-    const point = { x, y };
-    
-    if (isPointInPolygons(point, polygons)) continue;
 
-    points.push(point);
+  if (randomize) {
+    for (let i = 0; i < numSamples; i++) {
+      const x = Math.round(Math.random() * width);
+      const y = Math.round(Math.random() * height);
+      const point = { x, y };
+      
+      if (isPointInPolygons(point, polygons)) continue;
+
+      points.push(point);
+    }
+  } else {
+    const step = Math.ceil(Math.sqrt((width * height) / numSamples));
+    for (let x = 0; x < width; x += step) {
+      for (let y = 0; y < height; y += step) {
+        const point = { x, y };
+
+        if (isPointInPolygons(point, polygons)) continue;
+
+        points.push(point);
+      }
+    }
   }
 
   const graph: Graph = {};
 
   points.forEach((point) => {
-    const { neighbors } = getGraphValue(graph, point);
+    const neighbors: Neighbor[] = [];
+    points.forEach((neighborPoint) => {
+      if (arePointsEqual(point, neighborPoint)) return;
 
-    points.forEach((otherPoint) => {
-      if (arePointsEqual(point, otherPoint)) return;
-      
-      if (isPointInNeighbors(otherPoint, neighbors)) return;
-      
-      addNeighbor(graph, point, otherPoint);
+      const distance = getDistance(point, neighborPoint);
+      if (maxNeighborDistance && distance > maxNeighborDistance) return;
+
+      neighbors.push({
+        cost: distance,
+        point: neighborPoint,
+      });
+    });
+
+    sortNeighborsByCost(neighbors).slice(0, maxNeighbors).forEach((neighbor) => {
+      addNeighbor({ graph, point, neighbor });
     });
   });
 
-  points.forEach((point) => {
-    const graphValue = getGraphValue(graph, point);
-    graphValue.neighbors = graphValue.neighbors.sort(({ cost: costA }, {cost: costB }) => costA - costB).slice(0, 5);
-  });
-
-  console.log('>>>', 'graph', graph);
   return graph;
 }
