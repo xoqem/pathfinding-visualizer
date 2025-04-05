@@ -6,9 +6,11 @@ import { TfiTarget } from "react-icons/tfi";
 import { useAppContext } from "../../context/AppContext";
 import SimpleInput from "../ui/SimpleInput";
 import AStarPathPanel from "./AStarPathPanel";
+import DijkstrasPathPanel from "./DijkstrasPathPanel";
 
 enum AlgorithmType {
 	aStar = "aStar",
+	dijkstras = "dijkstras",
 }
 
 function getNumValue(value: string) {
@@ -47,6 +49,8 @@ export default function PathPanel() {
 		switch (graphType) {
 			case AlgorithmType.aStar:
 				return <AStarPathPanel />;
+			case AlgorithmType.dijkstras:
+				return <DijkstrasPathPanel />;
 			default:
 				return <Text>Select an algorithm.</Text>;
 		}
