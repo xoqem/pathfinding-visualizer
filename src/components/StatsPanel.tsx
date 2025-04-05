@@ -1,7 +1,16 @@
-import { Button, Stack, Table } from "@chakra-ui/react";
-import { startCase } from "lodash";
+import {
+	Button,
+	ButtonGroup,
+	HStack,
+	IconButton,
+	Pagination,
+	Stack,
+	Table,
+} from "@chakra-ui/react";
+import { set, startCase } from "lodash";
 import type { PointData, Polygon } from "pixi.js";
 import { useMemo, useState } from "react";
+import { HiChevronLeft, HiChevronRight } from "react-icons/hi";
 import { useAppContext } from "../context/AppContext";
 import generateSvgStringWithRandomPolygons from "../utils/generateSvgStringWithRandomPolygons";
 import getAStarPath from "../utils/getAStarPath";
@@ -164,7 +173,7 @@ function getPathStats(
 }
 
 type PathStats = ReturnType<typeof getPathStats>;
-type PathStatsMap = Map<string, PathStats>;
+type TestRun = ReturnType<typeof doTestRun>;
 
 function doTestRun() {
 	const testValues = generateTestValues();
@@ -210,9 +219,23 @@ function doTestRun() {
 	};
 }
 
+const columnKeys = [
+	"pathDistance",
+	"pathDistanceRatio",
+	"pathSegments",
+	"percentGraphExplored",
+	"totalTime",
+] as const;
+
 export default function StatsPanel() {
 	const { setAppValues } = useAppContext();
-	const [pathStatsMaps, setPathStatsMaps] = useState<PathStatsMap[]>([]);
+	const [testRuns, setTestRuns] = useState<NonNullable<TestRun>[]>([]);
+	const [page, setPage] = useState(1);
+	const visibleTestRun = useMemo(() => testRuns[page - 1], [page, testRuns]);
+	const pathStatsMapEntries = useMemo(
+		() => Array.from(visibleTestRun?.pathStatsMap.entries() || []),
+		[visibleTestRun],
+	);
 
 	async function handleRunClick() {
 		setAppValues({
@@ -220,83 +243,97 @@ export default function StatsPanel() {
 		});
 
 		setTimeout(() => {
-			const testResult = doTestRun();
+			const testRun = doTestRun();
 
-			if (!testResult) {
+			if (!testRun) {
 				setAppValues({
 					loading: false,
 				});
 				return;
 			}
 
-			const { appValues, pathStatsMap } = testResult;
-
-			setPathStatsMaps((prevPathStatsMaps) => [
-				...prevPathStatsMaps,
-				pathStatsMap,
-			]);
+			setTestRuns((prevTestRuns) => [...prevTestRuns, testRun]);
 
 			setAppValues({
-				...appValues,
+				...testRun.appValues,
 				loading: false,
 			});
 		}, 0);
 	}
 
-	const pathStatsMapEntries = useMemo(
-		() => Array.from(pathStatsMaps.entries()).slice(-1),
-		[pathStatsMaps],
-	);
-
 	return (
 		<Stack gap={4} padding={2} textAlign="left">
-			<Button onClick={handleRunClick}>Run Test</Button>
+			<HStack gap={4} justifyContent="space-between">
+				<Button onClick={handleRunClick}>Run Test</Button>
+				{!!testRuns.length && (
+					<Pagination.Root
+						count={testRuns.length}
+						pageSize={1}
+						page={page}
+						onPageChange={(e) => setPage(e.page)}
+					>
+						<ButtonGroup variant="ghost" size="sm">
+							<Pagination.PrevTrigger asChild>
+								<IconButton>
+									<HiChevronLeft />
+								</IconButton>
+							</Pagination.PrevTrigger>
 
-			{pathStatsMapEntries.map(([key, pathStatsMap]) => {
-				const pathStatsMapEntries = Array.from(pathStatsMap.entries());
-				const columnKeys = [
-					"pathDistance",
-					"pathDistanceRatio",
-					"pathSegments",
-					"percentGraphExplored",
-					"totalTime",
-				] as const;
+							<Pagination.Items
+								render={(page) => (
+									<IconButton variant={{ base: "ghost", _selected: "outline" }}>
+										{page.value}
+									</IconButton>
+								)}
+							/>
 
-				return (
-					<Table.Root key={key} variant="outline">
-						<Table.Header>
-							<Table.Row>
-								<Table.ColumnHeader>Algorithm</Table.ColumnHeader>
-								{columnKeys.map((columnKey) => (
-									<Table.ColumnHeader key={columnKey}>
-										{startCase(columnKey)}
-									</Table.ColumnHeader>
-								))}
-							</Table.Row>
-						</Table.Header>
-						<Table.Body>
-							{pathStatsMapEntries.map(([key, pathStats]) => (
-								<Table.Row key={`${key}`}>
-									<Table.Cell>
-										<Button
-											variant="outline"
-											size="xs"
-											onClick={() => setAppValues({ path: pathStats?.path })}
-										>
-											{startCase(key)}
-										</Button>
-									</Table.Cell>
-									{columnKeys.map((columnKey) => (
-										<Table.Cell key={columnKey}>
-											{pathStats?.[columnKey] ?? "—"}
-										</Table.Cell>
-									))}
-								</Table.Row>
+							<Pagination.NextTrigger asChild>
+								<IconButton>
+									<HiChevronRight />
+								</IconButton>
+							</Pagination.NextTrigger>
+						</ButtonGroup>
+					</Pagination.Root>
+				)}
+			</HStack>
+
+			<Table.Root variant="outline">
+				<Table.Header>
+					<Table.Row>
+						<Table.ColumnHeader>Algorithm</Table.ColumnHeader>
+						{columnKeys.map((columnKey) => (
+							<Table.ColumnHeader key={columnKey}>
+								{startCase(columnKey)}
+							</Table.ColumnHeader>
+						))}
+					</Table.Row>
+				</Table.Header>
+				<Table.Body>
+					{pathStatsMapEntries.map(([key, pathStats]) => (
+						<Table.Row key={`${key}`}>
+							<Table.Cell>
+								<Button
+									variant="outline"
+									size="xs"
+									onClick={() =>
+										setAppValues({
+											...visibleTestRun.appValues,
+											path: pathStats?.path,
+										})
+									}
+								>
+									{startCase(key)}
+								</Button>
+							</Table.Cell>
+							{columnKeys.map((columnKey) => (
+								<Table.Cell key={columnKey}>
+									{pathStats?.[columnKey] ?? "—"}
+								</Table.Cell>
 							))}
-						</Table.Body>
-					</Table.Root>
-				);
-			})}
+						</Table.Row>
+					))}
+				</Table.Body>
+			</Table.Root>
 		</Stack>
 	);
 }
