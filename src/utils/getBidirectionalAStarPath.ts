@@ -146,20 +146,22 @@ export default function* getBidirectionalAStarPath({
 
 	if (meetingPoint) {
 		// Reconstruct the path from startPoint to meetingPoint
-		let node: GraphNode | null = pathGraph.getNode(meetingPoint);
+		let currentPoint: PointData | null = meetingPoint;
 		const forwardPoints = [];
-		while (node?.parent) {
-			forwardPoints.push(node.point);
-			node = pathGraph.getNode(node.parent.point);
+		while (currentPoint && currentPoint !== startPoint) {
+			forwardPoints.push(currentPoint);
+			currentPoint = forwardCameFrom.get(currentPoint) || null;
 		}
 		forwardPoints.reverse();
 
 		// Reconstruct the path from meetingPoint to endPoint
-		node = pathGraph.getNode(meetingPoint);
+		currentPoint = meetingPoint;
 		const backwardPoints = [];
-		while (node?.parent) {
-			backwardPoints.push(node.point);
-			node = pathGraph.getNode(node.parent.point);
+		while (currentPoint && currentPoint !== endPoint) {
+			currentPoint = backwardCameFrom.get(currentPoint) || null;
+			if (currentPoint) {
+				backwardPoints.push(currentPoint);
+			}
 		}
 
 		// Combine the forward and backward paths
