@@ -5,6 +5,7 @@ import { Polygon } from "pixi.js";
 export const defaultAppValues = {
   graph: null,
   height: 400,
+  loading: false,
   polygons: null,
   width: 800,
 } as const;
@@ -12,6 +13,7 @@ export const defaultAppValues = {
 export interface AppValues {
   graph: Graph | null;
   height: number;
+  loading: boolean;
   polygons: Polygon[] | null;
   width: number;
 }

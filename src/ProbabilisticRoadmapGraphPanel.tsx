@@ -1,7 +1,7 @@
 import { Button, HStack, Stack } from "@chakra-ui/react";
 
-import SimpleSlider from "./SimpleSlider";
-import SimpleCheckbox from "./SimpleCheckbox";
+import SimpleSlider from "./components/ui/SimpleSlider";
+import SimpleCheckbox from "./components/ui/SimpleCheckbox";
 import { useState } from "react";
 import getProbabilisticRoadmapGraph from "./utils/getProbabilisticRoadmapGraph";
 import { useAppContext } from "./context/AppContext";
@@ -86,7 +86,9 @@ export default function ProbabilisticRoadmapGraphPanel() {
       />
 
       <HStack justify="space-between">
-      <Button variant="outline" onClick={handleClearClick}>Clear</Button>
+        <Button variant="outline" onClick={handleClearClick}>
+          Clear
+        </Button>
         <Button onClick={handleApplyClick}>Apply</Button>
       </HStack>
     </Stack>

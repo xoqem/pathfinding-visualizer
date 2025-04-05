@@ -1,6 +1,7 @@
 import { Stack, Text } from "@chakra-ui/react";
 
 import ProbabilisticRoadmapGraphPanel from "./ProbabilisticRoadmapGraphPanel";
+import PolygonPanel from "./PolygonsPanel";
 
 export default function GraphPanel() {
   return (
@@ -10,6 +11,8 @@ export default function GraphPanel() {
       </Text>
 
       <ProbabilisticRoadmapGraphPanel />
+
+      <PolygonPanel />
     </Stack>
   );
 }

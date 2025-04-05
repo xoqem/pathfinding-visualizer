@@ -1,20 +1,11 @@
 import { Box, Center, Flex, Spinner } from "@chakra-ui/react";
 
-import useSvgPolygons from "./hooks/useSvgPolygons";
 import PixiApp from "./PixiApp";
 import GraphPanel from "./GraphPanel";
 import { useAppContext } from "./context/AppContext";
 
 export default function App() {
-  const { graph, height, polygons, width } = useAppContext();
-
-  const { loading } = useSvgPolygons({
-    filePath: "./example.svg",
-    // filePath: "./maze.svg",
-    height,
-    scaleToFit: true,
-    width,
-  });
+  const { graph, height, loading, polygons, width } = useAppContext();
 
   return (
     <Flex columnGap={4}>
@@ -40,7 +31,7 @@ export default function App() {
           />
         )}
       </Box>
-      <Box borderRadius="sm" borderWidth={1} width={200}>
+      <Box borderRadius="sm" borderWidth={1} width={200} backgroundColor="#333333">
         <GraphPanel />
       </Box>
     </Flex>
