@@ -147,7 +147,7 @@ export default function* getBidirectionalAStarPath({
 		// Reconstruct the path from startPoint to meetingPoint
 		let currentPoint: PointData | null = meetingPoint;
 		const forwardPoints = [];
-		while (currentPoint && currentPoint !== startPoint) {
+		while (currentPoint) {
 			forwardPoints.push(currentPoint);
 			currentPoint = forwardCameFrom.get(currentPoint) || null;
 		}
@@ -156,7 +156,7 @@ export default function* getBidirectionalAStarPath({
 		// Reconstruct the path from meetingPoint to endPoint
 		currentPoint = meetingPoint;
 		const backwardPoints = [];
-		while (currentPoint && currentPoint !== endPoint) {
+		while (currentPoint) {
 			currentPoint = backwardCameFrom.get(currentPoint) || null;
 			if (currentPoint) {
 				backwardPoints.push(currentPoint);

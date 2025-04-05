@@ -69,9 +69,9 @@ export default function* getBreadthFirstPath({
 		if (currentPoint === endPoint) {
 			let node: GraphNode | null = pathGraph.getNode(endPoint);
 			const points = [];
-			while (node?.parent) {
+			while (node) {
 				points.push(node.point);
-				node = pathGraph.getNode(node.parent.point);
+				node = node.parent ? pathGraph.getNode(node.parent.point) : null;
 			}
 
 			points.reverse();

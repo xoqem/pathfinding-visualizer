@@ -156,7 +156,9 @@ export default function PathPanel() {
 			{path && (
 				<>
 					<Text>Path distance: {pathDistance}</Text>
-					<Text>Path segments: {path.points.length}</Text>
+					<Text>
+						Path segments: {path.points.length ? path.points.length - 1 : 0}
+					</Text>
 				</>
 			)}
 		</Stack>
