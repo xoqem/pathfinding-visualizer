@@ -142,6 +142,7 @@ function getPathStats(
 		path,
 		pathDistance,
 		pathDistanceRatio,
+		pathSegments: path.points.length - 1,
 		percentGraphExplored,
 		totalTime,
 	};
@@ -223,6 +224,7 @@ export default function StatsPanel() {
 				const columnKeys = [
 					"pathDistance",
 					"pathDistanceRatio",
+					"pathSegments",
 					"percentGraphExplored",
 					"totalTime",
 				] as const;
