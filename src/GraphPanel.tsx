@@ -26,10 +26,6 @@ export default function GraphPanel() {
 
   return (
     <Stack gap={4} padding={2} textAlign="left">
-      <Text fontSize="large" textAlign="center">
-        Graph
-      </Text>
-
       <NativeSelect.Root>
         <NativeSelect.Field onChange={handleGraphTypeSelectChange} value={graphType || undefined}>
           {

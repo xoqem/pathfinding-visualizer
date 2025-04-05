@@ -1,12 +1,20 @@
-import { Card, Center, Flex, Spinner } from "@chakra-ui/react";
+import { Card, Center, Flex, Spinner, Tabs } from "@chakra-ui/react";
 
 import PixiApp from "./PixiApp";
 import GraphPanel from "./GraphPanel";
 import { useAppContext } from "./context/AppContext";
 import PolygonPanel from "./PolygonsPanel";
+import { LuGitGraph, LuSettings, LuShapes } from "react-icons/lu";
+import useLoadSvgPolygons from "./hooks/useLoadSvgPolygons";
+import { useEffect } from "react";
 
 export default function App() {
   const { graph, height, loading, polygons, width } = useAppContext();
+  const loadSvgPolygons = useLoadSvgPolygons();
+
+  useEffect(() => {
+    loadSvgPolygons();
+  }, []);
 
   return (
     <Center>
@@ -32,8 +40,29 @@ export default function App() {
           )}
         </Card.Root>
         <Card.Root width={400}>
-          <GraphPanel />
-          <PolygonPanel />
+          <Tabs.Root defaultValue="graph">
+            <Tabs.List>
+              <Tabs.Trigger value="polygons">
+                <LuShapes />
+                Polygons
+              </Tabs.Trigger>
+              <Tabs.Trigger value="graph">
+                <LuGitGraph />
+                Graph
+              </Tabs.Trigger>
+              <Tabs.Trigger value="settings">
+                <LuSettings />
+                Settings
+              </Tabs.Trigger>
+            </Tabs.List>
+            <Tabs.Content value="polygons">
+              <PolygonPanel />
+            </Tabs.Content>
+            <Tabs.Content value="graph">
+              <GraphPanel />
+            </Tabs.Content>
+            <Tabs.Content value="settings">TODO</Tabs.Content>
+          </Tabs.Root>
         </Card.Root>
       </Flex>
     </Center>
