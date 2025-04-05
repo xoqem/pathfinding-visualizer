@@ -1,7 +1,16 @@
-import { Polygon } from "pixi.js";
+import { type PointData, Polygon } from "pixi.js";
 
 import Graph from "./graph";
+import { getDistance } from "./point";
 import { doesPolygonIntersectPolygons } from "./polygon";
+
+interface QuadNode {
+	i: number;
+	j: number;
+	depth: number;
+	center: PointData;
+	hasChildren: boolean;
+}
 
 interface Params {
 	height: number;
@@ -23,14 +32,22 @@ export default function* getQuadtreeGraph({
 	const graph: Graph = new Graph();
 	const overlayPolygons: Polygon[] = [];
 
+	const quadLayers: Array<Map<string, QuadNode>> = [];
+
 	yield { graph, overlayPolygons };
 
-	function subdivide(
-		x: number,
-		y: number,
-		cellWidth: number,
-		cellHeight: number,
-	): void {
+	function subdivide(i: number, j: number, depth: number) {
+		if (depth >= quadLayers.length) {
+			quadLayers.push(new Map<string, QuadNode>());
+		}
+
+		// const maxSizeX = width / Math.floor(width / maxSize);
+		// const maxSizeY = height / Math.floor(height / maxSize);
+		const cellWidth = width / 2 ** depth;
+		const cellHeight = height / 2 ** depth;
+		const x = i * cellWidth;
+		const y = j * cellHeight;
+
 		const overlayPolygonPoints = [
 			{ x: Math.max(x, 1), y },
 			{ x: x + cellWidth, y },
@@ -64,7 +81,14 @@ export default function* getQuadtreeGraph({
 				new Polygon([overlayPolygonPoints[3], overlayPolygonPoints[0]]),
 			);
 
-			graph.initializeGraphEntry(point);
+			quadLayers[depth].set(`${i},${j}`, {
+				i,
+				j,
+				depth,
+				center: point,
+				hasChildren: false,
+			});
+
 			return;
 		}
 
@@ -73,35 +97,92 @@ export default function* getQuadtreeGraph({
 			return;
 		}
 
-		const halfWidth = cellWidth / 2;
-		const halfHeight = cellHeight / 2;
-
 		// Subdivide into four quadrants
-		subdivide(x, y, halfWidth, halfHeight); // Top-left
-		subdivide(x + halfWidth, y, halfWidth, halfHeight); // Top-right
-		subdivide(x, y + halfHeight, halfWidth, halfHeight); // Bottom-left
-		subdivide(x + halfWidth, y + halfHeight, halfWidth, halfHeight); // Bottom-right
+		subdivide(i * 2, j * 2, depth + 1); // Top-left
+		subdivide(i * 2 + 1, j * 2, depth + 1); // Top-right
+		subdivide(i * 2, j * 2 + 1, depth + 1); // Bottom-left
+		subdivide(i * 2 + 1, j * 2 + 1, depth + 1); // Bottom-right
+
+		quadLayers[depth].set(`${i},${j}`, {
+			i,
+			j,
+			depth,
+			center: point,
+			hasChildren: true,
+		});
 	}
 
-	const maxSizeX = width / Math.floor(width / maxSize);
-	const maxSizeY = height / Math.floor(height / maxSize);
+	subdivide(0, 0, 0);
+	yield { graph, overlayPolygons };
 
-	for (let x = 0; x < width; x += maxSizeX) {
-		for (let y = 0; y < height; y += maxSizeY) {
-			subdivide(x, y, maxSizeX, maxSizeY);
+	function findNeighborsForDirection(
+		i: number,
+		j: number,
+		dx: number,
+		dy: number,
+		depth: number,
+	): QuadNode[] {
+		const neighbor = quadLayers[depth].get(`${i + dx},${j + dy}`);
+		if (!neighbor) return [];
+
+		if (!neighbor.hasChildren) {
+			return [neighbor];
+		}
+
+		if (dy === 0) {
+			// when going right, we have to add 1 since subdivision creates an extra column to the right
+			const iShift = dx < 0 ? 0 : 1;
+			const newI = i * 2 + iShift;
+			const newJ = j * 2;
+			return [
+				...findNeighborsForDirection(newI, newJ, dx, dy, depth + 1),
+				...findNeighborsForDirection(newI, newJ, dx, dy + 1, depth + 1),
+			];
+		}
+
+		if (dx === 0) {
+			// when going down, we have to add 1 since subdivision creates an extra row below
+			const jShift = dy < 0 ? 0 : 1;
+			const newI = i * 2;
+			const newJ = j * 2 + jShift;
+			return [
+				...findNeighborsForDirection(newI, newJ, dx, dy, depth + 1),
+				...findNeighborsForDirection(newI, newJ, dx + 1, dy, depth + 1),
+			];
+		}
+
+		return [];
+	}
+
+	function findNeighbors(i: number, j: number, depth: number): QuadNode[] {
+		return [
+			...findNeighborsForDirection(i, j, -1, 0, depth), // left
+			...findNeighborsForDirection(i, j, 1, 0, depth), // right
+			...findNeighborsForDirection(i, j, 0, -1, depth), // top
+			...findNeighborsForDirection(i, j, 0, 1, depth), // bottom
+		];
+	}
+
+	for (let depth = 0; depth < quadLayers.length; depth++) {
+		const layer = quadLayers[depth];
+		for (const [_key, node] of layer) {
+			if (node.hasChildren) {
+				continue;
+			}
+
+			graph.initializeGraphEntry(node.center);
+			const neighbors = findNeighbors(node.i, node.j, node.depth);
+			for (const neighbor of neighbors) {
+				graph.addNeighbor({
+					point: node.center,
+					neighbor: {
+						point: neighbor.center,
+						cost: getDistance(node.center, neighbor.center),
+					},
+				});
+			}
 		}
 	}
 
-	const maxNeighborDistance = maxSize * 2;
-
-	for (const point of graph.points) {
-		graph.connectPointToGraph({
-			maxNeighborDistance,
-			maxNeighbors: 8,
-			point,
-			polygons,
-		});
-
-		yield { graph, overlayPolygons };
-	}
+	yield { graph, overlayPolygons };
 }
