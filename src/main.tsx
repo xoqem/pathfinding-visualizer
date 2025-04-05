@@ -6,13 +6,19 @@ import "./index.css";
 import App from "./components/App.tsx";
 import AppProvider from "./context/AppProvider.tsx";
 
-createRoot(document.getElementById("root")!).render(
-  // removed <StrictMode> wrapper for now to avoid double rendering in dev
-  <ChakraProvider value={defaultSystem}>
-    <ThemeProvider attribute="class" disableTransitionOnChange>
-      <AppProvider>
-        <App />
-      </AppProvider>
-    </ThemeProvider>
-  </ChakraProvider>
+const rootElement = document.getElementById("root");
+
+if (!rootElement) {
+	throw new Error("Root element not found");
+}
+
+createRoot(rootElement).render(
+	// removed <StrictMode> wrapper for now to avoid double rendering in dev
+	<ChakraProvider value={defaultSystem}>
+		<ThemeProvider attribute="class" disableTransitionOnChange>
+			<AppProvider>
+				<App />
+			</AppProvider>
+		</ThemeProvider>
+	</ChakraProvider>,
 );
