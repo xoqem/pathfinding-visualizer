@@ -1,6 +1,6 @@
 import { PointData, pointInTriangle } from "pixi.js";
 
-function pointInPolygon(point: PointData, polygon: PointData[] | null) {
+function isPointInPolygon(point: PointData, polygon: PointData[] | null) {
   if (!polygon) return false;
 
   for (let i = 1; i < polygon.length - 1; i++) {
@@ -22,11 +22,11 @@ function pointInPolygon(point: PointData, polygon: PointData[] | null) {
   return false;
 }
 
-export default function pointInPolygons(
+export default function isPointInPolygons(
   point: PointData,
   polygons: PointData[][] | null
 ): boolean {
   if (!polygons) return false;
 
-  return polygons.some((polygon) => pointInPolygon(point, polygon));
+  return polygons.some((polygon) => isPointInPolygon(point, polygon));
 }

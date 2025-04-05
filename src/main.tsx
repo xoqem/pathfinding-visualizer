@@ -5,6 +5,6 @@ import App from "./App.tsx";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <App />
+    <App height={400} width={800} />
   </StrictMode>
 );
