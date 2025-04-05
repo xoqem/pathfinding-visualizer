@@ -1,4 +1,5 @@
 import { useMemo } from "react";
+import { Box } from "@chakra-ui/react";
 
 import useSvgPolygons from "./hooks/useSvgPolygons";
 import getProbabilisticRoadmapGraph from "./utils/getProbabilisticRoadmapGraph";
@@ -20,13 +21,11 @@ export default function App() {
   }, [mapHeight, loading, polygons, mapWidth]);
 
   return (
-    <div
-      style={{
-        height: mapHeight + 2,
-        width: mapWidth + 2,
-        background: "#ffffff",
-        border: "1px solid #000000",
-      }}
+    <Box
+      borderColor="black"
+      borderWidth={1}
+      height={mapHeight + 2}
+      width={mapWidth + 2}
     >
       <PixiApp
         graph={graph}
@@ -34,6 +33,6 @@ export default function App() {
         polygons={polygons}
         width={mapWidth}
       />
-    </div>
+    </Box>
   );
 }
