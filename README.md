@@ -1,5 +1,7 @@
 # Pathfinding Visualizer
 
+Try the application on github pages here: https://xoqem.github.io/pathfinding-visualizer/
+
 This project was created to support a paper that I wrote for CS 681 Applications of Computability at Ball State University. That goal is to complete a comparative analysis of a selection of pathfinding algorithms.
 
 ## Features
