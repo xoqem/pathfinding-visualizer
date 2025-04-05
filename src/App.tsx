@@ -33,11 +33,11 @@ export default function App() {
       polygons?.forEach((polygon) => {
         graphics.poly(polygon);
       });
-      // graphics.fill();
+      graphics.fill();
       graphics.stroke();
 
       // generate 100 random points, if pointInPolygons returns true, color the point red, otherwise color it green
-      for (let i = 0; i < 100; i++) {
+      for (let i = 0; i < 500; i++) {
         const x = Math.random() * WIDTH;
         const y = Math.random() * HEIGHT;
         const point = { x, y };

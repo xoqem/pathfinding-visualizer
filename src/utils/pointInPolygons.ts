@@ -2,18 +2,18 @@ import { PointData, pointInTriangle } from "pixi.js";
 
 function pointInPolygon(point: PointData, polygon: PointData[] | null) {
   if (!polygon) return false;
-console.log('>>>', polygon);
-  for (let i = 0; i < polygon.length - 2; i++) {
+
+  for (let i = 1; i < polygon.length - 1; i++) {
     if (
       pointInTriangle(
         point.x,
         point.y,
+        polygon[0].x,
+        polygon[0].y,
         polygon[i].x,
         polygon[i].y,
         polygon[i + 1].x,
-        polygon[i + 1].y,
-        polygon[i + 2].x,
-        polygon[i + 2].y
+        polygon[i + 1].y
       )
     ) {
       return true;
