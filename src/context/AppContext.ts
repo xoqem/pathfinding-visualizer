@@ -14,6 +14,7 @@ export interface AppValues {
 	polygonAlpha: number;
 	polygons: Polygon[] | null;
 	polygonStrokeWidth: number;
+	searchAlpha: number;
 	scaleSvgToFit: boolean;
 	svgFilePath: string | null;
 	svgString: string | null;
@@ -24,14 +25,15 @@ export const defaultAppValues: AppValues = {
 	generatedSvgMaxShapeSize: 100,
 	generatedSvgNumShapes: 10,
 	graph: null,
-	graphAlpha: 0.5,
+	graphAlpha: 0.2,
 	height: 400,
 	loading: false,
 	path: null,
-	polygonAlpha: 0.5,
+	polygonAlpha: 1,
 	polygons: null,
 	polygonStrokeWidth: 1,
 	scaleSvgToFit: true,
+	searchAlpha: 0.6,
 	svgFilePath: "./shapes.svg",
 	svgString: null,
 	width: 800,

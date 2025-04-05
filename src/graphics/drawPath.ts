@@ -3,23 +3,32 @@ import type { Path } from "../utils/path";
 
 interface Params {
 	path: Path | null;
+	pathAlpha?: number;
 	graphics: Graphics;
+	searchAlpha?: number;
 }
 
-export default function drawPath({ path, graphics }: Params) {
+export default function drawPath({
+	path,
+	pathAlpha = 1,
+	graphics,
+	searchAlpha = 0.6,
+}: Params) {
 	if (!path) return;
 
 	const { end, graph, points, start } = path;
 
 	const graphNodes = Object.values(graph);
 
+	// search branches
 	for (const node of graphNodes) {
 		const { parent, point } = node;
 		if (!parent) continue;
 
 		graphics.setStrokeStyle({
+			alpha: searchAlpha,
 			color: "#003300",
-			width: 3,
+			width: 2,
 			alignment: 0.5,
 		});
 		graphics.moveTo(point.x, point.y);
@@ -27,31 +36,25 @@ export default function drawPath({ path, graphics }: Params) {
 		graphics.stroke();
 	}
 
-	// for (const { parent, point } of graphNodes) {
-	// 	if (!parent) continue;
-
-	// 	graphics.setStrokeStyle({ color: "#0000ff", width: 1, alignment: 0.5 });
-	// 	graphics.setFillStyle({ color: "#0000ff" });
-	// 	graphics.circle(point.x, point.y, 2);
-	// 	graphics.fill();
-	// 	graphics.stroke();
-	// }
-
+	// start point
 	graphics.setStrokeStyle({ color: "#0000ff", width: 1, alignment: 0.5 });
 	graphics.setFillStyle({ color: "#0000ff" });
 	graphics.circle(start.x, start.y, 4);
 	graphics.fill();
 	graphics.stroke();
 
+	// end point
 	graphics.setStrokeStyle({ color: "#0000ff", width: 1, alignment: 0.5 });
 	graphics.setFillStyle({ color: "#0000ff" });
 	graphics.circle(end.x, end.y, 4);
 	graphics.fill();
 	graphics.stroke();
 
+	// path from start to end
 	graphics.setStrokeStyle({
-		color: "#00ff00",
-		width: 3,
+		alpha: pathAlpha,
+		color: "#00dd00",
+		width: 4,
 		alignment: 0.5,
 	});
 	graphics.moveTo(start.x, start.y);
@@ -59,4 +62,20 @@ export default function drawPath({ path, graphics }: Params) {
 		graphics.lineTo(point.x, point.y);
 	}
 	graphics.stroke();
+
+	// nodes in search search branches
+	for (const { parent, point } of graphNodes) {
+		if (!parent) continue;
+
+		graphics.setStrokeStyle({
+			alpha: searchAlpha,
+			color: "#0000ff",
+			width: 1,
+			alignment: 0.5,
+		});
+		graphics.setFillStyle({ alpha: searchAlpha, color: "#0000ff" });
+		graphics.circle(point.x, point.y, 2);
+		graphics.fill();
+		graphics.stroke();
+	}
 }

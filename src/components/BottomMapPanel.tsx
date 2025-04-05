@@ -3,7 +3,8 @@ import { useAppContext } from "../context/AppContext";
 import SimpleSlider from "./ui/SimpleSlider";
 
 export default function BottomMapPanel() {
-	const { graphAlpha, polygonAlpha, setAppValues } = useAppContext();
+	const { graphAlpha, polygonAlpha, searchAlpha, setAppValues } =
+		useAppContext();
 
 	return (
 		<HStack gap={4} padding={2} textAlign="left">
@@ -14,6 +15,7 @@ export default function BottomMapPanel() {
 				onChange={(value) => setAppValues({ polygonAlpha: value })}
 				step={0.1}
 				value={polygonAlpha}
+				minWidth={130}
 			/>
 
 			<SimpleSlider
@@ -23,6 +25,17 @@ export default function BottomMapPanel() {
 				onChange={(value) => setAppValues({ graphAlpha: value })}
 				step={0.1}
 				value={graphAlpha}
+				minWidth={130}
+			/>
+
+			<SimpleSlider
+				label="Search Alpha"
+				max={1}
+				min={0}
+				onChange={(value) => setAppValues({ searchAlpha: value })}
+				step={0.1}
+				value={searchAlpha}
+				minWidth={130}
 			/>
 		</HStack>
 	);

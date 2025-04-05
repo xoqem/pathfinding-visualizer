@@ -22,6 +22,7 @@ export default function PixiApp() {
 		polygonAlpha,
 		polygons,
 		polygonStrokeWidth,
+		searchAlpha,
 		width,
 	} = useAppContext();
 
@@ -37,7 +38,7 @@ export default function PixiApp() {
 				strokeWidth: polygonStrokeWidth,
 			});
 			drawGraph({ alpha: graphAlpha, graph, graphics });
-			drawPath({ graphics, path });
+			drawPath({ searchAlpha, graphics, path });
 		},
 		[
 			graph,
@@ -47,6 +48,7 @@ export default function PixiApp() {
 			polygonAlpha,
 			polygons,
 			polygonStrokeWidth,
+			searchAlpha,
 			width,
 		],
 	);
