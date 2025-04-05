@@ -22,7 +22,6 @@ export default function* getQuadtreeGraph({
 }: Params): Generator<{ graph: Graph; overlayPolygons: Polygon[] }> {
 	const graph: Graph = new Graph();
 	const overlayPolygons: Polygon[] = [];
-	const blockingPolygons: Polygon[] = [];
 
 	yield { graph, overlayPolygons };
 
@@ -71,7 +70,6 @@ export default function* getQuadtreeGraph({
 
 		if (cellWidth <= minSize || cellHeight <= minSize) {
 			overlayPolygons.push(overlayPolygon);
-			blockingPolygons.push(overlayPolygon);
 			return;
 		}
 
@@ -101,7 +99,7 @@ export default function* getQuadtreeGraph({
 			maxNeighborDistance,
 			maxNeighbors: 8,
 			point,
-			polygons: blockingPolygons,
+			polygons,
 		});
 
 		yield { graph, overlayPolygons };
