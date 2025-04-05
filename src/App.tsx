@@ -1,11 +1,10 @@
 import { useMemo, useState } from "react";
-import { Box, Flex, Stack, Text } from "@chakra-ui/react";
+import { Box, Flex } from "@chakra-ui/react";
 
 import useSvgPolygons from "./hooks/useSvgPolygons";
 import getProbabilisticRoadmapGraph from "./utils/getProbabilisticRoadmapGraph";
 import PixiApp from "./PixiApp";
-import SimpleSlider from "./SimpleSlider";
-import SimpleCheckbox from "./SimpleCheckbox";
+import GraphPanel from "./GraphPanel";
 
 export default function App() {
   const width = 800;
@@ -72,59 +71,20 @@ export default function App() {
         />
       </Box>
       <Box borderRadius="sm" borderWidth={1} overflow="scroll" width={200}>
-        <Stack width={200} gap={4} p={2} textAlign="left">
-          <Text fontSize="large" textAlign="center">
-            Graph
-          </Text>
-
-          <SimpleSlider
-            label="maxNeighborDistance"
-            max={200}
-            min={1}
-            onChange={setMaxNeighborDistance}
-            value={maxNeighborDistance}
-          />
-
-          <SimpleSlider
-            label="maxNeighbors"
-            max={10}
-            min={1}
-            onChange={setMaxNeighbors}
-            value={maxNeighbors}
-          />
-
-          <SimpleSlider
-            label="numSamples"
-            max={4000}
-            min={2}
-            onChange={setNumSamples}
-            value={numSamples}
-          />
-
-          <SimpleSlider
-            label="overSampleFactor"
-            onChange={setOverSampleFactor}
-            max={3}
-            min={1}
-            step={0.1}
-            value={overSampleFactor}
-          />
-
-          <SimpleCheckbox
-            label="randomize"
-            checked={randomize}
-            onChange={setRandomize}
-          />
-
-          <SimpleSlider
-            disabled={!randomize}
-            label="randomPointBuffer"
-            onChange={setRandomPointBuffer}
-            max={50}
-            min={1}
-            value={randomPointBuffer}
-          />
-        </Stack>
+        <GraphPanel
+          maxNeighborDistance={maxNeighborDistance}
+          setMaxNeighborDistance={setMaxNeighborDistance}
+          maxNeighbors={maxNeighbors}
+          setMaxNeighbors={setMaxNeighbors}
+          numSamples={numSamples}
+          setNumSamples={setNumSamples}
+          overSampleFactor={overSampleFactor}
+          setOverSampleFactor={setOverSampleFactor}
+          randomize={randomize}
+          setRandomize={setRandomize}
+          randomPointBuffer={randomPointBuffer}
+          setRandomPointBuffer={setRandomPointBuffer}
+        />
       </Box>
     </Flex>
   );
