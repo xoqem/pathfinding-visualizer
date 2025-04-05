@@ -1,6 +1,7 @@
 import type { PointData, Polygon } from "pixi.js";
 import doesLineIntersectPolygons from "../geometry/doesLineIntersectPolygons";
 import { arePointsEqual, getDistance } from "../geometry/point";
+import { getPathDistance } from "../path/path";
 
 export interface Neighbor {
 	point: PointData;
@@ -114,6 +115,30 @@ export default class Graph {
 		for (const neighbor of slicedNeighbors) {
 			this.addNeighbor({ point, neighbor });
 		}
+	}
+
+	furthestTwoPointsOnGraph() {
+		const points = this.points;
+		let maxDistance = 0;
+		let pointA = null;
+		let pointB = null;
+		for (let i = 0; i < points.length; i++) {
+			for (let j = i + 1; j < points.length; j++) {
+				const distance = getPathDistance([points[i], points[j]]);
+				if (distance > maxDistance) {
+					maxDistance = distance;
+					pointA = points[i];
+					pointB = points[j];
+				}
+			}
+		}
+		return { pointA, pointB };
+	}
+
+	getRandomPointOnGraph() {
+		const points = this.points;
+		const randomIndex = Math.floor(Math.random() * points.length);
+		return points[randomIndex];
 	}
 
 	clone() {

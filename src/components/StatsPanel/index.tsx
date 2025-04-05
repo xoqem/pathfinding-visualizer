@@ -7,63 +7,21 @@ import {
 	Stack,
 	Table,
 } from "@chakra-ui/react";
-import { set, startCase } from "lodash";
-import type { PointData, Polygon } from "pixi.js";
+import { startCase } from "lodash";
+import type { PointData } from "pixi.js";
 import { useMemo, useState } from "react";
 import { HiChevronLeft, HiChevronRight } from "react-icons/hi";
-import { useAppContext } from "../context/AppContext";
-import generateSvgStringWithRandomPolygons from "../utils/generateSvgStringWithRandomPolygons";
-import isPointInPolygons from "../utils/geometry/isPointInPolygons";
-import { getDistance } from "../utils/geometry/point";
-import getPolygonsFromSvgString from "../utils/getPolygonsFromSvgString";
-import getProbabilisticRoadmapGraph from "../utils/graph/getProbabilisticRoadmapGraph";
-import type Graph from "../utils/graph/graph";
-import getAStarPath from "../utils/path/getAStarPath";
-import getBidirectionalAStarPath from "../utils/path/getBidirectionalAStarPath";
-import getBreadthFirstPath from "../utils/path/getBreadthFirstSearchPath";
-import getDijkstrasPath from "../utils/path/getDijkstrasPath";
-import getThetaStarPath from "../utils/path/getThetaStarPath";
-import { type Path, getPathDistance } from "../utils/path/path";
-
-function getClearPoint(polygons: Polygon[], width: number, height: number) {
-	let i = 0;
-	while (i < 100) {
-		i++;
-
-		const point = {
-			x: Math.floor(Math.random() * width),
-			y: Math.floor(Math.random() * height),
-		};
-
-		if (!isPointInPolygons(point, polygons, 1)) {
-			return point;
-		}
-	}
-}
-
-function getRandomPointOnGraph(graph: Graph) {
-	const points = graph.points;
-	const randomIndex = Math.floor(Math.random() * points.length);
-	return points[randomIndex];
-}
-
-function furthestTwoPointsOnGraph(graph: Graph) {
-	const points = graph.points;
-	let maxDistance = 0;
-	let pointA = null;
-	let pointB = null;
-	for (let i = 0; i < points.length; i++) {
-		for (let j = i + 1; j < points.length; j++) {
-			const distance = getPathDistance([points[i], points[j]]);
-			if (distance > maxDistance) {
-				maxDistance = distance;
-				pointA = points[i];
-				pointB = points[j];
-			}
-		}
-	}
-	return { pointA, pointB };
-}
+import { useAppContext } from "../../context/AppContext";
+import generateSvgStringWithRandomPolygons from "../../utils/generateSvgStringWithRandomPolygons";
+import { getDistance } from "../../utils/geometry/point";
+import getPolygonsFromSvgString from "../../utils/getPolygonsFromSvgString";
+import getProbabilisticRoadmapGraph from "../../utils/graph/getProbabilisticRoadmapGraph";
+import getAStarPath from "../../utils/path/getAStarPath";
+import getBidirectionalAStarPath from "../../utils/path/getBidirectionalAStarPath";
+import getBreadthFirstPath from "../../utils/path/getBreadthFirstSearchPath";
+import getDijkstrasPath from "../../utils/path/getDijkstrasPath";
+import getThetaStarPath from "../../utils/path/getThetaStarPath";
+import { type Path, getPathDistance } from "../../utils/path/path";
 
 function generateTestValues() {
 	for (
@@ -105,8 +63,8 @@ function generateTestValues() {
 		let pathStartPoint: PointData | null = null;
 		let pathEndPoint: PointData | null = null;
 		for (let validPointTries = 0; validPointTries < 100; validPointTries++) {
-			const tempStartPoint = getRandomPointOnGraph(graph);
-			const tempEndPoint = getRandomPointOnGraph(graph);
+			const tempStartPoint = graph.getRandomPointOnGraph();
+			const tempEndPoint = graph.getRandomPointOnGraph();
 
 			// if the points are two near each other, try again for a more interesting path
 			if (getDistance(tempStartPoint, tempEndPoint) >= width / 2) {
