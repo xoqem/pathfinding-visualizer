@@ -18,13 +18,13 @@ export default function PixiApp() {
 		graph,
 		graphAlpha,
 		height,
+		onPointClick,
 		path,
 		polygonAlpha,
 		polygons,
 		polygonStrokeWidth,
 		searchAlpha,
 		width,
-		setAppValues,
 	} = useAppContext();
 
 	const drawCallback = useCallback(
@@ -56,19 +56,23 @@ export default function PixiApp() {
 
 	const handleMouseDown = useCallback(
 		(event: FederatedPointerEvent) => {
-			setAppValues({
-				clickedPoint: {
-					x: event.screen.x,
-					y: event.screen.y,
-				},
+			onPointClick?.({
+				x: Math.round(event.screen.x),
+				y: Math.round(event.screen.y),
 			});
 		},
-		[setAppValues],
+		[onPointClick],
 	);
 
 	return (
 		<Application width={width} height={height}>
-			<pixiContainer x={0} y={0} interactive onMouseDown={handleMouseDown}>
+			<pixiContainer
+				x={0}
+				y={0}
+				interactive={!!onPointClick}
+				onMouseDown={handleMouseDown}
+				cursor={onPointClick ? "crosshair" : "default"}
+			>
 				<pixiGraphics draw={drawCallback} />
 			</pixiContainer>
 		</Application>

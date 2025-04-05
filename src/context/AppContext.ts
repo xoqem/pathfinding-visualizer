@@ -6,7 +6,6 @@ import type { Path } from "../utils/path";
 export interface AppValues {
 	animateGraph: boolean;
 	animatePath: boolean;
-	clickedPoint: PointData | null;
 	generatedSvgMaxShapeSize: number;
 	generatedSvgNumShapes: number;
 	graph: Graph | null;
@@ -16,6 +15,7 @@ export interface AppValues {
 	pathEndPoint: PointData;
 	pathStartPoint: PointData;
 	graphAlpha: number;
+	onPointClick: ((point: PointData) => void) | null;
 	polygonAlpha: number;
 	polygons: Polygon[] | null;
 	polygonStrokeWidth: number;
@@ -29,7 +29,6 @@ export interface AppValues {
 export const defaultAppValues: AppValues = {
 	animateGraph: false,
 	animatePath: false,
-	clickedPoint: null,
 	generatedSvgMaxShapeSize: 100,
 	generatedSvgNumShapes: 10,
 	graph: null,
@@ -39,6 +38,7 @@ export const defaultAppValues: AppValues = {
 	path: null,
 	pathStartPoint: { x: 5, y: 5 },
 	pathEndPoint: { x: 795, y: 395 },
+	onPointClick: null,
 	polygonAlpha: 1,
 	polygons: null,
 	polygonStrokeWidth: 1,

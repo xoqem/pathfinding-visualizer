@@ -17,10 +17,7 @@ function getNumValue(value: string) {
 }
 
 export default function PathPanel() {
-	const { clickedPoint, pathEndPoint, pathStartPoint, setAppValues } =
-		useAppContext();
-	const [listeningForStartPoint, setListeningForStartPoint] = useState(false);
-	const [listeningForEndPoint, setListeningForEndPoint] = useState(false);
+	const { pathEndPoint, pathStartPoint, setAppValues } = useAppContext();
 
 	const [graphType, setGraphType] = useState<AlgorithmType | null>(
 		AlgorithmType.aStar,
@@ -33,38 +30,18 @@ export default function PathPanel() {
 	}
 
 	function handleEndPointListenClick() {
-		setAppValues({ clickedPoint: null });
-		setListeningForEndPoint(true);
+		setAppValues({
+			onPointClick: (point) =>
+				setAppValues({ onPointClick: null, pathEndPoint: point }),
+		});
 	}
 
 	function handleStartPointListenClick() {
-		setAppValues({ clickedPoint: null });
-		setListeningForStartPoint(true);
+		setAppValues({
+			onPointClick: (point) =>
+				setAppValues({ onPointClick: null, pathStartPoint: point }),
+		});
 	}
-
-	useEffect(() => {
-		if (!clickedPoint) return;
-
-		const roundedClickedPoint = {
-			x: Math.round(clickedPoint.x),
-			y: Math.round(clickedPoint.y),
-		};
-
-		if (listeningForEndPoint) {
-			setAppValues({ pathEndPoint: roundedClickedPoint });
-			setListeningForEndPoint(false);
-		}
-
-		if (listeningForStartPoint) {
-			setAppValues({ pathStartPoint: roundedClickedPoint });
-			setListeningForStartPoint(false);
-		}
-	}, [
-		clickedPoint,
-		listeningForEndPoint,
-		listeningForStartPoint,
-		setAppValues,
-	]);
 
 	const graphTypePanel = useMemo(() => {
 		switch (graphType) {
