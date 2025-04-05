@@ -7,10 +7,12 @@ import { useAppContext } from "../../context/AppContext";
 import SimpleInput from "../ui/SimpleInput";
 import AStarPathPanel from "./AStarPathPanel";
 import BidirectionalAStarPathPanel from "./BidirectionalAStarPathPanel";
+import BreadthFirstSearchPathPanel from "./BreadthFirstSearchPathPanel";
 import DijkstrasPathPanel from "./DijkstrasPathPanel";
 
 enum AlgorithmType {
 	aStar = "aStar",
+	breadthFirstSearch = "breadthFirstSearch",
 	bidirectionalAStar = "bidirectionalAStar",
 	dijkstras = "dijkstras",
 }
@@ -53,6 +55,8 @@ export default function PathPanel() {
 				return <AStarPathPanel />;
 			case AlgorithmType.bidirectionalAStar:
 				return <BidirectionalAStarPathPanel />;
+			case AlgorithmType.breadthFirstSearch:
+				return <BreadthFirstSearchPathPanel />;
 			case AlgorithmType.dijkstras:
 				return <DijkstrasPathPanel />;
 			default:

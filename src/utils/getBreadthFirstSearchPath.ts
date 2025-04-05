@@ -1,4 +1,3 @@
-import FlatQueue from "flatqueue";
 import type { PointData, Polygon } from "pixi.js";
 import type Graph from "./graph";
 import type { GraphNode } from "./graph";
@@ -12,7 +11,7 @@ interface Params {
 	startPoint: PointData;
 }
 
-export default function* getDijkstrasPath({
+export default function* getBreadthFirstPath({
 	endPoint,
 	graph,
 	polygons,
@@ -57,13 +56,11 @@ export default function* getDijkstrasPath({
 		return;
 	}
 
-	const priorityQueue = new FlatQueue<PointData>();
-	priorityQueue.push(startPoint, 0);
-	const costSoFar = new Map<PointData, number>();
-	costSoFar.set(startPoint, 0);
+	const queue = new Array<PointData>();
+	queue.push(startPoint);
 
-	while (priorityQueue.length) {
-		const currentPoint = priorityQueue.pop();
+	while (queue.length) {
+		const currentPoint = queue.shift();
 
 		if (!currentPoint) {
 			throw new Error("Unexpected falsy currentPoint value");
@@ -89,22 +86,18 @@ export default function* getDijkstrasPath({
 		}
 
 		for (const neighbor of pathGraph.getNode(currentPoint).neighbors) {
-			const newCost = (costSoFar.get(currentPoint) || 0) + neighbor.cost;
-			if (
-				!costSoFar.has(neighbor.point) ||
-				newCost < (costSoFar.get(neighbor.point) || 0)
-			) {
-				costSoFar.set(neighbor.point, newCost);
-				const priority = newCost;
-				priorityQueue.push(neighbor.point, priority);
+			const neighborNode = pathGraph.getNode(neighbor.point);
 
-				pathGraph.getNode(neighbor.point).parent = {
-					point: currentPoint,
-					cost: neighbor.cost,
-				};
+			if (neighborNode.parent || neighborNode.point === startPoint) continue;
 
-				yield path;
-			}
+			queue.push(neighbor.point);
+
+			pathGraph.getNode(neighbor.point).parent = {
+				point: currentPoint,
+				cost: neighbor.cost,
+			};
+
+			yield path;
 		}
 	}
 }

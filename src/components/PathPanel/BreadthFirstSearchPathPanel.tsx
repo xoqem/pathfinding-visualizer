@@ -2,9 +2,9 @@ import { Button, HStack, Stack, Text } from "@chakra-ui/react";
 
 import { useState } from "react";
 import { useAppContext } from "../../context/AppContext";
-import getBidirectionalAStarPath from "../../utils/getBidirectionalAStarPath";
+import getBreadthFirstPath from "../../utils/getBreadthFirstSearchPath";
 
-export default function BidirectionalAStarPathPanel() {
+export default function BreadthFirstSearchPathPanel() {
 	const {
 		animatePath,
 		graph,
@@ -18,7 +18,7 @@ export default function BidirectionalAStarPathPanel() {
 	function handleRunClick() {
 		if (!graph) return;
 
-		const pathGenerator = getBidirectionalAStarPath({
+		const pathGenerator = getBreadthFirstPath({
 			endPoint: pathEndPoint,
 			graph,
 			polygons,
@@ -55,7 +55,10 @@ export default function BidirectionalAStarPathPanel() {
 
 	return (
 		<Stack gap={4} padding={2} textAlign="left">
-			<Text>Note: may not find the shortest path</Text>
+			<Text>
+				Note: breadth first search may not find the shortest path if all edges
+				are not equal length.
+			</Text>
 
 			<HStack justify="space-between">
 				<Button variant="outline" onClick={handleClearClick} disabled={busy}>
