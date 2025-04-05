@@ -1,6 +1,7 @@
+import FlatQueue from "flatqueue";
 import type { PointData, Polygon } from "pixi.js";
 import type Graph from "./graph";
-import type { GraphNode } from "./graph";
+import { type GraphNode, getPointKey } from "./graph";
 import type { Path } from "./path";
 import { arePointsEqual } from "./point";
 
@@ -23,7 +24,7 @@ export default function* getAStarPath({
 }: Params): Generator<Path> {
 	const pathGraph = graph.clone();
 
-	if (graph.hasPoint(startPoint)) {
+	if (pathGraph.hasPoint(startPoint)) {
 		startPoint = pathGraph.getNode(startPoint).point;
 	} else {
 		pathGraph.connectPointToGraph({
@@ -33,7 +34,7 @@ export default function* getAStarPath({
 		});
 	}
 
-	if (graph.hasPoint(endPoint)) {
+	if (pathGraph.hasPoint(endPoint)) {
 		endPoint = pathGraph.getNode(endPoint).point;
 	} else {
 		pathGraph.connectPointToGraph({
@@ -60,23 +61,18 @@ export default function* getAStarPath({
 		return;
 	}
 
-	const openSet: Set<PointData> = new Set([startPoint]);
-	const gScore: Map<PointData, number> = new Map();
-	const fScore: Map<PointData, number> = new Map();
+	const priorityQueue = new FlatQueue<PointData>();
+	priorityQueue.push(startPoint, 0);
+	const cameFrom = new Map<PointData, PointData | null>();
+	const costSoFar = new Map<PointData, number>();
+	cameFrom.set(startPoint, null);
+	costSoFar.set(startPoint, 0);
 
-	gScore.set(startPoint, 0);
-	fScore.set(startPoint, heuristic(startPoint, endPoint));
+	while (priorityQueue.length) {
+		const currentPoint = priorityQueue.pop();
 
-	while (openSet.size > 0) {
-		let currentPoint: PointData | null = null;
-		let lowestFScore = Number.POSITIVE_INFINITY;
-
-		for (const point of openSet) {
-			const fScoreValue = fScore.get(point);
-			if (fScoreValue && fScoreValue < lowestFScore) {
-				lowestFScore = fScoreValue;
-				currentPoint = point;
-			}
+		if (!currentPoint) {
+			throw new Error("Unexpected falsy currentPoint value");
 		}
 
 		if (currentPoint === endPoint) {
@@ -98,37 +94,23 @@ export default function* getAStarPath({
 			break;
 		}
 
-		if (!currentPoint) {
-			throw new Error("Unexpected falsy currentPoint value");
-		}
-
-		openSet.delete(currentPoint);
-
-		const currentNode = pathGraph.getNode(currentPoint);
-		for (const neighbor of currentNode.neighbors) {
-			const tentativeGScore = (gScore.get(currentPoint) || 0) + neighbor.cost;
-
+		for (const neighbor of pathGraph.getNode(currentPoint).neighbors) {
+			const newCost = (costSoFar.get(currentPoint) || 0) + neighbor.cost;
 			if (
-				tentativeGScore <
-				(gScore.get(neighbor.point) || Number.POSITIVE_INFINITY)
+				!costSoFar.has(neighbor.point) ||
+				newCost < (costSoFar.get(neighbor.point) || 0)
 			) {
-				gScore.set(neighbor.point, tentativeGScore);
-				fScore.set(
-					neighbor.point,
-					tentativeGScore + heuristic(neighbor.point, endPoint),
-				);
+				costSoFar.set(neighbor.point, newCost);
+				const priority = newCost + heuristic(endPoint, neighbor.point);
+				priorityQueue.push(neighbor.point, priority);
+				cameFrom.set(neighbor.point, currentPoint);
 
-				if (!openSet.has(neighbor.point)) {
-					openSet.add(neighbor.point);
-				}
+				pathGraph.getNode(neighbor.point).parent = {
+					point: currentPoint,
+					cost: neighbor.cost,
+				};
 
-				if (neighbor.point !== startPoint) {
-					pathGraph.getNode(neighbor.point).parent = {
-						point: currentNode.point,
-						cost: neighbor.cost,
-					};
-					yield path;
-				}
+				yield path;
 			}
 		}
 	}

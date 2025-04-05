@@ -15,7 +15,7 @@ export function isPointInNeighbors(point: PointData, neighbors: Neighbor[]) {
 	return neighbors.some((neighbor) => arePointsEqual(neighbor.point, point));
 }
 
-function getGraphKey(point: PointData) {
+export function getPointKey(point: PointData) {
 	return `${point.x},${point.y}`;
 }
 
@@ -37,7 +37,7 @@ export default class Graph {
 	nodes: GraphNode[];
 
 	initializeGraphEntry(point: PointData) {
-		const key = getGraphKey(point);
+		const key = getPointKey(point);
 		if (this.nodesMap.get(key)) return null;
 
 		const node = {
@@ -52,12 +52,12 @@ export default class Graph {
 	}
 
 	hasPoint(point: PointData) {
-		const key = getGraphKey(point);
+		const key = getPointKey(point);
 		return this.nodesMap.has(key);
 	}
 
 	getNode(point: PointData) {
-		const key = getGraphKey(point);
+		const key = getPointKey(point);
 		if (!this.nodesMap.has(key)) {
 			this.initializeGraphEntry(point);
 		}
